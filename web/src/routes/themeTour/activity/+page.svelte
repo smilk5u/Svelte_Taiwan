@@ -3,76 +3,76 @@
     <div class="page">
       <h1>액티비티 대만족</h1>
       <h2>여행은 도전과 스킬!</h2>
-      </div>
+    </div>
   </div>
   <div class="list-wrap">
-    <form name="fboardlist" id="fboardlist" method="post" class="form">
-      <ul class="page_list page_list_container">
-        <li>
-          <div class="lt">
-            <img
-              src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_RJmPh146_6c343e7a808945d96629ad79e1d7eaf023a3dd36_771x477.jpg"
-              alt=""
+    <ul class="page_list page_list_container">
+      <li>
+        <div class="lt">
+          <img
+            src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_ptznLiWH_45a904b713d353698dc34e58519605b29e906ea1_771x477.jpg"
+            alt=""
+          />
+        </div>
+        <div class="rt">
+          <h3>타이베이 101</h3>
+          <p>
+            타이베이 101의 정식 명칭은 타이베이 금융 센터 이며, 2009년 까지는 <br
             />
-          </div> 
-          <div class="rt">
-            <h3>양명산 칭티엔강</h3>
-            <p />
-            <p>양명산 현지인들도 즐겨 찾는다는 나들이 장소.<br /></p>
-            <p>
-              양명산의 다른 스팟들은 MRT역에서 버스를 타고 내려 다시 셔틀버스를
-            </p>
-            <p>
-              이용해야 하는 번잡함이 있지만 칭티엔강은 MRT역에서 버스 한번으로
-            </p>
-            <p>
-              갈 수 있어 좋다. 그야말로 산 위의 대초원이라 시내와는 바람도
-              공기도
-            </p>
-            <p>
-              다르고 심지어 날씨조차 다르다고 한다. 바람을 막아줄 얇은 겉옷과
-            </p>
-            <p>햇볕을 가려줄 양산 하나 챙겨 들고 가는것을 추천한다.</p>
-            <p />
-          </div>
-        </li>
-        <li>
-          <div class="lt">
-            <img
-              src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_U4wHgVOm_38f252e85accb60d894b2f2af54d8197462a18b7_771x477.jpg"
-              alt=""
-            />
-          </div>
-          <div class="rt">
-            <h3>타이중공원</h3>
-            <p />
-            <p>
-              타이중에서 가장 오래된 공원, 최대규모의 공원으로 중산공원이라고
-              불리는 공원이다.<br />
-            </p>
-            <p>
-              일본 식민지시대에 만들어졌으며 현재까지 보존되고있는 유일한
-              공원이다.
-            </p>
-            <p>공원 가운데 위치한 르웨후에 있는 후신팅 이라는 정자가 있는데</p>
-            <p>타이중시 지정 고적으로 이 공원을 대표한다.</p>
-            <p>공원에는 야외음악당, 테니스장 등의 레저시설도 있어서</p>
-            <p>관광객은 물론 시민들이 휴식 공간으로 많이 찾는 공원이다.</p>
-            <p />
-          </div>
-        </li>
-      </ul>
-    </form>
+
+            세계에서 가장 높은 빌딩이었다. 타이완의 건축가 지쭈위안이 설계한
+            건물로 외관을<br />
+
+            보고 있으면 하늘로 뻗어 나가는 대나무 위에 꽃잎이 포개진 형상이
+            보인다고 한다.<br />
+
+            건물 외관의 8개 마디는 중화권에서 부, 번영, 성장, 발전 등을 의미하는
+            숫자 8을 의미하여<br />
+
+            8개 층씩 총 8단으로 구성된 것 이라 한다.매표소가 있는 5층부터 89층에
+            있는<br />
+
+            전망대까지 초고속 엘리베이터가 있는데 불과 37초 만에 도착한다.
+            사방이 유리로 된<br />
+
+            전망대에서는 시내를 360도 파노라마로 감상할 수 있으며 날씨가 좋은
+            날에는 비상계단을<br />
+
+            통해 연결되는 91층을 개방해 야외에서 타이베이 전경을 조망해볼 수
+            있다 .
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="lt">
+          <img
+            src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_U4wHgVOm_38f252e85accb60d894b2f2af54d8197462a18b7_771x477.jpg"
+            alt=""
+          />
+        </div>
+        <div class="rt">
+          <h3>팔괘산 대불 풍경구</h3>
+          <p>
+            팔괘산은 타이완 12대 경승지 중 하나로 짱화에서 가장 높은 곳이라고 한다. <br>
+            장화(彰化) 시가지를 한눈에 내려다볼 수 있는 곳이며 해 질 무렵 찾는다면 시내를<br>
+            붉게 물들인 석양과 야경은 덤이다. 이곳에는 1961년에 세워진 높이 22m의<br>
+            검은색으로 칠해진 대불 상이 있는데 아시아에서도 손꼽히는 규모라 한다.<br>
+            불상 뒤로는 대만에서 가장 긴 스카이워크가 있는데 하늘 위를 걸으며<br>
+            팔괘산 일대를 감상할 수 있다고 한다.
+          </p>
+          <p />
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-
   .at-body {
     max-width: 1440px;
     margin: 0 auto;
-    padding:0 2% 10%;
+    padding: 0 2% 80px;
   }
 
   .list-wrap .list-container {

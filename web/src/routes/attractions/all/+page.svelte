@@ -403,6 +403,7 @@
     height: 100%;
     position: absolute;
     top: 0;
+    z-index: 2;
   }
 
   /* 지역 설명 아이템 */
@@ -411,34 +412,76 @@
     position: absolute;
     text-align: right;
     &.cont1 {
-      left: -165px;
+      left: -152px;
       top: 80px;
+      .link_element {
+         left: 12px;
+        &:before {
+          bottom: -7px;
+          right: -9px;
+          rotate: 39deg;
+        }
+      }
     }
     &.cont2 {
       left: -107px;
       top: 330px;
+      .link_element {
+         left: 13px;
+        &:before {
+          right: -20px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
     }
     &.cont3 {
-      left: -49px;
-      bottom: 43px;
+      left: -70px;
+      bottom: 27px;
+      .link_element {
+         left: 15px;
+        &:before {
+          top: 0;
+          right: -15px;
+          rotate: -30deg;
+        }
+      }
     }
     &.cont4 {
       right: -20%;
-      top: 0;
+      top: 2%;
       text-align: left;
-      .link_wrap {
+      .link_wrap {        
         .link_element {
+         left: -16px;
           float: left;
+          &:before {
+            top: 0;
+            bottom: 0;
+            left: -18px;
+            margin: auto;
+            rotate: 180deg;
+          }
         }
       }
     }
     &.cont5 {
-      right: -121px;
-      bottom: 284px;
+      right: -138px;
+      bottom: 280px;
       text-align: left;
-      .link_wrap {
+      .link_wrap {        
+         /* left: -30px; */
         .link_element {
+         left: -30px;
           float: left;
+          &:before {
+            top: 0;
+            bottom: 0;
+            left: -18px;
+            margin: auto;
+            rotate: 180deg;
+          }
         }
       }
     }
@@ -474,12 +517,18 @@
           background: url(/img/attractions/arrow_icon2.png) 50% 50% no-repeat;
         }
         &:before {
+          width: 22px;
+          height: 19px;
+          z-index: -1;
+          background: url(/img/attractions/map_icon3.png) 50% 50% no-repeat;
+        }
+        /* &:before {
           width: 39px;
           height: 39px;
           bottom: -11px;
           left: -30px;
           background: url(/img/attractions/arrow_icon.png) 50% 50% no-repeat;
-        }
+        } */
       }
     }
     .desc_elm {
@@ -500,6 +549,7 @@
         font-family: $NotoSansKR;
         font-size: 15px;
         font-weight: $light;
+        color: #212529;
       }
     }
   }
@@ -944,7 +994,7 @@
           }
         }
       }
-      .map_arrow { 
+      .map_arrow {
         width: vw(78);
         height: vw(105);
         background: url(/img/attractions/map_icon_mo.png) 50% 50% no-repeat;

@@ -3358,7 +3358,7 @@ li {
 
 .page {
   overflow: hidden;
-  padding: 70px 0;
+  padding: 50px 0;
 }
 
 .page h1 {
@@ -3366,6 +3366,7 @@ li {
   font-size: 50px;
   line-height: 1.5;
   font-weight: 900;
+  color: rgba(51, 51, 51, 1);
 }
 
 .page h2 {
@@ -3374,6 +3375,7 @@ li {
   line-height: 1.5;
   font-size: 28px;
   margin-top: 15px;
+  font-weight: 300;
 }
 
 .page_list {
@@ -3414,6 +3416,7 @@ li {
   margin-bottom: 15px;
   position: relative;
   padding-top: 10px;
+  color: rgba(51, 51, 51, 1);
 }
 
 .page_list li .rt h3:before {
@@ -3446,9 +3449,10 @@ li {
 
 .page_list li .rt p {
   color: #666;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 300;
-  padding: 3px 0;
+  padding: 3px 0;  
+  line-height: 25px;
 }
 
 .page_list li:nth-of-type(even) .lt {
