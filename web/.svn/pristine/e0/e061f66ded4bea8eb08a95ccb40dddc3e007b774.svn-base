@@ -1,0 +1,42 @@
+/* SCSS */
+
+/* Font style setting */
+$NotoSansKR: "Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif;
+$SCDream: "SCDream", Roboto, Arial, Apple SD Gothic Neo, sans-serif;
+
+/* Font Weight */
+$light : 300;
+$regular : 400;
+$medium : 500;
+$bold : 600;
+$extarBold : 800;
+$black : 900;
+
+/* Brack Point */
+// desktop
+@mixin desktop {
+	@media screen and (min-width: 1028) {
+		@content;
+	}
+}
+
+// tablet
+@mixin tablet {
+	@media screen and (min-width: 769) and (max-width: 1027) {
+		@content;
+	}
+}
+
+// mobile
+@mixin mobile {
+	@media screen and (max-width: 768) {
+		@content;
+	}
+}
+
+// mobile
+@function vw($size) {
+	$vwSize: (768 * 0.01);
+	@return ($size / $vwSize) * 1vw;
+}
+

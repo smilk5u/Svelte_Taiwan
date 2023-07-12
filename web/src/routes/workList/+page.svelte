@@ -1,0 +1,667 @@
+<svelte:head>
+  <title>대만관광청 / 반응형</title>
+</svelte:head>
+
+<div id="secretWrapper">
+  <div class="head_fixed">
+    <h1>대만관광청 / 반응형</h1>
+    <table class="depth_info">
+      <colgroup>
+        <col width="14%" />
+        <col width="14%" />
+        <col width="14%" />
+        <col width="14%" />
+        <col width="14%" />
+        <col width="14%" />
+        <col width="14%" />
+      </colgroup>
+      <thead>
+        <tr class="title1">
+          <th colspan="4">DEPTH (구분)</th>
+          <th colspan="2">코딩현황</th>
+          <th>상태</th>
+        </tr>
+        <tr class="title2">
+          <th>대메뉴</th>
+          <th>소메뉴 (DEPTH 1)</th>
+          <th>카테고리 (DEPTH 2)</th>
+          <th>서브페이지 (DEPTH 3)</th>
+          <th>폴더명</th>
+          <th>마크업 파일명</th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="ia_guide">
+    <strong>테이블에 색에 따른 진행 상태 분류</strong>
+    <div class="ok">퍼블 진행중</div>
+    <div class="ok4">PC 퍼블 완료 - 모바일 진행 전</div>
+    <div class="ok3">PC/Mobile 퍼블 완료 - 디자인/기획까지 컨펌 완료</div>
+    <div class="ok2">
+      퍼블 완료됬지만 - 디자인/기획에서 수정/변경이 있어서 차후 수정이 필요한
+      페이지
+    </div>
+  </div>
+  <h2>common</h2>
+  <table>
+    <colgroup>
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+    </colgroup>
+    <tbody>
+      <tr class="">
+        <td>layout</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="/header">header / gnb / footer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Main</h2>
+  <table>
+    <colgroup>
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+    </colgroup>
+    <tbody>
+      <tr class="">
+        <td>메인</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="">main</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Sub</h2>
+  <table>
+    <colgroup>
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+      <col width="14%" />
+    </colgroup>
+    <tbody>
+      <tr class="">
+        <td rowspan="12">대만 정보</td>
+        <td>대만 출/입국 주의사항</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/immigration_precautions">immigration_precautions</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok">
+        <td>대만소개</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/introduction">introduction</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td rowspan="3">문화와 역사</td>
+        <td>대만의 축제</td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/festival">festival</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>대만의 문화</td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/culture">culture</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>대만의 역사</td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/history">history</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>대만의 날씨</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/weather">weather</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>관광자료</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/tourist_info">tourist_info</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>대만 교통수단 (통합)</td>
+        <td>교통카드/지도검색/호행노선/관광버스</td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/transportation">transportation</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>가이드북</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/guidebook">guidebook</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>관련링크</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/related_links">related_links</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>워킹 홀리데이</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/working_holiday">working_holiday</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>관광계간지</td>
+        <td></td>
+        <td></td>
+        <td>/info</td>
+        <td><a href="/info/quarterly">quarterly</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td rowspan="6">이벤트</td>
+        <td rowspan="4">이벤트</td>
+        <td>이벤트 전체</td>
+        <td></td>
+        <td>/event</td>
+        <td><a href="/event/all">all</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td rowspan="2">진행중 이벤트</td>
+        <td></td>
+        <td>/event</td>
+        <td><a href="/event/in_progress">in_progress</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>진행중 이벤트 서브페이지</td>
+        <td>/event</td>
+        <td><a href="/event/in_progress_sb">in_progress_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>종료된 이벤트</td>
+        <td></td>
+        <td>/event</td>
+        <td><a href="/event/end">end</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td rowspan="2">여행 사진 공모전</td>
+        <td>공모요강</td>
+        <td></td>
+        <td>/event</td>
+        <td><a href="/event/contest">contest</a></td>
+        <td></td>
+      </tr>
+      <tr class="">
+        <td>수상자 전시회</td>
+        <td></td>
+        <td>/event</td>
+        <td><a href="/event/exhibition">exhibition</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="10">테마 여행</td>
+        <td>휴양</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/recreation">recreation</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>액티비티</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/activity">activity</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>식객</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/diners">diners</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>사진</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/picture">picture</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>역사</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/history">history</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>쇼핑</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/shopping">shopping</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>러브</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/love">love</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>자연</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/nature">nature</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>문화</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/culture">culture</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>야시장</td>
+        <td></td>
+        <td></td>
+        <td>/themeTour</td>
+        <td><a href="/themeTour/night_market">night_market</a></td>
+        <td></td>
+      </tr> 
+      <tr class="ok">
+        <td rowspan="11">대만 명소</td>
+        <td>대만 명소 전체</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/all">all</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">대만 북부</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/northern">northern</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>대만 북부 서브페이지</td>
+        <td>/attractions</td>
+        <td><a href="/attractions/northern_sb">northern_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">대만 중서부</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/midwest">midwest</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>대만 중서부 서브페이지</td>
+        <td>/attractions</td>
+        <td><a href="/attractions/midwest_sb">midwest_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">대만 동부</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/eastern">eastern</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>대만 동부 서브페이지</td>
+        <td>/attractions</td>
+        <td><a href="/attractions/eastern_sb">eastern_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">대만 남부</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/south">south</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>대만 남부 서브페이지</td>
+        <td>/attractions</td>
+        <td><a href="/attractions/south_sb">south_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">대만의 섬</td>
+        <td></td>
+        <td></td>
+        <td>/attractions</td>
+        <td><a href="/attractions/island">island</a></td>
+        <td></td>
+      </tr>  
+      <tr class="ok3">
+        <td></td>
+        <td>대만의 섬 서브페이지</td>
+        <td>/attractions</td>
+        <td><a href="/attractions/island_sb">island_sb</a></td>
+        <td></td>
+      </tr>  
+      <tr class="ok3">
+        <td>대만 골프</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>-</td>
+        <td><a href="/golf">golf</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="7">프로대만족</td>
+        <td>프로대만족 전체</td>
+        <td></td>
+        <td></td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/all">all</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">월간메거진</td>
+        <td></td>
+        <td></td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/magazine">magazine</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>월간메거진 서브페이지</td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/magazine_sb">magazine_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">프로대만족</td>
+        <td></td>
+        <td></td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/satisfact">satisfact</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>프로대만족 서브페이지</td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/satisfact_sb">satisfact_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="2">여행 Tips</td>
+        <td></td>
+        <td></td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/travel_tips">travel_tips</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td></td>
+        <td>여행 Tips 서브페이지</td>
+        <td>/satisfact</td>
+        <td><a href="/satisfact/travel_tips_sb">travel_tips_sb</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td rowspan="5">관광청 소개</td>
+        <td>관광청 소개</td>
+        <td></td>
+        <td></td>
+        <td>/introduction</td>
+        <td><a href="/introduction/tourism_board">tourism_board</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>국장 소개</td>
+        <td></td>
+        <td></td>
+        <td>/introduction</td>
+        <td><a href="/introduction/director_general">director_general</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>공지사항</td>
+        <td></td>
+        <td></td>
+        <td>/introduction</td>
+        <td><a href="/introduction/notice">notice</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>보도자료</td>
+        <td></td>
+        <td></td>
+        <td>/introduction</td>
+        <td><a href="/introduction/press_release">press_release</a></td>
+        <td></td>
+      </tr>
+      <tr class="ok3">
+        <td>찾아오시는 길 (한국사무소)</td>
+        <td></td>
+        <td></td>
+        <td>/introduction</td>
+        <td><a href="/introduction/korean_office">korean_office</a></td>
+        <td></td>
+      </tr>   
+    </tbody>
+  </table>
+</div>
+<style>
+  .head_fixed {
+    width:100%;
+    position: fixed;
+    background-color: #fff;
+  }
+
+  #secretWrapper {
+    width: 98%;
+    margin: 0 auto;
+    padding:0 0 100px;
+  }
+  #secretWrapper h1 {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px 0 0;
+    /* margin: 0 0 120px; */
+    font-weight: 600;
+  }
+  #secretWrapper h2 {
+    font-size: 20px;
+    margin: 30px 0 20px;
+    font-weight: 600;
+  }
+  #secretWrapper table {
+    width: 100%;
+    border-top: 2px solid #d1d1d0;
+    border-left: 2px solid #d1d1d0;
+    border-collapse: collapse;
+  } 
+  #secretWrapper table .title1 {
+    background-color: #e6002d;
+    color: #fff;
+    padding: 7px 0 5px;
+    text-align: center;
+  }
+  #secretWrapper table .title2 {
+    background-color: #f7f7f7;
+    color: #707070;
+    padding: 7px 0 5px;
+    text-align: center;
+  }
+
+  #secretWrapper table th {
+    border-right: 2px solid #d1d1d0;
+    border-bottom: 2px solid #d1d1d0;
+    padding: 5px 0;
+  }
+  #secretWrapper table td {
+    border-right: 2px solid #d1d1d0;
+    border-bottom: 2px solid #d1d1d0;
+    text-align: left;
+  }
+  #secretWrapper table tbody td {
+    padding: 8px 20px;
+    font-size: 15;
+    font-weight: 600;
+  }
+  #secretWrapper table tbody tr td a {
+    color: #333;
+    text-decoration: underline;
+  }
+
+  #secretWrapper table tbody tr.ok th,
+  #secretWrapper table tbody tr.ok td {
+    background: #9f9f95;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok td.dev {
+    background: #9f9f95;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok td a {
+    color: #fff;
+  }
+
+  #secretWrapper table tbody tr.ok2 td {
+    background: #c62b4a;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok2 td.dev {
+    background: #c62b4a;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok2 td a {
+    color: #fff;
+  }
+
+  #secretWrapper table tbody tr.ok3 td {
+    background: #6e58c6;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok3 td.dev {
+    background: #a07fff;
+    color: #333;
+  }
+  #secretWrapper table tbody tr.ok3 td a {
+    color: #fff;
+  }
+
+  #secretWrapper table tbody tr.ok4 td {
+    background: #d2912e;
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.ok4 td.dev {
+    background: #d2912e;
+    color: #333;
+  }
+  #secretWrapper table tbody tr.ok4 td a {
+    color: #fff;
+  }
+  #secretWrapper table tbody tr.del td {
+    background: #999;
+    color: #333;
+  }
+
+  .caution {
+    background-color: lightblue;
+  }
+
+  #secretWrapper .depth_info {
+    width: 98%;
+  }
+  .ia_guide {
+    padding: 175px 0 0;
+  }
+  .ia_guide strong {
+    font-size: 20px;
+  }
+  .ia_guide div {
+    padding: 20px 0 20px 30px;
+    color: #fff;
+    margin: 20px 0 0;
+  }
+  .ia_guide .ok {
+    background-color: #9f9f95;
+  }
+  .ia_guide .ok2 {
+    background-color: #c62b4a;
+  }
+  .ia_guide .ok3 {
+    background-color: #6e58c6;
+  }
+  .ia_guide .ok4 {
+    background-color: #d2912e;
+  }
+
+  .last_update {
+    position: absolute;
+    right: 1%;
+    top: 40px;
+  }
+</style>

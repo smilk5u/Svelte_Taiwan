@@ -1,0 +1,104 @@
+<script>
+  import { onMount } from "svelte";
+  import { fetchData } from "$lib/common";
+  import { goto } from "$app/navigation";
+
+  /**
+   * @type {any[]}
+   */
+  let list = [];
+  /**
+     * @type {any[]}
+     */
+  let boardlist = [];
+  /**
+     * @type {any}
+     */
+  let formattedLength;
+  /**
+     * @type {any}
+     */
+  let formattedLength2;
+
+  onMount(async () => {
+    const formData = new FormData();
+    const data = await fetchData("/api/main", formData);
+    const board = await fetchData("/api/getRecentPosts",formData);
+    list = data;
+    boardlist = board;
+    formattedLength = list.length.toLocaleString();
+    formattedLength2 = boardlist.length.toLocaleString();
+  });
+  /**
+     * @param {string | URL} url
+     */
+  function handleClick(url) {
+    goto(url);
+  }
+</script>
+
+<div class="page_title">
+  <h2>관리자 메인</h2>
+</div>
+
+<div class="part">
+  <!-- <p class="sub_title">신규가입회원 <b>5</b>명</p>
+  <span>총 회원수 <b>{list.length}</b>명</span> -->
+  <p class="sub_title">총 회원수 <b>{list.length}</b>명</p>
+  <div class="table_srcoll">
+    <form>
+      <table>
+        <thead>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>닉네임</th>
+          <!-- <th>이메일</th> -->
+          <th>최종접속</th>
+          <th>가입일</th>
+        </thead>
+        <tbody>
+          {#each list.slice(0, 5) as row, i}
+            <tr>
+              <td>{row.userId}</td>
+              <td>{row.name !== null ? row.name : ""}</td>
+              <td>{row.nickName !== null ? row.nickName : ""}</td>
+              <!-- <td>{row.email !== null ? row.email : ""}</td> -->
+              <td>{row.lastLogin !== null ? row.lastLogin : ""}</td>
+              <td>{row.regDate !== null ? row.regDate : ""}</td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <button on:click={() => handleClick("/admin/member")}>회원 전체보기</button>
+</div>
+
+<div class="part">
+  <p class="sub_title">총 게시물 <b>{formattedLength2}</b>개</p>
+  <div class="table_srcoll">
+    <form>
+      <table>
+        <thead>
+          <th>그룹</th>
+          <th>게시판</th>
+          <th>제목</th>
+          <th>이름</th>
+          <th>일시</th>
+        </thead>
+        <tbody>
+          {#each boardlist.slice(0, 5) as row, i}
+          <tr>
+            <td>{row.mainName}</td>
+            <td>{row.subName}</td>
+            <td>{row.subject}</td>
+            <td>{row.writer}</td>
+            <td>{row.regDate}</td>
+          </tr>
+          {/each}
+        </tbody>
+      </table>
+    </form>
+  </div>
+  <button on:click={() => handleClick("/admin/post")}>최근 게시물 더보기</button>
+</div>

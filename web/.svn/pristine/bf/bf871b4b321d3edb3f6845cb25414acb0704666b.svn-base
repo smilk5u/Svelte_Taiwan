@@ -1,0 +1,4 @@
+# .env
+PORT=5173
+
+PUBLIC_MY_FEATURE_FLAG=dfdf

@@ -1,0 +1,187 @@
+import {user, updateUser} from '$lib/stores/user';
+import {get} from 'svelte/store';
+import {goto} from "$app/navigation";
+
+//var base_url = `${import.meta.env.BASE_URL}`;
+
+/**
+ * API를 호출하여 데이터를 가져오는 함수
+ * @param {string} endpoint - API 엔드포인트
+ * @param {any} data - form data
+ * @param {number} callCount - fetch 요청 옵션 (선택적)
+ *   - `body` 속성에 JSON.stringify를 적용한 문자열 데이터를 포함할 수 있습니다.
+ */
+export function fetchData(endpoint, data, callCount = 1) {
+    return new Promise(async (resolve, reject) => {
+       // resolve(1)
+      //  return;
+        const options = {
+            method: 'POST',
+            headers: {
+                "Authorization": "Bearer " + get(user).accessToken,
+                "Content-Type": "application/json"
+            },
+            body:  JSON.stringify(data)
+        };
+        if (options.body && typeof options.body !== 'string') {
+            options.body = JSON.stringify(options.body);
+        }
+
+        try {
+            let response = await fetch(endpoint, options);
+            if (!response.ok) {
+                reject({})
+            }
+            let data = await response.json();
+            //console.log(data)
+            if (data.code === 0) {
+                resolve(data.data);
+            } else {
+                if (data.code === 12 || data.code === 11) {
+                    if (callCount > 1) {
+                        reject(data)
+                        return;
+                    }
+                    try {
+                        // refresh token 발급 처리 로직
+                        await refreshToken();
+                    } catch (error) {
+                        //reject 됐을때 user 스토어를 초기화하고 clear
+                        updateUser(null);
+                        localStorage.removeItem('user');
+                        alert("다시 로그인 하세요");
+                        goto("/admin/login");
+                        reject(error)
+                        return;
+                    }
+                    resolve(await fetchData(endpoint, data, 2));
+
+                } else {
+                    reject(data)
+                }
+            }
+            reject(data)
+        } catch (error) {
+            reject({})
+        }
+    });
+}
+/**
+ * API를 호출하여 데이터를 가져오는 함수
+ * @param {string} endpoint - API 엔드포인트
+ * @param {any} data - form data
+ * @param {number} callCount - fetch 요청 옵션 (선택적)
+ *   - `body` 속성에 JSON.stringify를 적용한 문자열 데이터를 포함할 수 있습니다.
+ */
+export function fetchDataFile(endpoint, data, callCount = 1) {
+    return new Promise(async (resolve, reject) => {
+        console.log(  get(user).accessToken)
+        const options = {
+            method: 'POST',
+            headers: {
+                "Authorization": "Bearer " + get(user).accessToken,
+            },
+            body:  data
+        };
+        
+        try {
+            let response = await fetch(endpoint, options);
+            if (!response.ok) {
+                reject({})
+            }
+            let data = await response.json();
+          //  console.log(data)
+            if (data.code === 0) {
+                resolve(data.data);
+            } else {
+                if (data.code === 12 || data.code === 11) {
+                    if (callCount > 1) {
+                        reject(data)
+                        return;
+                    }
+                    try {
+                        // refresh token 발급 처리 로직
+                        await refreshToken();
+                    } catch (error) {
+                        //reject 됐을때 user 스토어를 초기화하고 clear
+                        updateUser(null);
+                        localStorage.removeItem('user');
+                        alert("다시 로그인 하세요");
+                        goto("/admin/login");
+                        reject(error)
+                        return;
+                    }
+                    resolve(await fetchData(endpoint, data, 2));
+
+                } else {
+                    reject(data)
+                }
+            }
+            reject(data)
+        } catch (error) {
+            reject({})
+        }
+    });
+}
+
+/**
+ * refreshToken 가져오는 함수
+ */
+function refreshToken() {
+    return new Promise(async (resolve, reject) => {
+        console.log('refresh start')
+        // refresh token 발급 처리 로직을 구현합니다. 새로운 access token을 가져오고 저장하는 등의 작업을 수행합니다.
+        try {
+            let options = {
+                method: 'POST',
+                headers: {
+                    "Authorization": "Bearer " + get(user).refreshToken,
+                    "Content-Type": "application/json"
+                }
+            };
+
+            let response = await fetch('/api/refreshToken', options);
+
+            if (!response.ok) {
+                throw new Error('API 요청에 실패했습니다.');
+            }
+
+            let data = await response.json();
+            if (data.code === 0) {
+                localStorage.setItem("accessToken", data.data.accessToken);
+                localStorage.setItem("refreshToken", data.data.refreshToken);
+                resolve(null);
+            } else if (data.code === 15) {
+                //유효하지않음
+                reject(data);
+            } else if (data.code === 16) {
+                //만료
+                reject(data);
+            }
+
+        } catch (error) {
+            console.error(error);
+            reject({})
+        }
+    });
+}
+
+/**
+ * 페이지 전환을 처리하는 공통 함수
+ * @param {MouseEvent} event 클릭 이벤트 객체
+ *
+ */
+export function handleLinkClick(event) {
+    console.log('handleLinkClick')
+    event.preventDefault(); // 기본 클릭 동작 방지
+
+    const target = event.currentTarget;
+    if (target instanceof HTMLAnchorElement) {
+        const href = target.getAttribute("href");
+
+        if (href) {
+            console.log(href)
+            goto(href, {replaceState: true});
+        }
+    }
+}
