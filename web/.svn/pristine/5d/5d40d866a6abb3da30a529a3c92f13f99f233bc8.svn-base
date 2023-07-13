@@ -1,0 +1,151 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+  <strong>대만정보</strong>
+  <p>대만의 출입국 정보부터 역사, 날씨, 가이드북까지 체크해 보세요.</p>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/info/immigration_precautions">출입국 주의사항</a>
+    </li>
+    <li class="off"><a href="/info/introduction">대만소개</a></li>
+    <li class="off"><a href="/info/festival">문화/역사</a></li>
+    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
+    <li class="on"><a href="/info/tourist_info">관광자료</a></li>
+    <li class="off"><a href="/info/transportation">대만 교통수단</a></li>
+    <li class="off">
+      <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+        >가이드북</a
+      >
+    </li>
+    <li class="off"><a href="/info/related_links">관련 링크</a></li>
+    <li class="off"><a href="/info/working_holiday">워홀</a></li>
+    <li class="off">
+      <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="page">
+  <h1>관광자료</h1>
+  <h2>대만 지도 및 테마별 핸드북 다운로드</h2>
+</div>
+<div class="at-body">
+  <div class="at-container">
+    <ul class="tab tabs">
+      <li class="active">
+        <a href="/"> 전체보기 </a>
+      </li>
+      <li>
+        <a href="/"> 지도 </a>
+      </li>
+      <li>
+        <a href="/"> 테마여행 </a>
+      </li>
+      <li>
+        <a href="/"> 기타 </a>
+      </li>
+    </ul>
+
+    <div class="list-wrap">
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap" style=";">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/ico_download.png" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a class="ellipsis"> 가오슝 관광 안내서 </a>
+          </h2>
+        </div>
+      </div>
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap" style=";">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/ico_download.png" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a class="ellipsis"> 가오슝 관광 안내서 </a>
+          </h2>
+        </div>
+      </div>
+
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap" style=";">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/ico_download.png" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>
+            <a class="ellipsis"> 가오슝 관광 안내서 </a>
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .list-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+  .list-row {
+    position: relative;
+    height: 510px;
+  }
+  .img-item img {
+    width: 100%;
+  }
+  .list-item h2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+  }
+  .img-tack a span {
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,196 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual satisfact">
+  <strong>프로대만족</strong>
+  <p>대만 현지 소식을 바로 만나보세요</p>
+</div>
+<div class="sub_menu">
+  <ul class="off">
+    <li class="off">
+      <a href="/info/immigration_precautions">출입국 주의사항</a>
+    </li>
+    <li class="off"><a href="/info/introduction">대만소개</a></li>
+    <li class="on"><a href="/info/festival">문화/역사</a></li>
+    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
+    <li class="off"><a href="/info/tourist_info">관광자료</a></li>
+    <li class="off"><a href="/info/transportation">대만 교통수단</a></li>
+    <li class="off">
+      <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+        >가이드북</a
+      >
+    </li>
+    <li class="off"><a href="/info/related_links">관련 링크</a></li>
+    <li class="off"><a href="/info/working_holiday">워홀</a></li>
+    <li class="off">
+      <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+    </li>
+  </ul>
+  <ul class="off">
+    <li class="off">
+      <a href="/event/all">전체</a>
+    </li>
+    <li class="off">
+      <a href="/event/in_progress">진행중</a>
+    </li>
+    <li class="off">
+      <a href="/event/end">종료</a>
+    </li>
+  </ul>
+  <ul class="off">
+    <li class="off">
+      <a href="/themeTour/recreation"> 휴양 </a>
+    </li>
+
+    <li class="off">
+      <a href="/themeTour/activity"> 액티비티 </a>
+    </li>
+
+    <li class="off">
+      <a href="/themeTour/diners"> 식객 </a>
+    </li>
+
+    <li class="off">
+      <a href="/themeTour/picture"> 사진 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/history"> 역사 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/shopping"> 쇼핑 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/love"> 러브 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/nature"> 자연 </a>
+    </li>
+    <li class="on">
+      <a href="/themeTour/culture"> 문화 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/night_market"> 야시장 </a>
+    </li>
+  </ul>
+  <ul class="off">
+    <li class="off">
+      <a href="/attractions/all"> 대만 명소 전체 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/northern"> 대만 북부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/midwest"> 대만 중서부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/eastern"> 대만 동부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/south"> 대만 남부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/island"> 대만의 섬 </a>
+    </li>
+  </ul>
+  <ul class="off">
+    <li class="off">
+      <a href="/golf" target="_blank"> 대만 골프</a>
+    </li>
+  </ul>
+  <ul class="on">
+    <li class="off">
+      <a href="/satisfact/all"> 프로대만족 전체</a>
+    </li>
+    <li class="on">
+      <a href="/satisfact/magazine"> 월간메거진</a>
+    </li>
+    <li class="off">
+      <a href="/satisfact/satisfact"> 프로대만족</a>
+    </li>
+    <li class="on">
+      <a href="/satisfact/altravel_tipsl"> 여행 Tips</a>
+    </li>
+  </ul>
+  <ul class="off">
+    <li class="off">
+      <a href="/introduction/tourism_board"> 관광청 소개</a>
+    </li>
+    <li class="off">
+      <a href="/introduction/director_general"> 국장 소개</a>
+    </li>
+    <li class="off">
+      <a href="/introduction/notice"> 공지사항</a>
+    </li>
+    <li class="off">
+      <a href="/introduction/press_release"> 보도자료</a>
+    </li>
+    <li class="off">
+      <a href="/introduction/korean_office"> 찾아오시는 길 (한국사무소)</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+<div class="at-container sub-container" style="padding-top:37px;">
+  <div class="at-content">
+    <div class="view-wrap">
+      <div class="magazine_view">
+        <div class="main">
+          <div class="image">
+            <img src="" alt="" />
+          </div>
+          <div class="content">
+            <h3>난완(南灣)과 바이샤완(白砂灣)</h3>
+            <p>
+              컨딩의 바다, 난완(南灣)이냐 바이샤완(白砂灣)이냐 그것이 문제로다.<br
+              />
+              컨딩 해수욕의 천국, 난완(南灣)<br />
+              어디를 가나 아름다운 바다를 만날 수 있는 컨딩에서 사람들에게 가장 인기
+              있는 바다는 바로 난완이다. 가오슝에서 컨딩으로 올 때 버스 안에서 드넓은
+              모래사장이 펼쳐지는 바다에 감탄사를 연발했었는데 알고 보니 그 바다가
+              바로 난완이었다. 어쩌면 컨딩에서 가장 먼저 만나는 바다가 바로 난완이라고
+              할 수 있겠다. 이곳은 백사장의 길이가 무려 600m로 컨딩에서 가장 많은
+              사람이 해수욕을 즐기는 곳이다. 사람이 붐빈다고 하지만 물 반 사람반인
+              여름철 해운대 백사장에 비하면 한가한 풍경이다. 태어나 난생처음 바다를
+              보는 아이에게 난완의 잔잔한 파도는 엄마의 양수처럼 아이의 발을 부드럽게
+              어루만지며 인사를 건넨다. 그에 질세라 제트스키가 요란한 소리를 내며
+              보는 이마저도 시원하게 바다를 가르며 휘젓는다. 보트에 탄 사람들은 흥분해서
+              분명 있는 힘껏 소리를 질렀겠지만 파도 소리와 에메랄드 물빛에 묻혀버렸다.
+              좋다. 이 말 외에 더 무슨 말이 필요하겠는가.
+            </p>
+          </div>
+        </div>
+        <div class="list">
+          <ul class="image half" />
+        </div>
+        <div class="list">
+          <ul class="image half" />
+        </div>
+
+        <div class="list">
+          <ul class="image" />
+        </div>
+
+        <div class="list">
+          <p class="text" />
+          <ul class="image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+
+  .list-wrap .list-container {
+    overflow: hidden;
+    margin-right: -15px;
+    margin-bottom: 0px;
+  }
+  .list-wrap .list-row {
+    float: left;
+    width: 100%;
+  }
+  .list-wrap .list-item {
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+</style>

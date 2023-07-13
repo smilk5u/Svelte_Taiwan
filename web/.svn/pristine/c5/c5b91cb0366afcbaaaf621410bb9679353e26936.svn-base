@@ -1,0 +1,220 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual attractions">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/themeTour/recreation" class="on">
+        <img src="/img/sub_lt_btn.png" />
+        테마여행
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>대만 명소</strong>
+        <p>지금 대만에서 가장 핫한 지역별 다양한 명소</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/golf" class="on">
+        <img src="/img/sub_rt_btn.png" />
+        대만 골프
+      </a>
+    </div>
+  </div>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/attractions/all"> 대만 명소 전체 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/northern"> 대만 북부 </a>
+    </li>
+    <li class="on">
+      <a href="/attractions/midwest"> 대만 중서부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/eastern"> 대만 동부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/south"> 대만 남부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/island"> 대만의 섬 </a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="at-body sub-container">
+  <div class="at-container">
+    <div class="view-wrap">
+      <div class="sub_box">
+        <div class="detail">
+          <div class="lt_detail">
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_IEK4OtYM_49914421e5067f16835a30f60ff507c4b98fbcc5.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_IEK4OtYM_49914421e5067f16835a30f60ff507c4b98fbcc5_880x698.jpg"
+                  alt=""
+                  class="img-tag"
+                /></a
+              >
+            </div>
+          </div>
+          <div class="rt_detail">
+            <h1>메이산 향</h1>
+            <div itemprop="description" class="view-content">
+              메이산향은 매화가 많이 피는 지역으로, 경관을 내려다볼 수 있는 흔들
+              다리와 대나무 숲 오솔길을 걷다 보면 영화 속 주인공인 된 기분을
+              느낄 수 있습니다. 매화꽃을 구경하기 좋은 메이산 공원 산책로도
+              있습니다.
+            </div>
+          </div>
+        </div>
+        <ul class="image">
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_aRtQ5bXq_b7c0f3d345e6801bd526fc7d714476c6cb7a075a.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_aRtQ5bXq_b7c0f3d345e6801bd526fc7d714476c6cb7a075a_880x586.jpg"
+                  alt="태평 사다리"
+                  class="img-tag"
+                /></a
+              >
+              <div class="subject">태평 사다리</div>
+              <div class="content">
+                태평 사다리는 메이산진 타이핑 마을에 위치하고 있으며 태평산과
+                귀산산 사이 281m, 해발 1000m, 대만에서 가장 긴 고가교로 자이의
+                경치를 바라보며 저녁을 즐길 수 있는 곳입니다. 일몰 및 구름바다와
+                같은 자연 경관은 유명한 메이산 굴곡의 아름다운 전망을 볼 수
+                있으며 훌륭한 전망을 제공하는 곳입니다.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_khEzItwr_36ea29c454d45df45f28ac0c9fa220939d138cfc.JPG"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_khEzItwr_36ea29c454d45df45f28ac0c9fa220939d138cfc_880x587.jpg"
+                  alt="녹색 터널"
+                  class="img-tag"
+                  title=""
+                /></a
+              >
+              <div class="subject">녹색 터널</div>
+              <div class="content">
+                녹색 터널은 대나무 숲과 중국 전나무 숲이 양쪽에 있는 길은
+                관광객들에게 영화 웅크린 호랑이의 주인공이 되는 느낄 수 있게
+                해주는 곳입니다.
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="image">
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_bkiGo0mN_42ce99c7b8c5709664edb63758c627b70762d587.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_bkiGo0mN_42ce99c7b8c5709664edb63758c627b70762d587_880x572.jpg"
+                  alt="윤탄 폭포"
+                  class="img-tag"
+                /></a
+              >
+              <div class="subject">윤탄 폭포</div>
+              <div class="content">
+                가장 유명한 지형은 폭포와 현수교가 많으며, 마오 샤 우슈 폭포,
+                레이인 폭포 그룹, 용궁 폭포, 계곡을 가로지르는 12 개의 현수교를
+                연결하는 데 가장 특별한 풍경은 암벽을 따라 롱 공 폭포를 가로질러
+                길을 건너면서 많은 사진을 남기는 곳입니다.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_Snfe45EW_f1fd8d5951c157bfc3ab9d137a46c268cc95a713.JPG"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_Snfe45EW_f1fd8d5951c157bfc3ab9d137a46c268cc95a713_880x587.jpg"
+                  alt="메이산 공원"
+                  class="img-tag"
+                /></a
+              >
+              <div class="subject">메이산 공원</div>
+              <div class="content">
+                메이산 공원은 매화꽃 풍경과 향기를 느끼며 메이산 전체를 느낄 수
+                있는 곳입니다.
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="map" />
+      </div>
+      <style>
+        .iframe {
+          width: 100% !important;
+        }
+      </style>
+      <script>
+        $(document).ready(function () {
+          $(".map iframe").attr("width", "100%");
+        });
+      </script>
+      <div class="clearfix" />
+      <div class="view-btn text-right">
+        <div class="btn-group" role="group">
+          <a
+            role="button"
+            href="./board.php?bo_table=m03&amp;wr_id=48&amp;sca=%EB%8C%80%EB%A7%8C+%EC%A4%91%EC%84%9C%EB%B6%80"
+            class="btn btn-black btn-sm"
+            title="다음글"
+          >
+            <i class="fa fa-chevron-circle-right" /><span class="hidden-xs">
+              다음</span
+            >
+          </a>
+          <a
+            role="button"
+            href="./board.php?bo_table=m03&amp;page=&amp;sca=%EB%8C%80%EB%A7%8C+%EC%A4%91%EC%84%9C%EB%B6%80"
+            class="btn btn-black btn-sm"
+          >
+            <i class="fa fa-search" /><span class="hidden-xs"> 검색</span>
+          </a>
+          <a
+            role="button"
+            href="./board.php?bo_table=m03&amp;sca=대만 중서부"
+            class="btn btn-black btn-sm"
+          >
+            <i class="fa fa-bars" /><span class="hidden-xs"> 목록</span>
+          </a>
+        </div>
+        <div class="clearfix" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .iframe {
+    width: 100% !important;
+  }
+</style>

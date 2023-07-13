@@ -1,0 +1,629 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+  <strong>대만정보</strong>
+  <p>대만의 출입국 정보부터 역사, 날씨, 가이드북까지 체크해 보세요.</p>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="on">
+      <a href="/info/immigration_precautions">출입국 주의사항</a>
+    </li>
+    <li class="off"><a href="/info/introduction">대만소개</a></li>
+    <li class="off"><a href="/info/festival">문화/역사</a></li>
+    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
+    <li class="off"><a href="/info/tourist_info">관광자료</a></li>
+    <li class="off"><a href="/info/transportation">대만 교통수단</a></li>
+    <li class="off">
+      <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+        >가이드북</a
+      >
+    </li>
+    <li class="off"><a href="/info/related_links">관련 링크</a></li>
+    <li class="off"><a href="/info/working_holiday">워홀</a></li>
+    <li class="off">
+      <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="page">
+  <h1>대만 출/입국 주의사항</h1>
+  <h2>국제관광객 유치 가속 확대 방안</h2>
+</div>
+
+<div class="at-body">
+  <div class="at-container">
+    <form id="form1">
+      <header>
+        <div class="banner">
+          <div class="banner-content">
+            <h1 class="hidden">
+              국제관광객 유치 가속 확대 방안 - 행운을 부르는 대만 여행
+            </h1>
+            <ul class="nav-anchor-point">
+              <li><a class="ml-auto" href="#one">개인 투어</a></li>
+              <li><a class="" href="#two">여행사 단체투어</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <!--//header-->
+      <div class="main">
+        <div class="content">
+          <!-- 1. 개인 투어-->
+          <div id="one" class="area">
+            <div class="h1">개인 투어</div>
+            <a
+              class="btn-download btn-login my-8"
+              href="https://5000.taiwan.net.tw/index_en.html"
+              target="_blank"
+              title="Register Now (Open in a new window)">지금 등록하기</a
+            >
+            <div class="h2">적용 대상:</div>
+            <p class="mb-4">
+              대만(중화민국) 이외 국가의 여권 소지자로 대만에 입국하여 3~90일간
+              체류하며 단체 여행에 참가하지 않은 자 또는 본국에 기타 단체 장려
+              보조금을 신청하지 않은 여행업체.
+            </p>
+            <div class="h2">행사기간:</div>
+            <ol>
+              <li>
+                <p class="mb-2">
+                  (1) 이벤트 기간은 모두 대만 현지 시간(UTC/GMT +08:00)을
+                  기준으로 합니다.
+                </p>
+              </li>
+              <li>
+                <p class="mb-4">
+                  (2) 항공권에 기재된 대만 도착시간 2023년 5월 1일 정오 12시부터
+                  (2023년 4월 28일 정오 12시부터 사전 등록 가능) 2025년 6월
+                  30일까지.
+                </p>
+              </li>
+            </ol>
+            <div class="h2">이벤트 참여 방법</div>
+            <ul>
+              <li>
+                <div class="h3">1. 로그인 정보 사전 등록</div>
+                <ul>
+                  <li>
+                    <p class="mb-2 indent">
+                      (1) 항공권에 기재된 대만 도착시간의 1~7일 전, <a
+                        class="link"
+                        href="https://5000.taiwan.net.tw/index_en.html"
+                        target="_blank"
+                        title="the event website (Open in a new window)"
+                        >이벤트 웹 페이지（5000.taiwan.net.tw）</a
+                      > 에 로그인하여 관련 정보 사전 입력 (성명, 국적, 여권번호,
+                      대만 입국일과 항공편, 대만 출국일, 이메일 주소 포함), 소비지원금
+                      종류 선택 (전자 바우처 또는 숙박 할인쿠폰 중 택 1), 참여 등록
+                      완료 후, 시스템 내에서 자동으로 추첨 QR 코드를 여행객이 기재한
+                      이메일 주소로 발송합니다.
+                    </p>
+                  </li>
+                  <li>
+                    <p class="mb-4">
+                      (2) 등록 시간 예시: 항공권에 기재된 대만 도착시간이 6월
+                      1일 23시 59분일 경우, 5월 25일의 0시 0분부터 사전 등록이
+                      가능하며, 5월 30일 23시 59분 59초 전까지 사전 등록이
+                      가능합니다.
+                    </p>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="h3">2. 추첨</div>
+                <p class="mb-4">
+                  대만 도착 후 이벤트 참여 시 발송된 QR 코드를 공항 입국 홀의
+                  이벤트 데스크에 보여준 뒤 추첨을 통해 당첨 여부 확인 가능.
+                  해당 공항은 타오위안 국제공항 (제1청사 및 제2청사), 타이베이
+                  송산 공항, 타이중 및 가오슝 공항 등 포함. 추첨은 대만 도착
+                  당일만 참여 가능합니다.
+                </p>
+              </li>
+              <li>
+                <div class="h3">3. 경품 수령</div>
+                <p class="mb-4">
+                  추첨 화면에 당첨이 표시되면, 여권 및 관련 증명 서류(입국 도장,
+                  탑승권 및 전자 왕복 항공권)를 경품 수령처로 가지고 가, 서명 후
+                  소비지원금을 수령할 수 있습니다. 소비지원금의 종류는 이벤트
+                  참여시 선택한 것으로, 교환이 불가합니다. 경품 수령은 대만 도착
+                  당일만 가능합니다.
+                </p>
+                <p class="mb-8">
+                  주의: 관련 서류를 수령처에 제공하지 않은 경우, 소비 지원금을
+                  수령할 수 없습니다.
+                </p>
+              </li>
+            </ul>
+            <div class="h2">소비지원금 및 사용 규범:</div>
+            <p class="mb-2">
+              대만달러 5,000NTD 상당의 “전자 바우처” 또는 “숙박 할인쿠폰”. 사용
+              기한은 수령일로부터 90일.
+            </p>
+            <ul>
+              <li>
+                <div class="h3">1. 전자 바우처:</div>
+                <ul>
+                  <li>
+                    <p class="mb-2">
+                      (1) 대만 내 소액 결제를 제공하는 특약 상점에서 사용할 수
+                      있으며, 1회 사용 한도는 대만달러 1,500NTD, 1일 사용 한도는
+                      3,000NTD입니다.
+                    </p>
+                  </li>
+                  <li>
+                    <p class="mb-2">(2) 이지카드 또는 아이패스 중 선택 가능</p>
+                  </li>
+                  <li class="mb-8">
+                    <p class="mb-4">(3) 적용 상점:</p>
+                    <div class="eticket">
+                      <a
+                        href="https://www.easycard.com.tw/en/use-range"
+                        target="_blank"
+                        title="EasyCard (Open in a new window)"
+                        class="eticket__item"
+                      >
+                        <div class="eticket__item__img mb-2">
+                          <img
+                            src="/src/lib/images/m06_01_card3.png"
+                            alt="이지카드"
+                          />
+                        </div>
+                        <span>이지카드</span>
+                      </a>
+                      <a
+                        href="https://www.i-pass.com.tw/en"
+                        target="_blank"
+                        title="iPASS (Open in a new window)"
+                        class="eticket__item"
+                      >
+                        <div class="eticket__item__img mb-2">
+                          <img
+                            src="/src/lib/images/m06_01_card4.png"
+                            alt="아이패스"
+                          />
+                        </div>
+                        <span class="link">아이패스</span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="h3">2. 숙박 할인쿠폰:</div>
+                <p class="mb-2">
+                  대만달러 1,000NTD 권 5장이 발급되며, 당첨자 본인에 한하여
+                  사용할 수 있습니다. 각 쿠폰은 매 1회에 대해 할인 사용
+                  가능하며, 거스름돈 교환 및 재판매 불가합니다. 상기 항목을
+                  준수하고 관광호텔업 면허를 취득한 대만의 관광호텔 사업체 또는
+                  등록증을 취득한 호텔업체 및 민박에 적용됩니다.<a
+                    class="link"
+                    href="https://5000.taiwan.net.tw/index_en.html"
+                    target="_blank"
+                    title="the event website (Open in a new window)"
+                    >이벤트 웹 페이지</a
+                  >에서 숙박업소 리스트를 참고 바랍니다.
+                </p>
+              </li>
+              <li>
+                <div class="h3">3. 주의사항</div>
+                <p class="mb-4">
+                  해당 대상자는 추첨 또는 이벤트 참여 시, 로그인 정보를 정확하게
+                  입력하여야 하며, 개인 정보가 일치해야 합니다. 허위 또는 오류로
+                  인해 경품 추첨 또는 수령이 불가능한 경우 기타 개인 정보를
+                  도용한 경우 관련 법령에 의거하여 법적 책임을 져야 합니다.
+                </p>
+              </li>
+            </ul>
+            <div class="h2 mb-4">이벤트 요약:</div>
+            <div
+              id="gallery-container"
+              class="gallery grid gap-6 lg:gap-12 grid-cols-1 lg:grid-cols-2 lg:px-12 mb-8"
+              data-gallery
+            >
+              <a
+                href="/src/lib/images/m06_01_free01_ko.png"
+                itle="대만 자유여행 방문객 NTD 5,000 여행지원금 증정이벤트 진행중!"
+                class="gallery__item"
+              >
+                <img
+                  alt="대만 자유여행 방문객 NTD 5,000 여행지원금 증정이벤트 진행중!"
+                  src="/src/lib/images/m06_01_free01_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_free02_ko.png"
+                title="참가 자격"
+                class="gallery__item"
+              >
+                <img
+                  alt="참가 자격"
+                  src="/src/lib/images/m06_01_free02_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_free04_ko.png"
+                class="gallery__item"
+                title="소비 보조금 종류"
+              >
+                <img
+                  alt="소비 보조금 종류"
+                  src="/src/lib/images/m06_01_free04_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_free03_ko.png"
+                class="gallery__item"
+                title="참가 방법"
+              >
+                <img
+                  alt="참가 방법"
+                  src="/src/lib/images/m06_01_free03_ko.png"
+                />
+              </a>
+            </div>
+            <div class="h2 mb-4">FAQs</div>
+            <a
+              class="btn-download left"
+              href="https://5000.taiwan.net.tw/qa_en.html"
+              target="_blank"
+              title="참가 방법">개인 여행객 FAQs</a
+            >
+          </div>
+
+          <!-- 2. 여행사 단체투어-->
+          <div id="two" class="area mt-16">
+            <div class="h1">여행사 단체투어</div>
+            <div class="h2">자격:</div>
+            <p class="mb-4">
+              국내/해외 여행사 등 더 많은 해외 관광 단체가 대만을 방문하는 것을
+              장려하기 위해 여행 보조금이 제공됩니다. 여행사 단체 투어 그룹은
+              최소 4명의 멤버가 있어야 하며, 최소 3박 2일 동안 대만에 체류해야
+              합니다. 지원금은 투어 그룹 구성원 수와 체류 기간에 따라 투어 단체
+              당 NT$5,000~NT$50,000의 비용이 지급됩니다.
+            </p>
+            <a
+              class="btn-download left long mb-4"
+              href="/src/lib/images/file/Implementation-Directions_word.zip"
+              target="_blank"
+              title="교통부 관광국 국제관광객 유치 가속 확대 방안 여행업 해외 관광 단체 유치 장려 실시 요점"
+              >신청서 (워드 파일)</a
+            >
+            <a
+              class="btn-download left long mb-8"
+              href="/src/lib/images//file/Implementation-Directions_odt.zip"
+              target="_blank"
+              title="교통부 관광국 국제관광객 유치 가속 확대 방안 여행업 해외 관광 단체 유치 장려 실시 요점"
+              >신청서 (ODT 파일)</a
+            >
+            <div class="h2 mb-4">이벤트 요약:</div>
+            <div
+              id="gallery-container2"
+              class="gallery grid gap-6 lg:gap-12 grid-cols-1 lg:grid-cols-2 lg:px-12 mb-8"
+              data-gallery
+            >
+              <a
+                href="/src/lib/images/m06_01_all01_ko.png"
+                class="gallery__item"
+                title="대만 단체 여행객 대상 여행 보조금 지원 이벤트 진행 안내"
+              >
+                <img
+                  alt="대만 단체 여행객 대상 여행 보조금 지원 이벤트 진행 안내"
+                  src="/src/lib/images/m06_01_all01_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_all02_ko.png"
+                class="gallery__item"
+                title="보조금 지원 대상"
+              >
+                <img
+                  alt="보조금 지원 대상"
+                  src="/src/lib/images/m06_01_all02_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_all03_ko.png"
+                class="gallery__item"
+                title="보조금 지원 조건"
+              >
+                <img
+                  alt="보조금 지원 조건"
+                  src="/src/lib/images/m06_01_all03_ko.png"
+                />
+              </a>
+              <a
+                href="/src/lib/images/m06_01_all04_ko.png"
+                class="gallery__item"
+                title="보조금 지원 한도액"
+              >
+                <img
+                  alt="보조금 지원 한도액"
+                  src="/src/lib/images/m06_01_all04_ko.png"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--footer-->
+      <footer class="footer">
+        <p>TEL: 0800-011765、+886-2-2349-1500</p>
+        <p>Tourism Bureau, Republic of China (Taiwan). All Rights Reserved.</p>
+      </footer>
+    </form>
+  </div>
+</div>
+
+<style lang="scss">
+  #contents {
+    // /* max-width: 1430px; */
+  }
+  #form1 {
+    // max-width: 1430px;
+    margin: 0 auto;
+    // margin-bottom: 70px;
+    background-image: linear-gradient(to right, #f59b00 75%, #f29002);
+  }
+  .banner {
+    width: 100%;
+    background-size: contain;
+    position: relative;
+    background-repeat: no-repeat;
+    padding-bottom: 39.75%;
+    background-image: url(/src/lib/images/m06_01_banner01_ko.jpg);
+  }
+  .h1 {
+    display: block;
+    font-size: 3.125rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .page h1 {
+    font-family: "SCDream9" !important;
+  }
+
+  .h2 {
+    display: block;
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #ffe600;
+    margin-bottom: 0.5rem;
+  }
+  .h3 {
+    margin-top: 20px;
+    color: #ffee80;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: #fff;
+  }
+  .mb-4 {
+    margin-bottom: 1rem !important;
+  }
+  .mb-2 {
+    margin-bottom: 0.5rem !important;
+  }
+  .mb-8 {
+    margin-bottom: 2rem !important;
+  }
+  a.btn-download {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background: #f45921;
+    border: 3px solid #fff;
+    border-radius: 13px;
+    width: 300px;
+    height: 55px;
+    line-height: 50px;
+    margin: 2rem auto;
+    font-size: 1.375rem;
+  }
+  a.btn-download.left {
+    margin: 2rem 0;
+  }
+  a.btn-download.long {
+    width: 500px;
+  }
+  .content {
+    padding: 50px 0px;
+    line-height: 1.8em;
+  }
+  a.link:hover,
+  a.link:focus {
+    color: #ffe600;
+  }
+  a.link {
+    color: #ffee80;
+    font-size: 1.25rem;
+    text-decoration: underline;
+  }
+  .nav-anchor-point {
+    display: flex;
+    width: 45%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .nav-anchor-point li {
+    width: 48%;
+    height: 60px;
+  }
+  .eticket {
+    display: flex;
+    justify-content: space-between;
+  }
+  .eticket a {
+    width: 48%;
+    text-align: center;
+  }
+  .eticket__item__img {
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 1.68rem;
+    overflow: hidden;
+  }
+  .eticket__item__img:hover img {
+    transform: scale(1.1);
+  }
+  .eticket__item__img img {
+    width: 100%;
+    transition: 0.4s;
+  }
+
+  .eticket__item span {
+    display: block;
+    margin: 0.5rem 0;
+    color: #ffee80;
+    text-decoration: underline;
+  }
+  .gallery__item img {
+    border: 3px solid #fff;
+    border-radius: 1.68rem;
+  }
+  .content {
+    padding: 5% 10%;
+    font-size: 1rem;
+  }
+  .content img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+  }
+  .page-wrap img {
+    max-width: 100% !important;
+  }
+  .grid {
+    display: grid;
+    width: 100%;
+  }
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lg\:gap-20 {
+    gap: 5rem;
+  }
+  .footer {
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url(/src/lib/images/m06_01_banner03.png),
+      linear-gradient(to right, #f59b00 75%, #f29002);
+    padding: 0 0 26%;
+  }
+  .hidden {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  .banner-content {
+    top: 76%;
+    position: absolute;
+    width: 100%;
+  }
+  .nav-anchor-point > li > a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #e85b10;
+    background-color: #fff;
+    border-radius: 33px;
+  }
+  .nav-anchor-point > li > a:hover,
+  .nav-anchor-point > li > a:focus {
+    color: #fff;
+    background-color: #e85c10;
+  }
+  @media (max-width: 1430px) {
+    #form1 {
+      max-width: 96%;
+    }
+    .lg\:gap-20 {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .content {
+      padding: 5%;
+    }
+    .eticket {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .eticket a {
+      width: 49%;
+      height: 100%;
+      text-align: center;
+    }
+    .eticket__item__img {
+      height: 114px;
+    }
+    .lg\:gap-12 {
+      gap: 2rem;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    p {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .h1 {
+      font-size: 2rem;
+    }
+    .nav-anchor-point {
+      width: 80%;
+    }
+    .nav-anchor-point li {
+      height: 50px;
+      line-height: 45px;
+    }
+    .grid,
+    .grid a {
+      display: block;
+    }
+    .grid a {
+      margin: 0 0 2rem 0;
+    }
+    a.btn-download {
+      width: 100% !important;
+      font-size: 1.25rem;
+    }
+    .eticket,
+    .eticket a {
+      display: block;
+      width: 100%;
+    }
+    .eticket__item__img {
+      border-radius: 1.2rem;
+    }
+    footer {
+      background-image: url(/src/lib/images/m06_01_mobile_banner03.png),
+        linear-gradient(to right, #f59b00 75%, #f29002);
+      padding: 0 30px 52%;
+    }
+  }
+</style>

@@ -1,0 +1,73 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual attractions">
+  <strong>대만 명소</strong>
+  <p>매력이 넘치는 대만 명소들을 소개합니다!</p>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/attractions/all"> 대만 명소 전체 </a>
+    </li>
+    <li class="on">
+      <a href="/attractions/northern"> 대만 북부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/midwest"> 대만 중서부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/eastern"> 대만 동부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/south"> 대만 남부 </a>
+    </li>
+    <li class="off">
+      <a href="/attractions/island"> 대만의 섬 </a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="at-body sub-container">
+  <div class="at-container">
+    <div class="view-wrap">
+      <div class="sub_box">
+        <div class="detail">
+          <div class="lt_detail">
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_a5Xo3iS8_093ca23794763452a07fca81581743f9f6d8d86e.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/2105653078_a5Xo3iS8_093ca23794763452a07fca81581743f9f6d8d86e.jpg"
+                  alt=""
+                  class="img-tag"
+                  title=""
+                /></a
+              >
+            </div>
+          </div>
+          <div class="rt_detail">
+            <h1>스린 야시장</h1>
+            <div itemprop="description" class="view-content">
+              타이베이 시내에서 가장 큰 야시장으로 100년이 넘는 역사를 가지고
+              있다. <br />타이베이 여행에서 빼놓으면 안 되는 명소로 주말
+              저녁이면 엄청난 인파가 몰리지만 이 또한 하나의 재미이다. 대만의
+              먹거리는 다 맛볼 수 있을 정도로 먹거리가 다양하고 저렴한 가격으로
+              기념품을 구매할 곳도 많다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+
+  .sub_box {
+    margin: 100px 0;
+  }
+</style>

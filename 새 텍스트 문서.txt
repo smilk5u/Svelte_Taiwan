@@ -2,12 +2,11 @@
 230711 수요일--
 
 😁수정된 파일
-src > attractions 
-src > themeTour
-src > style.css (주석된 부분)   >>>>>> 주석 /* 수정사항 start */
-src > introduction
-static > img 
-styles > scss
+src > info > 워킹홀리데이
+
+
+
+
 
 
 😀정리해야할 부분 
@@ -18,9 +17,26 @@ a href 작성
 페이지 별 타이틀 / 키워드 / 디스크립션 / og 이미지 / 
 
 
+
 공통 부분 style.css 로 빼기
 공통 여백 정리하기
 psd 와 비교하여 잘 못나온 부분 체크해서 수정하기
+
+
+
+서브 네비게이션
+이벤트 모바일
+/
+관련링크
+전체보기 (all)
+기관 (institution)
+항공사(airline)
+패키지 상품(package)
+골프상품(golf)
+에어텔(airtel)
+/
+대만명소
+
 
 
 

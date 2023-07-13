@@ -1,0 +1,139 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual themeTour">
+  <strong>테마여행</strong>
+  <p>테마별 인기 여행코스를 살펴볼 수 있어요.</p>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/themeTour/recreation"> 휴양 </a>
+    </li>
+    <li class="on">
+      <a href="/themeTour/activity"> 액티비티 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/diners"> 식객 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/picture"> 사진 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/history"> 역사 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/shopping"> 쇼핑 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/love"> 러브 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/nature"> 자연 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/culture"> 문화 </a>
+    </li>
+    <li class="off">
+      <a href="/themeTour/night_market"> 야시장 </a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="at-body">
+  <div class="at-container">
+    <div class="page">
+      <h1>액티비티 대만족</h1>
+      <h2>여행은 도전과 스킬!</h2>
+    </div>
+    <div class="list-wrap">
+      <ul class="page_list page_list_container">
+        <li>
+          <div class="lt">
+            <img
+              src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_ptznLiWH_45a904b713d353698dc34e58519605b29e906ea1_771x477.jpg"
+              alt=""
+            />
+          </div>
+          <div class="rt">
+            <h3>타이베이 101</h3>
+            <p>
+              타이베이 101의 정식 명칭은 타이베이 금융 센터 이며, 2009년 까지는 <br
+              />
+
+              세계에서 가장 높은 빌딩이었다. 타이완의 건축가 지쭈위안이 설계한
+              건물로 외관을<br />
+
+              보고 있으면 하늘로 뻗어 나가는 대나무 위에 꽃잎이 포개진 형상이
+              보인다고 한다.<br />
+
+              건물 외관의 8개 마디는 중화권에서 부, 번영, 성장, 발전 등을
+              의미하는 숫자 8을 의미하여<br />
+
+              8개 층씩 총 8단으로 구성된 것 이라 한다.매표소가 있는 5층부터
+              89층에 있는<br />
+
+              전망대까지 초고속 엘리베이터가 있는데 불과 37초 만에 도착한다.
+              사방이 유리로 된<br />
+
+              전망대에서는 시내를 360도 파노라마로 감상할 수 있으며 날씨가 좋은
+              날에는 비상계단을<br />
+
+              통해 연결되는 91층을 개방해 야외에서 타이베이 전경을 조망해볼 수
+              있다 .
+            </p>
+          </div>
+        </li>
+        <li>
+          <div class="lt">
+            <img
+              src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_U4wHgVOm_38f252e85accb60d894b2f2af54d8197462a18b7_771x477.jpg"
+              alt=""
+            />
+          </div>
+          <div class="rt">
+            <h3>팔괘산 대불 풍경구</h3>
+            <p>
+              팔괘산은 타이완 12대 경승지 중 하나로 짱화에서 가장 높은 곳이라고
+              한다. <br />
+              장화(彰化) 시가지를 한눈에 내려다볼 수 있는 곳이며 해 질 무렵 찾는다면
+              시내를<br />
+              붉게 물들인 석양과 야경은 덤이다. 이곳에는 1961년에 세워진 높이 22m의<br
+              />
+              검은색으로 칠해진 대불 상이 있는데 아시아에서도 손꼽히는 규모라 한다.<br
+              />
+              불상 뒤로는 대만에서 가장 긴 스카이워크가 있는데 하늘 위를 걸으며<br
+              />
+              팔괘산 일대를 감상할 수 있다고 한다.
+            </p>
+            <p />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .list-wrap .list-container {
+    overflow: hidden;
+    margin-right: -15px;
+    margin-bottom: 0px;
+  }
+  .list-wrap .list-row {
+    float: left;
+    width: 100%;
+  }
+  .list-wrap .list-item {
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+
+  .page_list_container li .lt img {
+    max-height: 477px;
+    width: 100%;
+  }
+  .page_list_container li .rt span {
+    display: inline-block;
+  }
+</style>
