@@ -95,327 +95,329 @@
 </div>
 <!-- //서브페이지 공통 -->
 
-<div class="attraction_wrap">
-  <div class="title">
-    <h1>대만 명소 이야기</h1>
-    <h2>꼭 가봐야하는 대만 핫플레이스</h2>
-  </div>
-  <div class="check_pop_up">
-    <p>
-      아이콘
-      <span>
-        <img src="/img/attractions/map_icon_pc.png" alt="" />
-      </span>
-      을 눌러 지역별 대표 명소들을 확인해보세요!
-    </p>
-    <button type="button" class="close_btn" on:click={closeCheckPopup}>
-      <img src="/img/attractions/close_btn_icon.png" alt="" />
-    </button>
-  </div>
-  <div class="map_wrap">
-    <img class="pc_elm" src="/img/attractions/map_img_pc.png" alt="" />
-    <img class="mo_elm" src="/img/attractions/map_img_mo.png" alt="" />
-    <div class="txt_wrap">
-      <div class="item_contain cont1">
-        <div class="link_wrap">
-          <a href="/attractions/island" class="link_element">
-            <span>섬 지역</span>
-          </a>
+<div class="contain">
+  <div class="attraction_wrap">
+    <div class="title">
+      <h1>대만 명소 이야기</h1>
+      <h2>꼭 가봐야하는 대만 핫플레이스</h2>
+    </div>
+    <div class="check_pop_up">
+      <p>
+        아이콘
+        <span>
+          <img src="/img/attractions/map_icon_pc.png" alt="" />
+        </span>
+        을 눌러 지역별 대표 명소들을 확인해보세요!
+      </p>
+      <button type="button" class="close_btn" on:click={closeCheckPopup}>
+        <img src="/img/attractions/close_btn_icon.png" alt="" />
+      </button>
+    </div>
+    <div class="map_wrap">
+      <img class="pc_elm" src="/img/attractions/map_img_pc.png" alt="" />
+      <img class="mo_elm" src="/img/attractions/map_img_mo.png" alt="" />
+      <div class="txt_wrap">
+        <div class="item_contain cont1">
+          <div class="link_wrap">
+            <a href="/attractions/island" class="link_element">
+              <span>섬 지역</span>
+            </a>
+          </div>
+          <div class="desc_elm">
+            <strong>
+              <b>대만족 PICK!</b>
+              <span>후시향</span>
+            </strong>
+            <p>
+              해변의 푸른 바닷물과 하얀 백사장의 모래를 <br />
+              여유롭게 즐기기 좋은 수려한 분위기의 명소
+            </p>
+          </div>
         </div>
-        <div class="desc_elm">
-          <strong>
-            <b>대만족 PICK!</b>
-            <span>후시향</span>
-          </strong>
-          <p>
-            해변의 푸른 바닷물과 하얀 백사장의 모래를 <br />
-            여유롭게 즐기기 좋은 수려한 분위기의 명소
-          </p>
+        <div class="item_contain cont2">
+          <div class="link_wrap">
+            <a href="/attractions/midwest" class="link_element">
+              <span>중서부 지역</span>
+            </a>
+          </div>
+          <div class="desc_elm">
+            <strong>
+              <b>대만족 PICK!</b>
+              <span>메이산향</span>
+            </strong>
+            <p>
+              매화가 많이 피는 지역으로 수려한 경관을 자랑하며 <br />
+              전망 감상이 가능한 흔들다리 유명
+            </p>
+          </div>
+        </div>
+        <div class="item_contain cont3">
+          <div class="link_wrap">
+            <a href="/attractions/south" class="link_element">
+              <span>남부 지역</span>
+            </a>
+          </div>
+          <div class="desc_elm">
+            <strong>
+              <b>대만족 PICK!</b>
+              <span>가오슝시</span>
+            </strong>
+            <p>
+              타이완에서 세번째로 큰 도시, 옛 정취가 가득하며 <br />
+              객가의 문화를 엿볼 수 있는 지역
+            </p>
+          </div>
+        </div>
+        <div class="item_contain cont4">
+          <div class="link_wrap">
+            <a href="/attractions/northern" class="link_element">
+              <span>북부 지역</span>
+            </a>
+          </div>
+          <div class="desc_elm">
+            <strong>
+              <b>대만족 PICK!</b>
+              <span>루이팡/지우펀</span>
+            </strong>
+            <p>
+              여행자 10대 인기 명소 중 하나로 <br />
+              편리한 교통과 볼거리를 제공하는 유명 관광지
+            </p>
+          </div>
+        </div>
+        <div class="item_contain cont5">
+          <div class="link_wrap">
+            <a href="/attractions/eastern" class="link_element">
+              <span>동부 지역</span>
+            </a>
+          </div>
+          <div class="desc_elm">
+            <strong>
+              <b>대만족 PICK!</b>
+              <span>청공진</span>
+            </strong>
+            <p>
+              타이동현에서 가장 웅장한 해안 경관을 보유한 명소로 <br />
+              원주민 아미족의 공연과 오렌지가 유명
+            </p>
+          </div>
         </div>
       </div>
-      <div class="item_contain cont2">
-        <div class="link_wrap">
-          <a href="/attractions/midwest" class="link_element">
-            <span>중서부 지역</span>
-          </a>
-        </div>
-        <div class="desc_elm">
-          <strong>
-            <b>대만족 PICK!</b>
-            <span>메이산향</span>
-          </strong>
+    </div>
+    <div class="arrow_contain">
+      <div class="item_cont">
+        <img
+          class="item_icon mo_elm"
+          src="/img/attractions/culture_icon2.png"
+          alt=""
+        />
+        <button
+          class="map_arrow"
+          type="button"
+          on:click={(data) => openPopup(data)}
+        />
+        <div class="elm_popup">
+          <b>대만족 섬 PICK!</b>
+          <strong>후시향</strong>
           <p>
-            매화가 많이 피는 지역으로 수려한 경관을 자랑하며 <br />
+            해변의 푸른 바닷물과 <br /> 하얀 백사장의 모래를 여유롭게 즐기기
+            <br /> 좋은 수려한 분위기의 명소
+          </p>
+          <a href="/"><em>섬</em>명소 더보기</a>
+          <button
+            type="button"
+            id="popupCloseBtn"
+            on:click={(data) => closePopup(data)}>닫기</button
+          >
+        </div>
+      </div>
+      <div class="item_cont">
+        <img
+          class="item_icon mo_elm"
+          src="/img/attractions/culture_icon5.png"
+          alt=""
+        />
+        <button
+          class="map_arrow"
+          type="button"
+          on:click={(data) => openPopup(data)}
+        />
+        <div class="elm_popup">
+          <b>대만족 중서부 PICK!</b>
+          <strong>메이산향</strong>
+          <p>
+            매화가 많이 피는 지역으로 <br />
+            수려한 경관을 자랑하며 <br />
             전망 감상이 가능한 흔들다리 유명
           </p>
+          <a href="/"><em>중서부</em>명소 더보기</a>
+          <button
+            type="button"
+            id="popupCloseBtn"
+            on:click={(data) => closePopup(data)}>닫기</button
+          >
         </div>
       </div>
-      <div class="item_contain cont3">
-        <div class="link_wrap">
-          <a href="/attractions/south" class="link_element">
-            <span>남부 지역</span>
-          </a>
-        </div>
-        <div class="desc_elm">
-          <strong>
-            <b>대만족 PICK!</b>
-            <span>가오슝시</span>
-          </strong>
+      <div class="item_cont">
+        <img
+          class="item_icon mo_elm"
+          src="/img/attractions/culture_icon3.png"
+          alt=""
+        />
+        <button
+          class="map_arrow"
+          type="button"
+          on:click={(data) => openPopup(data)}
+        />
+        <div class="elm_popup">
+          <b>대만족 남부 PICK!</b>
+          <strong>가오슝시</strong>
           <p>
-            타이완에서 세번째로 큰 도시, 옛 정취가 가득하며 <br />
-            객가의 문화를 엿볼 수 있는 지역
+            타이완에서 세번째로 큰 도시, <br />
+            옛 정취가 가득하며 객가의 문화를 <br />
+            엿볼 수 있는 지역
           </p>
+          <a href="/"><em>남부</em>명소 더보기</a>
+          <button
+            type="button"
+            id="popupCloseBtn"
+            on:click={(data) => closePopup(data)}>닫기</button
+          >
         </div>
       </div>
-      <div class="item_contain cont4">
-        <div class="link_wrap">
-          <a href="/attractions/northern" class="link_element">
-            <span>북부 지역</span>
-          </a>
-        </div>
-        <div class="desc_elm">
-          <strong>
-            <b>대만족 PICK!</b>
-            <span>루이팡/지우펀</span>
-          </strong>
+      <div class="item_cont">
+        <img
+          class="item_icon mo_elm"
+          src="/img/attractions/culture_icon4.png"
+          alt=""
+        />
+        <button
+          class="map_arrow"
+          type="button"
+          on:click={(data) => openPopup(data)}
+        />
+        <div class="elm_popup">
+          <b>대만족 북부 PICK!</b>
+          <strong>루이팡/지우펀</strong>
           <p>
             여행자 10대 인기 명소 중 하나로 <br />
-            편리한 교통과 볼거리를 제공하는 유명 관광지
+            편리한 교통과 볼거리를 제공하는 <br />
+            유명 관광지
           </p>
+          <a href="/"><em>북부</em>명소 더보기</a>
+          <button
+            type="button"
+            id="popupCloseBtn"
+            on:click={(data) => closePopup(data)}>닫기</button
+          >
         </div>
       </div>
-      <div class="item_contain cont5">
-        <div class="link_wrap">
-          <a href="/attractions/eastern" class="link_element">
-            <span>동부 지역</span>
-          </a>
-        </div>
-        <div class="desc_elm">
-          <strong>
-            <b>대만족 PICK!</b>
-            <span>청공진</span>
-          </strong>
+      <div class="item_cont">
+        <img
+          class="item_icon mo_elm"
+          src="/img/attractions/culture_icon1.png"
+          alt=""
+        />
+        <button
+          class="map_arrow"
+          type="button"
+          on:click={(data) => openPopup(data)}
+        />
+        <div class="elm_popup">
+          <b>대만족 동부 PICK!</b>
+          <strong>청공진</strong>
           <p>
-            타이동현에서 가장 웅장한 해안 경관을 보유한 명소로 <br />
+            타이동현에서 가장 웅장한 <br />
+            해안 경관을 보유한 명소로 <br />
             원주민 아미족의 공연과 오렌지가 유명
           </p>
+          <a href="/"><em>동부</em>명소 더보기</a>
+          <button
+            type="button"
+            id="popupCloseBtn"
+            on:click={(data) => closePopup(data)}>닫기</button
+          >
         </div>
       </div>
     </div>
+    <div class="dimmed" />
   </div>
-  <div class="arrow_contain">
-    <div class="item_cont">
-      <img
-        class="item_icon mo_elm"
-        src="/img/attractions/culture_icon2.png"
-        alt=""
-      />
-      <button
-        class="map_arrow"
-        type="button"
-        on:click={(data) => openPopup(data)}
-      />
-      <div class="elm_popup">
-        <b>대만족 섬 PICK!</b>
-        <strong>후시향</strong>
-        <p>
-          해변의 푸른 바닷물과 <br /> 하얀 백사장의 모래를 여유롭게 즐기기
-          <br /> 좋은 수려한 분위기의 명소
-        </p>
-        <a href="/"><em>섬</em>명소 더보기</a>
-        <button
-          type="button"
-          id="popupCloseBtn"
-          on:click={(data) => closePopup(data)}>닫기</button
-        >
-      </div>
-    </div>
-    <div class="item_cont">
-      <img
-        class="item_icon mo_elm"
-        src="/img/attractions/culture_icon5.png"
-        alt=""
-      />
-      <button
-        class="map_arrow"
-        type="button"
-        on:click={(data) => openPopup(data)}
-      />
-      <div class="elm_popup">
-        <b>대만족 중서부 PICK!</b>
-        <strong>메이산향</strong>
-        <p>
-          매화가 많이 피는 지역으로 <br />
-          수려한 경관을 자랑하며 <br />
-          전망 감상이 가능한 흔들다리 유명
-        </p>
-        <a href="/"><em>중서부</em>명소 더보기</a>
-        <button
-          type="button"
-          id="popupCloseBtn"
-          on:click={(data) => closePopup(data)}>닫기</button
-        >
-      </div>
-    </div>
-    <div class="item_cont">
-      <img
-        class="item_icon mo_elm"
-        src="/img/attractions/culture_icon3.png"
-        alt=""
-      />
-      <button
-        class="map_arrow"
-        type="button"
-        on:click={(data) => openPopup(data)}
-      />
-      <div class="elm_popup">
-        <b>대만족 남부 PICK!</b>
-        <strong>가오슝시</strong>
-        <p>
-          타이완에서 세번째로 큰 도시, <br />
-          옛 정취가 가득하며 객가의 문화를 <br />
-          엿볼 수 있는 지역
-        </p>
-        <a href="/"><em>남부</em>명소 더보기</a>
-        <button
-          type="button"
-          id="popupCloseBtn"
-          on:click={(data) => closePopup(data)}>닫기</button
-        >
-      </div>
-    </div>
-    <div class="item_cont">
-      <img
-        class="item_icon mo_elm"
-        src="/img/attractions/culture_icon4.png"
-        alt=""
-      />
-      <button
-        class="map_arrow"
-        type="button"
-        on:click={(data) => openPopup(data)}
-      />
-      <div class="elm_popup">
-        <b>대만족 북부 PICK!</b>
-        <strong>루이팡/지우펀</strong>
-        <p>
-          여행자 10대 인기 명소 중 하나로 <br />
-          편리한 교통과 볼거리를 제공하는 <br />
-          유명 관광지
-        </p>
-        <a href="/"><em>북부</em>명소 더보기</a>
-        <button
-          type="button"
-          id="popupCloseBtn"
-          on:click={(data) => closePopup(data)}>닫기</button
-        >
-      </div>
-    </div>
-    <div class="item_cont">
-      <img
-        class="item_icon mo_elm"
-        src="/img/attractions/culture_icon1.png"
-        alt=""
-      />
-      <button
-        class="map_arrow"
-        type="button"
-        on:click={(data) => openPopup(data)}
-      />
-      <div class="elm_popup">
-        <b>대만족 동부 PICK!</b>
-        <strong>청공진</strong>
-        <p>
-          타이동현에서 가장 웅장한 <br />
-          해안 경관을 보유한 명소로 <br />
-          원주민 아미족의 공연과 오렌지가 유명
-        </p>
-        <a href="/"><em>동부</em>명소 더보기</a>
-        <button
-          type="button"
-          id="popupCloseBtn"
-          on:click={(data) => closePopup(data)}>닫기</button
-        >
-      </div>
-    </div>
-  </div>
-  <div class="dimmed" />
-  <!-- <div class="popup_wrap">
-    <div class="elm_popup">
-       <b>대만족 섬 PICK!</b>
-       <strong>후시향</strong>
-       <p>해변의 푸른 바닷물과
-         하얀 백사장의 모래를 여유롭게 즐기기
-         좋은 수려한 분위기의 명소</p>
-       <a href=""></a>
-       <button type="button">섬 명소 더보기</button>
-    </div>
-  </div> -->
-
   <div id="subGnb">
-    <ul>
-      <li>
-        <a href="/">
-          <div class="thumb_img">
-            <img src="/img/bottom_navi_img1.jpg" alt="">
-          </div>
-          <div class="txt_elm">
-            <strong>이벤트</strong>
-            <p>
-              대만을 120% 즐길 수 있는 <br />
-              다양한 이벤트
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <div class="thumb_img">
-            <img src="/img/bottom_navi_img2.jpg" alt="">
-          </div>
-          <div class="txt_elm">
-            <strong>대만 관광청 소개</strong>
-            <p>대만 관광청에 대한 <br /> 모든 것</p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <div class="thumb_img">
-            <img src="/img/bottom_navi_img3.jpg" alt="">
-          </div>
-          <div class="txt_elm">
-            <strong>이벤트</strong>
-            <p>
-              당신이 즐길 수 있는 <br />
-              대만의 모든 테마 여행
-            </p>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <div class="thumb_img">
-            <img src="/img/bottom_navi_img4.jpg" alt="">
-          </div>
-          <div class="txt_elm">
-            <strong>이벤트</strong>
-            <p>
-              지금 대만에서 가장 핫한 <br />
-              지역별 다양한 명소
-            </p>
-          </div>
-        </a>
-      </li>
-    </ul>
+    <div class="img_box">
+      <ul>
+        <li>
+          <a href="/">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img1.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>이벤트</strong>
+              <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img1.jpg" alt="" />
+              <span>당첨 도전하기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img2.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 관광청 소개</strong>
+              <p>대만 관광청에 대한 <br /> 모든 것</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img2.jpg" alt="" />
+              <span>관광청의 A to Z</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img3.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>이벤트</strong>
+              <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img3.jpg" alt="" />
+              <span>나와 맞는 여행찾기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img4.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 명소</strong>
+              <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img4.jpg" alt="" />
+              <span>여긴 꼭 가야해!</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
+
+  .contain {
+    background-color: #cdeaff;
+  }
   /* 전체 페이지 */
   .attraction_wrap {
-    background-color: #cdeaff;
     position: relative;
     overflow: hidden;
   }
