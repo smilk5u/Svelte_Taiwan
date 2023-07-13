@@ -1,3 +1,5 @@
+<div class="intro_slide">Sub Navigation</div>
+
 <div class="page">
   <h1>공지사항</h1>
 </div>

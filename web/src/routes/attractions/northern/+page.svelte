@@ -1,3 +1,5 @@
+<div class="intro_slide">Sub Navigation</div>
+
 <div class="at-container">
   <div class="at-content">
     <div class="box-wrap">
@@ -96,12 +98,12 @@
         line-height: 1;
         font-weight: 600;
         text-align: left;
+        font-family: s-coredream-6bold;
       }
       .list-details {
         margin-top: 10px;
         color: #666;
-        font-size: 16px;
-        font-weight: $light;
+        font-size: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
         word-wrap: break-word;
@@ -110,29 +112,6 @@
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
-      }
-    }
-  }
-
-  @include mobile {
-    .at-content {
-      padding: vw(50) 0 0;
-    }
-    .box-wrap {
-      .box-list {
-        .link {
-          span {
-            padding: vw(10) vw(25);
-            font-size: vw(15);
-          }
-        }
-        h2 {
-          padding: vw(15) 0 vw(10);
-          font-size: vw(25);
-        }
-        .list-details {
-          font-size: vw(18);
-        }
       }
     }
   }

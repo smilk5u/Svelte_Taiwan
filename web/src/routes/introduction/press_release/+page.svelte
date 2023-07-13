@@ -1,3 +1,5 @@
+<div class="intro_slide">Sub Navigation</div>
+
 <div class="page">
   <h1>보도자료</h1>
 </div>

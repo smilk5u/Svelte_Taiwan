@@ -1,3 +1,5 @@
+<div class="intro_slide">Sub Navigation</div>
+
 <div class="at-container">
   <div class="at-content">
     <div class="box-wrap">
@@ -5,7 +7,7 @@
         <a href="" class="item_elm">
           <div class="img_wrap">
             <img
-            src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_tQ49uP61_283d666001dcba9c1fb8e0a3f8d14968a3616b24_880x600.jpg"
+              src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_lr03QT28_13c2975e6dfe595e7f1f39195365d077f19aa135_880x600.jpg"
               alt=""
             />
           </div>
@@ -47,91 +49,67 @@
 </div>
 
 <style lang="scss">
-   @import "/src/styles/variables.scss";
-   .at-content {
-     padding: 100px 0 0;
-   }
- 
-   .box-wrap {
-     &:after {
-       content: "";
-       display: block;
-       clear: both;
-     }
-     .box-list {
-       width: 47.857142%;
-       padding: 0 0 8%;
-       float: left;
-       &:nth-of-type(even) {
-         margin: 0 0 0 4.285714%;
-       }
-       .item_elm {
-         position: relative;
-       }
-       .img_wrap {
-         img {
-           width: 100%;
-         }
-       }
-       .link {
-         position: absolute;
-         display: block;
-         right: 0;
-         bottom: 0;
-         background-color: #ff7200;
-         span {
-           padding: 10px 25px;
-           font-size: 12px;
-           display: block;
-           color: #fff;
-         }
-       }
-       h2 {
-         padding: 20px 0 10px;
-         display: block;
-         font-size: 25px;
-         line-height: 1;
-         font-weight: 600;
-         text-align: left;
-       }
-       .list-details {
-         margin-top: 10px;
-         color: #666;
-         font-size: 16px;
-         font-weight: $light;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         word-wrap: break-word;
-         line-height: 1.5em;
-         height: 3em;
-         display: -webkit-box;
-         -webkit-line-clamp: 2;
-         -webkit-box-orient: vertical;
-       }
-     }
-   }
- 
-   @include mobile {
-     .at-content {
-       padding: vw(50) 0 0;
-     }
-     .box-wrap {
-       .box-list {
-         .link {
-           span {
-             padding: vw(10) vw(25);
-             font-size: vw(15);
-           }
-         }
-         h2 {
-           padding: vw(15) 0 vw(10);
-           font-size: vw(25);
-         }
-         .list-details {
-           font-size: vw(18);
-         }
-       }
-     }
-   }
- </style>
- 
+  @import "/src/styles/variables.scss";
+  .at-content {
+    padding: 100px 0 0;
+  }
+
+  .box-wrap {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .box-list {
+      width: 47.857142%;
+      padding: 0 0 8%;
+      float: left;
+      &:nth-of-type(even) {
+        margin: 0 0 0 4.285714%;
+      }
+      .item_elm {
+        position: relative;
+      }
+      .img_wrap {
+        img {
+          width: 100%;
+        }
+      }
+      .link {
+        position: absolute;
+        display: block;
+        right: 0;
+        bottom: 0;
+        background-color: #ff7200;
+        span {
+          padding: 10px 25px;
+          font-size: 12px;
+          display: block;
+          color: #fff;
+        }
+      }
+      h2 {
+        padding: 20px 0 10px;
+        display: block;
+        font-size: 25px;
+        line-height: 1;
+        font-weight: 600;
+        text-align: left;
+        font-family: s-coredream-6bold;
+      }
+      .list-details {
+        margin-top: 10px;
+        color: #666;
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        line-height: 1.5em;
+        height: 3em;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+</style>
