@@ -1,22 +1,48 @@
-<div class="page">
-  <h1>이벤트</h1>
-  <h2>다양한 이벤트를 확인하여 참여해보세요!</h2>
+<!-- 서브페이지 공통 -->
+<div class="sub_visual event">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board" class="on">
+        <img src="/img/sub_lt_btn.png" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>이벤트</strong>
+        <p>대만을 120% 즐길 수 있는 다양한 이벤트를 확인하고 참여해보세요!</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all" class="on">
+        <img src="/img/sub_rt_btn.png" />
+        이벤트
+      </a>
+    </div>
+  </div>
 </div>
+<div class="sub_menu">
+  <ul>
+    <li>
+      <a href="/event/all">전체</a>
+    </li>
+    <li>
+      <a href="/event/in_progress">진행중</a>
+    </li>
+    <li class="on">
+      <a href="/event/end">종료</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
 
+<!-- 메인 컨텐츠 -->
 <div class="at-container sub-container">
+   <div class="page">
+      <h2>대만족 이벤트를 소개합니다</h2>
+    </div>
   <div class="at-content">
     <section class="board-list">
-      <ul class="tab tabs">
-        <li>
-          <a href="/event/all"> 전체보기 </a>
-        </li>
-        <li>
-          <a href="/event/in_progress"> 진행중 이벤트 </a>
-        </li>
-        <li class="active">
-          <a href="/event/end"> 종료된 이벤트 </a>
-        </li>
-      </ul>
       <div class="list-wrap">
         <form name="fboardlist" id="fboardlist" method="post" class="form">
           <div class="list-container">
@@ -98,13 +124,10 @@
     </section>
   </div>
 </div>
+<!-- //메인 컨텐츠 -->
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-  .hidden {
-    display: none !important;
-    visibility: hidden !important;
-  }
   .list-container {
     &:after {
       content: "";
@@ -114,9 +137,20 @@
     .list-row {
       float: left;
       width: 30%;
-      margin: 0 0 100px 5%;
+      margin: 0 0 5% 5%;
       &:nth-of-type(3n + 1) {
-        margin: 0 0 100px;
+        margin: 0 0 5%;
+      }
+      .imgframe {
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        img {
+          width: 100%;
+          display: block;
+        }
       }
       &.close_event {
         .list-item {
@@ -132,10 +166,20 @@
             background-color: rgba(0, 0, 0, 0.6);
           }
         }
-        .imgframe a {
-          width: 100%;
-          height: 100%;
-          display: block;
+      }
+    }
+  }
+
+  @include mobile {
+    .list-container {
+      .list-row {
+        width: 46.74479166666667%;
+        margin: 0 0 5vw 6.510416666666667%;
+        &:nth-of-type(3n + 1) {
+          margin: 0 0 5vw 6.510416666666667%;
+        }
+        &:nth-of-type(2n + 1) {
+          margin: 0 0 5vw;
         }
       }
     }

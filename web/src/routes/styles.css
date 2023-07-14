@@ -2920,10 +2920,11 @@ li {
   justify-content: center;
   align-content: center;
   table-layout: fixed;
+  min-width: 1260px;
   width: 100%;
   margin: 0 auto;
   /* padding: 0 160px; */
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   border-width: 0.5px;
   border-style: solid;
   border-color: #dcdcdc;
@@ -2964,11 +2965,11 @@ li {
     background: pink;
   }
 } */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1280px) {
   .sub_menu ul {
     max-width: 100%;
-    /* min-width: 800px; */
-    padding: 0 10px;
+
+    /* padding: 0 10px; */
   }
   .sub_menu::-webkit-scrollbar {
     height: 4px;
@@ -2980,12 +2981,6 @@ li {
   }
 }
 
-@media screen and (max-width: 990px) {
-  .sub_menu ul {
-    /* max-width: 100%; */
-    min-width: 990px;
-  }
-}
 @media screen and (max-width: 768px) {
   .sub_menu::-webkit-scrollbar {
     display: none;
@@ -3420,16 +3415,7 @@ li {
 
 .page {
   overflow: hidden;
-  padding: 50px 0 24px;
-}
-
-.page h1 {
-  text-align: center;
-  font-size: 50px;
-  line-height: 1.5;
-  font-weight: 900;
-  color: rgba(51, 51, 51, 1);
-  display: none;
+  padding: 50px 0 30px;
 }
 
 .page h2 {
@@ -3596,13 +3582,14 @@ li {
   }
 }
 
-@media (max-width: 991px) {
-  .page h1 {
-    font-size: 45px;
+@media (max-width: 768px) {
+  .page {
+    padding: 7.8125vw 5.20833vw 3.5vw;
   }
 
   .page h2 {
-    font-size: 25px;
+    font-size: 4.2vw;
+    text-align: left;
   }
 
   .page_list li .lt img {
@@ -3621,52 +3608,6 @@ li {
   .page_list li .rt h3 {
     font-size: 22px;
     margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  .page h1 {
-    font-size: 43px;
-  }
-
-  .page h2 {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page h1 {
-    font-size: 40px;
-  }
-
-  .page h2 {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 500px) {
-  .page h1 {
-    font-size: 37px;
-  }
-
-  .page h2 {
-    font-size: 17px;
-  }
-
-  .page_list li {
-    margin-bottom: 15px;
-  }
-
-  .page_list li .rt span {
-    font-size: 13px;
-  }
-
-  .page_list li .rt span small {
-    font-size: 12px;
-  }
-
-  .page_list li .rt p {
-    font-size: 12px;
   }
 }
 
@@ -3878,7 +3819,7 @@ main {
   width: 100%;
   height: 505px;
   padding: 190px 0 0;
-  position: relative;
+  /* position: relative; */
   background: url("/src/lib/images/m06.jpg") repeat-x;
   text-align: center;
 }
@@ -3890,6 +3831,9 @@ main {
 }
 .sub_visual.introduction {
   background-image: url("/img/m05.webp");
+}
+.sub_visual.event {
+  background-image: url("/img/m04.jpg");
 }
 .sub_visual strong {
   font-size: 50px;
@@ -3943,7 +3887,10 @@ main {
   z-index: 10;
   left: 0px;
 }
-@media all and (max-width: 991px) {
+@media all and (max-width: 768px) {
+   .at-body .at-container {
+      padding: 0px 5.20833vw;
+    }
   .at-container.w-main {
     padding: 0;
   }
@@ -4482,7 +4429,7 @@ main {
   overflow: hidden;
   background: #ff7200;
   text-align: left;
-  padding: 30px 15px;
+  padding: 25px 25px 30px;
 }
 
 .list-row .list-subject {
@@ -4494,15 +4441,13 @@ main {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-top: 3px;
+  color: #fff;
 }
 
-/* 230713 start */
 .list-row .list-subject a {
   font-size: 20px;
   color: #fff;
-  /* font-family: s-coredream-6bold */
 }
-/* 230713 end */
 
 .list-row .list-txt {
   font-family: s-coredream-3light;
@@ -4537,17 +4482,12 @@ main {
   font-size: 12px;
 }
 
-@media (max-width: 991px) {
-  .list-link {
-    top: -17px;
-  }
-
-  .list-link a {
-    padding: 5px 20px;
-  }
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .list-link {
     top: -15px;
   }
@@ -4555,6 +4495,13 @@ main {
   .list-link a {
     padding: 3px 10px;
     font-size: 11px;
+  }
+
+  .list-row .list-subject a {
+    font-size: 3.5vw;
+  }
+  .list-row .list-content {
+    padding: 3vw 4vw 4vw;
   }
 }
 
@@ -5583,46 +5530,46 @@ main {
 /* ========================================================================
   Footer Sub Navigation : 푸터 서브 네비게이션
 ===========================================================================*/
-#subGnb {
+#footerGnb {
   margin: 0 auto;
   padding: 30px 0;
   background-color: rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
-#subGnb .img_box {
+#footerGnb .img_box {
   max-width: max-content;
   margin: 0 auto;
-  padding: 0 0 0 2%;
+  /* padding: 0 0 0 30px; */
 }
-#subGnb ul {
+#footerGnb ul {
   max-width: inherit;
   overflow-x: auto;
   justify-content: space-between;
   padding: 0 0 10px;
   display: flex;
-  gap:12px;
+  gap: 12px;
 }
 
-#subGnb ul::-webkit-scrollbar {
-  height: 10px;  /* 스크롤바의 너비 */
+#footerGnb ul::-webkit-scrollbar {
+  height: 10px; /* 스크롤바의 너비 */
 }
 
-#subGnb ul::-webkit-scrollbar-thumb {
+#footerGnb ul::-webkit-scrollbar-thumb {
   background: #eee; /* 스크롤바의 색상 */
   border-radius: 10px;
 }
-#subGnb ul::-webkit-scrollbar-track {
-    background-color: rgba(0,0,0, .1);
+#footerGnb ul::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-#subGnb ul li {
+#footerGnb ul li {
   width: 320px;
   min-width: 320px;
   border-radius: 24px;
   background-color: #fff;
-  overflow: hidden;  
+  overflow: hidden;
 }
-#subGnb ul li a {
+#footerGnb ul li a {
   width: 100%;
   height: 100%;
   position: relative;
@@ -5631,15 +5578,15 @@ main {
   border-radius: 24px;
   box-sizing: border-box;
 }
-#subGnb ul a:after {
+#footerGnb ul a:after {
   content: "";
   display: block;
   clear: both;
 }
-#subGnb ul li a:hover .over_txt {
+#footerGnb ul li a:hover .over_txt {
   opacity: 1;
 }
-#subGnb .thumb_img {
+#footerGnb .thumb_img {
   width: 104px;
   height: 104px;
   border-radius: 20px;
@@ -5647,26 +5594,28 @@ main {
   float: left;
   box-sizing: border-box;
 }
-#subGnb .thumb_img img { 
+#footerGnb .thumb_img img {
   width: 100%;
 }
-#subGnb .txt_elm {
+#footerGnb .txt_elm {
   float: left;
   padding: 13px 0 0 15px;
   box-sizing: border-box;
+  text-align: left;
 }
 
-#subGnb .txt_elm strong {
+#footerGnb .txt_elm strong {
   font-size: 20px;
   font-family: "Noto Sans KR";
 }
-#subGnb .txt_elm p {
+#footerGnb .txt_elm p {
+  padding: 2px 0 0;
   font-weight: 500;
   font-size: 16px;
   font-family: "Noto Sans KR";
   opacity: 0.6;
 }
-#subGnb .over_txt {
+#footerGnb .over_txt {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -5676,9 +5625,9 @@ main {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-#subGnb .over_txt:after {
+#footerGnb .over_txt:after {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -5688,11 +5637,11 @@ main {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.7);
 }
-#subGnb .over_txt img { 
+#footerGnb .over_txt img {
   height: 100%;
   object-fit: contain;
 }
-#subGnb .over_txt span {
+#footerGnb .over_txt span {
   display: inline-block;
   position: absolute;
   color: #fff;
@@ -5701,7 +5650,7 @@ main {
   font-family: "Noto Sans KR";
   z-index: 2;
 }
-#subGnb .over_txt span:after {
+#footerGnb .over_txt span:after {
   width: 30px;
   height: 30px;
   content: "";
@@ -5713,52 +5662,51 @@ main {
   background-size: cover;
 }
 @media (max-width: 768px) {
-  #subGnb {
-    padding: 5.20833vw;
+  #footerGnb {
+    padding: 5.20833vw 0 5.20833vw 5.20833vw;
   }
-  #subGnb .img_box {
+  #footerGnb .img_box {
     padding: 0;
   }
-  #subGnb ul {
+  #footerGnb ul {
     padding: 0 0 10px;
-    gap:1.5625vw;
+    gap: 1.5625vw;
     /* background-color: red; */
   }
-  #subGnb ul li {
+  #footerGnb ul li {
     width: 60.0260416vw;
     min-width: 60.0260416vw;
     border-radius: 3.125vw;
   }
-  #subGnb ul li a {
+  #footerGnb ul li a {
     padding: 2.08333vw;
     border-radius: 3.125vw;
   }
-  #subGnb .thumb_img {
+  #footerGnb .thumb_img {
     width: 18.2291vw;
     height: 18.2291vw;
     border-radius: 2.08333vw;
   }
-  #subGnb .txt_elm {
+  #footerGnb .txt_elm {
     padding: 1vw 0 0 3.125vw;
   }
-  #subGnb .txt_elm strong {
+  #footerGnb .txt_elm strong {
     font-size: 3.90625vw;
   }
-  #subGnb .txt_elm p {
+  #footerGnb .txt_elm p {
     font-size: 3.125vw;
   }
-  #subGnb .over_txt span {
+  #footerGnb .over_txt span {
     font-size: 3.90625vw;
+    margin: -2vw 0 0;
   }
-  #subGnb .over_txt span:after {
+  #footerGnb .over_txt span:after {
     width: 6vw;
     height: 6vw;
     top: 1.5vw;
     left: 2vw;
   }
 }
-
-
 
 /* ======================================================================
   ■ List : 관련링크
@@ -5919,3 +5867,19 @@ main {
 }
 
 /* 수정사항 230713 end */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hidden-md {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+}

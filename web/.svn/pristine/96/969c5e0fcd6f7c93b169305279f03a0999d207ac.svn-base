@@ -1,0 +1,617 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board" class="on">
+        <img src="/img/sub_lt_btn.png" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>대만정보</strong>
+        <p>출입국 정보부터 역사, 날씨, 가이드북까지</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all" class="on">
+        <img src="/img/sub_rt_btn.png" />
+        이벤트
+      </a>
+    </div>
+  </div>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/info/immigration_precautions">출입국 주의사항</a>
+    </li>
+    <li class="off"><a href="/info/introduction">대만소개</a></li>
+    <li class="off"><a href="/info/festival">문화/역사</a></li>
+    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
+    <li class="off"><a href="/info/tourist_info">관광자료</a></li>
+    <li class="on"><a href="/info/transportation">대만 교통수단</a></li>
+    <li class="off">
+      <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+        >가이드북</a
+      >
+    </li>
+    <li class="off"><a href="/info/related_links">관련 링크</a></li>
+    <li class="off"><a href="/info/working_holiday">워홀</a></li>
+    <li class="off">
+      <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+<div class="page">
+  <h1>대만 교통수단</h1>
+  <h2>대만 지도 및 교통 안내의 모든 것</h2>
+</div>
+<div class="at-body">
+  <div class="at-container">
+    <ul class="tab">
+      <li class="active"><a href="/info/transportation">iPASS</a></li>
+      <li><a href="/info/transportation02">Taipei Pass</a></li>
+      <li><a href="/info/transportation03">Easy Card</a></li>
+    </ul>
+
+    <div class="tab_content con">
+      <style>
+        .box {
+          max-width: 1430px;
+          margin: 0 auto;
+        }
+        .box .con h3 {
+          text-align: center;
+          font-size: 27px;
+          font-family: "S-CoreDream-6Bold";
+          margin: 100px 0;
+        }
+        .box .con p.text {
+          color: #666;
+          font-size: 16px;
+          margin-top: 40px;
+          line-height: 1.5;
+        }
+        .box h4 {
+          font-size: 22px;
+          color: #333;
+          font-family: "S-CoreDream-6Bold";
+          margin-bottom: 10px;
+        }
+        .box ul.city {
+          padding: 0;
+          margin: 70px 0 0;
+          list-style: none;
+        }
+        .box ul.city li {
+          overflow: hidden;
+          border: 1px solid #e5e5e5;
+          position: relative;
+        }
+        .box ul.city li > div.image {
+          width: 532px;
+          float: left;
+        }
+        .box ul.city li > div.content {
+          width: calc(100% - 532px);
+          float: left;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .box ul.city li > div.content p {
+          margin-top: 15px;
+        }
+        .box ul.city li:first-of-type {
+          margin-bottom: 80px;
+        }
+        .box ul.city li:first-of-type > div.content {
+          left: 664px;
+        }
+        .box ul.method {
+          list-style: none;
+          padding: 0;
+          margin: 50px 0;
+          overflow: hidden;
+        }
+        .box ul.method li {
+          width: 25%;
+          float: left;
+          text-align: center;
+        }
+        .box ul.method li .image {
+          margin-bottom: 35px;
+        }
+        .box ul.method li .image img.m-img {
+          display: none;
+        }
+        .box ul.method li .content {
+          position: relative;
+        }
+        .box ul.method li .content p {
+          color: #666;
+        }
+        .box ul.method li:first-of-type .content {
+          left: -20px;
+        }
+        .box ul.method li:nth-of-type(2) .content {
+          left: -7px;
+        }
+        .box ul.method li:nth-of-type(3) .content {
+          left: -3px;
+        }
+        .box ul.method li:last-of-type .content {
+          left: 20px;
+        }
+        .box ul.shop {
+          overflow: hidden;
+          margin: 0 -10px -30px;
+          padding: 0;
+        }
+        .box ul.shop li {
+          width: 14.28%;
+          float: left;
+          list-style: none;
+          margin-bottom: 30px;
+          padding: 0 10px;
+          text-align: center;
+        }
+        .box ul.card {
+          list-style: none;
+          padding: 0;
+          margin: 0 -5px 80px;
+          overflow: hidden;
+        }
+        .box ul.card li {
+          width: 20%;
+          float: left;
+          text-align: center;
+          padding: 0 5px;
+        }
+        .box ul.card li span {
+          font-size: 16px;
+          color: #333;
+          font-family: "S-CoreDream-5Medium";
+          display: block;
+          margin-top: 10px;
+        }
+        @media (max-width: 1450px) {
+          .box ul.method li .image img {
+            width: 100%;
+          }
+          .box ul.method li:first-of-type,
+          .box ul.method li:nth-of-type(2) {
+            margin-bottom: 40px;
+          }
+          .box ul.method li:first-of-type .content {
+            left: -6%;
+          }
+          .box ul.method li:nth-of-type(2) .content {
+            left: -3%;
+          }
+          .box ul.method li:nth-of-type(3) .content {
+            left: -1%;
+          }
+          .box ul.method li:last-of-type .content {
+            left: 5.5%;
+          }
+          .box ul.shop li img {
+            max-width: 100%;
+          }
+          .box ul.card li img {
+            max-width: 100%;
+          }
+        }
+        @media (max-width: 1350px) {
+          .box ul.city li > div.image {
+            width: 35%;
+          }
+          .box ul.city li > div.image img {
+            width: 100%;
+          }
+          .box ul.city li > div.content {
+            width: 65%;
+          }
+          .box ul.city li:first-of-type > div.content {
+            left: 41%;
+          }
+          .box ul.card li {
+            width: 33.33%;
+            margin-bottom: 20px;
+          }
+        }
+        @media (max-width: 1250px) {
+          .box ul.method {
+            margin: 0 0 30px;
+          }
+          .box ul.method li {
+            width: 50%;
+          }
+          .box ul.method li .image img.pc-img {
+            display: none;
+          }
+          .box ul.method li .image img.m-img {
+            display: inline-block;
+          }
+          .box ul.method li:first-of-type .content {
+            left: 3%;
+          }
+          .box ul.method li:nth-of-type(2) .content {
+            left: -6%;
+          }
+          .box ul.method li:nth-of-type(3) .content {
+            left: 2%;
+          }
+          .box ul.method li:last-of-type .content {
+            left: -6.5%;
+          }
+        }
+        @media (max-width: 991px) {
+          .box .con {
+            padding: 0 !important;
+          }
+          .box .con h3 {
+            font-size: 25px;
+          }
+          .box h4 {
+            font-size: 20px;
+          }
+          .box .con p.text {
+            font-size: 15px;
+          }
+          .box .con p.text br {
+            display: none;
+          }
+          .box ul.city li:first-of-type {
+            margin-bottom: 40px;
+          }
+          .box ul.city li > div.image {
+            width: 100%;
+          }
+          .box ul.city li > div.content {
+            width: 100%;
+            position: static;
+            transform: none;
+            padding: 0 5%;
+            margin: 50px 0;
+          }
+          .box ul.city li > div.content p br {
+            display: none;
+          }
+          .box ul.shop li {
+            width: 20%;
+          }
+          .box ul.card li span {
+            font-size: 14px;
+          }
+        }
+        @media (max-width: 767px) {
+          .box .con h3 {
+            font-size: 20px;
+            margin: 60px 0;
+          }
+
+          .box h4 {
+            font-size: 0.9rem;
+          }
+          .box ul.method li .content p {
+            font-size: 0.8rem;
+          }
+
+          .box .con p.text {
+            font-size: 13px;
+          }
+          .box ul.method li .image {
+            margin: 0 0 20px;
+          }
+          .box ul.shop {
+            margin: 0 - 5px -15px;
+          }
+          .box ul.shop li {
+            width: 33.33%;
+            margin-bottom: 10px;
+            padding: 0 5px;
+          }
+          .box ul.card {
+            margin: 0 -5px 60px;
+          }
+          .box ul.card li {
+            width: 50%;
+          }
+        }
+      </style>
+      <div class="box" style="padding:0;">
+        <ul class="city">
+          <li>
+            <div class="image">
+              <img
+                src="/img/info/m06_05_01_01.jpg"
+                class="hidden-sm hidden-xs"
+              />
+              <img
+                src="/img/info/mm06_05_01_01.jpg"
+                class="hidden-lg hidden-md"
+              />
+            </div>
+            <div class="content">
+              <h4>아이패스카드(iPASS)</h4>
+              <p>
+                아이패스카드는 한국의 티머니와 같이 ＂전국호환＂이 가능합니다.<br
+                />
+                버스, 지하철, 기차, 공공자전거, 나룻배 및 주차장에서 모두 사용이
+                가능하기<br />
+                때문에 거스름돈 받을 시간을 절약하고 할인된 가격으로 이용할 수 있습니다.<br
+                />
+                뿐만 아니라 전자화폐로도 사용할 수 있어 편리하게 쇼핑할 수 있습니다.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div class="con" style="padding:0;">
+          <h3>사용범위</h3>
+          <p class="text">
+            대만으로 취항하고 있는 국제선은 잘 정비되어 있으며, 현재 4개의
+            국제공항이 있다. 타이베이 송산 국제공항/ 타오위엔 국제공항/ 타이중
+            국제공항/ 가오슝 국제공항에서는 현재<br />
+            34개의 국제 항공사가 전세계 56개국으로 국제선을 운행하고 있으며, 중정공항에서
+            한국의 인천공항까지 약 2시간 30분이면 도착한다.<br />
+            아시아, 태평양 지역의 어느 대도시와 비교하더라도 대만을 쉽게 찾아 오고
+            편안한 여행을 할 수 있도록 모든 기본 설비들이 잘 갖추어져 있으며 편리한
+            교통 시스템을 갖추고 있다.
+          </p>
+          <ul class="method" style="margin:70px -15px 0;">
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_02.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_02.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>타이베이, 타오위안, 가오슝</h4>
+                <p>MRT</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_03.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_03.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>빠른 버스</h4>
+                <p>BRT</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_04.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_04.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>대만 모두 시내버스</h4>
+                <p>City Bus</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_05.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_05.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>대만 순환선 철도</h4>
+                <p>Taiwan Railway</p>
+              </div>
+            </li>
+          </ul>
+          <ul class="method" style="margin:70px -15px 0;">
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_06.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_06.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>공공자전거</h4>
+                <p>Public Bicycle</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_07.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_07.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>택시</h4>
+                <p>Taxi</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_08.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_08.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>고속도로 버스</h4>
+                <p>Shuttle Bus/Coach</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_09.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_09.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>나룻배</h4>
+                <p>Ferry</p>
+              </div>
+            </li>
+          </ul>
+          <ul class="method" style="margin:70px -15px 0;">
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_10.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_10.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>주차장</h4>
+                <p>Parking lot</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_11.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_11.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>관광 여행 명소</h4>
+                <p>Scenic Spot</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_12.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_12.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>도서관</h4>
+                <p>Library</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_13.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_13.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>정부 요금</h4>
+                <p>Government Fee</p>
+              </div>
+            </li>
+          </ul>
+          <h3>가맹점</h3>
+          <ul class="shop">
+            <li><img src="/img/info/shop1.jpg" /></li>
+            <li><img src="/img/info/shop2.jpg" /></li>
+            <li><img src="/img/info/shop3.jpg" /></li>
+            <li><img src="/img/info/shop4.jpg" /></li>
+            <li><img src="/img/info/shop5.jpg" /></li>
+            <li><img src="/img/info/shop6.jpg" /></li>
+            <li><img src="/img/info/shop7.jpg" /></li>
+            <li><img src="/img/info/shop8.jpg" /></li>
+            <li><img src="/img/info/shop9.jpg" /></li>
+            <li><img src="/img/info/shop10.jpg" /></li>
+            <li><img src="/img/info/shop11.jpg" /></li>
+            <li><img src="/img/info/shop12.jpg" /></li>
+            <li><img src="/img/info/shop13.jpg" /></li>
+            <li><img src="/img/info/shop14.jpg" /></li>
+          </ul>
+          <h3>카드구매처</h3>
+          <ul class="method" style="margin:70px -15px 0;">
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_14.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_14.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>타오위엔 국제공항</h4>
+                <p>(전자 티켓 연합 안내센터)</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_15.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_15.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>가오슝 국제공항</h4>
+                <p>(입국홀/금건여행사)</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_16.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_16.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>타이중 국제공항</h4>
+                <p>(입국홀/FLY COOL)</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_17.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_17.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>타이베이 메트로 안내처</h4>
+              </div>
+            </li>
+          </ul>
+          <ul class="method" style="margin:70px -15px 0;">
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_18.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_18.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>가오슝 메트로 안내처</h4>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_19.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_19.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>타이베이 안내센터</h4>
+                <p>(타이베이시청 환승역 1층)</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_20.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_20.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>아이패스 안내센터</h4>
+                <p>(타이중 환승역)</p>
+              </div>
+            </li>
+            <li>
+              <div class="image">
+                <img src="/img/info/m06_05_01_21.png" class="pc-img" />
+                <img src="/img/info/mm06_05_01_21.png" class="m-img" />
+              </div>
+              <div class="content">
+                <h4>편의점</h4>
+                <p>(7eleven/FamilyMartHi-Life/OK Mart)</p>
+              </div>
+            </li>
+          </ul>
+          <h3>종류</h3>
+          <ul class="card">
+            <li>
+              <img src="/img/info/etc1.jpg" />
+              <span>1일권 NTD 180</span>
+            </li>
+            <li>
+              <img src="/img/info/etc2.jpg" />
+              <span>2일권 NTD 310</span>
+            </li>
+            <li>
+              <img src="/img/info/etc3.jpg" />
+              <span>3일권 NTD 440</span>
+            </li>
+            <li>
+              <img src="/img/info/etc4.jpg" />
+              <span>5일권 NTD 700</span>
+            </li>
+            <li>
+              <img src="/img/info/etc5.jpg" />
+              <span>마오콩 케이블카 1일권 NTD 350</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,30 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual event">
+   <div class="sub_cate">
+     <div class="lt_cate">
+       <a href="/introduction/tourism_board" class="on">
+         <img src="/img/sub_lt_btn.png" />
+         관광청 소개
+       </a>
+     </div>
+     <div class="ct_cate">
+       <a class="on">
+         <strong>이벤트</strong>
+         <p>대만을 120% 즐길 수 있는 다양한 이벤트를 확인하고 참여해보세요!</p>
+       </a>
+     </div>
+     <div class="rt_cate">
+       <a href="/event/all" class="on">
+         <img src="/img/sub_rt_btn.png" />
+         이벤트
+       </a>
+     </div>
+   </div>
+ </div>
+ <!-- //서브페이지 공통 -->
+
+ <!-- 메인 컨텐츠 -->
 <div class="at-container">
-  <div class="page">
-    <h1>이벤트</h1>
-    <h2>다양한 이벤트를 확인하여 참여해보세요!</h2>
-  </div>
   <div class="view-wrap">
     <div class="sub_box">
       <div class="" />
@@ -49,10 +71,8 @@
     </div>
   </div>
 </div>
+<!-- //메인 컨텐츠 -->
 
-<div id="subGnb">
-
-</div>
 <style lang="scss">
   @import "/src/styles/variables.scss";
 </style>

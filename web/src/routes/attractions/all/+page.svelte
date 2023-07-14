@@ -72,33 +72,34 @@
   </div>
 </div>
 <div class="sub_menu">
-  <ul class="on">
+  <ul>
     <li class="on">
       <a href="/attractions/all"> 대만 명소 전체 </a>
     </li>
-    <li class="off">
+    <li>
       <a href="/attractions/northern"> 대만 북부 </a>
     </li>
-    <li class="off">
+    <li>
       <a href="/attractions/midwest"> 대만 중서부 </a>
     </li>
-    <li class="off">
+    <li>
       <a href="/attractions/eastern"> 대만 동부 </a>
     </li>
-    <li class="off">
+    <li>
       <a href="/attractions/south"> 대만 남부 </a>
     </li>
-    <li class="off">
+    <li>
       <a href="/attractions/island"> 대만의 섬 </a>
     </li>
   </ul>
 </div>
 <!-- //서브페이지 공통 -->
 
+
+<!-- 메인 컨텐츠 -->
 <div class="contain">
   <div class="attraction_wrap">
-    <div class="title">
-      <h1>대만 명소 이야기</h1>
+    <div class="page">
       <h2>꼭 가봐야하는 대만 핫플레이스</h2>
     </div>
     <div class="check_pop_up">
@@ -342,11 +343,12 @@
     </div>
     <div class="dimmed" />
   </div>
-  <div id="subGnb">
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
     <div class="img_box">
       <ul>
         <li>
-          <a href="/">
+          <a href="/event/all">
             <div class="thumb_img">
               <img src="/img/common/bottom_navi_img1.jpg" alt="" />
             </div>
@@ -361,7 +363,7 @@
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/introduction/tourism_board">
             <div class="thumb_img">
               <img src="/img/common/bottom_navi_img2.jpg" alt="" />
             </div>
@@ -376,12 +378,12 @@
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/themeTour/recreation">
             <div class="thumb_img">
               <img src="/img/common/bottom_navi_img3.jpg" alt="" />
             </div>
             <div class="txt_elm">
-              <strong>이벤트</strong>
+              <strong>테마 여행</strong>
               <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
             </div>
             <div class="over_txt">
@@ -391,7 +393,7 @@
           </a>
         </li>
         <li>
-          <a href="/">
+          <a href="/attractions/all">
             <div class="thumb_img">
               <img src="/img/common/bottom_navi_img4.jpg" alt="" />
             </div>
@@ -408,7 +410,9 @@
       </ul>
     </div>
   </div>
+  <!-- //Footer 네비게이션 -->
 </div>
+<!-- //메인 컨텐츠 -->
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
@@ -746,7 +750,7 @@
     }
 
     /* 타이틀 */
-    .title {
+    .page {
       padding: 130px 0 60px;
     }
 
@@ -757,8 +761,8 @@
 
     /* 지도 포인트 */
     .arrow_contain {
-      height: 72.4%;
-      top: 309px;
+      height: 76.6%;
+      top: 228px;
       position: absolute;
       z-index: 2;
       .item_cont {
@@ -944,7 +948,7 @@
     }
 
     /* 타이틀 */
-    .title {
+    .page {
       display: none;
     }
 

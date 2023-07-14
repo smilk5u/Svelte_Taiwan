@@ -1,22 +1,48 @@
-<div class="page">
-  <h1>이벤트</h1>
-  <h2>다양한 이벤트를 확인하여 참여해보세요!</h2>
+<!-- 서브페이지 공통 -->
+<div class="sub_visual event">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board" class="on">
+        <img src="/img/sub_lt_btn.png" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>이벤트</strong>
+        <p>대만을 120% 즐길 수 있는 다양한 이벤트를 확인하고 참여해보세요!</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all" class="on">
+        <img src="/img/sub_rt_btn.png" />
+        이벤트
+      </a>
+    </div>
+  </div>
 </div>
+<div class="sub_menu">
+  <ul>
+    <li>
+      <a href="/event/all">전체</a>
+    </li>
+    <li class="on">
+      <a href="/event/in_progress">진행중</a>
+    </li>
+    <li>
+      <a href="/event/end">종료</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
 
+<!-- 메인 컨텐츠 -->
 <div class="at-container sub-container">
+  <div class="page">
+    <h2>대만족 이벤트를 소개합니다</h2>
+  </div>
   <div class="at-content">
     <section class="board-list">
-      <ul class="tab tabs">
-        <li>
-          <a href="/event/all"> 전체보기 </a>
-        </li>
-        <li class="active">
-          <a href="/event/in_progress"> 진행중 이벤트 </a>
-        </li>
-        <li>
-          <a href="/event/end"> 종료된 이벤트 </a>
-        </li>
-      </ul>
       <div class="list-wrap">
         <form name="fboardlist" id="fboardlist" method="post" class="form">
           <div class="list-container">
@@ -54,48 +80,6 @@
                 </div>
               </div>
             </div>
-            <div class="list-row">
-              <div class="list-item">
-                <div class="imgframe">
-                  <div class="img-wrap">
-                    <div class="img-item">
-                      <a
-                        href="https://www.taiwantour.or.kr/bbs/board.php?bo_table=m07_01&amp;wr_id=41"
-                      >
-                        <img
-                          src="https://www.taiwantour.or.kr/data/file/m07_01/thumb-2887714919_DdzbIF1Z_f855f482bfd7ff99d7589a83090a3b1deac8d613_420x280.jpg"
-                          alt=""
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="list-content" style="position:relative;">
-                  <div class="list-subject">
-                    <a
-                      href="https://www.taiwantour.or.kr/bbs/board.php?bo_table=m07_01&amp;wr_id=41"
-                    >
-                      소원 댓글 이벤트
-                    </a>
-                  </div>
-                  <div class="list-txt hidden">
-                    #경품이벤트 산타오숑이에게 소원을 말해보숑~✨ 오숑이가 소원
-                    대신 아주 푸짐한 경품을 선물로 줄게✨ ✔이벤트 기간
-                    2021.12.20~2022.01.21 ✔이벤트 참여 방법 대만관광청 공식
-                    페이지를 팔로우하고 이벤트 게시물에 댓글 남기기 ✔이벤트 경품
-                    1)갤럭시 버즈 프로(15만원 상당)1개 *1명 2)신세계 상품권
-                    1만원권 *10명 3)스타벅스 카페아메리카노 Tall 1잔*15명
-                    ✔당첨자 발표 2022.01.25(월)
-                    인스타그램참여링크:대만족대만여행(@taiwantour_kr)•Instagram페이스북참여링크:대만족대만여행-게시물|
-                    Facebook 많은 참여 부탁해~~~~❤❤❤ #이벤트
-                    #이벤트경품#빙고이벤트#명소소개#크리스마스 #크리스마스이벤트
-                    #화이트크리스마스 #소원 #소원이벤트
-                    #추천이벤트#이벤트추천#태그이벤트#이벤트상품#백화점상품권
-                    #갤럭시버즈 #갤럭시버즈프로 #팔로워이벤트#
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </form>
       </div>
@@ -103,12 +87,10 @@
   </div>
 </div>
 
+<!-- //메인 컨텐츠 -->
+
 <style lang="scss">
   @import "/src/styles/variables.scss";
-  .hidden {
-    display: none !important;
-    visibility: hidden !important;
-  }
   .list-container {
     &:after {
       content: "";
@@ -118,9 +100,20 @@
     .list-row {
       float: left;
       width: 30%;
-      margin: 0 0 100px 5%;
+      margin: 0 0 5% 5%;
       &:nth-of-type(3n + 1) {
-        margin: 0 0 100px;
+        margin: 0 0 5%;
+      }
+      .imgframe {
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        img {
+          width: 100%;
+          display: block;
+        }
       }
       &.close_event {
         .list-item {
@@ -136,10 +129,20 @@
             background-color: rgba(0, 0, 0, 0.6);
           }
         }
-        .imgframe a {
-          width: 100%;
-          height: 100%;
-          display: block;
+      }
+    }
+  }
+
+  @include mobile {
+    .list-container {
+      .list-row {
+        width: 46.74479166666667%;
+        margin: 0 0 5vw 6.510416666666667%;
+        &:nth-of-type(3n + 1) {
+          margin: 0 0 5vw 6.510416666666667%;
+        }
+        &:nth-of-type(2n + 1) {
+          margin: 0 0 5vw;
         }
       }
     }
