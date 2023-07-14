@@ -1,36 +1,55 @@
 <!-- 서브페이지 공통 -->
 <div class="sub_visual info">
-  <strong>대만정보</strong>
-  <p>대만의 출입국 정보부터 역사, 날씨, 가이드북까지 체크해 보세요.</p>
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board">
+        <img src="/img/sub_lt_btn.png" alt="이전 슬라이드 화살표 이미지" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a href="/info/immigration_precautions">
+        <strong>대만정보</strong>
+        <p>출입국 정보부터 역사, 날씨, 가이드북까지</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all">
+        <img src="/img/sub_rt_btn.png" alt="다음 슬라이드 화살표 이미지" />
+        이벤트
+      </a>
+    </div>
+  </div>
 </div>
 <div class="sub_menu">
   <ul class="on">
-    <li class="off">
+    <li>
       <a href="/info/immigration_precautions">출입국 주의사항</a>
     </li>
-    <li class="off"><a href="/info/introduction">대만소개</a></li>
-    <li class="off"><a href="/info/festival">문화/역사</a></li>
-    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
-    <li class="off"><a href="/info/tourist_info">관광자료</a></li>
-    <li class="off"><a href="/info/transportation">대만 교통수단</a></li>
-    <li class="off">
+    <li><a href="/info/introduction">대만소개</a></li>
+    <li><a href="/info/festival">문화/역사</a></li>
+    <li><a href="/info/weather">대만의 날씨</a></li>
+    <li><a href="/info/tourist_info">관광자료</a></li>
+    <li><a href="/info/transportation">대만 교통수단</a></li>
+    <li>
       <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
         >가이드북</a
       >
     </li>
     <li class="on"><a href="/info/related_links">관련 링크</a></li>
-    <li class="off"><a href="/info/working_holiday">워홀</a></li>
-    <li class="off">
+    <li><a href="/info/working_holiday">워홀</a></li>
+    <li>
       <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
     </li>
   </ul>
 </div>
-<!-- //서브페이지 공통 --> 
+<!-- //서브페이지 공통 -->
 
-<div class="page">
-  <h2>대만 여행과 관련된 유용한 웹사이트 링크정보</h2>
-</div>
+<!-- 메인 컨텐츠 -->
 <div class="at-body">
+  <div class="page">
+    <h2>대만 여행과 관련된 유용한 웹사이트 링크정보</h2>
+  </div>
   <div class="at-container">
     <ul class="tab tabs">
       <li>
@@ -192,7 +211,77 @@
       </form>
     </div>
   </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+    <div class="img_box">
+      <ul>
+        <li>
+          <a href="/event/all">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img1.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>이벤트</strong>
+              <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img1.jpg" alt="" />
+              <span>당첨 도전하기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/introduction/tourism_board">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img2.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 관광청 소개</strong>
+              <p>대만 관광청에 대한 <br /> 모든 것</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img2.jpg" alt="" />
+              <span>관광청의 A to Z</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/themeTour/recreation">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img3.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>테마 여행</strong>
+              <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img3.jpg" alt="" />
+              <span>나와 맞는 여행찾기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/attractions/all">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img4.jpg" alt="" />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 명소</strong>
+              <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+            </div>
+            <div class="over_txt">
+              <img src="/img/common/botton_navi_over_img4.jpg" alt="" />
+              <span>여긴 꼭 가야해!</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- //Footer 네비게이션 -->
 </div>
+
+<!-- //메인 컨텐츠 -->
 
 <style>
   .list-board .list-body .thumb-icon a {

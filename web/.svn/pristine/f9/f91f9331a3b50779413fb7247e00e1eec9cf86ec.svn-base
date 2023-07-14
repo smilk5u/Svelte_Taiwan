@@ -3418,13 +3418,13 @@ li {
 
 .page {
   overflow: hidden;
-  padding: 50px 0 35px;
+  padding: 50px 0 30px;
 }
 
 .page h2 {
   text-align: center;
   color: #212529;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 600;
 }
 .page_list li {
@@ -3827,13 +3827,13 @@ main {
   text-align: center;
 }
 .sub_visual.themeTour {
-  background-image: url("/img/m02.jpg");
+  background-image: url("/img/m02.webp");
 }
 .sub_visual.attractions {
   background-image: url("/img/m03.jpg");
 }
 .sub_visual.introduction {
-  background-image: url("/img/m05.jpg");
+  background-image: url("/img/m05.webp");
 }
 .sub_visual.event {
   background-image: url("/img/m04.jpg");

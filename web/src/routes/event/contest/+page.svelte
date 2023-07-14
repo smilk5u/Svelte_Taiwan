@@ -1,9 +1,46 @@
-<div class="page">
-  <h1>여행사진 공모전</h1>
-  <h2>대만 여행의 추억을 담은 작품 공모전</h2>
+<!-- 서브페이지 공통 -->
+<div class="sub_visual event">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board" class="on">
+        <img src="/img/sub_lt_btn.png" alt="이전 슬라이드 화살표 이미지" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a href="/event/all">
+        <strong>이벤트</strong>
+        <p>대만을 120% 즐길 수 있는 다양한 이벤트를 확인하고 참여해보세요!</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all" class="on">
+        <img src="/img/sub_rt_btn.png" alt="다음 슬라이드 화살표 이미지" />
+        이벤트
+      </a>
+    </div>
+  </div>
 </div>
+<div class="sub_menu">
+  <ul>
+    <li>
+      <a href="/event/all">전체</a>
+    </li>
+    <li class="on">
+      <a href="/event/in_progress">진행중</a>
+    </li>
+    <li>
+      <a href="/event/end">종료</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
 
+<!-- 메인 컨텐츠 -->
 <div class="at-body">
+  <div class="page">
+    <h2>대만 여행의 추억을 담은 작품 공모전</h2>
+  </div>
   <div class="at-container">
     <ul class="tab tabs">
       <li class="active">
@@ -30,7 +67,10 @@
           </style>
           <div class="comp_page">
             <div class="event_bnr">
-              <img src="/img/event/event_tit_img_2006.jpg" alt="여행사진공모전" />
+              <img
+                src="/img/event/event_tit_img_2006.jpg"
+                alt="여행사진공모전"
+              />
             </div>
             <ul>
               <li>
@@ -216,7 +256,7 @@
                       않는 응모자의 응모작은 수상작 선정 대상에서 제외됩니다. (수상
                       결정 후, 수상 취소 포함)</span
                     >
-                  </li> 
+                  </li>
                   <li>
                     <span class="txt"
                       >어떠한 경우라도 타 공모전 입상작 및 모방작은 수상작 선정
@@ -297,7 +337,76 @@
       </div>
     </div>
   </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+   <div class="img_box">
+     <ul>
+       <li>
+         <a href="/event/all">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img1.jpg" alt="" />
+           </div>
+           <div class="txt_elm">
+             <strong>이벤트</strong>
+             <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+           </div>
+           <div class="over_txt">
+             <img src="/img/common/botton_navi_over_img1.jpg" alt="" />
+             <span>당첨 도전하기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/introduction/tourism_board">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img2.jpg" alt="" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 관광청 소개</strong>
+             <p>대만 관광청에 대한 <br /> 모든 것</p>
+           </div>
+           <div class="over_txt">
+             <img src="/img/common/botton_navi_over_img2.jpg" alt="" />
+             <span>관광청의 A to Z</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/themeTour/recreation">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img3.jpg" alt="" />
+           </div>
+           <div class="txt_elm">
+             <strong>테마 여행</strong>
+             <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+           </div>
+           <div class="over_txt">
+             <img src="/img/common/botton_navi_over_img3.jpg" alt="" />
+             <span>나와 맞는 여행찾기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/attractions/all">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img4.jpg" alt="" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 명소</strong>
+             <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+           </div>
+           <div class="over_txt">
+             <img src="/img/common/botton_navi_over_img4.jpg" alt="" />
+             <span>여긴 꼭 가야해!</span>
+           </div>
+         </a>
+       </li>
+     </ul>
+   </div>
+ </div>
+ <!-- //Footer 네비게이션 -->
 </div>
+<!-- //메인 컨텐츠 -->
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
