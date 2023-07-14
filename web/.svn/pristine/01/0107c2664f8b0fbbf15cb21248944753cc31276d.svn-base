@@ -1,0 +1,226 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual introduction">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/satisfact/all" class="on">
+        <img src="/img/sub_lt_btn.png" alt="이전 메뉴" />
+        프로대만족
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>관광청소개</strong>
+        <p>대만 관광청에 대해 소개해드립니다.</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/info/immigration_precautions" class="on">
+        <img src="/img/sub_rt_btn.png" alt="다음 메뉴" />
+        대만 정보
+      </a>
+    </div>
+  </div>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li>
+      <a href="/introduction/tourism_board"> 관광청 소개</a>
+    </li>
+    <li class="on">
+      <a href="/introduction/director_general"> 국장 소개</a>
+    </li>
+    <li>
+      <a href="/introduction/notice"> 공지사항</a>
+    </li>
+    <li>
+      <a href="/introduction/press_release"> 보도자료</a>
+    </li>
+    <li>
+      <a href="/introduction/korean_office"> 찾아오시는 길 (한국사무소)</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
+<div class="at-body">
+  <div class="at-container">
+    <div class="page-wrap">
+      <div class="amina-header">
+        <span class="header-breadcrumb pull-right text-muted">
+          <i class="fa fa-home" /> 홈 &gt; 관광청소개 &gt; 국장 소개
+        </span>
+        <div class="div-title-underbar font-18">
+          <span class="div-title-underbar-bold border-color">
+            <b>국장 소개</b>
+          </span>
+        </div>
+      </div>
+      <div class="page">
+        <h2>張錫聰(장석총) Shi-Chung Chang</h2>
+      </div>
+      <div class="intro">
+        <div class="lt_intro">
+          <img
+            src="/img/introduction/m05_03.png"
+            alt="張錫聰(장석총) Shi-Chung Chang"
+          />
+        </div>
+        <div class="rt_intro">
+          <div class="box">
+            <h3>현임</h3>
+            <ul>
+              <li>교통부 관광청 국장</li>
+              <li>대만 해협양안관광여행협회 부이사장</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>학력</h3>
+            <ul>
+              <li>국립중산대학 관리학원 공공사무관리연구소 석사</li>
+              <li>국립중흥대학 법학학원(타이베이대학 전신) 법률학 사법 전공</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>시험</h3>
+            <ul>
+              <li>1984년 경찰공무원 을급 행정경찰시험 합격</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h3>주요 경력</h3>
+            <ul>
+              <li>교통부 관광청 과장, 부조장, 조장, 주임비서, 부국장</li>
+              <li>난터우현정부 농업국 국장, 교통여행국 국장</li>
+              <li>따펑완 국가풍경관리처 부처장</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+
+  .amina-header {
+    line-height: 22px;
+    margin-bottom: 15px;
+  }
+  .amina-header .header-breadcrumb {
+    margin-top: 4px;
+  }
+  @media all and (max-width: 460px) {
+    .responsive .amina-header .header-breadcrumb {
+      display: none;
+    }
+  }
+
+  .intro {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 100px;
+  }
+  .intro > div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .intro > div.lt_intro {
+    width: 640px;
+  }
+  .intro > div.rt_intro {
+    width: calc(100% - 640px);
+    background: #f6f6f6;
+    padding-left: 100px;
+  }
+  .intro > div.rt_intro .box {
+    margin-bottom: 50px;
+  }
+  .intro > div.rt_intro .box:last-of-type {
+    margin-bottom: 0;
+  }
+  .intro > div.rt_intro .box h3 {
+    font-size: 30px;
+    font-family: "S-CoreDream-6Bold";
+    margin-bottom: 20px;
+  }
+  .intro > div.rt_intro .box ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .intro > div.rt_intro .box ul li {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .intro > div.rt_intro .box ul li:last-of-type {
+    margin-bottom: 0;
+  }
+  @media (max-width: 1400px) {
+    .intro > div.lt_intro {
+      width: 50%;
+    }
+    .intro > div.lt_intro img {
+      width: 100%;
+    }
+    .intro > div.rt_intro {
+      width: 50%;
+    }
+  }
+  @media (max-width: 1100px) {
+    .intro > div.rt_intro {
+      padding-left: 50px;
+    }
+  }
+  @media (max-width: 991px) {
+    .intro > div.rt_intro .box {
+      margin-bottom: 30px;
+    }
+    .intro > div.rt_intro .box h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    .intro > div.rt_intro .box ul li {
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 850px) {
+    .intro > div.lt_intro {
+      width: 100%;
+      display: block;
+    }
+    .intro > div.rt_intro {
+      width: 100%;
+      display: block;
+      padding: 50px 30px;
+    }
+    .intro > div.rt_intro .box {
+      margin-bottom: 30px;
+    }
+    .intro > div.rt_intro .box h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    .intro > div.rt_intro .box ul li {
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 500px) {
+    .intro > div.rt_intro {
+      padding: 30px 15px;
+    }
+    .intro > div.rt_intro .box {
+      margin-bottom: 20px;
+    }
+    .intro > div.rt_intro .box h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .intro > div.rt_intro .box ul li {
+      font-size: 13px;
+    }
+  }
+</style>

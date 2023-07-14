@@ -1,0 +1,647 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+   <div class="sub_cate">
+     <div class="lt_cate">
+       <a href="/introduction/tourism_board" title="관광청 소개 바로가기">
+         <img src="/img/common/sub_lt_btn.png" alt="이전 메뉴" />
+         관광청 소개
+       </a>
+     </div>
+     <div class="ct_cate">
+       <a href="/info/immigration_precautions" title="대만정보 바로가기">
+         <strong>대만정보</strong>
+         <p>대만의 출입국 정보부터 역사, 날씨, 가이드북까지 체크해 보세요.</p>
+       </a>
+     </div>
+     <div class="rt_cate">
+       <a href="/event/all" title="이벤트 바로가기">
+         <img src="/img/common/sub_rt_btn.png" alt="다음 메뉴" />
+         이벤트
+       </a>
+     </div>
+   </div>
+ </div>
+ <div class="sub_menu">
+   <ul>
+     <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
+     <li><a href="/info/introduction">대만소개</a></li>
+     <li><a href="/info/festival">문화/역사</a></li>
+     <li><a href="/info/weather">대만의 날씨</a></li>
+     <li><a href="/info/tourist_info">관광자료</a></li>
+     <li class="on"><a href="/info/transportation">대만 교통수단</a></li>
+     <li>
+       <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+         >가이드북</a
+       >
+     </li>
+     <li><a href="/info/related_links">관련 링크</a></li>
+     <li><a href="/info/working_holiday">워홀</a></li>
+     <li>
+       <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+     </li>
+   </ul>
+ </div>
+ <!-- //서브페이지 공통 -->
+
+<!-- 메인 컨텐츠 -->
+<div class="at-body">
+  <div class="page">
+    <h2>대만 지도 및 교통 안내의 모든 것</h2>
+  </div>
+  <ul class="tab">
+    <li><a href="/info/iPASS">iPASS</a></li>
+    <li class="active"><a href="/info/taipei_pass">Taipei Pass</a></li>
+    <li><a href="/info/easy_card">Easy Card</a></li>
+  </ul>
+  <div class="at-container">
+    <div class="tab_content">
+      <div class="culture">
+        <ul class="box step1">
+          <li>
+            <div class="name">
+              <h3>타이베이패스</h3>
+            </div>
+            <div class="content">
+              <p class="text">
+                타이베이 패스 구매 시, 사용일수에 관계없이 타이베이 패스 매뉴얼
+                1부를 증정해 드립니다.<br />
+                (한정된 수량으로 인해 선착순 증정)
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="name">
+              <h3>이용방법</h3>
+            </div>
+            <div class="content">
+              <p class="text">
+                버스의 결제 단말기 또는 지하철 출입구 게이트에 처음으로 태그하는
+                시점부터 <br />
+                사용 유효기간 동안 타이베이[台北], 신베이시[新北] 시내 버스(「대만하오싱[台灣好行]」의
+                <br />
+                베이터우 주즈후 노선, 무자핑시 노선, 황관 북해안 및 황금 푸룽 노선
+                포함) 및 지하철을 <br />
+                무제한 이용할 수 있습니다. 마오콩 케이블카 1일권의 경우, 케이블카
+                무제한 탑승이 가능합니다. <br />
+                카드를 결제 단말기의 「이지카드 라벨」이 표시된 센서에 가볍게 갖다
+                대면 즐거운 타이베이 여행을 <br />
+                바로 시작할 수 있습니다.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="name">
+              <h3>구매처</h3>
+            </div>
+            <div class="content">
+              <p class="text">
+                이자카드 타이베이역 고객서비스센터, 타이베이 지하철 역사 내 안내
+                데스크
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="name">
+              <h3>주의사항</h3>
+            </div>
+            <div class="content">
+              <p class="text">
+                4자리 노선번호의 광역여객버스는 사용이 불가합니다.
+              </p>
+            </div>
+          </li>
+          <li>
+            <div class="name">
+              <h3>기타문의</h3>
+            </div>
+            <div class="content">
+              <p class="text">
+                이자카드사 고객서비스 핫라인 : <span>02-412-8880</span>
+                <br />
+                타이베이 지하철 고객서비스 대표 번호 : <span>02-218-12345</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div class="box step2">
+          <h3>혜택</h3>
+          <div class="con">
+            <ul class="method">
+              <li>
+                <div class="image">
+                  <img src="/img/info/m06_05_02_01.png" class="pc-img" alt="최고 60% 할인 티켓 아이콘" />
+                  <img src="/img/info/mm06_05_02_01.png" class="m-img" alt="최고 60% 할인 티켓 아이콘" />
+                </div>
+                <div class="content">
+                  <h4>최고 60% 할인</h4>
+                  <p>
+                    관광 카드와 관광 명소 및<br />
+                    교통 수단을 결합하여 여행 경비의<br />
+                    최대 60 %를 절약하세요.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="image">
+                  <img src="/img/info/m06_05_02_02.png" class="pc-img" alt="관광 명소 티켓 아이콘" />
+                  <img src="/img/info/mm06_05_02_02.png" class="m-img" alt="관광 명소 티켓 아이콘" />
+                </div>
+                <div class="content">
+                  <h4>관광 명소 티켓 포함</h4>
+                  <p>
+                    타이베이 101 전망대, 궁전 박물관 등<br />
+                    16 개의 티켓이 포함되어 있어 타이페이의<br />
+                    유명한 관광 명소를 탐험하기 좋습니다.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="image">
+                  <img src="/img/info/m06_05_02_03.png" class="pc-img" alt="버스 아이콘" />
+                  <img src="/img/info/mm06_05_02_03.png" class="m-img" alt="버스 아이콘" />
+                </div>
+                <div class="content">
+                  <h4>대중교통 무제한 탑승</h4>
+                  <p>
+                    유효 기간 동안 타이페이<br />
+                    MRT와 버스로 5개의 대만 명소를<br />
+                    무제한 이동 가능 합니다.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="image">
+                  <img src="/img/info/m06_05_02_04.png" class="pc-img" alt="쇼핑 할인 혜택 아이콘" />
+                  <img src="/img/info/mm06_05_02_04.png" class="m-img" alt="쇼핑 할인 혜택 아이콘" />
+                </div>
+                <div class="content">
+                  <h4>쇼핑 할인 혜택</h4>
+                  <p>
+                    카드를 사용해 수백 개의 상점에서<br />
+                    할인 혜택을 받으실 수 있습니다.
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <h3>22개의 주요 관광지 티켓</h3>
+            <ul class="ticket">
+              <li>
+                <img src="/img/info/ticket1.jpg" alt="타이페이101" />
+                <span>타이페이101</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket2.jpg" alt="고궁박물관" />
+                <span>고궁박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket3.jpg" alt="스린공식거주지" />
+                <span>스린공식거주지</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket4.jpg" alt="미라마엔터테인먼트파크" />
+                <span>미라마엔터테인먼트파크</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket5.jpg" alt="켓케어 케이블카" />
+                <span>켓케어 케이블카</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket6.jpg" alt="타이베이시 동물원" />
+                <span>타이베이시 동물원</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket7.jpg" alt="어린이천국" />
+                <span>어린이천국</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket8.jpg" alt="포켓박물관" />
+                <span>포켓박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket9.jpg" alt="천문학 교육센터" />
+                <span>천문학 교육센터</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket10.jpg" alt="대만 국립과학교육센터" />
+                <span>대만 국립과학교육센터</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket11.jpg" alt="타이베이 미술관" />
+                <span>타이베이 미술관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket12.jpg" alt="타이베이 현대미술박물관" />
+                <span>타이베이 현대미술박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket13.jpg" alt="신베이시13라인박물관" />
+                <span>신베이시13라인박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket14.jpg" alt="린벤위안가든" />
+                <span>린벤위안가든</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket15.jpg" alt="금 박물관" />
+                <span>금 박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket16.jpg" alt="담수 고대박물관" />
+                <span>담수 고대박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket17.jpg" alt="담수 부두" />
+                <span>담수 부두</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket18.jpg" alt="주밍미술관" />
+                <span>주밍미술관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket19.jpg" alt="예류지질공원" />
+                <span>예류지질공원</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket20.jpg" alt="피스 아일랜드파크" />
+                <span>피스 아일랜드파크</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket21.jpg" alt="폴 스카이 라이트 박물관" />
+                <span>폴 스카이 라이트 박물관</span>
+              </li>
+              <li>
+                <img src="/img/info/ticket22.jpg" alt="국립 해양 과학기술 박물관" />
+                <span>국립 해양 과학기술 박물관</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+   <div class="img_box">
+     <ul>
+       <li>
+         <a href="/event/all" title="이벤트 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img1.jpg" alt="이벤트" />
+           </div>
+           <div class="txt_elm">
+             <strong>이벤트</strong>
+             <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img1.jpg"
+               alt="당첨 도전하기"
+             />
+             <span>당첨 도전하기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a
+           href="/introduction/tourism_board"
+           title="대만 관광청 소개 바로가기"
+         >
+           <div class="thumb_img">
+             <img
+               src="/img/common/bottom_navi_img2.jpg"
+               alt="대만 관광청 소개"
+             />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 관광청 소개</strong>
+             <p>대만 관광청에 대한 <br /> 모든 것</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img2.jpg"
+               alt="관광청의 A to Z"
+             />
+             <span>관광청의 A to Z</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/themeTour/recreation" title="테마 여행 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img3.jpg" alt="테마 여행" />
+           </div>
+           <div class="txt_elm">
+             <strong>테마 여행</strong>
+             <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img3.jpg"
+               alt="나와 맞는 여행찾기"
+             />
+             <span>나와 맞는 여행찾기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/attractions/all" title="대만명소 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img4.jpg" alt="대만 명소" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 명소</strong>
+             <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img4.jpg"
+               alt="여긴 꼭 가야해!"
+             />
+             <span>여긴 꼭 가야해!</span>
+           </div>
+         </a>
+       </li>
+     </ul>
+   </div>
+ </div>
+  <!-- //Footer 네비게이션 -->
+</div>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .at-body {
+    .at-container {
+      margin: 0 auto;
+    }
+  }
+
+  .tab {
+    padding: 0 5.20833vw;
+  }
+
+  .culture .box.step1 {
+    max-width: 1430px;
+    margin: 0 auto;
+    padding: 0 15px;
+    list-style: none;
+  }
+  .culture .box.step1 > li {
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+  }
+  .culture .box.step1 > li:last-of-type {
+    margin-bottom: 0;
+  }
+  .culture .box.step1 > li .name {
+    width: calc(100% - 800px);
+    float: left;
+  }
+  .culture .box.step1 > li .name h3 {
+    font-size: 27px;
+    position: relative;
+    padding-top: 20px;
+  }
+  .culture .box.step1 > li .name h3:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 25px;
+    height: 3px;
+    background: #ff7200;
+  }
+  .culture .box.step1 > li .content {
+    width: 800px;
+    float: left;
+  }
+  .culture .box.step1 > li .content ol {
+    overflow: hidden;
+  }
+  .culture .box.step1 > li .content ol li {
+    list-style: none;
+  }
+  .culture .box.step1 > li .content ol.half li {
+    width: 50%;
+    float: left;
+  }
+  .culture .box.step1 > li .content ol.half li:first-of-type {
+    padding-right: 10px;
+  }
+  .culture .box.step1 > li .content ol.half li:last-of-type {
+    padding-left: 10px;
+  }
+  .culture .box.step1 > li .content p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .culture .box.step1 > li .content p span {
+    color: #ff7200;
+  }
+  .culture .box.step2 {
+    padding: 0;
+  }
+  .culture .box.step2 h3 {
+    text-align: center;
+    font-size: 27px;
+    margin: 100px 0;
+  }
+  .culture .con ul.method {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 50px;
+    overflow: hidden;
+  }
+  .culture .con ul.method li {
+    width: 25%;
+    float: left;
+    text-align: center;
+  }
+  .culture .con ul.method li .image {
+    margin-bottom: 35px;
+  }
+  .culture .con ul.method li .image img.m-img {
+    display: none;
+  }
+  .culture .con ul.method li .content {
+    position: relative;
+  }
+  .culture .con ul.method li:first-of-type .content {
+    left: -20px;
+  }
+  .culture .con ul.method li:nth-of-type(2) .content {
+    left: -7px;
+  }
+  .culture .con ul.method li:nth-of-type(3) .content {
+    left: 0;
+  }
+  .culture .con ul.method li:last-of-type .content {
+    left: 13px;
+  }
+  .culture .con ul.ticket {
+    list-style: none;
+    padding: 0;
+    margin: 0 -17px;
+    overflow: hidden;
+  }
+  .culture .con ul.ticket li {
+    width: 33.33%;
+    float: left;
+    position: relative;
+    padding: 0 17px;
+    text-align: center;
+    margin-bottom: 3.5%;
+  }
+  .culture .con ul.ticket li img {
+    max-width: 100%;
+  }
+  .culture .con ul.ticket li span {
+    position: absolute;
+    left: 45px;
+    bottom: 25px;
+    color: #fff;
+    font-size: 18px;
+  }
+  @media (max-width: 1450px) {
+    .culture .con ul.method {
+      margin: 0 -10px 50px;
+    }
+    .culture .con ul.method li .image img {
+      width: 100%;
+    }
+    .culture .con ul.method li .content p {
+      padding: 0 5px;
+    }
+    .culture .con ul.method li:first-of-type,
+    .culture .con ul.method li:nth-of-type(2) {
+      margin-bottom: 40px;
+    }
+    .culture .con ul.method li:first-of-type .content {
+      left: -6%;
+    }
+    .culture .con ul.method li:nth-of-type(2) .content {
+      left: -3%;
+    }
+    .culture .con ul.method li:nth-of-type(3) .content {
+      left: -1%;
+    }
+    .culture .con ul.method li:last-of-type .content {
+      left: 5.5%;
+    }
+  }
+  @media (max-width: 1250px) {
+    .culture .con ul.method {
+      margin: 0 -30px 30px;
+    }
+    .culture .con ul.method li {
+      width: 50%;
+    }
+    .culture .con ul.method li .image img.pc-img {
+      display: none;
+    }
+    .culture .con ul.method li .image img.m-img {
+      display: inline-block;
+    }
+    .culture .con ul.method li .content {
+      padding: 0 10px;
+    }
+    .culture .con ul.method li:first-of-type .content {
+      left: 3%;
+    }
+    .culture .con ul.method li:nth-of-type(2) .content {
+      left: -6%;
+    }
+    .culture .con ul.method li:nth-of-type(3) .content {
+      left: 2%;
+    }
+    .culture .con ul.method li:last-of-type .content {
+      left: -6.5%;
+    }
+  }
+  @media (max-width: 1100px) {
+    .culture .box.step1 > li {
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+    }
+    .culture .box.step1 > li .name {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+    .culture .box.step1 > li .content {
+      width: 100%;
+    }
+  }
+  @media (max-width: 991px) {
+    .culture .box {
+      padding: 0 !important;
+    }
+    .culture .box.step1 > li .name h3 {
+      font-size: 25px;
+    }
+    .culture .box.step1 > li .content ol li img {
+      width: 100%;
+    }
+    .culture .box.step1 > li .content p {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    .culture .box.step1 > li .content p br {
+      display: none;
+    }
+    .culture .box.step2 h3 {
+      font-size: 25px;
+    }
+    .culture .con ul.method li .content p br {
+      display: none;
+    }
+    .culture .con ul.ticket {
+      margin: 0 -5px 50px;
+    }
+    .culture .con ul.ticket li {
+      padding: 0 5px;
+      margin-bottom: 10px;
+    }
+    .culture .con ul.ticket li span {
+      left: 20px;
+      bottom: 10px;
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 767px) {
+    .culture .box.step1 > li .name h3 {
+      font-size: 20px;
+    }
+    .culture .box.step1 > li .content p {
+      font-size: 13px;
+      margin-top: 15px;
+    }
+    .culture .box.step2 h3 {
+      font-size: 20px;
+      margin: 60px 0;
+    }
+    .culture .con ul.method li .image {
+      margin: 0 0 20px;
+    }
+    .culture .con ul.ticket li {
+      width: 50%;
+    }
+    .box ul.method li .content h4 {
+      font-size: 0.9rem;
+    }
+    .box ul.method li .content p {
+      font-size: 0.8rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .culture .box.step1 {
+      margin-top: 70px;
+    }
+    .culture .con ul.ticket li span {
+      font-size: 13px;
+      left: 10px;
+      bottom: 5px;
+    }
+  }
+</style>
