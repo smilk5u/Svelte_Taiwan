@@ -1,9 +1,21 @@
 <script>
   import { onMount } from "svelte";
+  onMount(() => {
+    const mapArrow = document.querySelectorAll(".map_arrow");
+    console.log(mapArrow);
 
+    gsap.to(mapArrow, 1, {
+      rotate: 50,
+      repeat: -1,
+      yoyo: true,
+      ease: Power2.easeInOut,
+    });
+  });
+
+  /* 알림창 닫기 */
   const closeCheckPopup = () => {
     const checkPopUp = document.querySelector(".check_pop_up");
-    checkPopUp?.classList.add("closed");
+    checkPopUp.classList.add("closed");
     gsap.to(checkPopUp, 0.5, {
       opacity: 0,
       display: "none",
@@ -11,15 +23,11 @@
     });
   };
 
-  onMount(() => {
-    const popupCloseBtn = document.querySelector("#popupCloseBtn");
-    const dimmed = document.querySelector(".dimmed");
-  });
-
-  /* 클릭시 해당 엘리먼트 가져오기 */
+  /* 팝업 오픈 Popup Open */
   const openPopup = (data) => {
     const content = data.srcElement.nextElementSibling;
     const dimmed = document.querySelector(".dimmed");
+    data.srcElement.parentNode.classList.add("active");
     gsap.to(content, 0.5, {
       opacity: 1,
       display: "block",
@@ -31,9 +39,15 @@
       ease: Power2.easeOut,
     });
   };
+
+  /* 팝업 닫힘 Popup Close */
   const closePopup = (data) => {
     const content = data.srcElement.parentNode;
     const dimmed = document.querySelector(".dimmed");
+    /* .5초 후에 active remove */
+    setTimeout(function () {
+      data.srcElement.parentNode.parentNode.classList.remove("active");
+    }, 500);
 
     gsap.to(content, 0.5, {
       opacity: 0,
@@ -52,19 +66,19 @@
 <div class="sub_visual attractions">
   <div class="sub_cate">
     <div class="lt_cate">
-      <a href="/themeTour/recreation" class="on">
+      <a href="/themeTour/recreation" title="테마여행 바로가기">
         <img src="/img/common/sub_lt_btn.png" alt="이전 메뉴" />
         테마여행
       </a>
     </div>
     <div class="ct_cate">
-      <a class="on">
+      <a href="/attractions/all" title="대만 명소 바로가기">
         <strong>대만 명소</strong>
         <p>지금 대만에서 가장 핫한 지역별 다양한 명소</p>
       </a>
     </div>
     <div class="rt_cate">
-      <a href="/golf" class="on">
+      <a href="/golf" title="대만 골프 바로가기">
         <img src="/img/common/sub_rt_btn.png" alt="다음 메뉴" />
         대만 골프
       </a>
@@ -73,24 +87,12 @@
 </div>
 <div class="sub_menu">
   <ul>
-    <li class="on">
-      <a href="/attractions/all"> 대만 명소 전체 </a>
-    </li>
-    <li>
-      <a href="/attractions/northern"> 대만 북부 </a>
-    </li>
-    <li>
-      <a href="/attractions/midwest"> 대만 중서부 </a>
-    </li>
-    <li>
-      <a href="/attractions/eastern"> 대만 동부 </a>
-    </li>
-    <li>
-      <a href="/attractions/south"> 대만 남부 </a>
-    </li>
-    <li>
-      <a href="/attractions/island"> 대만의 섬 </a>
-    </li>
+    <li class="on"><a href="/attractions/all"> 대만 명소 전체 </a></li>
+    <li><a href="/attractions/northern"> 대만 북부 </a></li>
+    <li><a href="/attractions/midwest"> 대만 중서부 </a></li>
+    <li><a href="/attractions/eastern"> 대만 동부 </a></li>
+    <li><a href="/attractions/south"> 대만 남부 </a></li>
+    <li><a href="/attractions/island"> 대만의 섬 </a></li>
   </ul>
 </div>
 <!-- //서브페이지 공통 -->
@@ -211,144 +213,144 @@
           </div>
         </div>
       </div>
+      <div class="arrow_contain">
+        <div class="item_cont">
+          <img
+            class="item_icon mo_elm"
+            src="/img/attractions/culture_icon2.png"
+            alt=""
+          />
+          <button
+            class="map_arrow"
+            type="button"
+            on:click={(data) => openPopup(data)}
+          />
+          <div class="elm_popup">
+            <b>대만족 섬 PICK!</b>
+            <strong>후시향</strong>
+            <p>
+              해변의 푸른 바닷물과 <br /> 하얀 백사장의 모래를 여유롭게 즐기기
+              <br /> 좋은 수려한 분위기의 명소
+            </p>
+            <a href="/"><em>섬</em>명소 더보기</a>
+            <button
+              type="button"
+              id="popupCloseBtn"
+              on:click={(data) => closePopup(data)}>닫기</button
+            >
+          </div>
+        </div>
+        <div class="item_cont">
+          <img
+            class="item_icon mo_elm"
+            src="/img/attractions/culture_icon5.png"
+            alt=""
+          />
+          <button
+            class="map_arrow"
+            type="button"
+            on:click={(data) => openPopup(data)}
+          />
+          <div class="elm_popup">
+            <b>대만족 중서부 PICK!</b>
+            <strong>메이산향</strong>
+            <p>
+              매화가 많이 피는 지역으로 <br />
+              수려한 경관을 자랑하며 <br />
+              전망 감상이 가능한 흔들다리 유명
+            </p>
+            <a href="/"><em>중서부</em>명소 더보기</a>
+            <button
+              type="button"
+              id="popupCloseBtn"
+              on:click={(data) => closePopup(data)}>닫기</button
+            >
+          </div>
+        </div>
+        <div class="item_cont">
+          <img
+            class="item_icon mo_elm"
+            src="/img/attractions/culture_icon3.png"
+            alt=""
+          />
+          <button
+            class="map_arrow"
+            type="button"
+            on:click={(data) => openPopup(data)}
+          />
+          <div class="elm_popup">
+            <b>대만족 남부 PICK!</b>
+            <strong>가오슝시</strong>
+            <p>
+              타이완에서 세번째로 큰 도시, <br />
+              옛 정취가 가득하며 객가의 문화를 <br />
+              엿볼 수 있는 지역
+            </p>
+            <a href="/"><em>남부</em>명소 더보기</a>
+            <button
+              type="button"
+              id="popupCloseBtn"
+              on:click={(data) => closePopup(data)}>닫기</button
+            >
+          </div>
+        </div>
+        <div class="item_cont">
+          <img
+            class="item_icon mo_elm"
+            src="/img/attractions/culture_icon4.png"
+            alt=""
+          />
+          <button
+            class="map_arrow"
+            type="button"
+            on:click={(data) => openPopup(data)}
+          />
+          <div class="elm_popup">
+            <b>대만족 북부 PICK!</b>
+            <strong>루이팡/지우펀</strong>
+            <p>
+              여행자 10대 인기 명소 중 하나로 <br />
+              편리한 교통과 볼거리를 제공하는 <br />
+              유명 관광지
+            </p>
+            <a href="/"><em>북부</em>명소 더보기</a>
+            <button
+              type="button"
+              id="popupCloseBtn"
+              on:click={(data) => closePopup(data)}>닫기</button
+            >
+          </div>
+        </div>
+        <div class="item_cont">
+          <img
+            class="item_icon mo_elm"
+            src="/img/attractions/culture_icon1.png"
+            alt=""
+          />
+          <button
+            class="map_arrow"
+            type="button"
+            on:click={(data) => openPopup(data)}
+          />
+          <div class="elm_popup">
+            <b>대만족 동부 PICK!</b>
+            <strong>청공진</strong>
+            <p>
+              타이동현에서 가장 웅장한 <br />
+              해안 경관을 보유한 명소로 <br />
+              원주민 아미족의 공연과 오렌지가 유명
+            </p>
+            <a href="/"><em>동부</em>명소 더보기</a>
+            <button
+              type="button"
+              id="popupCloseBtn"
+              on:click={(data) => closePopup(data)}>닫기</button
+            >
+          </div>
+        </div>
+        <div class="dimmed" />
+      </div>
     </div>
-    <div class="arrow_contain">
-      <div class="item_cont">
-        <img
-          class="item_icon mo_elm"
-          src="/img/attractions/culture_icon2.png"
-          alt=""
-        />
-        <button
-          class="map_arrow"
-          type="button"
-          on:click={(data) => openPopup(data)}
-        />
-        <div class="elm_popup">
-          <b>대만족 섬 PICK!</b>
-          <strong>후시향</strong>
-          <p>
-            해변의 푸른 바닷물과 <br /> 하얀 백사장의 모래를 여유롭게 즐기기
-            <br /> 좋은 수려한 분위기의 명소
-          </p>
-          <a href="/"><em>섬</em>명소 더보기</a>
-          <button
-            type="button"
-            id="popupCloseBtn"
-            on:click={(data) => closePopup(data)}>닫기</button
-          >
-        </div>
-      </div>
-      <div class="item_cont">
-        <img
-          class="item_icon mo_elm"
-          src="/img/attractions/culture_icon5.png"
-          alt=""
-        />
-        <button
-          class="map_arrow"
-          type="button"
-          on:click={(data) => openPopup(data)}
-        />
-        <div class="elm_popup">
-          <b>대만족 중서부 PICK!</b>
-          <strong>메이산향</strong>
-          <p>
-            매화가 많이 피는 지역으로 <br />
-            수려한 경관을 자랑하며 <br />
-            전망 감상이 가능한 흔들다리 유명
-          </p>
-          <a href="/"><em>중서부</em>명소 더보기</a>
-          <button
-            type="button"
-            id="popupCloseBtn"
-            on:click={(data) => closePopup(data)}>닫기</button
-          >
-        </div>
-      </div>
-      <div class="item_cont">
-        <img
-          class="item_icon mo_elm"
-          src="/img/attractions/culture_icon3.png"
-          alt=""
-        />
-        <button
-          class="map_arrow"
-          type="button"
-          on:click={(data) => openPopup(data)}
-        />
-        <div class="elm_popup">
-          <b>대만족 남부 PICK!</b>
-          <strong>가오슝시</strong>
-          <p>
-            타이완에서 세번째로 큰 도시, <br />
-            옛 정취가 가득하며 객가의 문화를 <br />
-            엿볼 수 있는 지역
-          </p>
-          <a href="/"><em>남부</em>명소 더보기</a>
-          <button
-            type="button"
-            id="popupCloseBtn"
-            on:click={(data) => closePopup(data)}>닫기</button
-          >
-        </div>
-      </div>
-      <div class="item_cont">
-        <img
-          class="item_icon mo_elm"
-          src="/img/attractions/culture_icon4.png"
-          alt=""
-        />
-        <button
-          class="map_arrow"
-          type="button"
-          on:click={(data) => openPopup(data)}
-        />
-        <div class="elm_popup">
-          <b>대만족 북부 PICK!</b>
-          <strong>루이팡/지우펀</strong>
-          <p>
-            여행자 10대 인기 명소 중 하나로 <br />
-            편리한 교통과 볼거리를 제공하는 <br />
-            유명 관광지
-          </p>
-          <a href="/"><em>북부</em>명소 더보기</a>
-          <button
-            type="button"
-            id="popupCloseBtn"
-            on:click={(data) => closePopup(data)}>닫기</button
-          >
-        </div>
-      </div>
-      <div class="item_cont">
-        <img
-          class="item_icon mo_elm"
-          src="/img/attractions/culture_icon1.png"
-          alt=""
-        />
-        <button
-          class="map_arrow"
-          type="button"
-          on:click={(data) => openPopup(data)}
-        />
-        <div class="elm_popup">
-          <b>대만족 동부 PICK!</b>
-          <strong>청공진</strong>
-          <p>
-            타이동현에서 가장 웅장한 <br />
-            해안 경관을 보유한 명소로 <br />
-            원주민 아미족의 공연과 오렌지가 유명
-          </p>
-          <a href="/"><em>동부</em>명소 더보기</a>
-          <button
-            type="button"
-            id="popupCloseBtn"
-            on:click={(data) => closePopup(data)}>닫기</button
-          >
-        </div>
-      </div>
-    </div>
-    <div class="dimmed" />
   </div>
   <!-- Footer 네비게이션 -->
   <div id="footerGnb">
@@ -424,7 +426,6 @@
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-
   .contain {
     background-color: #cdeaff;
   }
@@ -524,165 +525,14 @@
     z-index: 2;
   }
 
-  /* 지역 설명 아이템 */
-  .item_contain {
-    width: fit-content;
-    position: absolute;
-    text-align: right;
-    &.cont1 {
-      left: -152px;
-      top: 80px;
-      .link_element {
-        left: 12px;
-        &:before {
-          bottom: -7px;
-          right: -9px;
-          rotate: 39deg;
-        }
-      }
-    }
-    &.cont2 {
-      left: -107px;
-      top: 330px;
-      .link_element {
-        left: 13px;
-        &:before {
-          right: -20px;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-      }
-    }
-    &.cont3 {
-      left: -70px;
-      bottom: 27px;
-      .link_element {
-        left: 15px;
-        &:before {
-          top: 0;
-          right: -15px;
-          rotate: -30deg;
-        }
-      }
-    }
-    &.cont4 {
-      right: -20%;
-      top: 2%;
-      text-align: left;
-      .link_wrap {
-        .link_element {
-          left: -16px;
-          float: left;
-          &:before {
-            top: 0;
-            bottom: 0;
-            left: -18px;
-            margin: auto;
-            rotate: 180deg;
-          }
-        }
-      }
-    }
-    &.cont5 {
-      right: -138px;
-      bottom: 280px;
-      text-align: left;
-      .link_wrap {
-        /* left: -30px; */
-        .link_element {
-          left: -30px;
-          float: left;
-          &:before {
-            top: 0;
-            bottom: 0;
-            left: -18px;
-            margin: auto;
-            rotate: 180deg;
-          }
-        }
-      }
-    }
-    .link_wrap {
-      width: 100%;
-      &:after {
-        content: "";
-        display: block;
-        clear: both;
-      }
-      .link_element {
-        float: right;
-        position: relative;
-        padding: 13px 60px 13px 25px;
-        border-radius: 100px;
-        background-color: #fff;
-        span {
-          font-size: 22px;
-          color: #212529;
-          font-weight: $extraBold;
-        }
-        &:after,
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-        }
-        &:after {
-          width: 36px;
-          height: 36px;
-          top: 10px;
-          right: 12px;
-          background: url(/img/attractions/arrow_icon2.png) 50% 50% no-repeat;
-        }
-        &:before {
-          width: 22px;
-          height: 19px;
-          z-index: -1;
-          background: url(/img/attractions/map_icon3.png) 50% 50% no-repeat;
-        }
-        /* &:before {
-          width: 39px;
-          height: 39px;
-          bottom: -11px;
-          left: -30px;
-          background: url(/img/attractions/arrow_icon.png) 50% 50% no-repeat;
-        } */
-      }
-    }
-    .desc_elm {
-      padding: 15px 0 0;
-      strong {
-        font-size: 18px;
-        line-height: 20px;
-        b {
-          font-weight: $extraBold;
-          color: #ff7a00;
-        }
-        span {
-          color: #212529;
-        }
-      }
-      p {
-        padding: 10px 0 0;
-        font-family: $NotoSansKR;
-        font-size: 15px;
-        font-weight: $light;
-        color: #212529;
-      }
-    }
-  }
-
   /* 지도 포인트 */
   .arrow_contain {
     width: 100%;
-    height: 70.4%;
-    max-width: 828px;
+    height: 100%;
     position: absolute;
-    margin: 0 auto;
-    z-index: 1;
-    top: 248px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+
+    /* transform: translateX(-50%); */
     .item_cont {
       .elm_popup {
         display: none;
@@ -730,26 +580,222 @@
     }
   }
 
+  /* 지역 설명 아이템 */
+  .item_contain {
+    width: fit-content;
+    position: absolute;
+    text-align: right;
+    &.cont1 {
+      left: -152px;
+      top: 80px;
+      .link_element {
+        left: 12px;
+        &:before {
+          bottom: -7px;
+          right: -9px;
+          rotate: 39deg;
+        }
+      }
+      .desc_elm {
+        strong {
+          &:before {
+            top: -46px;
+            left: -15px;
+            rotate: 25deg;
+          }
+        }
+      }
+    }
+    &.cont2 {
+      left: -107px;
+      top: 330px;
+      .link_element {
+        left: 13px;
+        &:before {
+          right: -20px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+      .desc_elm {
+        strong {
+          &:before {
+            top: -34px;
+            left: -36px;
+          }
+        }
+      }
+    }
+    &.cont3 {
+      left: -11%;
+      bottom: 4%;
+      .link_element {
+        left: 15px;
+        &:before {
+          top: 0;
+          right: -15px;
+          rotate: -30deg;
+        }
+      }
+      .desc_elm {
+        strong {
+          &:before {
+            top: -46px;
+            left: -14px;
+            rotate: 28deg;
+          }
+        }
+      }
+    }
+    &.cont4 {
+      right: -22%;
+      top: 2%;
+      text-align: left;
+      .link_wrap {
+        .link_element {
+          left: -16px;
+          float: left;
+          &:before {
+            top: 0;
+            bottom: 0;
+            left: -18px;
+            margin: auto;
+            rotate: 180deg;
+          }
+        }
+      }
+      .desc_elm {
+        strong {
+          &:before {
+            top: -28px;
+            left: -33px;
+            rotate: 9deg;
+          }
+        }
+      }
+    }
+    &.cont5 {
+      bottom: 33%;
+      right: -19%;
+      text-align: left;
+      .link_wrap {
+        .link_element {
+          left: -30px;
+          float: left;
+          &:before {
+            top: 0;
+            bottom: 0;
+            left: -18px;
+            margin: auto;
+            rotate: 180deg;
+          }
+        }
+      }
+      .desc_elm {
+        strong {
+          &:before {
+            top: -22px;
+            left: -35px;
+          }
+        }
+      }
+    }
+    .link_wrap {
+      width: 100%;
+      &:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .link_element {
+        float: right;
+        position: relative;
+        padding: 13px 60px 13px 25px;
+        border-radius: 100px;
+        background-color: #fff;
+        span {
+          font-size: 22px;
+          color: #212529;
+          font-weight: $extraBold;
+        }
+        &:after,
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+        }
+        &:after {
+          width: 36px;
+          height: 36px;
+          top: 10px;
+          right: 12px;
+          background: url(/img/attractions/arrow_icon2.png) 50% 50% no-repeat;
+        }
+        &:before {
+          width: 22px;
+          height: 19px;
+          z-index: -1;
+          background: url(/img/attractions/map_icon3.png) 50% 50% no-repeat;
+        }
+      }
+    }
+    .desc_elm {
+      padding: 15px 0 0;
+      strong {
+        line-height: 20px;
+        position: relative;
+        &:before {
+          width: 39px;
+          height: 39px;
+          content: "";
+          display: block;
+          position: absolute;
+          top: -10px;
+          left: -36px;
+          background: url(/img/attractions/arrow_icon.png) 50% 50% no-repeat;
+        }
+        b {
+          font-weight: $extraBold;
+          color: #ff7a00;
+          font-size: 18px;
+        }
+        span {
+          color: #212529;
+          font-size: 18px;
+        }
+      }
+      p {
+        padding: 10px 0 0;
+        font-family: $NotoSansKR;
+        font-size: 15px;
+        font-weight: $light;
+        color: #212529;
+      }
+    }
+  }
+
   @include desktop {
+    /* Popup Dimmed (팝업 딤) */
+    .dimmed {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      transform: translateX(0);
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      opacity: 0;
+    }
+
     .pc_elm {
       display: none;
     }
     .mo_elm {
       display: block;
     }
-
-    /* Popup Dimmed (팝업 딤) */
-    .dimmed {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      background-color: rgba(0, 0, 0, 0.6);
-      top: 0;
-      left: 0;
-      z-index: 1;
-      display: none;
-    }
-
     /* 전체 페이지 */
     .attraction_wrap {
       .item_contain {
@@ -769,13 +815,12 @@
 
     /* 지도 포인트 */
     .arrow_contain {
-      height: 76.6%;
-      top: 228px;
       position: absolute;
       z-index: 2;
       .item_cont {
         .item_icon {
           position: absolute;
+          /* transition: all 0.2s; */
         }
         .elm_popup {
           width: 100%;
@@ -859,7 +904,7 @@
           }
           .elm_popup {
             top: 23%;
-            left: 16.7%;
+            left: 15.7%;
           }
         }
         &:nth-of-type(2) {
@@ -889,7 +934,7 @@
           .item_icon {
             width: 181px;
             height: 181px;
-            top: 52.5%;
+            top: 55.5%;
             left: 20%;
           }
           .elm_popup {
@@ -950,7 +995,7 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .attraction_wrap {
       padding: vw(34) 0 0;
     }
@@ -991,9 +1036,9 @@
 
     /* 지도 포인트 */
     .arrow_contain {
-      width: 100%;
-      height: 76%;
-      top: 17%;
+      /* width: 100%; */
+      /* height: 76%; */
+      /* top: 17%; */
       .item_cont {
         .item_icon {
           position: absolute;
@@ -1051,16 +1096,16 @@
           .item_icon {
             width: vw(72);
             height: vw(80);
-            top: 4.5%;
-            left: 20%;
+            top: 4.3%;
+            left: 19%;
           }
           .map_arrow {
-            top: 9%;
+            top: 8.5%;
             left: 20%;
           }
           .elm_popup {
-            top: 23%;
-            left: 0;
+            top: 24%;
+            left: 2%;
             &:after {
               left: 9.5%;
             }
@@ -1078,7 +1123,7 @@
             left: 37%;
           }
           .elm_popup {
-            top: 53%;
+            top: 55%;
             left: 0;
             &:after {
               left: 33.5%;
@@ -1097,8 +1142,8 @@
             bottom: 18%;
           }
           .elm_popup {
-            top: 4%;
-            left: 0;
+            top: -3%;
+            left: 3%;
             &:after {
               left: 19%;
               top: auto;
@@ -1118,8 +1163,8 @@
             right: 15%;
           }
           .elm_popup {
-            top: 26%;
-            left: 0;
+            top: 27%;
+            left: -3%;
             &:after {
               left: 80%;
             }
@@ -1137,8 +1182,8 @@
             bottom: 45%;
           }
           .elm_popup {
-            top: -7%;
-            left: 0;
+            top: -11.5%;
+            left: -2%;
             &:after {
               left: 73%;
               top: auto;
@@ -1153,8 +1198,8 @@
         background: url(/img/attractions/map_icon_mo.png) 50% 50% no-repeat;
         background-size: cover;
         position: absolute;
-        /* animation: motion 0.5s linear 0s infinite alternate; */
-        /* -webkit-animation: motion 0.5s linear 0s infinite alternate; */
+        /* animation: motion 0.5s linear 0s infinite alternate;
+        -webkit-animation: motion 0.5s linear 0s infinite alternate;
         @keyframes motion {
           0% {
             margin-top: 0;
@@ -1162,7 +1207,7 @@
           100% {
             margin-top: 10px;
           }
-        }
+        } */
       }
     }
   }

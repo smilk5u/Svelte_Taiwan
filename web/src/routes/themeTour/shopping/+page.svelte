@@ -1,26 +1,28 @@
 <!-- 서브페이지 공통 -->
 <div class="sub_visual themeTour">
-  <div class="sub_cate">
-    <div class="lt_cate">
-      <a href="/event/all">
-        <img src="/img/sub_lt_btn.png" alt="이전 슬라이드 화살표 이미지" />
-        이벤트
-      </a>
-    </div>
-    <div class="ct_cate">
-      <a href="/themeTour/recreation">
-        <strong>테마여행</strong>
-        <p>다양한 성향과 장소를 기반으로 테마별 최적의 여행지를 추천해 드립니다.</p>
-      </a>
-    </div>
-    <div class="rt_cate">
-      <a href="/attractions/all">
-        <img src="/img/sub_rt_btn.png" alt="다음 슬라이드 화살표 이미지" />
-        대만 명소
-      </a>
-    </div>
-  </div>
-</div>
+   <div class="sub_cate">
+     <div class="lt_cate">
+       <a href="/event/all" title="이벤트 바로가기">
+         <img src="/img/common/sub_lt_btn.png" alt="이전 메뉴" />
+         이벤트
+       </a>
+     </div>
+     <div class="ct_cate">
+       <a href="/themeTour/recreation" title="테마여행 바로가기">
+         <strong>테마여행</strong>
+         <p>
+           다양한 성향과 장소를 기반으로 테마별 최적의 여행지를 추천해 드립니다.
+         </p>
+       </a>
+     </div>
+     <div class="rt_cate">
+       <a href="/attractions/all" title="대만 명소 바로가기">
+         <img src="/img/common/sub_rt_btn.png" alt="다음 메뉴" />
+         대만 명소
+       </a>
+     </div>
+   </div>
+ </div>
 <div class="sub_menu">
   <ul>
     <li><a href="/themeTour/recreation"> 휴양 </a></li>
@@ -49,7 +51,7 @@
           <div class="lt">
             <img
               src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_YpUQmvhd_663c6ea91cdeb3d01078e743ba8cc3876b4cdfed_771x477.jpg"
-              alt=""
+              alt="신광 미스코시 백화점"
             />
           </div>
           <div class="rt">
@@ -68,7 +70,7 @@
           <div class="lt">
             <img
               src="https://www.taiwantour.or.kr/data/file/m08_01/thumb-2105653078_ghLrB06U_4c725c164753b68609c9714bbbfc630267891790_771x477.jpg"
-              alt=""
+              alt="소고 백화점"
             />
           </div>
           <div class="rt">
@@ -89,71 +91,89 @@
   </div>
   <!-- Footer 네비게이션 -->
   <div id="footerGnb">
-    <div class="img_box">
-      <ul>
-        <li>
-          <a href="/event/all">
-            <div class="thumb_img">
-              <img src="/img/common/bottom_navi_img1.jpg" alt="" />
-            </div>
-            <div class="txt_elm">
-              <strong>이벤트</strong>
-              <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
-            </div>
-            <div class="over_txt">
-              <img src="/img/common/botton_navi_over_img1.jpg" alt="" />
-              <span>당첨 도전하기</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/introduction/tourism_board">
-            <div class="thumb_img">
-              <img src="/img/common/bottom_navi_img2.jpg" alt="" />
-            </div>
-            <div class="txt_elm">
-              <strong>대만 관광청 소개</strong>
-              <p>대만 관광청에 대한 <br /> 모든 것</p>
-            </div>
-            <div class="over_txt">
-              <img src="/img/common/botton_navi_over_img2.jpg" alt="" />
-              <span>관광청의 A to Z</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/themeTour/recreation">
-            <div class="thumb_img">
-              <img src="/img/common/bottom_navi_img3.jpg" alt="" />
-            </div>
-            <div class="txt_elm">
-              <strong>테마 여행</strong>
-              <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
-            </div>
-            <div class="over_txt">
-              <img src="/img/common/botton_navi_over_img3.jpg" alt="" />
-              <span>나와 맞는 여행찾기</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/attractions/all">
-            <div class="thumb_img">
-              <img src="/img/common/bottom_navi_img4.jpg" alt="" />
-            </div>
-            <div class="txt_elm">
-              <strong>대만 명소</strong>
-              <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
-            </div>
-            <div class="over_txt">
-              <img src="/img/common/botton_navi_over_img4.jpg" alt="" />
-              <span>여긴 꼭 가야해!</span>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+   <div class="img_box">
+     <ul>
+       <li>
+         <a href="/event/all" title="이벤트 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img1.jpg" alt="이벤트" />
+           </div>
+           <div class="txt_elm">
+             <strong>이벤트</strong>
+             <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img1.jpg"
+               alt="당첨 도전하기"
+             />
+             <span>당첨 도전하기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a
+           href="/introduction/tourism_board"
+           title="대만 관광청 소개 바로가기"
+         >
+           <div class="thumb_img">
+             <img
+               src="/img/common/bottom_navi_img2.jpg"
+               alt="대만 관광청 소개"
+             />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 관광청 소개</strong>
+             <p>대만 관광청에 대한 <br /> 모든 것</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img2.jpg"
+               alt="관광청의 A to Z"
+             />
+             <span>관광청의 A to Z</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/themeTour/recreation" title="테마 여행 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img3.jpg" alt="테마 여행" />
+           </div>
+           <div class="txt_elm">
+             <strong>테마 여행</strong>
+             <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img3.jpg"
+               alt="나와 맞는 여행찾기"
+             />
+             <span>나와 맞는 여행찾기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/attractions/all" title="대만명소 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img4.jpg" alt="대만 명소" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 명소</strong>
+             <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img4.jpg"
+               alt="여긴 꼭 가야해!"
+             />
+             <span>여긴 꼭 가야해!</span>
+           </div>
+         </a>
+       </li>
+     </ul>
+   </div>
+ </div>
   <!-- //Footer 네비게이션 -->
 </div>
 <!-- //메인 컨텐츠 -->

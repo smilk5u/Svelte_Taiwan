@@ -1,200 +1,144 @@
 <script>
   import { onMount } from "svelte";
-  function schBoxOpen() {
-    const schBox = document.querySelector(".sch_box");
-    if (!schBox) return;
-
-    const schBtns = document.querySelectorAll(".sch_btn");
-    if (!schBtns) return;
-
-    const header = document.querySelector("header");
-    if (!header) return;
-
-    const mbHeader = document.querySelector(".mobile_header");
-    if (!mbHeader) return;
-
-    const gnb = document.querySelector(".gnb");
-    if (!gnb) return;
-    const blackBg = document.querySelector(".black_bg");
-    if (!blackBg) return;
-
-    const body = document.querySelector("body");
-    if (!body) return;
-
-    const menuBtn = document.querySelector(".menu_btn");
-    if (!menuBtn) return;
-
-    const mbLogo = document.querySelector(".mobile_header .logo");
-    if (!mbLogo) return;
-
-    schBtns.forEach((schBtn) => {
-      schBtn.classList.toggle("change");
-    });
-    schBox.classList.toggle("sch_show");
-    gnb.classList.toggle("gnb_show");
-    header.classList.toggle("width_wide");
-    mbHeader.classList.toggle("width_wide");
-    blackBg.classList.toggle("show");
-    body.classList.toggle("none_scroll");
-    menuBtn.classList.toggle("hide");
-    mbLogo.classList.toggle("hide");
-  }
-
-  function schBoxClose() {
-    const schBox = document.querySelector(".sch_box");
-    if (!schBox) return;
-
-    const schBtns = document.querySelectorAll(".sch_btn");
-    if (!schBtns) return;
-
-    const header = document.querySelector("header");
-    if (!header) return;
-
-    const mbHeader = document.querySelector(".mobile_header");
-    if (!mbHeader) return;
-
-    const gnb = document.querySelector(".gnb");
-    if (!gnb) return;
-    const blackBg = document.querySelector(".black_bg");
-    if (!blackBg) return;
-
-    const body = document.querySelector("body");
-    if (!body) return;
-
-    const menuBtn = document.querySelector(".menu_btn");
-    if (!menuBtn) return;
-
-    const mbLogo = document.querySelector(".mobile_header .logo");
-    if (!mbLogo) return;
-
-    schBtns.forEach((schBtn) => {
-      schBtn.classList.remove("change");
-    });
-    schBox.classList.remove("sch_show");
-    gnb.classList.remove("gnb_show");
-    header.classList.remove("width_wide");
-    mbHeader.classList.remove("width_wide");
-    blackBg.classList.remove("show");
-    body.classList.remove("none_scroll");
-    menuBtn.classList.remove("hide");
-    mbLogo.classList.remove("hide");
-  }
-
-  //tab 키
-  function pressTab(event) {
-    const subTabMenu = document.querySelector(".sub_menu");
-    if (!subTabMenu) return;
-
-    if (window.event.keyCode == 9) {
-      schBoxClose();
-      subTabMenu.focus();
-      gnb.classList.remove("gnb_show");
-    } else {
-      if (event.shiftKey) {
-        const hashTagLis = document.querySelector(".here");
-        hashTagLis.focus();
-      }
-    }
-  }
 
   onMount(async () => {
-    //검색창 열기
-
     //헤더 메뉴
     const gnbWrap = document.querySelector(".gnb_wrap");
     if (!gnbWrap) return;
 
-    const gnbMenus = document.querySelectorAll(".gnb_menu");
-    if (!gnbMenus) return;
+    const subMenus = document.querySelectorAll(".sub_menu");
+    if (!subMenus) return;
 
-    const gnbBg = document.querySelector(".gnb_bg");
-    if (!gnbBg) return;
+    const subBg = document.querySelector(".sub_bg");
+    if (!subBg) return;
 
     const headerWrap = document.querySelector(".header_wrap");
     if (!headerWrap) return;
 
+    const sch_btn = document.querySelector(".sch_btn");
+    if (!sch_btn) return;
+
+    const sch_btnSecond = document.querySelector(".sch_btn.second");
+    if (!sch_btnSecond) return;
+
     const logo = document.querySelector("header .logo");
     if (!logo) return;
 
-    const inputWrap = document.querySelector(".input_wrap");
-    if (!inputWrap) return;
-
-    function gnbMouseIn() {
-      gnbMenus.forEach(function (gnbMenu) {
-        gnbMenu.classList.add("list_show");
+    gnbWrap.addEventListener("mouseenter", function () {
+      subMenus.forEach(function (subMenu) {
+        subMenu.classList.add("list_show");
       });
       gnbWrap.classList.add("menu_active");
-      gnbBg.classList.add("menu_show");
-    }
-
-    gnbWrap.addEventListener("mouseenter", function () {
-      gnbMouseIn();
+      subBg.classList.add("menu_show");
     });
 
-    function gnbMouseOut() {
-      gnbMenus.forEach(function (gnbMenu) {
-        gnbMenu.classList.remove("list_show");
+    //tab키
+    gnbWrap.onkeydown = function () {
+      if (window.event.keyCode == 9) {
+        subBg.classList.add("menu_show");
+        subMenus.forEach(function (subMenu) {
+          subMenu.classList.add("list_show");
+        });
+      }
+    };
+
+    const ss = document.querySelector(".input_wrap input");
+    if (!ss) return;
+
+    sch_btn.addEventListener("keydown", function (event) {
+      if (event.key === "Tab") {
+        event.preventDefault(); // Tab 키의 기본 동작을 막음
+
+        subBg.classList.remove("menu_show");
+        subMenus.forEach(function (subMenu) {
+          subMenu.classList.remove("list_show");
+        });
+        schBox.classList.add("sch_show");
+        ss.focus();
+      }
+    });
+
+    logo.onkeydown = function () {
+      if (window.event.keyCode == 9) {
+        subBg.classList.remove("menu_show");
+        subMenus.forEach(function (subMenu) {
+          subMenu.classList.remove("list_show");
+        });
+      }
+    };
+
+    subBg.addEventListener("mouseleave", function () {
+      subMenus.forEach(function (subMenu) {
+        subMenu.classList.remove("list_show");
       });
       gnbWrap.classList.remove("menu_active");
-      gnbBg.classList.remove("menu_show");
-    }
-    gnbBg.addEventListener("mouseleave", function () {
-      gnbMouseOut();
+      subBg.classList.remove("menu_show");
     });
 
-    gnbMenus.forEach(function (gnbMenu) {
-      gnbMenu.addEventListener("click", function () {
-        gnbMouseOut();
+    const schBtns = document.querySelectorAll(".sch_btn");
+    if (!schBtns) return;
+    const closeBtn = document.querySelector(".close_btn");
+    if (!closeBtn) return;
+    const schBox = document.querySelector(".sch_box");
+    if (!schBox) return;
+    const schBtns2 = document.querySelectorAll(".sch_box .second");
+
+    schBtns.forEach(function (schBtn) {
+      schBtn.addEventListener("click", function () {
+        schBox.classList.add("sch_show");
+        schBtns2.forEach(function (btn) {
+          btn.classList.add("hide");
+        });
+        closeBtn.classList.add("show");
       });
+    });
+
+    closeBtn.addEventListener("click", function () {
+      schBox.classList.remove("sch_show");
+    });
+
+    const subMEnuOn = document.querySelector(".sdsd");
+    // if (!subMEnuOn) return;
+    const hash_tag = document.querySelector(".hash_tag li:last-child");
+    if (!hash_tag) return;
+
+    hash_tag.addEventListener("keydown", function () {
+      if (event.key === "Tab") {
+        alert("d");
+        subMEnuOn.focus();
+      }
     });
 
     //모바일 메뉴
-    const menuBtn = document.querySelector(".menu_btn");
-    if (!menuBtn) return;
-    const closeBtn = document.querySelector(".close_btn");
-    if (!closeBtn) return;
-    const mobilePanel = document.querySelector(".mobile_panel");
-    if (!mobilePanel) return;
+    const panelOpen = document.querySelector(".menu_ico");
+    if (!panelOpen) return;
+    const panelClose = document.querySelector(".bt-close");
+    if (!panelClose) return;
+    const siteFunctions = document.querySelector(".mobile_panel");
+    if (!siteFunctions) return;
     const body = document.querySelector("body");
     if (!body) return;
 
-    menuBtn.addEventListener("click", function () {
-      panelOpen();
+    panelOpen.addEventListener("click", function () {
+      gsap.to(siteFunctions, 0.5, { right: 0, ease: Power2.easeOut });
+      body.classList.add("none_scroll");
     });
 
-    function panelOpen() {
-      gsap.to(mobilePanel, 0.5, { right: 0, ease: Power2.easeOut });
-      body.classList.add("none_scroll");
-    }
-    function panelClose() {
-      gsap.to(mobilePanel, 0.5, { right: "-100%", ease: Power2.easeOut });
+    panelClose.addEventListener("click", function () {
+      gsap.to(siteFunctions, 0.5, { right: "-100%", ease: Power2.easeOut });
       body.classList.remove("none_scroll");
-    }
-
-    //윈도우 창 조절 시 모바일 패널 닫기
-    function checkWindowSize() {
-      if (window.innerWidth > 1280) {
-        panelClose();
-      }
-    }
-
-    // 윈도우 창 크기 변경 시 checkWindowSize 함수 호출
-    window.addEventListener("resize", checkWindowSize);
-
-    closeBtn.addEventListener("click", function () {
-      panelClose();
     });
 
     const menuLists = document.querySelectorAll(".mobile_panel .menu_list");
     if (!menuLists) return;
 
-    const twoDepths = document.querySelectorAll(".mobile_panel .two_depth");
-    if (!twoDepths) return;
+    const subLists = document.querySelectorAll(".mobile_panel .sub_list");
+    if (!subLists) return;
 
     menuLists.forEach(function (menuList, index) {
       menuList.addEventListener("click", function () {
-        twoDepths.forEach(function (twoDepth) {
-          twoDepth.classList.remove("current");
+        subLists.forEach(function (subList) {
+          subList.classList.remove("current");
         });
         menuLists.forEach(function (otherMenuList, otherIndex) {
           if (otherIndex !== index) {
@@ -202,64 +146,14 @@
           }
         });
         this.classList.add("on");
-        twoDepths[index].classList.add("current");
+        subLists[index].classList.add("current");
       });
     });
-
-    function goPage() {
-      gsap.to(mobilePanel, 0.5, { right: "-100%", ease: Power2.easeOut });
-      body.classList.remove("none_scroll");
-    }
-
-    twoDepths.forEach(function (twoDepth) {
-      twoDepth.addEventListener("click", function () {
-        goPage();
+    subLists.forEach(function (subList) {
+      subList.addEventListener("click", function () {
+        gsap.to(siteFunctions, 0.5, { right: "-100%", ease: Power2.easeOut });
+        body.classList.remove("none_scroll");
       });
-    });
-
-    //tab 키
-    gnbWrap.onkeydown = function () {
-      if (window.event.keyCode == 9) {
-        gnbBg.classList.add("menu_show");
-        gnbMenus.forEach(function (gnbMenu) {
-          gnbMenu.classList.add("list_show");
-        });
-      }
-    };
-
-    logo.onkeydown = function () {
-      if (window.event.keyCode == 9) {
-        gnbBg.classList.remove("menu_show");
-        gnbMenus.forEach(function (gnbMenu) {
-          gnbMenu.classList.remove("list_show");
-        });
-      }
-    };
-    const schBtns = document.querySelectorAll(".sch_btn");
-    if (!schBtns) return;
-
-    schBtns.forEach((schBtn) => {
-      schBtn.addEventListener("keydown", function (event) {
-        if (event.keyCode === 9) {
-          // Tab 키의 keyCode는 9입니다.
-          gnbBg.classList.remove("menu_show");
-          schBoxOpen();
-          gnbMenus.forEach(function (gnbMenu) {
-            gnbMenu.classList.remove("list_show");
-          });
-        }
-      });
-    });
-
-    const subTabMenu = document.querySelector(".sub_menu");
-    if (!subTabMenu) return;
-
-    subTabMenu.addEventListener("keydown", function (event) {
-      if (window.event.keyCode == 9) {
-      } else {
-        if (event.shiftKey) {
-        }
-      }
     });
   }); //전체
 </script>
@@ -268,13 +162,13 @@
 <header>
   <div class="header_wrap">
     <h1 class="logo">
-      <a href="/"><img src="/img/layout/logo.png" /></a>
+      <a href="/"><img src="/src/lib/images/logo.png" /></a>
     </h1>
     <div class="gnb_wrap">
       <ul class="gnb">
         <li class="">
-          <span>대만 정보</span>
-          <ul class="gnb_menu">
+          <a href="/">대만 정보</a>
+          <ul class="sub_menu">
             <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
             <li><a href="/info/introduction">대만소개</a></li>
             <li><a href="/info/festival">문화/역사</a></li>
@@ -296,16 +190,15 @@
           </ul>
         </li>
         <li class="">
-          <span>이벤트</span>
-          <ul class="gnb_menu">
-            <li><a href="/event/all">전체</a></li>
-            <li><a href="/event/contest">진행중</a></li>
-            <li><a href="/event/contest">종료</a></li>
+          <a href="/">이벤트</a>
+          <ul class="sub_menu">
+            <li><a href="/event/all">이벤트</a></li>
+            <li><a href="/event/contest">여행 사진 공모전</a></li>
           </ul>
         </li>
         <li class="">
-          <span>테마여행</span>
-          <ul class="gnb_menu">
+          <a href="/themeTour">테마여행</a>
+          <ul class="sub_menu">
             <li><a href="/themeTour/recreation">휴양</a></li>
             <li><a href="/themeTour/activity">액티비티</a></li>
             <li><a href="/themeTour/diners">식객</a></li>
@@ -319,8 +212,8 @@
           </ul>
         </li>
         <li class="">
-          <span>대만 명소</span>
-          <ul class="gnb_menu">
+          <a href="/">대만 명소</a>
+          <ul class="sub_menu">
             <li><a href="/attractions/all">전체</a></li>
             <li><a href="/attractions/northern">북부</a></li>
             <li><a href="/attractions/midwest">중서부</a></li>
@@ -330,14 +223,11 @@
           </ul>
         </li>
         <li class="">
-          <span>대만 골프</span>
-          <ul class="gnb_menu">
-            <li><a href="/golf">대만 골프</a></li>
-          </ul>
+          <a href="/golf">대만 골프</a>
         </li>
         <li class="">
-          <span>프로대만족</span>
-          <ul class="gnb_menu">
+          <a href="/">프로대만족</a>
+          <ul class="sub_menu">
             <li><a href="/satisfact/all">프로대만족 전체</a></li>
             <li><a href="/satisfact/magazine">월간 매거진</a></li>
             <li><a href="/satisfact/satisfact">프로대만족</a></li>
@@ -345,8 +235,8 @@
           </ul>
         </li>
         <li class="">
-          <span>관광청 소개</span>
-          <ul class="gnb_menu">
+          <a href="/">관광청 소개</a>
+          <ul class="sub_menu">
             <li><a href="/introduction/tourism_board">관광청 소개</a></li>
             <li><a href="/introduction/director_general">국장소개</a></li>
             <li><a href="/introduction/notice">공지사항</a></li>
@@ -356,14 +246,21 @@
         </li>
       </ul>
     </div>
-    <button class="sch_btn" on:click={schBoxOpen}>검색</button>
+    <a href="/" class="sch_btn">검색</a>
   </div>
-  <div class="gnb_bg" />
+  <div class="sub_bg" />
 </header>
 <div class="sch_box">
+  <div class="sch_box_top">
+    <h1 class="logo">
+      <a href="/"><img src="/src/lib/images/logo.png" /></a>
+    </h1>
+    <a href="/" class="sch_btn second">검색</a>
+    <a href="/" class="close_btn">닫기</a>
+  </div>
   <div class="sch_box_wrap">
     <form>
-      <div class="input_wrap">
+      <div class="input_wrap" tabindex="0">
         <input type="text" placeholder="검색어를 입력해주세요" />
         <a href="/" class="sch_btn_gray">검색</a>
       </div>
@@ -378,36 +275,32 @@
         <li><a href="/"># 액티비티</a></li>
         <li><a href="/"># 대만 핫플</a></li>
         <li><a href="/"># 대만 야시장</a></li>
-        <li><a href="/" tabindex="0" class="here"># 대만 포토존</a></li>
-        <li on:keydown={pressTab}><a href="/"># 대만교통</a></li>
+        <li><a href="/"># 대만 포토존</a></li>
+        <li><a href="/"># 대만교통</a></li>
       </ul>
     </div>
   </div>
 </div>
-<div class="black_bg" />
 <!-- //pc header -->
 
 <!-- mobile header -->
 <div class="mobile_header">
   <div class="mobile_header_top">
     <h1 class="logo">
-      <a href="/"><img src="/img/layout/logo.png" /></a>
+      <a href="/"><img src="/src/lib/images/logo.png" /></a>
     </h1>
-    <a href="/" class="sch_btn" on:click={schBoxOpen}>검색</a>
-    <div class="menu_btn" />
+    <a href="/" class="sch_btn">검색</a>
+    <div class="menu_ico" />
   </div>
 </div>
-<!-- //mobile header -->
-
-<!-- mobile panel -->
 <div class="mobile_panel">
   <div class="inner">
-    <div class="mobile_panel_top">
+    <div class="hd">
       <p>메뉴</p>
-      <a href="/" class="close_btn" />
+      <a href="/" class="bt-close" />
     </div>
-    <div class="mobile_panel_menu">
-      <ul class="one_depth">
+    <div class="menu_section">
+      <ul class="mobile_menu">
         <li class="menu_list on"><a href="/">대만 정보</a></li>
         <li class="menu_list"><a href="/">이벤트</a></li>
         <li class="menu_list"><a href="/">테마 여행</a></li>
@@ -426,8 +319,9 @@
           </ul>
         </div>
       </ul>
-      <div class="two_depth_wrap">
-        <ul class="two_depth current">
+
+      <div class="sub_list_wrap">
+        <ul class="sub_list current">
           <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
           <li><a href="/info/iintroduction">대만소개</a></li>
           <li><a href="/info/festival">문화/역사</a></li>
@@ -447,12 +341,11 @@
             >
           </li>
         </ul>
-        <ul class="two_depth">
-          <li><a href="/event/all">전체</a></li>
-          <li><a href="/event/contest">진행중</a></li>
-          <li><a href="/event/contest">종료</a></li>
+        <ul class="sub_list">
+          <li><a href="/event/all">이벤트</a></li>
+          <li><a href="/event/contest">여행 사진 공모전</a></li>
         </ul>
-        <ul class="two_depth">
+        <ul class="sub_list">
           <li><a href="/themeTour/recreation">휴양</a></li>
           <li><a href="/themeTour/activity">액티비티</a></li>
           <li><a href="/themeTour/diners">식객</a></li>
@@ -464,7 +357,7 @@
           <li><a href="/themeTour/culture">문화</a></li>
           <li><a href="/themeTour/night_market">야시장</a></li>
         </ul>
-        <ul class="two_depth">
+        <ul class="sub_list">
           <li><a href="/attractions/all">전체</a></li>
           <li><a href="/attractions/northern">북부</a></li>
           <li><a href="/attractions/midwest">중서부</a></li>
@@ -472,16 +365,16 @@
           <li><a href="/attractions/south">남부</a></li>
           <li><a href="/attractions/island">섬</a></li>
         </ul>
-        <ul class="two_depth">
-          <li><a href="/golf">대만 골프</a></li>
+        <ul class="sub_list">
+          <li><a href="/" />대만 골프</li>
         </ul>
-        <ul class="two_depth">
+        <ul class="sub_list">
           <li><a href="/satisfact/all">프로대만족 전체</a></li>
           <li><a href="/satisfact/magazine">월간 매거진</a></li>
           <li><a href="/satisfact/satisfact">프로대만족</a></li>
           <li><a href="/satisfact/travel_tips">여행 Tips</a></li>
         </ul>
-        <ul class="two_depth">
+        <ul class="sub_list">
           <li><a href="/introduction/tourism_board">관광청 소개</a></li>
           <li><a href="/introduction/director_general">국장소개</a></li>
           <li><a href="/introduction/notice">공지사항</a></li>
@@ -493,25 +386,18 @@
   </div>
 </div>
 
-<!-- //mobile panel -->
+<!-- //mobile header -->
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
 
-  /* js toggle css */
   :global(.menu_show) {
     opacity: 1 !important;
+    /* display: block !important; */
     height: 540px !important;
-  }
-  :global(.black_bg.show) {
-    display: block !important;
-  }
-  :global(.gnb_show) {
-    visibility: hidden;
   }
   :global(.list_show) {
     opacity: 1 !important;
-    // visibility: visible !important;
     height: auto !important;
   }
   :global(.sch_show) {
@@ -529,12 +415,8 @@
   :global(.show) {
     display: block !important;
   }
-  :global(.sch_btn.change) {
-    background: url(/img/layout/icon_close.png) no-repeat center / contain !important;
-    z-index: 5;
-  }
-  :global(.width_wide:after) {
-    opacity: 1 !important;
+  :global(.hide) {
+    display: none !important;
   }
   :global(.menu_list.on:after) {
     width: calc(100% + vw(20));
@@ -554,12 +436,6 @@
   :global(.none_scroll) {
     overflow-y: hidden !important;
   }
-  :global(.hide) {
-    display: none !important;
-  }
-
-  /* //js toggle css */
-
   header {
     max-width: 1800px;
     width: 100%;
@@ -600,49 +476,37 @@
     line-height: 100px;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 !important;
-    padding: 0 !important;
   }
   .gnb > li {
     position: relative;
     display: inline-block;
   }
-  .gnb > li > span {
-    height: 100%;
+  .gnb > li > a {
     padding: 0 30px;
     display: inline-block;
     text-align: center;
     font-weight: 500;
-    font-family: "Noto Sans KR";
-    font-size: 16px;
-    color:#212529;
   }
-  .gnb > li > .gnb_menu {
+  .gnb > li > .sub_menu {
     width: 100%;
     height: 0;
-    // display: none;
-    // visibility: hidden;
+    /* display: none;
+     */
     opacity: 0;
-    margin: 0 !important;
-    padding: 0 !important;
     position: absolute;
     z-index: 3;
-    transition: 0.3s;
-    overflow: hidden;
-    text-decoration: none !important;
+    transition: 0.2s;
   }
-  .gnb > li > .gnb_menu > li > a {
+  .gnb > li > .sub_menu > li > a {
     display: block;
     margin: 16px 0;
     line-height: 24px;
     color: #717579;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
-    font-family: "Noto Sans KR";
-    text-decoration: none !important;
   }
-  .gnb > li > .gnb_menu > li > a:hover {
+  .gnb > li > .sub_menu > li > a:hover {
     color: #ff7a00;
   }
   .gnb > li::after {
@@ -672,7 +536,7 @@
     transform: translateX(-50%);
     opacity: 1;
   }
-  .gnb_bg {
+  .sub_bg {
     width: 1920px;
     height: 0px;
     /* display: none; */
@@ -693,46 +557,20 @@
     top: 50%;
     transform: translateY(-50%);
     right: 100px;
-    background: url("/img/layout/icon_search.png") no-repeat center / contain;
+    background: url("/img/icon_search.png") no-repeat center / contain;
     z-index: 4;
     text-indent: -999em;
   }
   .sch_box {
     width: 100%;
-    height: 380px;
-    top: 100px;
+    height: 440px;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     // padding: 0 152px;
     padding: 0 100px;
-    // transition: 0.3s;
+    transition: 0.3s;
     background-color: #fff;
-  }
-  header:after {
-    content: "";
-    display: block;
-    min-width: 1920px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    background: #fff;
-    z-index: -1;
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  .black_bg {
-    content: "";
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 1920px;
-    z-index: 1;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
   }
   .sch_box_top {
     height: 100px;
@@ -815,11 +653,7 @@
     border-radius: 8px;
     background: #f5f5f5;
   }
-  .hash_tag ul li a {
-    widows: 100%;
-    height: 100%;
-    display: block;
-  }
+
   .mobile_header {
     width: 100%;
     height: vw(140);
@@ -828,27 +662,12 @@
     display: flex;
     background: #fff;
     border-radius: 0 0 vw(50) vw(50);
-    display: none;
-    z-index: 1;
 
     /* position: fixed;
     top: 0;
     right: -100%;
     width: 100%;
     z-index: 100; */
-  }
-  .mobile_header:after {
-    content: "";
-    display: block;
-    min-width: 1920px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    background: #fff;
-    z-index: -1;
-    transform: translateX(-50%);
-    opacity: 0;
   }
   .mobile_header_top {
     display: flex;
@@ -861,20 +680,17 @@
       display: block;
     }
   }
-  .mobile_header .menu_btn {
+  .mobile_header .menu_ico {
     width: 42px;
     height: 42px;
     position: absolute;
     right: 30px;
-    background: url("/img/layout/icon_menu.png") no-repeat center / contain;
+    background: url("/img/icon_menu.png") no-repeat center / contain;
     cursor: pointer;
   }
   .mobile_header .sch_btn {
     position: absolute;
     right: 98px;
-  }
-  :global(.mobile_header .sch_btn.change) {
-    right: vw(40) !important;
   }
 
   .mobile_panel {
@@ -892,7 +708,7 @@
     overflow-y: auto;
     /* padding: 0 40px; */
   }
-  .mobile_panel .inner .mobile_panel_top {
+  .mobile_panel .inner .hd {
     height: vw(120);
     padding: 0 vw(60);
     position: relative;
@@ -900,43 +716,45 @@
     border-bottom: 2px solid #e0e0e0;
     text-align: center;
   }
-  .mobile_panel .inner .mobile_panel_top p {
+  .mobile_panel .inner .hd p {
+    font-size: vw(38);
     line-height: vw(120);
     font-family: "Noto Sans KR";
   }
-  .mobile_panel .inner .close_btn {
+  .mobile_panel .inner .bt-close {
     width: 17px;
     height: 33px;
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: url("/img/layout/close.png") no-repeat center / contain;
+    background: url("/img/close.png") no-repeat center / contain;
     text-indent: -999em;
   }
 
   .mobile_panel .inner {
     position: relative;
   }
-  .one_depth {
+  .mobile_menu {
     width: vw(260);
     position: relative;
   }
-  .two_depth_wrap {
+  .sub_list_wrap {
     width: calc(100% - vw(260));
     position: relative;
   }
 
   .menu_list {
-    height: vw(60);
-    line-height: vw(60);
+    height: vw(106);
     display: flex;
     background: #f5f5f5;
     position: relative;
     margin: 0 0 vw(32) 0;
+    line-height: vw(106);
     padding: 0 0 0 vw(40);
   }
   .menu_list a {
+    font-size: vw(30);
     font-family: "Noto Sans KR";
     position: absolute;
     display: block;
@@ -945,27 +763,27 @@
     z-index: 13;
     color: #212529;
   }
-  .two_depth {
+  .sub_list {
     width: 100%;
     height: 100%;
-    // height: 100vh;
     padding: vw(30) 0 0 vw(70);
     position: absolute;
     top: 0;
     background-color: #fff;
   }
-  .two_depth li {
+  .sub_list li {
     margin: 0 0 vw(52) 0;
   }
-  .two_depth li a {
+  .sub_list li a {
     display: block;
     width: 100%;
     height: 100%;
+    font-size: vw(30);
     color: #212529;
     font-family: "Noto Sans KR";
     opacity: 0.8;
   }
-  .mobile_panel_menu {
+  .menu_section {
     display: flex;
     height: 100%;
   }
@@ -1027,15 +845,26 @@
     }
   }
 
-  @media screen and (max-width: 1480px) {
+  @media screen and (max-width: 1450px) {
     header {
-      // .logo {
-      //   // background-color: red;
-      //   margin: 0 2% 0 20px;
-      // }
-      // .sch_btn {
-      //   right: 20px;
-      // }
+      h1 {
+        margin: 0 2% 0 50px;
+        background-color: black;
+      }
+      .sch_btn {
+        right: 50px;
+      }
+    }
+  }
+  @media screen and (max-width: 1300px) {
+    header {
+      .logo {
+        background-color: red;
+        margin: 0 2% 0 20px;
+      }
+      .sch_btn {
+        right: 20px;
+      }
       .gnb {
         > li {
           > a {
@@ -1044,12 +873,21 @@
         }
       }
     }
-  }
-
-  @include desktop {
-    .mobile_header {
-      display: flex;
+    .sch_box {
+      .logo {
+        margin: 0 0 0 20px;
+      }
+      .close_btn {
+        right: 20px;
+      }
     }
+  }
+  @media screen and (min-width: 1024px) {
+    .mobile_header {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 1023px) {
     header {
       display: none;
     }
@@ -1057,30 +895,11 @@
       margin: 0 25px 0 100px;
     }
     .mobile_header {
-      height: vw(60);
-    }
-    .mobile_panel {
-      .mobile_panel_top {
-        p {
-          font-size: 22px;
-        }
-      }
-      .menu_list {
-        a {
-          font-size: 22px;
-        }
-      }
-      .two_depth {
-        a {
-          font-size: 20px;
-        }
-      }
+      height: vw(90);
     }
     .sch_box {
       height: 100%;
       padding: 0 vw(40);
-      position: fixed;
-      top: vw(60);
       .logo {
         display: none;
       }
@@ -1094,11 +913,13 @@
           input {
             min-height: 0;
             padding: vw(45) 0 vw(29);
+            font-size: vw(40);
           }
         }
         .hash_tag {
           margin: vw(80) 0 0;
           p {
+            font-size: vw(32);
             margin: 0 0 vw(30) 0;
           }
           ul {
@@ -1107,6 +928,7 @@
               margin: 0 vw(12) vw(14) 0;
               a {
                 padding: vw(18) vw(26);
+                font-size: vw(26);
                 border-radius: vw(14);
               }
             }
@@ -1114,15 +936,8 @@
         }
       }
     }
-    .black_bg {
-      display: none !important;
-    }
   }
-  @media screen and (min-width: 1024px) {
-  }
-  @media screen and (max-width: 1023px) {
-  }
-  @include mobile {
+  @media screen and (max-width: 768px) {
     .mobile_header {
       height: vw(140);
       padding: 0 vw(40);
@@ -1130,55 +945,8 @@
       .sch_btn {
         right: vw(118);
       }
-      .menu_btn {
+      .menu_ico {
         right: vw(40);
-      }
-    }
-    .one_depth {
-      .menu_list {
-        height: vw(106);
-        line-height: vw(106);
-        a {
-          font-size: vw(30);
-        }
-      }
-    }
-    .two_depth {
-      a {
-        font-size: vw(30);
-      }
-    }
-    .sch_box {
-      top: vw(140);
-      .sch_box_wrap {
-        input {
-          font-size: vw(40);
-        }
-        .hash_tag {
-          p {
-            font-size: vw(32);
-          }
-          ul {
-            a {
-              padding: vw(18) vw(26);
-              font-size: vw(26);
-            }
-          }
-        }
-      }
-    }
-    .mobile_panel {
-      .mobile_panel_top {
-        p {
-          font-size: vw(38);
-        }
-      }
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .mobile_header {
-      .sch_btn {
-        right: 17vw;
       }
     }
   }
