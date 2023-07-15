@@ -254,13 +254,28 @@
     }
   }
 
-  @include mobile {
-    .list-container {
+  @include desktop {
+   .list-container {
       .list-row {
         width: 46.74479166666667%;
-        margin: 0 0 5vw 6.510416666666667%;
+        margin: 0 0 5vw 6.510416%;
         &:nth-of-type(3n + 1) {
-          margin: 0 0 5vw 6.510416666666667%;
+          margin: 0 0 5vw 6.51041%;
+        }
+        &:nth-of-type(2n + 1) {
+          margin: 0 0 5vw;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+   .list-container {
+      .list-row {
+        width: 100%;
+        margin: 0 0 5vw;
+        &:nth-of-type(3n + 1) {
+          margin: 0 0 5vw;
         }
         &:nth-of-type(2n + 1) {
           margin: 0 0 5vw;

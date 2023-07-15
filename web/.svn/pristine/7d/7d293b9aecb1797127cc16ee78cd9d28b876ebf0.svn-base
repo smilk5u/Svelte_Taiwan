@@ -272,15 +272,15 @@
     </h1>
     <div class="gnb_wrap">
       <ul class="gnb">
-        <li>
-          <span>대만 정보</span>
+        <li class="">
+          <button>대만 정보</button>
           <ul class="gnb_menu">
             <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
             <li><a href="/info/introduction">대만소개</a></li>
             <li><a href="/info/festival">문화/역사</a></li>
             <li><a href="/info/weather">대만의 날씨</a></li>
             <li><a href="/info/tourist_info">관광자료</a></li>
-            <li><a href="/info/iPASS">대만 교통수단</a></li>
+            <li><a href="/info/transportation">대만 교통수단</a></li>
             <li>
               <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
                 >가이드북</a
@@ -295,16 +295,16 @@
             </li>
           </ul>
         </li>
-        <li>
-          <span>이벤트</span>
+        <li class="">
+          <button>이벤트</button>
           <ul class="gnb_menu">
             <li><a href="/event/all">전체</a></li>
             <li><a href="/event/contest">진행중</a></li>
             <li><a href="/event/contest">종료</a></li>
           </ul>
         </li>
-        <li>
-          <span>테마여행</span>
+        <li class="">
+          <button>테마여행</button>
           <ul class="gnb_menu">
             <li><a href="/themeTour/recreation">휴양</a></li>
             <li><a href="/themeTour/activity">액티비티</a></li>
@@ -318,8 +318,8 @@
             <li><a href="/themeTour/night_market">야시장</a></li>
           </ul>
         </li>
-        <li>
-          <span>대만 명소</span>
+        <li class="">
+          <button>대만 명소</button>
           <ul class="gnb_menu">
             <li><a href="/attractions/all">전체</a></li>
             <li><a href="/attractions/northern">북부</a></li>
@@ -329,14 +329,14 @@
             <li><a href="/attractions/island">섬</a></li>
           </ul>
         </li>
-        <li>
-          <span>대만 골프</span>
+        <li class="">
+          <button>대만 골프</button>
           <ul class="gnb_menu">
             <li><a href="/golf">대만 골프</a></li>
           </ul>
         </li>
-        <li>
-          <span>프로대만족</span>
+        <li class="">
+          <button>프로대만족</button>
           <ul class="gnb_menu">
             <li><a href="/satisfact/all">프로대만족 전체</a></li>
             <li><a href="/satisfact/magazine">월간 매거진</a></li>
@@ -344,8 +344,8 @@
             <li><a href="/satisfact/travel_tips">여행 Tips</a></li>
           </ul>
         </li>
-        <li>
-          <span>관광청 소개</span>
+        <li class="">
+          <button>관광청 소개</button>
           <ul class="gnb_menu">
             <li><a href="/introduction/tourism_board">관광청 소개</a></li>
             <li><a href="/introduction/director_general">국장소개</a></li>
@@ -429,11 +429,11 @@
       <div class="two_depth_wrap">
         <ul class="two_depth current">
           <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
-          <li><a href="/info/iintroduction">대만소개</a></li>
+          <li><a href="/info/introduction">대만소개</a></li>
           <li><a href="/info/festival">문화/역사</a></li>
           <li><a href="/info/weather">대만의 날씨</a></li>
           <li><a href="/info/tourist_info">관광자료</a></li>
-          <li><a href="/info/iPASS">대만 교통수단</a></li>
+          <li><a href="/info/transportation">대만 교통수단</a></li>
           <li>
             <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
               >가이드북</a
@@ -607,15 +607,13 @@
     position: relative;
     display: inline-block;
   }
-  .gnb > li > span {
+  .gnb > li > button {
     height: 100%;
     padding: 0 30px;
     display: inline-block;
     text-align: center;
     font-weight: 500;
     font-family: "Noto Sans KR";
-    font-size: 16px;
-    color:#212529;
   }
   .gnb > li > .gnb_menu {
     width: 100%;
@@ -637,7 +635,7 @@
     line-height: 24px;
     color: #717579;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     font-family: "Noto Sans KR";
     text-decoration: none !important;
@@ -921,6 +919,7 @@
   .one_depth {
     width: vw(260);
     position: relative;
+    padding-left: 0 !important;
   }
   .two_depth_wrap {
     width: calc(100% - vw(260));
@@ -944,6 +943,7 @@
     height: 100%;
     z-index: 13;
     color: #212529;
+    text-decoration: none !important;
   }
   .two_depth {
     width: 100%;
@@ -964,6 +964,7 @@
     color: #212529;
     font-family: "Noto Sans KR";
     opacity: 0.8;
+    text-decoration: none !important;
   }
   .mobile_panel_menu {
     display: flex;

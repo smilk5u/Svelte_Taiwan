@@ -30,7 +30,7 @@
     <li class="on"><a href="/info/festival">문화/역사</a></li>
     <li class="off"><a href="/info/weather">대만의 날씨</a></li>
     <li class="off"><a href="/info/tourist_info">관광자료</a></li>
-    <li class="off"><a href="/info/transportation">대만 교통수단</a></li>
+    <li class="off"><a href="/info/iPASS">대만 교통수단</a></li>
     <li class="off">
       <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
         >가이드북</a

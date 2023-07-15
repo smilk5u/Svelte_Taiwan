@@ -2808,6 +2808,7 @@ li {
   /* top: 50%; */
   max-width: 1400px;
   width: 100%;
+  z-index: 2;
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
   display: inline-block;
@@ -3746,16 +3747,26 @@ main {
 } */
 
 /* 서브페이지 공통 */
-
 .sub_visual {
   width: 100%;
-  height: 505px;
-  padding: 255px 0 0;
-  /* position: relative; */
+  height: 458px;
+  padding: 225px 0 0;
+  position: relative;
   /* 대만 정보 */
   background: url("/img/common/m07.jpg") repeat-x;
   text-align: center;
 }
+.sub_visual:after {
+   width:100%; height: 100%;
+   content: "";
+   display: block;
+   position: absolute;
+   display: block;
+   background-color: rgba(0,0,0, .4);
+   top:0; left:0;
+   /* z-index: -1; */
+}
+
 /* 테마여행 */
 .sub_visual.themeTour {
   background-image: url("/img/common/m02.jpg");
@@ -3785,6 +3796,7 @@ main {
   margin: 8px 0 0;
   font-size: 17px;
   color: #fff;
+  font-weight: 300;
   font-family: "Noto Sans KR";
 }
 
@@ -4122,7 +4134,6 @@ main {
   display: none;
 }
 
-/* 230713 start */
 /* List */
 .list-board .list-body {
   list-style: none;
@@ -5789,8 +5800,6 @@ main {
   }
 }
 
-/* 수정사항 230713 end */
-
 @media (min-width: 1200px) {
   .hidden-lg {
     display: none !important;
@@ -5813,11 +5822,11 @@ main {
 }
 
 /* =========================================================
-   대만 명소 전체 
+   ■ 대만 명소 전체 페이지
 ============================================================*/
 .item_cont.active .map_arrow {
    z-index: 2;
 }
-.item_cont.active   .item_icon {
+.item_cont.active .item_icon {
    z-index: 2;
 }
