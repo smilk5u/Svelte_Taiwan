@@ -1,0 +1,458 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+   <div class="sub_cate">
+     <div class="lt_cate">
+       <a href="/introduction/tourism_board" title="관광청 소개 바로가기">
+         <img src="/img/common/sub_lt_btn.png" alt="이전 메뉴" />
+         관광청 소개
+       </a>
+     </div>
+     <div class="ct_cate">
+       <a href="/info/immigration_precautions" title="대만정보 바로가기">
+         <strong>대만정보</strong>
+         <p>대만의 출입국 정보부터 역사, 날씨, 가이드북까지 체크해 보세요.</p>
+       </a>
+     </div>
+     <div class="rt_cate">
+       <a href="/event/all" title="이벤트 바로가기">
+         <img src="/img/common/sub_rt_btn.png" alt="다음 메뉴" />
+         이벤트
+       </a>
+     </div>
+   </div>
+ </div>
+ <div class="sub_menu">
+   <ul>
+     <li>
+       <a href="/info/immigration_precautions">출입국 주의사항</a>
+     </li>
+     <li><a href="/info/introduction">대만소개</a></li>
+     <li><a href="/info/festival">문화/역사</a></li>
+     <li><a href="/info/weather">대만의 날씨</a></li>
+     <li><a href="/info/tourist_info">관광자료</a></li>
+     <li><a href="/info/iPASS">대만 교통수단</a></li>
+     <li>
+       <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+         >가이드북</a
+       >
+     </li>
+     <li><a href="/info/related_links">관련 링크</a></li>
+     <li class="on"><a href="/info/working_holiday">워홀</a></li>
+     <li>
+       <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+     </li>
+   </ul>
+ </div>
+<!-- //서브페이지 공통 -->
+
+
+<!-- 메인 컨텐츠 -->
+<div class="at-body">
+   <div class="page">
+      <h2>한국국적소지자 대만워킹홀리데이 체류비자 신청 및 조건</h2>
+    </div>
+  <div class="at-container">
+    <div class="page-wrap">
+      <div class="box">
+        <ol class="order">
+          <li>
+            <h3>
+              <span>01</span>
+            </h3>
+            <h4>
+              <img src="/img/info/order1.jpg" alt="신청자격 아이콘" />
+              신청자격
+            </h4>
+            <ul>
+              <li>
+                <span>1.</span>
+                <p>신청 당시 대한민국 내에 거주하고 있는 대한민국 국민</p>
+              </li>
+              <li>
+                <span>2.</span>
+                <p>신청 당시 대만 워킹홀리데이비자를 받은 적이 없는 자</p>
+              </li>
+              <li>
+                <span>3.</span>
+                <p>만18세 이상 30세 이하</p>
+              </li>
+              <li>
+                <span>4.</span>
+                <p>
+                  주된 목적이 장기휴가를 보내기 위해 대만에 입국,<br />
+                  여행자금을 보충하기위한 취업이 가능하며,<br />
+                  휴가의 부수적인 사증 발급일 부터 1년 이내에 출국해야 함
+                </p>
+              </li>
+              <li>
+                <span>5.</span>
+                <p>부양가족을 동반하지 않는 자</p>
+              </li>
+              <li>
+                <span>6.</span>
+                <p>상기조건 적합자는 아래 구비서류를 제출해야 함</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <span>02</span>
+            </h3>
+            <h4>
+              <img src="/img/info/order2.jpg" alt="구비서류 아이콘" />
+              구비서류
+            </h4>
+            <ul>
+              <li>
+                <span>1.</span>
+                <p>워킹홀리데이비자 신청서(신청자 본인의 친필서명)</p>
+              </li>
+              <li>
+                <span>2.</span>
+                <p>이력서 및 대만 체류기간의 활동계획서</p>
+              </li>
+              <li>
+                <span>3.</span>
+                <p>여권(유효기간 1년이상)</p>
+              </li>
+              <li>
+                <span>4.</span>
+                <p>6개월 이내에 촬영한 가로 3.5cm*세로 4.5cm 사진 2매</p>
+              </li>
+              <li>
+                <span>5.</span>
+                <p>중화민국 체류기간동안의 해외여행건강보험증명서</p>
+              </li>
+              <li>
+                <span>6.</span>
+                <p>건강검진 증명서</p>
+              </li>
+              <li>
+                <span>7.</span>
+                <p>
+                  귀국 시 항공권을 소지하였거나 항공권 구입할 수있는 충분한<br
+                  />
+                  자금을 증명할 수있는 증명서
+                </p>
+              </li>
+              <li>
+                <span>8.</span>
+                <p>
+                  한화 3백만원(약2500불) 또는 이에 상당한 금액의 재력증명서<br
+                  />
+                  (예 : 여행자수표 또는 예금 잔고증명서)
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <span>03</span>
+            </h3>
+            <h4>
+              <img src="/img/info/order3.jpg" alt="신청방법 아이콘" />
+              신청방법
+            </h4>
+            <ul>
+              <li>
+                <span>1.</span>
+                <p>본인방문신청, 위탁신청 불허</p>
+              </li>
+              <li>
+                <span>2.</span>
+                <p>주한국대북대표부 또는 부산사무처에 직접방문신청</p>
+              </li>
+              <li>
+                <span>3.</span>
+                <p>필요시 기타개인서류 추가 요구, 또는 면담할 수있습니다.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <h3>
+              <span>04</span>
+            </h3>
+            <h4>
+              <img src="/img/info/order4.jpg" alt="비자발급 형태 아이콘" />
+              비자발급 형태
+            </h4>
+            <ul>
+              <li>
+                <span>1.</span>
+                <p>체류비자[WH, 워킹홀리데이(Working Holiday) ]</p>
+              </li>
+              <li>
+                <span>2.</span>
+                <p>유효기간 : 1년(발급일로부터), 복수비자</p>
+              </li>
+              <li>
+                <span>3.</span>
+                <p>
+                  체류기한 : 180일, 만기15일전[내정부출입국 및 이민서]에 가서<br
+                  />
+                  연장신청, 최대 180일 연장가능, 이후 추가연장 또는 체류자격<br
+                  />
+                  변경 불가
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+   <div class="img_box">
+     <ul>
+       <li>
+         <a href="/event/all" title="이벤트 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img1.jpg" alt="이벤트" />
+           </div>
+           <div class="txt_elm">
+             <strong>이벤트</strong>
+             <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img1.jpg"
+               alt="당첨 도전하기"
+             />
+             <span>당첨 도전하기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a
+           href="/introduction/tourism_board"
+           title="대만 관광청 소개 바로가기"
+         >
+           <div class="thumb_img">
+             <img
+               src="/img/common/bottom_navi_img2.jpg"
+               alt="대만 관광청 소개"
+             />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 관광청 소개</strong>
+             <p>대만 관광청에 대한 <br /> 모든 것</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img2.jpg"
+               alt="관광청의 A to Z"
+             />
+             <span>관광청의 A to Z</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/themeTour/recreation" title="테마 여행 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img3.jpg" alt="테마 여행" />
+           </div>
+           <div class="txt_elm">
+             <strong>테마 여행</strong>
+             <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img3.jpg"
+               alt="나와 맞는 여행찾기"
+             />
+             <span>나와 맞는 여행찾기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/attractions/all" title="대만명소 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img4.jpg" alt="대만 명소" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 명소</strong>
+             <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img4.jpg"
+               alt="여긴 꼭 가야해!"
+             />
+             <span>여긴 꼭 가야해!</span>
+           </div>
+         </a>
+       </li>
+     </ul>
+   </div>
+ </div>
+ <!-- //Footer 네비게이션 -->
+</div>
+<!-- //메인 컨텐츠 -->
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+
+  .at-body {
+    .at-container {
+      margin: 0 auto;
+    }
+  }
+
+  .order {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .order > li {
+    width: calc(50% - 20px);
+    float: left;
+    margin-bottom: 80px;
+  }
+  .order > li:nth-of-type(odd) {
+    padding-right: 20px;
+  }
+  .order > li:nth-of-type(even) {
+    padding-left: 20px;
+  }
+  .order > li h3 {
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    margin-bottom: 60px;
+  }
+  .order > li h3 span {
+    border-top: 3px solid #ff7200;
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    padding-top: 10px;
+    color: #ff7200;
+  }
+  .order > li h4 {
+    color: #000;
+    font-size: 28px;
+    line-height: 1;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .order > li h4 img {
+    width: 62px;
+    margin: 0 10px 0 0;
+  }
+  .order > li > ul {
+    overflow: hidden;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .order > li > ul li {
+    color: #333;
+    overflow: hidden;
+    font-size: 15px;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .order > li > ul li:last-of-type {
+    margin-bottom: 0;
+  }
+  .order > li > ul li span {
+    display: inline-block;
+    width: 20px;
+    float: left;
+  }
+  .order > li > ul li p {
+    width: calc(100% - 20px);
+    float: left;
+    font-weight: $light;
+  }
+  @media (max-width: 991px) {
+    .order > li {
+      margin-bottom: 60px;
+      width: 100%;
+      padding: 0 !important;
+    }
+    .order > li h4 {
+      font-size: 24px;
+      margin-top: 50px;
+    }
+    .order > li h4 img {
+      width: 55px;
+    }
+    .order > li > ul li {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .order > li > ul li p br {
+      display: none;
+    }
+  }
+  @media (max-width: 767px) {
+    .order > li h4 {
+      font-size: 22px;
+    }
+    .order > li h4 img {
+      width: 45px;
+    }
+    .order > li > ul li {
+      font-size: 13px;
+    }
+  }
+  .at-container {
+    max-width: 1430px;
+  }
+  .no-responsive .wrapper,
+  .no-responsive .at-container-wide {
+    min-width: 1430px;
+  }
+  .no-responsive .boxed.wrapper,
+  .no-responsive .at-container {
+    width: 1430px;
+  }
+  .at-menu .nav-height {
+    height: 44px;
+    line-height: 44px !important;
+  }
+  .pc-menu,
+  .pc-menu .nav-full-back,
+  .pc-menu .nav-full-height {
+    height: 44px;
+  }
+  .pc-menu .nav-top.nav-float .menu-a,
+  .pc-menu .nav-mega .menu-a {
+    padding: 0px 25px;
+  }
+  .pc-menu .nav-top.nav-float .sub-1div::before {
+    left: 25px;
+  }
+  .pc-menu .nav-full-first,
+  .pc-menu .nav-full-last,
+  .pc-menu .nav-full.on .sub-1div {
+    height: 400px;
+  }
+  .pc-menu .nav-full.on,
+  .pc-menu .nav-full.on .at-container {
+    height: 444px;
+  }
+  .pc-menu .subm-w {
+    width: 170px;
+  }
+  .pc-menu .nav-content,
+  .pc-menu .nav-cw {
+    width: 170px;
+  }
+  .pc-menu .nav-content-height {
+    height: 400px;
+  }
+  .pc-menu .nav-content .sub-content {
+    width: 860px;
+    left: 170px;
+  }
+  @media all and (min-width: 1200px) {
+    .responsive .boxed.wrapper {
+      max-width: 1430px;
+    }
+  }
+</style>

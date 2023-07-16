@@ -1,3 +1,50 @@
+<!-- 서브페이지 공통 -->
+<div class="sub_visual info">
+  <div class="sub_cate">
+    <div class="lt_cate">
+      <a href="/introduction/tourism_board" class="on">
+        <img src="/img/info/sub_lt_btn.png" />
+        관광청 소개
+      </a>
+    </div>
+    <div class="ct_cate">
+      <a class="on">
+        <strong>대만정보</strong>
+        <p>출입국 정보부터 역사, 날씨, 가이드북까지</p>
+      </a>
+    </div>
+    <div class="rt_cate">
+      <a href="/event/all" class="on">
+        <img src="/img/info/sub_rt_btn.png" />
+        이벤트
+      </a>
+    </div>
+  </div>
+</div>
+<div class="sub_menu">
+  <ul class="on">
+    <li class="off">
+      <a href="/info/immigration_precautions">출입국 주의사항</a>
+    </li>
+    <li class="off"><a href="/info/introduction">대만소개</a></li>
+    <li class="on"><a href="/info/festival">문화/역사</a></li>
+    <li class="off"><a href="/info/weather">대만의 날씨</a></li>
+    <li class="off"><a href="/info/tourist_info">관광자료</a></li>
+    <li class="off"><a href="/info/iPASS">대만 교통수단</a></li>
+    <li class="off">
+      <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
+        >가이드북</a
+      >
+    </li>
+    <li class="off"><a href="/info/related_links">관련 링크</a></li>
+    <li class="off"><a href="/info/working_holiday">워홀</a></li>
+    <li class="off">
+      <a href="https://issuu.com/nihaotaiwan2015" target="_blank">계간지</a>
+    </li>
+  </ul>
+</div>
+<!-- //서브페이지 공통 -->
+
 <div class="page">
   <h1>대만의 날씨</h1>
 </div>
@@ -5,8 +52,8 @@
 <div class="culture">
   <div class="box step1">
     <div class="image">
-      <img src="/img/m06_03_01.jpg" class="hidden-sm hidden-xs" />
-      <img src="/img/mm06_03_01.jpg" class="hidden-lg hidden-md" />
+      <img src="/img/info/m06_03_01.jpg" class="hidden-sm hidden-xs" />
+      <img src="/img/info/mm06_03_01.jpg" class="hidden-lg hidden-md" />
     </div>
     <div class="content">
       <h3><span>대만의 날씨</span></h3>
@@ -24,8 +71,8 @@
   <!--
 	<div class="box step2">
 		<div class="image">
-			<img src="/img/m06_03_02.jpg" class="hidden-sm hidden-xs">
-			<img src="/img/mm06_03_02.jpg" class="hidden-lg hidden-md">
+			<img src="/img/info/m06_03_02.jpg" class="hidden-sm hidden-xs">
+			<img src="/img/info/mm06_03_02.jpg" class="hidden-lg hidden-md">
 		</div>
 	</div>
 	-->
