@@ -1,5 +1,6 @@
 <script>
-  import Header from "./Header.svelte";
+  import Header from "./Headerfdfdfdff.svelte";   
+  // import Header from "./Header.svelte";
   import Footer from "./Footer.svelte";
   // import SubVisual from "./SubVisual.svelte";
   import Nav from "./Nav.svelte";
@@ -40,7 +41,7 @@
     {#if !$page.url.pathname.startsWith("/admin/login")}
       <Footer_admin />
     {/if}
-  </div>
+  </div> 
 {:else if isWorkList}
   <div class="app">
     <main>
