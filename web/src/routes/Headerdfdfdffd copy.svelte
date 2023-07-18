@@ -91,7 +91,7 @@
       item.addEventListener("focus", () => {
         GnbOpen();
         document.querySelector("header")?.classList.remove("search_open");
-        gsap.to(".header_contain", 0.2, {
+        gsap.to("headeer", 0.2, {
           height: "600px",
         });
       });

@@ -1,8 +1,8 @@
 <script>
-  import Header from "./Headerfdfdfdff.svelte";   
+  import Header from "./Headerdfdfdffd.svelte";   
   // import Header from "./Header.svelte";
 
-  import Footer from "./Footer.svelte";
+  import Footer from "./Footer.svelte"; 
   // import SubVisual from "./SubVisual.svelte";
   import Nav from "./Nav.svelte";
   import Header_admin from "./Header_admin.svelte";
