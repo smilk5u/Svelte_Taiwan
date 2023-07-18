@@ -231,7 +231,7 @@ body.hide {
 main {
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 70px);
+  /* min-height: calc(100vh - 70px); */
   background: #fff;
 }
 #contents {
@@ -2784,7 +2784,6 @@ li {
   .sub_visual {
     height: 50.22vw !important;
     padding: 18.22vw 0 0 0 !important;
-    /* position: static !important; */
     line-height: 32vw;
   }
   .sub_visual strong {
@@ -5466,14 +5465,4 @@ main {
   .hidden-xs {
     display: none !important;
   }
-}
-
-/* =========================================================
-   ■ 대만 명소 전체 페이지
-============================================================*/
-.item_cont.active .map_arrow {
-  z-index: 2;
-}
-.item_cont.active .item_icon {
-  z-index: 2;
 }

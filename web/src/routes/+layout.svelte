@@ -1,6 +1,7 @@
 <script>
   import Header from "./Headerfdfdfdff.svelte";   
   // import Header from "./Header.svelte";
+
   import Footer from "./Footer.svelte";
   // import SubVisual from "./SubVisual.svelte";
   import Nav from "./Nav.svelte";
@@ -10,7 +11,7 @@
   import "./styles.css";
   import { onMount, onDestroy } from "svelte";
   import { page } from "$app/stores";
-  import { user, updateUser } from "$lib/stores/user";
+  import { user, updateUser } from "$lib/stores/user";  
   import { goto } from "$app/navigation";
 
   let isWorkList = false; // 워크리스트 확인용. 나중에 제거할것
