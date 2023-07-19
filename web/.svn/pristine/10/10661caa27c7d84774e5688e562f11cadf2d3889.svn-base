@@ -1,0 +1,167 @@
+ <!-- 메인 컨텐츠 -->
+   <div class="page">
+     <h2>대만 여행과 관련된 유용한 웹사이트 링크정보</h2>
+   </div>
+   <div class="at-container">
+     <ul class="tab tabs">
+       <li><a href="/info/related_links"> 전체보기 </a></li>
+       <li><a href="/info/institution"> 기관 </a></li>
+       <li><a href="/info/airline"> 항공사 </a></li>
+       <li class="active"><a href="/info/package"> 패키지상품 </a></li>
+       <li><a href="/info/golf"> 골프상품 </a></li>
+       <li><a href="/info/airtel"> 에어텔 </a></li>
+     </ul>
+     <div class="list-wrap">
+       <form>
+         <div class="list-board">
+           <ul id="list-body" class="list-body">
+             <li class="list-item">
+               <div class="name">에어텔</div>
+               <div class="image">
+                 <img
+                   src="https://taiwantour.or.kr/data/file/m06_09/1890265010_EyvFYhx9_06f3dde5134711b36db8cbcec8f302e065786075.jpg"
+                   alt="로고 1"
+                 />
+               </div>
+               <div class="subject">
+                 <span> 넥스투어 </span>
+               </div>
+               <div class="info">
+                 <span>
+                   <a
+                     href="http://web2.nextour.co.kr/AG/ag_index.asp"
+                     target="_blank"
+                   >
+                     <img src="/img/info/ico_link.png" alt="홈페이지 바로가기 아이콘" />
+                     홈페이지 바로가기
+                   </a>
+                 </span>
+                 <span>
+                   <a href="tel:02-2222-6602">
+                     <img src="/img/info/ico_phone.png" alt="전화 아이콘" />
+                     02-2222-6602
+                   </a>
+                 </span>
+               </div>
+             </li>
+             <li class="list-item">
+               <div class="name">에어텔</div>
+               <div class="image">
+                 <img
+                   src="https://taiwantour.or.kr/data/file/m06_09/1890265010_tis9cg7b_5761fa8844774c41eeb835c76c9380239251a0ea.jpg"
+                   alt="로고"
+                 />
+               </div>
+               <div class="subject">
+                 <span> 타임투어 </span>
+               </div>
+               <div class="info">
+                 <span>
+                   <a href="http://www.timetour.co.kr/" target="_blank">
+                     <img src="/img/info/ico_link.png" alt="홈페이지 바로가기 아이콘" />
+                     홈페이지 바로가기
+                   </a>
+                 </span>
+                 <span>
+                   <a href="tel:02-720-0898">
+                     <img src="/img/info/ico_phone.png" alt="전화 아이콘" />
+                     02-720-0898
+                   </a>
+                 </span>
+               </div>
+             </li>
+             <li class="list-item">
+               <div class="name">에어텔</div>
+               <div class="image">
+                 <img
+                   src="https://taiwantour.or.kr/data/file/m06_09/1890265010_YUqcBlAb_02534570629af5f9efb538016572ca92acf5c06d.jpg"
+                   alt="로고"
+                 />
+               </div>
+               <div class="subject">
+                 <span> 와이페이모어 </span>
+               </div>
+               <div class="info">
+                 <span>
+                   <a href="https://www.whypaymore.co.kr/d" target="_blank">
+                     <img src="/img/info/ico_link.png" alt="홈페이지 바로가기 아이콘" />
+                     홈페이지 바로가기
+                   </a>
+                 </span>
+                 <span>
+                   <a href="tel:02-318-8585">
+                     <img src="/img/info/ico_phone.png" alt="전화 아이콘" />
+                     02-318-8585
+                   </a>
+                 </span>
+               </div>
+             </li>
+             <li class="list-item">
+               <div class="name">에어텔</div>
+               <div class="image">
+                 <img
+                   src="https://taiwantour.or.kr/data/file/m06_09/1890265010_c0NK8Vjl_af33131b3f388ca58b8f654b7a9081727e2cc80a.jpg"
+                   alt="로고"
+                 />
+               </div>
+               <div class="subject">
+                 <span> 투어익스프레스 </span>
+               </div>
+               <div class="info">
+                 <span>
+                   <a
+                     href="http://www.tourexpress.com/main.html"
+                     target="_blank"
+                   >
+                     <img src="/img/info/ico_link.png" alt="홈페이지 바로가기 아이콘" />
+                     홈페이지 바로가기
+                   </a>
+                 </span>
+                 <span>
+                   <a href="tel:02-2022-6400">
+                     <img src="/img/info/ico_phone.png" alt="전화 아이콘" />
+                     02-2022-6400
+                   </a>
+                 </span>
+               </div>
+             </li>
+             <li class="list-item">
+               <div class="name">에어텔</div>
+               <div class="image">
+                 <img
+                   src="https://taiwantour.or.kr/data/file/m06_09/1890265010_T7nr5jzf_6e2facf891bf1915e56929c96efb1d14302c3290.jpg"
+                   alt="로고"
+                 />
+               </div>
+               <div class="subject">
+                 <span> 인터파크 </span>
+               </div>
+               <div class="info">
+                 <span>
+                   <a href="http://tour.interpark.com/" target="_blank">
+                     <img src="/img/info/ico_link.png" alt="홈페이지 바로가기 아이콘" />
+                     홈페이지 바로가기
+                   </a>
+                 </span>
+                 <span>
+                   <a href="tel:02-311-6810">
+                     <img src="/img/info/ico_phone.png" alt="전화 아이콘" />
+                     02-311-6810
+                   </a>
+                 </span>
+               </div>
+             </li>
+           </ul>
+         </div>
+       </form>
+     </div>
+   </div>
+ 
+ <!-- //메인 컨텐츠 -->
+ 
+ <style>
+   .list-board .list-body .thumb-icon a {
+     color: rgb(51, 51, 51);
+   }
+ </style>
+ 

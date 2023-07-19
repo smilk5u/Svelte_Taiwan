@@ -1,0 +1,156 @@
+
+<!-- 메인 컨텐츠 -->
+  <div class="page">
+    <h2>대만 지도 및 테마별 핸드북 다운로드</h2>
+  </div>
+  <div class="at-container">
+    <ul class="tab tabs">
+      <li><a href="/info/tourist_info"> 전체보기 </a></li>
+      <li class="active"><a href="/info/maps"> 지도 </a></li>
+      <li><a href="/info/theme_travel"> 테마여행 </a></li>
+      <li><a href="/info/other"> 기타 </a></li>
+    </ul>
+    <div class="list-wrap">
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/info/ico_download.png" alt="여행 가이드 1" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>가오슝 관광 안내서</h2>
+        </div>
+      </div>
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/info/ico_download.png" alt="여행 가이드 2" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>가오슝 관광 안내서</h2>
+        </div>
+      </div>
+      <div class="list-row">
+        <div class="list-item">
+          <div class="imgframe">
+            <div class="img-wrap">
+              <div class="img-tack">
+                <a href="/" target="_blank">
+                  <img src="/img/info/ico_download.png" alt="여행 가이드 3" />
+                  <span>다운로드</span>
+                </a>
+              </div>
+              <div class="img-item">
+                <img
+                  src="https://www.taiwantour.or.kr/data/file/m06_04/2728326049_jHFBtw4d_63c0839006311434c7cc2a0ae539f704103b490b.jpg"
+                  alt=""
+                  style="height:100%;"
+                />
+              </div>
+            </div>
+          </div>
+          <h2>가오슝 관광 안내서</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- //메인 컨텐츠 -->
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .list-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .list-row {
+    position: relative;
+    /* height: 510px; */
+    padding: 0 0 52px 0;
+  }
+  .list-row .list-item {
+    border-radius: 0;
+  }
+  .list-item h2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    /* padding: 25px 0; */
+    background: #eee;
+    height: 52p;
+    height: 52px;
+    line-height: 52px;
+  }
+  .img-item img {
+    width: 100%;
+  }
+  .list-item {
+    box-shadow: none;
+  }
+  .list-item h2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+  }
+  .img-tack a span {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+  }
+  .img-tack {
+    position: absolute;
+    background: #ff7200;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px -2px rgba(25, 25, 25, 0.35);
+  }
+  @include mobile {
+    .tab.tabs li {
+      width: 50% !important;
+    }
+    .list-wrap {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .img-tack {
+      width: 50px !important;
+      height: 50px !important;
+    }
+    .img-tack a span {
+      font-size: 11px;
+    }
+  }
+</style>

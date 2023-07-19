@@ -1,18 +1,16 @@
 <script>
-  import Header from "./Headerdfdfdffd.svelte";   
-  // import Header from "./Header.svelte";
+  import Header from "./Headerdfdfdffd.svelte";
+//   import Header from "./Header.svelte";  
 
-  import Footer from "./Footer.svelte"; 
+  import Footer from "./Footer.svelte";
   // import SubVisual from "./SubVisual.svelte";
-  import Nav from "./Nav.svelte";
   import Header_admin from "./Header_admin.svelte";
   import Footer_admin from "./Footer_admin.svelte";
   import Nav_admin from "./Nav_admin.svelte";
   import "./styles.css";
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import { page } from "$app/stores";
-  import { user, updateUser } from "$lib/stores/user";  
-  import { goto } from "$app/navigation";
+  import Nav from "./Nav.svelte";
 
   let isWorkList = false; // 워크리스트 확인용. 나중에 제거할것
 
@@ -22,6 +20,9 @@
     const currentPath = window.location.pathname;
     isWorkList = currentPath.startsWith("/workList");
   });
+
+   // 경로 이름이 "/"와 같지 않을 경우 true로 설정
+   $: shouldRenderNav = $page.url.pathname !== "/" && $page.url.pathname !== "/golf";
 </script>
 
 {#if $page.url.pathname.startsWith("/admin")}
@@ -42,7 +43,7 @@
     {#if !$page.url.pathname.startsWith("/admin/login")}
       <Footer_admin />
     {/if}
-  </div> 
+  </div>
 {:else if isWorkList}
   <div class="app">
     <main>
@@ -54,8 +55,10 @@
 {:else}
   <div class="app user">
     <Header />
+    {#if shouldRenderNav}
+      <Nav />
+    {/if}
     <div id="wrap">
-      <!-- <Nav /> -->
       <main>
         <!-- <SubVisual /> -->
         <section id="contents">
