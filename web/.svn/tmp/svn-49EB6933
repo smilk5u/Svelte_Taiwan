@@ -1,0 +1,327 @@
+<script>
+  // @ts-nocheck
+  import { onMount } from "svelte";
+  import { fetchData } from "$lib/api/fetch";
+  import { goto } from "$app/navigation";
+
+  let mainMenu = [];
+  let subMenu = [];
+  let categoryMenu = [];
+  let searchData = [];
+  let data = [];
+
+  let searchOption = "subject";
+  let searchKeyword = "";
+
+  let navigatepageNums = [];
+  let pageSize = 5;
+  let pageNum = 0;
+
+  onMount(async () => {
+    const mainMenuList = await fetchData(
+      "/api/mainMenuList?val=sub&combo=1",
+      ""
+    );
+    const subMenuList = await fetchData(
+      "/api/subMenuList?mainSeq=1&combo=1",
+      ""
+    );
+    const categoryl = await fetchData(
+      "/api/categoryList?mainSeq=1&subSeq=6&combo=1",
+      ""
+    );
+    mainMenu = mainMenuList;
+    subMenu = subMenuList;
+    categoryMenu = categoryl;
+    // const { props } = await load(); mainMenu = props.mainMenu; subMenu =
+    // props.subMenu; category = props.category;
+
+    setTimeout(() => {
+      page(1);
+    }, 100);
+  });
+
+  let selectedOption = "";
+  async function handleSelect(event) {
+    selectedOption = event.target.value;
+    await setSubMenu(selectedOption);
+  }
+
+  let selectedOptionSub = "";
+  async function handleSelectSub(event) {
+    var mainMenuSelect = document.getElementById("mainMenu");
+    var mainSeq = mainMenuSelect.value;
+
+    selectedOptionSub = event.target.value;
+    await setCategory(mainSeq, selectedOptionSub);
+  }
+
+  async function setSubMenu(mainSeq) {
+    const response = await fetchData(`/api/subMenuList?mainSeq=${mainSeq}`);
+    subMenu = response;
+    if (subMenu.length > 0) {
+      delayForceChangeEvent("subMenu");
+    } else {
+      page(1);
+    }
+  }
+
+  async function setCategory(mainSeq, subSeq) {
+    const response = await fetchData(
+      `/api/categoryList?mainSeq=${mainSeq}&subSeq=${subSeq}`
+    );
+    categoryMenu = response;
+    delayForceChangeEvent("category");
+  }
+
+  async function forceChangeEvent(str) {
+    const selectbox = document.getElementById(str);
+    selectbox.dispatchEvent(new Event("change"));
+    //page(1)
+  }
+
+  function delayForceChangeEvent(str) {
+    setTimeout(() => forceChangeEvent(str), 100);
+  }
+
+  //체크 해제하거나 모두 선택하면 #chkAll 상태 변경됨
+  function chkOneBox() {
+    let chkAll = document.querySelector("#chkAll");
+    let chkItCnt = document.querySelectorAll(".chk_it:enabled").length;
+    let chkItCnt_chk = document.querySelectorAll(
+      ".chk_it:checked:enabled"
+    ).length;
+
+    if (chkItCnt === chkItCnt_chk) {
+      chkAll.setAttribute("checked", "checked");
+      chkAll.checked = true;
+    } else {
+      chkAll.removeAttribute("checked", "checked");
+      chkAll.checked = false;
+    }
+  }
+
+  //#chkAll으로 체크 상태 일괄 변동됨
+  function chkAllBox() {
+    let chkAll = document.querySelector("#chkAll");
+    let chkIt = document.querySelectorAll(".chk_it:enabled");
+
+    if (chkAll.checked == true) {
+      chkIt.forEach(function (checkbox) {
+        checkbox.checked = true;
+      });
+    }
+
+    if (chkAll.checked == false) {
+      chkIt.forEach(function (checkbox) {
+        checkbox.checked = false;
+      });
+    }
+  }
+
+  async function page(idx) {
+    const mainMenuSeq = document.querySelector("#mainMenu").value;
+    const subMenuSeq = document.querySelector("#subMenu").value;
+    const categoryMenuSeq = document.querySelector("#category").value;
+
+    pageNum = idx;
+
+    // const frm = document.querySelector('form[name="frm"]');
+    // const formData = new FormData(frm);
+    // const dd = Object.fromEntries(formData.entries());
+    data = await fetchData("/api/boardList", {
+      searchOption,
+      searchKeyword,
+      pageSize,
+      pageNum,
+      mainSeq: mainMenuSeq,
+      subSeq: subMenuSeq,
+      category: categoryMenuSeq,
+    });
+    //console.log(data)
+    searchData = data.list;
+    navigatepageNums = data.navigatepageNums;
+  }
+
+  function handleClick(seq) {
+    goto(`/admin/post_view/${seq}`, { replaceState: false });
+  }
+
+  async function deleteItems() {
+    if (confirm("삭제하시겠습니까?")) {
+      const chkItems = document.getElementsByClassName("chk_it");
+      const selectedItems = [];
+
+      for (let i = 0; i < chkItems.length; i++) {
+        if (chkItems[i].checked) {
+          selectedItems.push(chkItems[i].value); // 선택된 항목의 식별자 값을 배열에 추가
+        }
+      }
+
+      const formObject = {
+        chk_val: selectedItems,
+      };
+
+      const del = await fetchData("/api/deleteBoard", formObject);
+      window.location.reload();
+    }
+  }
+</script>
+
+<div class="page_title">
+  <h2>게시물 관리</h2>
+</div>
+<form name="frm" on:submit|preventDefault={() => page(1)}>
+  <input type="hidden" name="pageSize" id="pageSize" bind:value={pageSize} />
+  <input type="hidden" name="pageNum" id="pageNum" bind:value={pageNum} />
+</form>
+<div class="part">
+  <div class="search_top_wrap">
+    <ul class="search_row">
+      <li>
+        <span>대메뉴</span>
+        <select name="mainSeq" id="mainMenu" on:change={handleSelect}>
+          {#each mainMenu as item, index}
+            <option value={item.seq}>{item.name}{item.seq}</option>
+          {/each}
+        </select>
+      </li>
+      <li>
+        <span>서브메뉴</span>
+        <select name="subSeq" id="subMenu" on:change={handleSelectSub}>
+          {#each subMenu as item, index}
+            <option value={item.seq}>{item.title}{item.seq}</option>
+          {/each}
+        </select>
+      </li>
+      <li>
+        <span>카테고리</span>
+        <select
+          name="category"
+          id="category"
+          on:change|preventDefault={() => page(1)}
+        >
+          <option value="999">전체보기</option>
+          {#if categoryMenu}
+            {#each categoryMenu as item, index}
+              <option value={item.seq}>{item.name}{item.seq}</option>
+            {/each}
+          {/if}
+        </select>
+      </li>
+      <li>
+        <span>게시물 검색</span>
+        <select name="searchOption" id="searchOption" bind:value={searchOption}>
+          <option value="subject" selected={searchOption === "subject"}
+            >제목</option
+          >
+          <option value="content" selected={searchOption === "content"}
+            >내용</option
+          >
+        </select>
+        <input
+          type="text"
+          name="searchKeyword"
+          id="searchKeyword"
+          bind:value={searchKeyword}
+        />
+        <input type="submit" value="검색" />
+      </li>
+    </ul>
+    <div class="etc_wrap">
+      <div class="etc_buttons">
+        <button on:click={() => goto("/admin/post_add")}>등록</button>
+        <button on:click={deleteItems}>삭제</button>
+      </div>
+    </div>
+  </div>
+  <div class="table_srcoll">
+    <form>
+      <table>
+        <caption>게시물관리</caption>
+        <thead>
+          <tr>
+            <th
+              ><input
+                type="checkbox"
+                name="chk_it"
+                id="chkAll"
+                on:click={chkAllBox}
+              /></th
+            >
+            <th>no</th>
+            <th>카테고리</th>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>작성일</th>
+            <th>조회수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each searchData as row, i}
+            <tr on:click={() => handleClick(row.seq)}>
+              <!-- svelte-ignore a11y-click-events-have-key-events -->
+              <td on:click={() => event.stopPropagation()}>
+                <input
+                  type="checkbox"
+                  name="chk_it"
+                  class="chk_it"
+                  bind:value={row.seq}
+                  on:click={chkOneBox}
+                />
+              </td>
+              <td />
+              <td>{row.categoryName}</td>
+              <td>{row.subject}</td>
+              <td>{row.writer}</td>
+              <td>{row.regDate}</td>
+              <td>{row.hits}</td>
+            </tr>
+          {/each}
+          {#if searchData.length === 0}
+            <tr>
+              <td colspan="7">게시물이 없습니다.</td>
+            </tr>
+          {/if}
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  {#if searchData.length > 0}
+    <nav class="noselect">
+      <ul class="pagination justify-content-center">
+        <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
+          <a
+            class="page-link"
+            on:click={() => page(data.prePage)}
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">이전</span>
+          </a>
+        </li>
+        {#each navigatepageNums as pn}
+          <li class="page-item {pn == data.pageNum ? 'active' : ''}">
+            <a class="page-link" on:click={() => page(pn)}>{pn}</a>
+          </li>
+        {/each}
+        <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
+          <a
+            class="page-link"
+            on:click={() => page(data.nextPage)}
+            aria-label="Next"
+          >
+            <span aria-hidden="true">다음</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  {/if}
+</div>
+
+<style>
+  tr:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+  }
+</style>

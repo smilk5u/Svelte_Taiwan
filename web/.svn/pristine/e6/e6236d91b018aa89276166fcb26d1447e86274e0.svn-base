@@ -1,0 +1,139 @@
+
+<!-- 메인 컨텐츠 -->
+<div class="at-body">
+  <div class="at-container">
+    <div class="view-wrap">
+      <div class="sub_box">
+        <div class="detail">
+          <div class="lt_detail">
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_a5Xo3iS8_093ca23794763452a07fca81581743f9f6d8d86e.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/2105653078_a5Xo3iS8_093ca23794763452a07fca81581743f9f6d8d86e.jpg"
+                  alt="스린 야시장"
+                  class="img-tag"
+                  title=""
+                /></a
+              >
+            </div>
+          </div>
+          <div class="rt_detail">
+            <h1>스린 야시장</h1>
+            <div itemprop="description" class="view-content">
+              타이베이 시내에서 가장 큰 야시장으로 100년이 넘는 역사를 가지고
+              있다. <br />타이베이 여행에서 빼놓으면 안 되는 명소로 주말
+              저녁이면 엄청난 인파가 몰리지만 이 또한 하나의 재미이다. 대만의
+              먹거리는 다 맛볼 수 있을 정도로 먹거리가 다양하고 저렴한 가격으로
+              기념품을 구매할 곳도 많다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+    <div class="img_box">
+      <ul>
+        <li>
+          <a href="/event/all" title="이벤트 바로가기">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img1.jpg" alt="이벤트" />
+            </div>
+            <div class="txt_elm">
+              <strong>이벤트</strong>
+              <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+            </div>
+            <div class="over_txt">
+              <img
+                src="/img/common/botton_navi_over_img1.jpg"
+                alt="당첨 도전하기"
+              />
+              <span>당첨 도전하기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/introduction/tourism_board"
+            title="대만 관광청 소개 바로가기"
+          >
+            <div class="thumb_img">
+              <img
+                src="/img/common/bottom_navi_img2.jpg"
+                alt="대만 관광청 소개"
+              />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 관광청 소개</strong>
+              <p>대만 관광청에 대한 <br /> 모든 것</p>
+            </div>
+            <div class="over_txt">
+              <img
+                src="/img/common/botton_navi_over_img2.jpg"
+                alt="관광청의 A to Z"
+              />
+              <span>관광청의 A to Z</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/themeTour/recreation" title="테마 여행 바로가기">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img3.jpg" alt="테마 여행" />
+            </div>
+            <div class="txt_elm">
+              <strong>테마 여행</strong>
+              <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+            </div>
+            <div class="over_txt">
+              <img
+                src="/img/common/botton_navi_over_img3.jpg"
+                alt="나와 맞는 여행찾기"
+              />
+              <span>나와 맞는 여행찾기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/attractions/all" title="대만명소 바로가기">
+            <div class="thumb_img">
+              <img src="/img/common/bottom_navi_img4.jpg" alt="대만 명소" />
+            </div>
+            <div class="txt_elm">
+              <strong>대만 명소</strong>
+              <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+            </div>
+            <div class="over_txt">
+              <img
+                src="/img/common/botton_navi_over_img4.jpg"
+                alt="여긴 꼭 가야해!"
+              />
+              <span>여긴 꼭 가야해!</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- //Footer 네비게이션 -->
+</div>
+
+<!-- //메인 컨텐츠 -->
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .at-body {
+    .at-container {
+      margin: 0 auto;
+    }
+  }
+
+  .sub_box {
+    margin: 100px 0;
+  }
+</style>

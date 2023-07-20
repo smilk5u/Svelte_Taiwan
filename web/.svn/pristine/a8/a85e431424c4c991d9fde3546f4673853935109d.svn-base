@@ -1,0 +1,54 @@
+import { selectedMenuSeq, selectedMenuSubSeq, selectedCetegorySeq } from "$lib/stores/menu"
+
+let mainSeq = 0; // mainSeq 값
+let subSeq = 0; // subSeq 값
+let category = 99; // categorySeq 값
+
+selectedMenuSeq.subscribe((value) => {
+    mainSeq = value;
+});
+selectedMenuSubSeq.subscribe((value) => {
+    subSeq = value;
+});
+selectedCetegorySeq.subscribe(value => {
+    category = value;
+});
+
+/**
+ * @param {any} data
+ */
+export function fetchBoardData(data) {
+    return new Promise(async (resolve, reject) => {
+        const post = {mainSeq, subSeq, category};
+        const merged = Object.assign({}, post, data);
+        const options = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body:  JSON.stringify(merged)
+        };
+        
+        if (options.body && typeof options.body !== 'string') {
+            options.body = JSON.stringify(options.body);
+        }
+
+        try {
+            let response = await fetch('/home/getBoardList', options);
+           // console.log(post)
+            if (!response.ok) {
+                reject({})
+            }
+            let data = await response.json();
+            //console.log(data)
+            if (data.code === 0) {
+                resolve(data.data);
+            } else {
+                reject(data)
+            }
+        } catch (error) {
+            reject({})
+        }
+
+    });
+}

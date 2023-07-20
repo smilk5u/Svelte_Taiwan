@@ -1,0 +1,94 @@
+<script>
+    // @ts-nocheck
+
+    import { onMount } from "svelte";
+    import { fetchBoardData } from "$lib/api/board";
+    import { selectedCetegorySeq } from "$lib/stores/menu";
+    import { env } from "$env/dynamic/public";
+
+    const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+    let data = [];
+    let list = [];
+    let category = 99; // categorySeq 값
+
+    let navigatepageNums = [];
+    let pageSize = 9;
+    let pageNum = 0;
+
+    selectedCetegorySeq.subscribe((value) => {
+        category = value;
+    });
+
+    $: if (category) {
+        page_(1);
+    }
+
+    onMount(async () => {
+        page_(1);
+    });
+
+    async function page_(idx) {
+        pageNum = idx;
+        let pageval = { pageSize, pageNum };
+        data = await fetchBoardData(pageval);
+        list = data.list;
+        console.log(list)
+        navigatepageNums = data.navigatepageNums;
+    }
+</script>
+
+<!-- 메인 컨텐츠 -->
+<div class="at-container list-wrap">
+    <form>
+        <div class="list-board">
+            <ul id="list-body" class="list-body">
+                {#each list as row, i}
+                    <li class="list-item">
+                        <div class="name">에어텔</div>
+                        <div class="image">
+                            <img
+                                src={IMG_HOST + row.filepath}
+                                alt="로고 1"
+                            />
+                        </div>
+                        <div class="subject">
+                            <span> 넥스투어 </span>
+                        </div>
+                        <div class="info">
+                            <span>
+                                <a
+                                    href="http://web2.nextour.co.kr/AG/ag_index.asp"
+                                    target="_blank"
+                                >
+                                    <img
+                                        src="/img/info/ico_link.png"
+                                        alt="홈페이지 바로가기 아이콘"
+                                    />
+                                    홈페이지 바로가기
+                                </a>
+                            </span>
+                            <span>
+                                <a href="tel:02-2222-6602">
+                                    <img
+                                        src="/img/info/ico_phone.png"
+                                        alt="전화 아이콘"
+                                    />
+                                    02-2222-6602
+                                </a>
+                            </span>
+                        </div>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    </form>
+</div>
+
+<!-- //메인 컨텐츠 -->
+
+<style>
+    .list-board .list-body .thumb-icon a {
+        color: rgb(51, 51, 51);
+    }
+</style>

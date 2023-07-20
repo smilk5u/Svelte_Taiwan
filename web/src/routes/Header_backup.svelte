@@ -1,144 +1,231 @@
 <script>
+// @ts-nocheck
+
   import { onMount } from "svelte";
+  import {fetchData} from "$lib/common";
+  import { selectedMenuSort, selectedMenuSeq, selectedMenuSubSeq } from "$lib/stores/menu"
+  
+  function schBoxOpen() {
+    const schBox = document.querySelector(".sch_box");
+    if (!schBox) return;
+
+    const schBtns = document.querySelectorAll(".sch_btn");
+    if (!schBtns) return;
+
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const mbHeader = document.querySelector(".mobile_header");
+    if (!mbHeader) return;
+
+    const gnb = document.querySelector(".gnb");
+    if (!gnb) return;
+    const blackBg = document.querySelector(".black_bg");
+    if (!blackBg) return;
+
+    const body = document.querySelector("body");
+    if (!body) return;
+
+    const menuBtn = document.querySelector(".menu_btn");
+    if (!menuBtn) return;
+
+    const mbLogo = document.querySelector(".mobile_header .logo");
+    if (!mbLogo) return;
+
+    schBtns.forEach((schBtn) => {
+      schBtn.classList.toggle("change");
+    });
+    schBox.classList.toggle("sch_show");
+    gnb.classList.toggle("gnb_show");
+    header.classList.toggle("width_wide");
+    mbHeader.classList.toggle("width_wide");
+    blackBg.classList.toggle("show");
+    body.classList.toggle("none_scroll");
+    menuBtn.classList.toggle("hide");
+    mbLogo.classList.toggle("hide");
+  }
+
+  function schBoxClose() {
+    const schBox = document.querySelector(".sch_box");
+    if (!schBox) return;
+
+    const schBtns = document.querySelectorAll(".sch_btn");
+    if (!schBtns) return;
+
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const mbHeader = document.querySelector(".mobile_header");
+    if (!mbHeader) return;
+
+    const gnb = document.querySelector(".gnb");
+    if (!gnb) return;
+    const blackBg = document.querySelector(".black_bg");
+    if (!blackBg) return;
+
+    const body = document.querySelector("body");
+    if (!body) return;
+
+    const menuBtn = document.querySelector(".menu_btn");
+    if (!menuBtn) return;
+
+    const mbLogo = document.querySelector(".mobile_header .logo");
+    if (!mbLogo) return;
+
+    schBtns.forEach((schBtn) => {
+      schBtn.classList.remove("change");
+    });
+    schBox.classList.remove("sch_show");
+    gnb.classList.remove("gnb_show");
+    header.classList.remove("width_wide");
+    mbHeader.classList.remove("width_wide");
+    blackBg.classList.remove("show");
+    body.classList.remove("none_scroll");
+    menuBtn.classList.remove("hide");
+    mbLogo.classList.remove("hide");
+  }
+
+  //tab 키
+  function pressTab(event) {
+    const subTabMenu = document.querySelector(".sub_menu");
+    if (!subTabMenu) return;
+
+    if (window.event.keyCode == 9) {
+      schBoxClose();
+      subTabMenu.focus();
+      gnb.classList.remove("gnb_show");
+    } else {
+      if (event.shiftKey) {
+        const hashTagLis = document.querySelector(".here");
+        hashTagLis.focus();
+      }
+    }
+  }
+
+  /**
+     * @type {any[]}
+     */
+  let main = [];
+  /**
+     * @type {any[]}
+     */
+  let sub = [];
+
+  async function get_binding_data() {
+    // Simulating asynchronous data fetching
+    await new Promise((resolve) => setTimeout(resolve, 10));
+    const maindata = await fetchData("/home/getMainList", '');
+    const subdata = await fetchData("/home/getSubList", '');
+    main = maindata;
+    sub = subdata;
+  }
+ function handleMenuClick(sort, mainSeq, subSeq) {
+    selectedMenuSort.set(sort);
+    selectedMenuSeq.set(mainSeq);
+    selectedMenuSubSeq.set(subSeq);
+  }
 
   onMount(async () => {
+
+    await get_binding_data();
+
+    //검색창 열기
+
     //헤더 메뉴
     const gnbWrap = document.querySelector(".gnb_wrap");
     if (!gnbWrap) return;
 
-    const subMenus = document.querySelectorAll(".sub_menu");
-    if (!subMenus) return;
+    const gnbMenus = document.querySelectorAll(".gnb_menu");
+    if (!gnbMenus) return;
 
-    const subBg = document.querySelector(".sub_bg");
-    if (!subBg) return;
+    const gnbBg = document.querySelector(".gnb_bg");
+    if (!gnbBg) return;
 
     const headerWrap = document.querySelector(".header_wrap");
     if (!headerWrap) return;
 
-    const sch_btn = document.querySelector(".sch_btn");
-    if (!sch_btn) return;
-
-    const sch_btnSecond = document.querySelector(".sch_btn.second");
-    if (!sch_btnSecond) return;
-
     const logo = document.querySelector("header .logo");
     if (!logo) return;
 
-    gnbWrap.addEventListener("mouseenter", function () {
-      subMenus.forEach(function (subMenu) {
-        subMenu.classList.add("list_show");
+    const inputWrap = document.querySelector(".input_wrap");
+    if (!inputWrap) return;
+
+    function gnbMouseIn() {
+      gnbMenus.forEach(function (gnbMenu) {
+        gnbMenu.classList.add("list_show");
       });
       gnbWrap.classList.add("menu_active");
-      subBg.classList.add("menu_show");
+      gnbBg.classList.add("menu_show");
+    }
+
+    gnbWrap.addEventListener("mouseenter", function () {
+      gnbMouseIn();
     });
 
-    //tab키
-    gnbWrap.onkeydown = function () {
-      if (window.event.keyCode == 9) {
-        subBg.classList.add("menu_show");
-        subMenus.forEach(function (subMenu) {
-          subMenu.classList.add("list_show");
-        });
-      }
-    };
-
-    const ss = document.querySelector(".input_wrap input");
-    if (!ss) return;
-
-    sch_btn.addEventListener("keydown", function (event) {
-      if (event.key === "Tab") {
-        event.preventDefault(); // Tab 키의 기본 동작을 막음
-
-        subBg.classList.remove("menu_show");
-        subMenus.forEach(function (subMenu) {
-          subMenu.classList.remove("list_show");
-        });
-        schBox.classList.add("sch_show");
-        ss.focus();
-      }
-    });
-
-    logo.onkeydown = function () {
-      if (window.event.keyCode == 9) {
-        subBg.classList.remove("menu_show");
-        subMenus.forEach(function (subMenu) {
-          subMenu.classList.remove("list_show");
-        });
-      }
-    };
-
-    subBg.addEventListener("mouseleave", function () {
-      subMenus.forEach(function (subMenu) {
-        subMenu.classList.remove("list_show");
+    function gnbMouseOut() {
+      gnbMenus.forEach(function (gnbMenu) {
+        gnbMenu.classList.remove("list_show");
       });
       gnbWrap.classList.remove("menu_active");
-      subBg.classList.remove("menu_show");
+      gnbBg.classList.remove("menu_show");
+    }
+    gnbBg.addEventListener("mouseleave", function () {
+      gnbMouseOut();
     });
 
-    const schBtns = document.querySelectorAll(".sch_btn");
-    if (!schBtns) return;
-    const closeBtn = document.querySelector(".close_btn");
-    if (!closeBtn) return;
-    const schBox = document.querySelector(".sch_box");
-    if (!schBox) return;
-    const schBtns2 = document.querySelectorAll(".sch_box .second");
-
-    schBtns.forEach(function (schBtn) {
-      schBtn.addEventListener("click", function () {
-        schBox.classList.add("sch_show");
-        schBtns2.forEach(function (btn) {
-          btn.classList.add("hide");
-        });
-        closeBtn.classList.add("show");
+    gnbMenus.forEach(function (gnbMenu) {
+      gnbMenu.addEventListener("click", function () {
+        gnbMouseOut();
       });
-    });
-
-    closeBtn.addEventListener("click", function () {
-      schBox.classList.remove("sch_show");
-    });
-
-    const subMEnuOn = document.querySelector(".sdsd");
-    // if (!subMEnuOn) return;
-    const hash_tag = document.querySelector(".hash_tag li:last-child");
-    if (!hash_tag) return;
-
-    hash_tag.addEventListener("keydown", function () {
-      if (event.key === "Tab") {
-        alert("d");
-        subMEnuOn.focus();
-      }
     });
 
     //모바일 메뉴
-    const panelOpen = document.querySelector(".menu_ico");
-    if (!panelOpen) return;
-    const panelClose = document.querySelector(".bt-close");
-    if (!panelClose) return;
-    const siteFunctions = document.querySelector(".mobile_panel");
-    if (!siteFunctions) return;
+    const menuBtn = document.querySelector(".menu_btn");
+    if (!menuBtn) return;
+    const closeBtn = document.querySelector(".close_btn");
+    if (!closeBtn) return;
+    const mobilePanel = document.querySelector(".mobile_panel");
+    if (!mobilePanel) return;
     const body = document.querySelector("body");
     if (!body) return;
 
-    panelOpen.addEventListener("click", function () {
-      gsap.to(siteFunctions, 0.5, { right: 0, ease: Power2.easeOut });
-      body.classList.add("none_scroll");
+    menuBtn.addEventListener("click", function () {
+      panelOpen();
     });
 
-    panelClose.addEventListener("click", function () {
-      gsap.to(siteFunctions, 0.5, { right: "-100%", ease: Power2.easeOut });
+    function panelOpen() {
+      gsap.to(mobilePanel, 0.5, { right: 0, ease: Power2.easeOut });
+      body.classList.add("none_scroll");
+    }
+    function panelClose() {
+      gsap.to(mobilePanel, 0.5, { right: "-100%", ease: Power2.easeOut });
       body.classList.remove("none_scroll");
+    }
+
+    //윈도우 창 조절 시 모바일 패널 닫기
+    function checkWindowSize() {
+      if (window.innerWidth > 1280) {
+        panelClose();
+      }
+    }
+
+    // 윈도우 창 크기 변경 시 checkWindowSize 함수 호출
+    window.addEventListener("resize", checkWindowSize);
+
+    closeBtn.addEventListener("click", function () {
+      panelClose();
     });
 
     const menuLists = document.querySelectorAll(".mobile_panel .menu_list");
     if (!menuLists) return;
 
-    const subLists = document.querySelectorAll(".mobile_panel .sub_list");
-    if (!subLists) return;
+    const twoDepths = document.querySelectorAll(".mobile_panel .two_depth");
+    if (!twoDepths) return;
 
     menuLists.forEach(function (menuList, index) {
       menuList.addEventListener("click", function () {
-        subLists.forEach(function (subList) {
-          subList.classList.remove("current");
+        twoDepths.forEach(function (twoDepth) {
+          twoDepth.classList.remove("current");
         });
         menuLists.forEach(function (otherMenuList, otherIndex) {
           if (otherIndex !== index) {
@@ -146,121 +233,95 @@
           }
         });
         this.classList.add("on");
-        subLists[index].classList.add("current");
+        twoDepths[index].classList.add("current");
       });
     });
-    subLists.forEach(function (subList) {
-      subList.addEventListener("click", function () {
-        gsap.to(siteFunctions, 0.5, { right: "-100%", ease: Power2.easeOut });
-        body.classList.remove("none_scroll");
+
+    function goPage() {
+      gsap.to(mobilePanel, 0.5, { right: "-100%", ease: Power2.easeOut });
+      body.classList.remove("none_scroll");
+    }
+
+    twoDepths.forEach(function (twoDepth) {
+      twoDepth.addEventListener("click", function () {
+        goPage();
       });
     });
+
+    //tab 키
+    gnbWrap.onkeydown = function () {
+      if (window.event.keyCode == 9) {
+        gnbBg.classList.add("menu_show");
+        gnbMenus.forEach(function (gnbMenu) {
+          gnbMenu.classList.add("list_show");
+        });
+      }
+    };
+
+    logo.onkeydown = function () {
+      if (window.event.keyCode == 9) {
+        gnbBg.classList.remove("menu_show");
+        gnbMenus.forEach(function (gnbMenu) {
+          gnbMenu.classList.remove("list_show");
+        });
+      }
+    };
+    const schBtns = document.querySelectorAll(".sch_btn");
+    if (!schBtns) return;
+
+    schBtns.forEach((schBtn) => {
+      schBtn.addEventListener("keydown", function (event) {
+        if (event.keyCode === 9) {
+          // Tab 키의 keyCode는 9입니다.
+          gnbBg.classList.remove("menu_show");
+          schBoxOpen();
+          gnbMenus.forEach(function (gnbMenu) {
+            gnbMenu.classList.remove("list_show");
+          });
+        }
+      });
+    });
+
   }); //전체
+
+   
+
 </script>
 
 <!-- pc header -->
 <header>
   <div class="header_wrap">
     <h1 class="logo">
-      <a href="/"><img src="/src/lib/images/logo.png" /></a>
+      <a href="/main" title="대만관광청 메인 바로가기"
+        ><img src="/img/layout/logo.png" alt="대만관광청 로고" /></a
+      >
     </h1>
     <div class="gnb_wrap">
       <ul class="gnb">
-        <li class="">
-          <a href="/">대만 정보</a>
-          <ul class="sub_menu">
-            <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
-            <li><a href="/info/introduction">대만소개</a></li>
-            <li><a href="/info/festival">문화/역사</a></li>
-            <li><a href="/info/weather">대만의 날씨</a></li>
-            <li><a href="/info/tourist_info">관광자료</a></li>
-            <li><a href="/info/transportation">대만 교통수단</a></li>
-            <li>
-              <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
-                >가이드북</a
-              >
-            </li>
-            <li><a href="/info/related_links">관련 링크</a></li>
-            <li><a href="/info/working_holiday">워홀</a></li>
-            <li>
-              <a href="https://issuu.com/nihaotaiwan2015" target="_blank"
-                >계간지</a
-              >
-            </li>
+        {#each main as row, i}
+        <li>
+          <span>{row.name}</span>
+          <ul class="gnb_menu">
+            {#each sub as val, i}
+              {#if val.seq != null}
+                {#if row.seq == val.mainSeq}
+                  <li><a href={val.url} on:click={() => handleMenuClick(row.sort, val.mainSeq, val.seq)} >{val.title}</a></li>
+                {/if}
+              {/if}
+            {/each}
           </ul>
         </li>
-        <li class="">
-          <a href="/">이벤트</a>
-          <ul class="sub_menu">
-            <li><a href="/event/all">이벤트</a></li>
-            <li><a href="/event/contest">여행 사진 공모전</a></li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="/themeTour">테마여행</a>
-          <ul class="sub_menu">
-            <li><a href="/themeTour/recreation">휴양</a></li>
-            <li><a href="/themeTour/activity">액티비티</a></li>
-            <li><a href="/themeTour/diners">식객</a></li>
-            <li><a href="/themeTour/picture">사진</a></li>
-            <li><a href="/themeTour/history">역사</a></li>
-            <li><a href="/themeTour/shopping">쇼핑</a></li>
-            <li><a href="/themeTour/love">러브</a></li>
-            <li><a href="/themeTour/nature">자연</a></li>
-            <li><a href="/themeTour/culture">문화</a></li>
-            <li><a href="/themeTour/night_market">야시장</a></li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="/">대만 명소</a>
-          <ul class="sub_menu">
-            <li><a href="/attractions/all">전체</a></li>
-            <li><a href="/attractions/northern">북부</a></li>
-            <li><a href="/attractions/midwest">중서부</a></li>
-            <li><a href="/attractions/eastern">동부</a></li>
-            <li><a href="/attractions/south">남부</a></li>
-            <li><a href="/attractions/island">섬</a></li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="/golf">대만 골프</a>
-        </li>
-        <li class="">
-          <a href="/">프로대만족</a>
-          <ul class="sub_menu">
-            <li><a href="/satisfact/all">프로대만족 전체</a></li>
-            <li><a href="/satisfact/magazine">월간 매거진</a></li>
-            <li><a href="/satisfact/satisfact">프로대만족</a></li>
-            <li><a href="/satisfact/travel_tips">여행 Tips</a></li>
-          </ul>
-        </li>
-        <li class="">
-          <a href="/">관광청 소개</a>
-          <ul class="sub_menu">
-            <li><a href="/introduction/tourism_board">관광청 소개</a></li>
-            <li><a href="/introduction/director_general">국장소개</a></li>
-            <li><a href="/introduction/notice">공지사항</a></li>
-            <li><a href="/introduction/press_release">보도자료</a></li>
-            <li><a href="/introduction/korean_office">찾아오시는 길</a></li>
-          </ul>
-        </li>
+        {/each}
       </ul>
     </div>
-    <a href="/" class="sch_btn">검색</a>
+    <button class="sch_btn" on:click={schBoxOpen}>검색</button>
   </div>
-  <div class="sub_bg" />
+  <div class="gnb_bg" />
 </header>
 <div class="sch_box">
-  <div class="sch_box_top">
-    <h1 class="logo">
-      <a href="/"><img src="/src/lib/images/logo.png" /></a>
-    </h1>
-    <a href="/" class="sch_btn second">검색</a>
-    <a href="/" class="close_btn">닫기</a>
-  </div>
   <div class="sch_box_wrap">
     <form>
-      <div class="input_wrap" tabindex="0">
+      <div class="input_wrap">
         <input type="text" placeholder="검색어를 입력해주세요" />
         <a href="/" class="sch_btn_gray">검색</a>
       </div>
@@ -275,32 +336,37 @@
         <li><a href="/"># 액티비티</a></li>
         <li><a href="/"># 대만 핫플</a></li>
         <li><a href="/"># 대만 야시장</a></li>
-        <li><a href="/"># 대만 포토존</a></li>
-        <li><a href="/"># 대만교통</a></li>
+        <li><a href="/" tabindex="0" class="here"># 대만 포토존</a></li>
+        <li on:keydown={pressTab}><a href="/"># 대만교통</a></li>
       </ul>
     </div>
   </div>
 </div>
+<div class="black_bg" />
+
 <!-- //pc header -->
 
 <!-- mobile header -->
 <div class="mobile_header">
   <div class="mobile_header_top">
     <h1 class="logo">
-      <a href="/"><img src="/src/lib/images/logo.png" /></a>
+      <a href="/"><img src="/img/layout/logo.png" /></a>
     </h1>
-    <a href="/" class="sch_btn">검색</a>
-    <div class="menu_ico" />
+    <a href="/" class="sch_btn" on:click={schBoxOpen}>검색</a>
+    <div class="menu_btn" />
   </div>
 </div>
+<!-- //mobile header -->
+
+<!-- mobile panel -->
 <div class="mobile_panel">
   <div class="inner">
-    <div class="hd">
+    <div class="mobile_panel_top">
       <p>메뉴</p>
-      <a href="/" class="bt-close" />
+      <a href="/" class="close_btn" />
     </div>
-    <div class="menu_section">
-      <ul class="mobile_menu">
+    <div class="mobile_panel_menu">
+      <ul class="one_depth">
         <li class="menu_list on"><a href="/">대만 정보</a></li>
         <li class="menu_list"><a href="/">이벤트</a></li>
         <li class="menu_list"><a href="/">테마 여행</a></li>
@@ -319,15 +385,14 @@
           </ul>
         </div>
       </ul>
-
-      <div class="sub_list_wrap">
-        <ul class="sub_list current">
+      <div class="two_depth_wrap">
+        <ul class="two_depth current">
           <li><a href="/info/immigration_precautions">출입국 주의사항</a></li>
-          <li><a href="/info/iintroduction">대만소개</a></li>
+          <li><a href="/info/introduction">대만소개</a></li>
           <li><a href="/info/festival">문화/역사</a></li>
           <li><a href="/info/weather">대만의 날씨</a></li>
           <li><a href="/info/tourist_info">관광자료</a></li>
-          <li><a href="/info/transportation">대만 교통수단</a></li>
+          <li><a href="/info/iPASS">대만 교통수단</a></li>
           <li>
             <a href="https://www.freepam.co.kr/shop/index.php" target="_blank"
               >가이드북</a
@@ -341,11 +406,12 @@
             >
           </li>
         </ul>
-        <ul class="sub_list">
-          <li><a href="/event/all">이벤트</a></li>
-          <li><a href="/event/contest">여행 사진 공모전</a></li>
+        <ul class="two_depth">
+          <li><a href="/event/all">전체</a></li>
+          <li><a href="/event/contest">진행중</a></li>
+          <li><a href="/event/contest">종료</a></li>
         </ul>
-        <ul class="sub_list">
+        <ul class="two_depth">
           <li><a href="/themeTour/recreation">휴양</a></li>
           <li><a href="/themeTour/activity">액티비티</a></li>
           <li><a href="/themeTour/diners">식객</a></li>
@@ -357,7 +423,7 @@
           <li><a href="/themeTour/culture">문화</a></li>
           <li><a href="/themeTour/night_market">야시장</a></li>
         </ul>
-        <ul class="sub_list">
+        <ul class="two_depth">
           <li><a href="/attractions/all">전체</a></li>
           <li><a href="/attractions/northern">북부</a></li>
           <li><a href="/attractions/midwest">중서부</a></li>
@@ -365,16 +431,16 @@
           <li><a href="/attractions/south">남부</a></li>
           <li><a href="/attractions/island">섬</a></li>
         </ul>
-        <ul class="sub_list">
-          <li><a href="/" />대만 골프</li>
+        <ul class="two_depth">
+          <li><a href="/golf">대만 골프</a></li>
         </ul>
-        <ul class="sub_list">
+        <ul class="two_depth">
           <li><a href="/satisfact/all">프로대만족 전체</a></li>
           <li><a href="/satisfact/magazine">월간 매거진</a></li>
           <li><a href="/satisfact/satisfact">프로대만족</a></li>
           <li><a href="/satisfact/travel_tips">여행 Tips</a></li>
         </ul>
-        <ul class="sub_list">
+        <ul class="two_depth">
           <li><a href="/introduction/tourism_board">관광청 소개</a></li>
           <li><a href="/introduction/director_general">국장소개</a></li>
           <li><a href="/introduction/notice">공지사항</a></li>
@@ -386,18 +452,25 @@
   </div>
 </div>
 
-<!-- //mobile header -->
+<!-- //mobile panel -->
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
 
+  /* js toggle css */
   :global(.menu_show) {
     opacity: 1 !important;
-    /* display: block !important; */
     height: 540px !important;
+  }
+  :global(.black_bg.show) {
+    display: block !important;
+  }
+  :global(.gnb_show) {
+    visibility: hidden;
   }
   :global(.list_show) {
     opacity: 1 !important;
+    // visibility: visible !important;
     height: auto !important;
   }
   :global(.sch_show) {
@@ -415,8 +488,12 @@
   :global(.show) {
     display: block !important;
   }
-  :global(.hide) {
-    display: none !important;
+  :global(.sch_btn.change) {
+    background: url(/img/layout/icon_close.png) no-repeat center / contain !important;
+    z-index: 5;
+  }
+  :global(.width_wide:after) {
+    opacity: 1 !important;
   }
   :global(.menu_list.on:after) {
     width: calc(100% + vw(20));
@@ -436,6 +513,12 @@
   :global(.none_scroll) {
     overflow-y: hidden !important;
   }
+  :global(.hide) {
+    display: none !important;
+  }
+
+  /* //js toggle css */
+
   header {
     max-width: 1800px;
     width: 100%;
@@ -452,6 +535,7 @@
   }
   .header_wrap {
     width: 100%;
+    height: 100px;
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -476,37 +560,49 @@
     line-height: 100px;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .gnb > li {
     position: relative;
     display: inline-block;
   }
-  .gnb > li > a {
+  .gnb > li > span {
+    height: 100%;
     padding: 0 30px;
     display: inline-block;
     text-align: center;
     font-weight: 500;
+    font-family: "Noto Sans KR";
+    font-size: 16px;
+    color: #212529;
   }
-  .gnb > li > .sub_menu {
+  .gnb > li > .gnb_menu {
     width: 100%;
     height: 0;
-    /* display: none;
-     */
+    // display: none;
+    // visibility: hidden;
     opacity: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     position: absolute;
     z-index: 3;
-    transition: 0.2s;
+    transition: 0.3s;
+    overflow: hidden;
+    text-decoration: none !important;
   }
-  .gnb > li > .sub_menu > li > a {
+  .gnb > li > .gnb_menu > li > a {
     display: block;
     margin: 16px 0;
     line-height: 24px;
     color: #717579;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
+    font-family: "Noto Sans KR";
+    text-decoration: none !important;
   }
-  .gnb > li > .sub_menu > li > a:hover {
+  .gnb > li > .gnb_menu > li > a:hover {
     color: #ff7a00;
   }
   .gnb > li::after {
@@ -536,7 +632,7 @@
     transform: translateX(-50%);
     opacity: 1;
   }
-  .sub_bg {
+  .gnb_bg {
     width: 1920px;
     height: 0px;
     /* display: none; */
@@ -557,20 +653,46 @@
     top: 50%;
     transform: translateY(-50%);
     right: 100px;
-    background: url("/img/icon_search.png") no-repeat center / contain;
+    background: url("/img/layout/icon_search.png") no-repeat center / contain;
     z-index: 4;
     text-indent: -999em;
   }
   .sch_box {
     width: 100%;
-    height: 440px;
+    height: 380px;
+    top: 100px;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     // padding: 0 152px;
     padding: 0 100px;
-    transition: 0.3s;
+    // transition: 0.3s;
     background-color: #fff;
+  }
+  header:after {
+    content: "";
+    display: block;
+    min-width: 1920px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background: #fff;
+    z-index: -1;
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  .black_bg {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 1920px;
+    z-index: 1;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
   }
   .sch_box_top {
     height: 100px;
@@ -653,7 +775,11 @@
     border-radius: 8px;
     background: #f5f5f5;
   }
-
+  .hash_tag ul li a {
+    widows: 100%;
+    height: 100%;
+    display: block;
+  }
   .mobile_header {
     width: 100%;
     height: vw(140);
@@ -662,12 +788,21 @@
     display: flex;
     background: #fff;
     border-radius: 0 0 vw(50) vw(50);
-
-    /* position: fixed;
+    display: none;
+    z-index: 1;
+  }
+  .mobile_header:after {
+    content: "";
+    display: block;
+    min-width: 1920px;
+    height: 100%;
+    position: absolute;
     top: 0;
-    right: -100%;
-    width: 100%;
-    z-index: 100; */
+    left: 50%;
+    background: #fff;
+    z-index: -1;
+    transform: translateX(-50%);
+    opacity: 0;
   }
   .mobile_header_top {
     display: flex;
@@ -680,17 +815,20 @@
       display: block;
     }
   }
-  .mobile_header .menu_ico {
+  .mobile_header .menu_btn {
     width: 42px;
     height: 42px;
     position: absolute;
     right: 30px;
-    background: url("/img/icon_menu.png") no-repeat center / contain;
+    background: url("/img/layout/icon_menu.png") no-repeat center / contain;
     cursor: pointer;
   }
   .mobile_header .sch_btn {
     position: absolute;
     right: 98px;
+  }
+  :global(.mobile_header .sch_btn.change) {
+    right: vw(40) !important;
   }
 
   .mobile_panel {
@@ -708,7 +846,7 @@
     overflow-y: auto;
     /* padding: 0 40px; */
   }
-  .mobile_panel .inner .hd {
+  .mobile_panel .inner .mobile_panel_top {
     height: vw(120);
     padding: 0 vw(60);
     position: relative;
@@ -716,45 +854,43 @@
     border-bottom: 2px solid #e0e0e0;
     text-align: center;
   }
-  .mobile_panel .inner .hd p {
-    font-size: vw(38);
+  .mobile_panel .inner .mobile_panel_top p {
     line-height: vw(120);
     font-family: "Noto Sans KR";
   }
-  .mobile_panel .inner .bt-close {
+  .mobile_panel .inner .close_btn {
     width: 17px;
     height: 33px;
     display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: url("/img/close.png") no-repeat center / contain;
+    background: url("/img/layout/close.png") no-repeat center / contain;
     text-indent: -999em;
   }
 
   .mobile_panel .inner {
     position: relative;
   }
-  .mobile_menu {
+  .one_depth {
     width: vw(260);
     position: relative;
   }
-  .sub_list_wrap {
+  .two_depth_wrap {
     width: calc(100% - vw(260));
     position: relative;
   }
 
   .menu_list {
-    height: vw(106);
+    height: vw(60);
+    line-height: vw(60);
     display: flex;
     background: #f5f5f5;
     position: relative;
     margin: 0 0 vw(32) 0;
-    line-height: vw(106);
     padding: 0 0 0 vw(40);
   }
   .menu_list a {
-    font-size: vw(30);
     font-family: "Noto Sans KR";
     position: absolute;
     display: block;
@@ -763,27 +899,27 @@
     z-index: 13;
     color: #212529;
   }
-  .sub_list {
+  .two_depth {
     width: 100%;
     height: 100%;
+    // height: 100vh;
     padding: vw(30) 0 0 vw(70);
     position: absolute;
     top: 0;
     background-color: #fff;
   }
-  .sub_list li {
+  .two_depth li {
     margin: 0 0 vw(52) 0;
   }
-  .sub_list li a {
+  .two_depth li a {
     display: block;
     width: 100%;
     height: 100%;
-    font-size: vw(30);
     color: #212529;
     font-family: "Noto Sans KR";
     opacity: 0.8;
   }
-  .menu_section {
+  .mobile_panel_menu {
     display: flex;
     height: 100%;
   }
@@ -845,49 +981,30 @@
     }
   }
 
-  @media screen and (max-width: 1450px) {
-    header {
-      h1 {
-        margin: 0 2% 0 50px;
-        background-color: black;
-      }
-      .sch_btn {
-        right: 50px;
-      }
-    }
-  }
-  @media screen and (max-width: 1300px) {
-    header {
-      .logo {
-        background-color: red;
-        margin: 0 2% 0 20px;
-      }
-      .sch_btn {
-        right: 20px;
-      }
-      .gnb {
-        > li {
-          > a {
-            padding: 0 20px;
-          }
-        }
-      }
-    }
-    .sch_box {
-      .logo {
-        margin: 0 0 0 20px;
-      }
-      .close_btn {
-        right: 20px;
+  // @media screen and (max-width: 1480px) {
+  //   header {
+  //     .gnb {
+  //       > li {
+  //         > a {
+  //           padding: 0 20px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  @include largeDesktop {
+    .gnb li {
+      span {
+        padding: 0 vw(11.5);
       }
     }
   }
-  @media screen and (min-width: 1024px) {
+
+  @include desktop {
     .mobile_header {
-      display: none !important;
+      display: flex;
     }
-  }
-  @media screen and (max-width: 1023px) {
     header {
       display: none;
     }
@@ -895,11 +1012,30 @@
       margin: 0 25px 0 100px;
     }
     .mobile_header {
-      height: vw(90);
+      height: vw(80);
+    }
+    .mobile_panel {
+      .mobile_panel_top {
+        p {
+          font-size: 22px;
+        }
+      }
+      .menu_list {
+        a {
+          font-size: 22px;
+        }
+      }
+      .two_depth {
+        a {
+          font-size: 20px;
+        }
+      }
     }
     .sch_box {
       height: 100%;
       padding: 0 vw(40);
+      position: fixed;
+      top: vw(60);
       .logo {
         display: none;
       }
@@ -913,13 +1049,11 @@
           input {
             min-height: 0;
             padding: vw(45) 0 vw(29);
-            font-size: vw(40);
           }
         }
         .hash_tag {
           margin: vw(80) 0 0;
           p {
-            font-size: vw(32);
             margin: 0 0 vw(30) 0;
           }
           ul {
@@ -928,7 +1062,6 @@
               margin: 0 vw(12) vw(14) 0;
               a {
                 padding: vw(18) vw(26);
-                font-size: vw(26);
                 border-radius: vw(14);
               }
             }
@@ -936,8 +1069,11 @@
         }
       }
     }
+    .black_bg {
+      display: none !important;
+    }
   }
-  @media screen and (max-width: 768px) {
+  @include mobile {
     .mobile_header {
       height: vw(140);
       padding: 0 vw(40);
@@ -945,8 +1081,55 @@
       .sch_btn {
         right: vw(118);
       }
-      .menu_ico {
+      .menu_btn {
         right: vw(40);
+      }
+    }
+    .one_depth {
+      .menu_list {
+        height: vw(106);
+        line-height: vw(106);
+        a {
+          font-size: vw(30);
+        }
+      }
+    }
+    .two_depth {
+      a {
+        font-size: vw(30);
+      }
+    }
+    .sch_box {
+      top: vw(140);
+      .sch_box_wrap {
+        input {
+          font-size: vw(40);
+        }
+        .hash_tag {
+          p {
+            font-size: vw(32);
+          }
+          ul {
+            a {
+              padding: vw(18) vw(26);
+              font-size: vw(26);
+            }
+          }
+        }
+      }
+    }
+    .mobile_panel {
+      .mobile_panel_top {
+        p {
+          font-size: vw(38);
+        }
+      }
+    }
+  }
+  @include smallMobile {
+    .mobile_header {
+      .sch_btn {
+        right: 17vw;
       }
     }
   }

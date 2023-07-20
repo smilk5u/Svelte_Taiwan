@@ -1,0 +1,200 @@
+
+<!-- 메인 컨텐츠 -->
+<div class="at-body">
+  <div class="at-container">
+    <div class="view-wrap">
+      <div class="sub_box">
+        <div class="detail">
+          <div class="lt_detail">
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_tChNiD1f_c724a3f0e905ce63c393f2710f391e93b4ed7ae3.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/thumb-2105653078_tChNiD1f_c724a3f0e905ce63c393f2710f391e93b4ed7ae3_880x587.jpg"
+                  alt="후시향"
+                  class="img-tag"
+                /></a
+              >
+            </div>
+          </div>
+          <div class="rt_detail">
+            <h1>후시향</h1>
+            <div itemprop="description" class="view-content">
+              후시향은 수려한 분위기의 인문 관광 특색이 모여있는 지역으로
+              용문마을에서 석양을 즐기기 좋은 곳이며, 해변의 푸른 바닷물과 하얀
+              백사장의 모래를 여유롭게 즐기기 좋고, 일출 감상으로 유명한
+              곳입니다.
+            </div>
+          </div>
+        </div>
+        <ul class="image">
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_sJYFxURI_5a8ed960dbdc43a7bde0724e31d65eb1a0d033c1.JPG"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/2105653078_sJYFxURI_5a8ed960dbdc43a7bde0724e31d65eb1a0d033c1.JPG"
+                  alt="아이먼 해변 "
+                  class="img-tag"
+                /></a
+              >
+              <div class="subject">아이먼 해변</div>
+              <div class="content">
+                여름에 인기 있는 곳으로 깨끗한 백사장의 길이가 3, 4 km이며
+                황금해안이라고 불립니다. 또한 이곳은 펑후의 아름다움을 대표하는
+                곳입니다.
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_dI3TaVsn_5a284b43f1d67feb5b6a7dc008fb2432275cb3ab.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/2105653078_dI3TaVsn_5a284b43f1d67feb5b6a7dc008fb2432275cb3ab.jpg"
+                  alt="난랴오 동네"
+                  class="img-tag"
+                  title=""
+                /></a
+              >
+              <div class="subject">난랴오 동네</div>
+              <div class="content">
+                난랴오 동네는 뉴쓰구(牛屎窟), 위차오(魚灶), 차이자이(菜宅) 등
+                펑후만의 전통 특색을 보유 한 곳이며, 전통적인 특징을 유지한
+                순수하고 자연스러운 시골 모습을 지닌 곳입니다.<br />
+                <br />
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="image">
+          <li>
+            <div class="view-img">
+              <a
+                href="https://www.taiwantour.or.kr/bbs/view_image.php?fn=%2Fdata%2Ffile%2Fm03%2F2105653078_MYRKry7I_e0035e3affee4228a34abdb2dc65c5397dac32b3.jpg"
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src="https://www.taiwantour.or.kr/data/file/m03/2105653078_MYRKry7I_e0035e3affee4228a34abdb2dc65c5397dac32b3.jpg"
+                  alt="아이먼 백사장"
+                  class="img-tag"
+                /></a
+              >
+              <div class="subject">아이먼 백사장</div>
+              <div class="content">
+                아이먼 백사장은 여름 인기 관광지로 깨끗한 모래와 끝없이 펼쳐진
+                백사장은 황금 백사장이라 불리는 곳입니다.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Footer 네비게이션 -->
+  <div id="footerGnb">
+   <div class="img_box">
+     <ul>
+       <li>
+         <a href="/event/all" title="이벤트 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img1.jpg" alt="이벤트" />
+           </div>
+           <div class="txt_elm">
+             <strong>이벤트</strong>
+             <p>대만을 120% 즐길 수 있는 <br /> 다양한 이벤트</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img1.jpg"
+               alt="당첨 도전하기"
+             />
+             <span>당첨 도전하기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a
+           href="/introduction/tourism_board"
+           title="대만 관광청 소개 바로가기"
+         >
+           <div class="thumb_img">
+             <img
+               src="/img/common/bottom_navi_img2.jpg"
+               alt="대만 관광청 소개"
+             />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 관광청 소개</strong>
+             <p>대만 관광청에 대한 <br /> 모든 것</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img2.jpg"
+               alt="관광청의 A to Z"
+             />
+             <span>관광청의 A to Z</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/themeTour/recreation" title="테마 여행 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img3.jpg" alt="테마 여행" />
+           </div>
+           <div class="txt_elm">
+             <strong>테마 여행</strong>
+             <p>당신이 즐길 수 있는 <br /> 대만의 모든 테마 여행</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img3.jpg"
+               alt="나와 맞는 여행찾기"
+             />
+             <span>나와 맞는 여행찾기</span>
+           </div>
+         </a>
+       </li>
+       <li>
+         <a href="/attractions/all" title="대만명소 바로가기">
+           <div class="thumb_img">
+             <img src="/img/common/bottom_navi_img4.jpg" alt="대만 명소" />
+           </div>
+           <div class="txt_elm">
+             <strong>대만 명소</strong>
+             <p>지금 대만에서 가장 핫한 <br /> 지역별 다양한 명소</p>
+           </div>
+           <div class="over_txt">
+             <img
+               src="/img/common/botton_navi_over_img4.jpg"
+               alt="여긴 꼭 가야해!"
+             />
+             <span>여긴 꼭 가야해!</span>
+           </div>
+         </a>
+       </li>
+     </ul>
+   </div>
+ </div>
+ <!-- //Footer 네비게이션 -->
+</div>
+<!-- //메인 컨텐츠 -->
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .at-body {
+    .at-container {
+      margin: 0 auto;
+    }
+  }
+</style>
