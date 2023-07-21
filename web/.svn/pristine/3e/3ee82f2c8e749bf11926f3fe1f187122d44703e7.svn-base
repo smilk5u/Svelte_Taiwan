@@ -1,0 +1,59 @@
+/* SCSS */
+
+/* Font style setting */
+$NotoSansKR: "Noto Sans KR", Arial, Apple SD Gothic Neo, sans-serif;
+$SCDream: "SCDream", Roboto, Arial, Apple SD Gothic Neo, sans-serif;
+
+$mainColor: #FF7A00;
+
+/* Font Weight */
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 600;
+$extraBold: 800;
+$black: 900;
+
+/* Brack Point */
+
+// laergeDesktop
+@mixin largeDesktop {
+  @media (max-width: 1418px) {
+    @content;
+  }
+}
+
+// desktop
+@mixin desktop {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+
+// tablet
+@mixin tablet {
+  @media (min-width: 769) and (max-width: 1024) {
+    @content;
+  }
+}
+
+// mobile
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+// smallMobile
+@mixin smallMobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+
+// mobile
+@function vw($size) {
+  $vwSize: (768 * 0.01);
+  @return ($size / $vwSize) * 1vw;
+}

@@ -1,0 +1,124 @@
+<script>
+  // @ts-nocheck
+
+  import { onMount } from "svelte";
+  import { fetchBoardData } from "$lib/api/board";
+  import { selectedMenuSubSeq } from "$lib/stores/menu";
+  import { env } from "$env/dynamic/public";
+
+  const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+  let data = [];
+  let list = [];
+  let subSeq = 0; // categorySeq 값
+
+  let navigatepageNums = [];
+  let pageSize = 5;
+  let pageNum = 0;
+
+  selectedMenuSubSeq.subscribe((value) => {
+    subSeq = value;
+  });
+
+  $: if (subSeq) {
+    page_(1);
+  }
+
+  onMount(async () => {
+    page_(1);
+  });
+
+  async function page_(idx) {
+    pageNum = idx;
+    let pageval = { pageSize, pageNum };
+    data = await fetchBoardData(pageval);
+    list = data.list;
+    navigatepageNums = data.navigatepageNums;
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+</script>
+
+<!-- 메인 컨텐츠 -->
+<div class="at-container">
+  <section class="board-list">
+    {#each list as row, i}
+      <div class="list-wrap">
+        <div class="list-container magazine_container">
+          <div class="magazine_row">
+            <div class="content">
+              <div class="category">
+                <span>프로대만족</span>
+              </div>
+              <div class="subject">
+                <a href="/info/view/{row.seq}"> {row.subject} </a>
+              </div>
+              <div class="detail">
+                {row.content}
+              </div>
+              <div class="name">EDITOR</div>
+            </div>
+            <div class="image">
+              <a href="/info/view/{row.seq}">
+                <img src={IMG_HOST + row.filepath} title="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {/each}
+  </section>
+</div>
+{#if list.length > 0}
+  <nav class="noselect">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.prePage)}
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">이전</span>
+        </a>
+      </li>
+      {#each navigatepageNums as pn}
+        <li class="page-item {pn == data.pageNum ? 'active' : ''}">
+          <a class="page-link" on:click={() => page_(pn)}>{pn}</a>
+        </li>
+      {/each}
+      <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.nextPage)}
+          aria-label="Next"
+        >
+          <span aria-hidden="true">다음</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{/if}
+
+<!-- //메인 컨텐츠 -->
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  .at-container {
+    margin: 80px auto 0;
+  }
+  @include mobile {
+    .list-wrap .list-container {
+      overflow: hidden;
+      margin-right: -15px;
+      margin-bottom: 0px;
+    }
+    .list-wrap .list-row {
+      float: left;
+      width: 100%;
+    }
+    .list-wrap .list-item {
+      margin-right: 15px;
+      margin-bottom: 30px;
+    }
+  }
+</style>
