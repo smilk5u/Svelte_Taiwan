@@ -2951,7 +2951,7 @@ li {
     display: none !important;
   }
   .sub_cate > div.ct_cate {
-    margin: 5.2vw 5.02vw 6.51vw;
+    margin: 4.3vw 5.02vw 3.2vw;
   }
   .sub_wrap .sub_cate > div a {
     font-size: 15px;
@@ -2974,7 +2974,7 @@ li {
   }
   .sub_visual {
     height: auto !important;
-    padding: 18.22vw 0 0 0 !important;
+    padding: 18.22916vw 0 0 0 !important;
     /* position: static !important; */
   }
   .sub_cate {
