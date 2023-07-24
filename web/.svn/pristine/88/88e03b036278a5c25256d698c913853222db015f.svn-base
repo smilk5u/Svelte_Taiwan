@@ -1,0 +1,107 @@
+<script>
+        // @ts-nocheck
+
+    import FooterNav from "../../Footer_Nav.svelte";
+    import { onMount } from "svelte";
+    import { fetchBoardData } from "$lib/api/board";
+    import { selectedCetegorySeq } from "$lib/stores/menu";
+    import { env } from "$env/dynamic/public";
+
+    const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+    let data = [];
+    let list = [];
+    let category = 99; // categorySeq 값
+
+    let navigatepageNums = [];
+    let pageSize = 10;
+    let pageNum = 0;
+
+    selectedCetegorySeq.subscribe((value) => {
+        category = value;
+    });
+
+    $: if (category) {
+        page_(1);
+    }
+
+    onMount(async () => {
+        page_(1);
+    });
+
+    async function page_(idx) {
+        pageNum = idx;
+        let pageval = { pageSize, pageNum };
+        data = await fetchBoardData(pageval);
+        list = data.list;
+        navigatepageNums = data.navigatepageNums;
+    }
+  </script>
+  <!-- 메인 컨텐츠 -->
+  <div class="at-body">
+    <div class="at-container">
+      <section class="board-list">
+        <div class="list-wrap">
+            {#each list as row, i}
+            <div class="list-container magazine_container">
+              <div class="magazine_row">
+                <div class="content">
+                  <div class="category">
+                    <span>월간매거진</span>
+                  </div>
+                  <div class="subject">
+                    <a href="/satisfact/view/{row.seq}"> {row.subject} </a>
+                  </div>
+                  <div class="detail">
+                    {@html row.content}
+                  </div>
+                  <div class="name">EDITOR</div>
+                </div>
+                {#if row.filepath}
+                <div class="image">
+                  <a href="/">
+                    <img
+                      src={IMG_HOST + row.filepath}
+                      alt= {row.subject}
+                      title=""
+                    />
+                  </a>
+                </div>
+                {/if}
+              </div>
+            </div>
+            {/each}
+        </div>
+      </section>
+    </div>
+    <FooterNav/>
+  </div>
+  
+  <!-- //메인 컨텐츠 -->
+  
+  <style lang="scss">
+    @import "/src/styles/variables.scss";
+    .at-container {
+      margin: 0 auto;
+    }
+    @include mobile {
+      .at-body {
+        padding: vw(60) 0 0;
+      }
+    }
+  
+    .list-wrap .list-container {
+      overflow: hidden;
+      margin-right: -15px;
+      margin-bottom: 0px;
+    }
+    .list-wrap .list-row {
+      float: left;
+      width: 100%;
+    }
+    .list-wrap .list-item {
+      margin-right: 15px;
+      margin-bottom: 30px;
+    }
+  </style>
+  

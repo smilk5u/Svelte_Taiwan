@@ -1,0 +1,44 @@
+<script>
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+  import { fetchData } from "$lib/api/fetch";
+  import { env } from "$env/dynamic/public";
+
+  const seq = $page.params.seq;
+  const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+  /**
+   * @type {any}
+   */
+  let view = [];
+
+  onMount(async () => {
+    const data = await fetchData("/home/boardDetail?seq=" + seq, "");
+    view = data;
+  });
+</script>
+
+<!-- 메인 컨텐츠 -->
+<div class="at-container">
+  <div class="view-wrap">
+    <div class="magazine_view">
+      <div class="main">
+        <div class="image">
+          <img src={IMG_HOST + view.filepath} alt="이미지" />
+        </div>
+        <div class="content">
+          <h3>{view.subject}</h3>
+          <p>
+            {@html view.contentHtml}
+          </p>
+        </div>
+      </div>
+      <div class="list">
+        <p>
+          {@html view.param3}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 메인 컨텐츠 -->
