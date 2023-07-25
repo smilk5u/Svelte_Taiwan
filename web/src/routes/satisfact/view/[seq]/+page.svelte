@@ -30,13 +30,13 @@
         <div class="content">
           <h3>{view.subject}</h3>
           <p>
-            {@html view.contentHtml}
+            {@html view.content ? view.content : ''}
           </p>
         </div>
       </div>
       <div class="list">
         <p>
-          {@html view.param3}
+          {@html view.param3 ? view.param3 : ''}
         </p>
       </div>
     </div>

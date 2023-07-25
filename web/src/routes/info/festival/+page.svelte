@@ -363,10 +363,16 @@
   </div>
 </div>
 
-<style>
-  @media (min-width: 1025px) {
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  @media (min-width: 1025px) { 
     .page_list li .rt {
       padding: 50px 30px;
+    }    
+  }
+  @include mobile { 
+    .tab {
+      padding:0;
     }
   }
 </style>

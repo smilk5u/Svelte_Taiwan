@@ -1,8 +1,21 @@
 @import "@fontsource/fira-mono";
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 300;
+  src: url(/src/lib/fonts/NotoSansKR-Light.otf) format("opentype");
+}
 @font-face {
   font-family: "Noto Sans KR";
   font-style: normal;
   font-weight: 400;
+  src: url(/src/lib/fonts/NotoSansKR-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
   src: url(/src/lib/fonts/NotoSansKR-Medium.otf) format("opentype");
 }
 @font-face {
@@ -33,7 +46,7 @@
 @font-face {
   font-family: "SCDream";
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   src: url(/src/lib/fonts/SCDream7.woff) format("woff");
 }
 @font-face {
@@ -313,23 +326,19 @@ main {
 }
 
 .search_top_wrap {
-  /* display: block; */
   display: flex;
   justify-content: space-between;
-}
-/* .search_top_wrap::after {
-  content: "";
-  display: block;
-  clear: both;
-} */
-
-.search_row input:hover {
-  color: #fff;
 }
 .search_row input,
 .search_row select {
   height: 39px;
   padding: 0 20px;
+}
+.search_row input[type=text] {
+  padding: 0 5px;
+}
+.search_row input[type=submit]:hover {
+  color:#fff;
 }
 .search_row:after {
   content: "";
@@ -356,6 +365,7 @@ main {
 }
 .etc_buttons {
   width: max-content;
+  margin:10px 0 0;
 }
 .etc_buttons:after {
   clear: both;
@@ -458,6 +468,9 @@ table .flex_td .large_button {
 table input {
   width: 100%;
 }
+table td.btn_td {
+  text-align: left;
+}
 .add_table {
   max-width: 900px;
   min-width: 0 !important;
@@ -469,6 +482,13 @@ table input {
 .add_table td {
   padding: 1.25rem;
   border-right: 0;
+}
+.file_wrap {
+  display: flex;
+  gap:10px;
+}
+.post_info img {
+  width:100%;
 }
 /* Mobile penal */
 .button_container {
@@ -2802,7 +2822,7 @@ li {
   display: block;
 }
 .sub_menu ul li a span {
-  padding: 13px 0;
+  padding: 18px 0 19px;
   display: block;
   font-size: 15px;
   color: #818589;
@@ -2811,7 +2831,7 @@ li {
 .sub_menu ul li.on a span {
   color: #ff7200;
   border-bottom: 2px solid #ff7200;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
@@ -3475,7 +3495,9 @@ li {
 }
 
 .tab {
-  max-width: 1140px;
+  /* max-width: 1140px; */
+  max-width: fit-content;
+  margin:0 auto;
   display: flex;
   gap : 10px;
   padding: 0 40px;
@@ -3492,8 +3514,12 @@ li {
 }
 
 .tab li {
+  width:200px;
   box-sizing: border-box;
-  width:100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
 }
 
 .tab li a {
@@ -3516,10 +3542,11 @@ li {
 
 @media (max-width: 768px) {
   .tab {
+    max-width: initial;
     padding: 0 5.20833vw;
     flex-wrap:wrap;
     gap:1.953125%;
-    margin:0 auto 3vw;
+    margin:0 auto 3vw;    
   }
 
   .tab li {
@@ -5449,12 +5476,4 @@ main {
 }
 .item_cont.active .item_icon {
   z-index: 2;
-}
-
-/* ===============================================================
-  ■ 대만 교통 수단 
- ===============================================================*/
-.tab.pass {
-  padding: 0;
-  max-width: 750px;
 }

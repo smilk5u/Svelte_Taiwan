@@ -146,7 +146,7 @@
 </div>
 
 <asdie>
-  <a href="/">scroll top</a>
+  <a href="#">scroll top</a>
 </asdie>
 
 <section>

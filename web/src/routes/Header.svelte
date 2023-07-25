@@ -35,7 +35,7 @@
     const header = document.querySelector("header");
     header.classList.add("open_menu");
     gsap.set("header", {
-      height: "600px",
+      height: "580px",
       "background-color": "#fff",
     });
   };
@@ -292,7 +292,7 @@
           </li>
         {/each}
       </ul>
-      <!--<button type="button" class="search_btn">검색</button>-->
+      <!-- <button type="button" class="search_btn">검색</button> -->
       <div class="search_contain">
         <div class="search_wrap">
           <form>
@@ -534,6 +534,7 @@
     overflow: hidden;
     padding: 0 40px;
     background-color: transparent;
+    background-color: red;
     &:after {
       content: "";
       position: absolute;
@@ -552,25 +553,19 @@
   }
   .gnb_wrap {
     max-width: 1800px;
+    height: 92px;
     position: relative;
     display: flex;
     margin: 0 auto;
     padding: 0 80px;
-    & > * {
-      float: left;
-    }
-    &:after {
-      content: "";
-      display: block;
-      clear: both;
-    }
+    justify-content: space-between;
   }
   #gnb {
     width: fit-content;
-    // max-width: fit-content;
-    // margin: 0 0 0 50px;
-    // padding: 18px 0;
-    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
     &:after {
       content: "";
       display: block;
@@ -579,14 +574,13 @@
     & > li {
       position: relative;
       float: left;
-      // padding:0 10px;
-      > button {
+      > button { 
         height: 92px;
-        // padding: 10px;
         display: block;
-        padding: 20px 37px; //30
+        padding: 0 28px 4px;
         display: inline-block;
-        font-size: 16px;
+        font-size: 17px;
+        font-weight: $medium;;
         font-family: $NotoSansKR;
         position: relative;
         &:after {
@@ -616,21 +610,23 @@
     }
   }
   #logo {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
+    padding: 27px 0 0;
     a {
       width: 100%;
       height: 100%;
       display: block;
     }
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
   }
   .search_btn {
     width: 40px;
     height: 40px;
-    margin: 30px 0 0;
-    float: right;
+    margin: 25px 0 0;
     display: block;
     text-indent: -999em;
     background: url("/img/layout/icon_search.png") no-repeat center / contain;
@@ -638,11 +634,11 @@
   .gnb_menu {
     width: 100%;
     position: absolute;
-    top: 92px;
+    top: 102px;
     left: 0;
-    text-align: center;
     margin: 0;
     padding: 0;
+    text-align: center;
     li {
       width: 100%;
       margin: 15px 0;
@@ -655,7 +651,7 @@
       line-height: 24px;
       color: #717579;
       font-size: 15px;
-      font-weight: $light;
+      font-weight: $regular;
       font-family: $NotoSansKR;
       transition: color, 0.2s;
       text-decoration: none;
@@ -790,7 +786,7 @@
   /* ================================================================================
    ■ Header : tablet
    ================================================================================*/
-  @include desktop {
+  @media (max-width: 1160px) {
     header {
       display: none;
     }
@@ -804,7 +800,7 @@
     /* Mobile Header : 모바일 헤더 */
     .mobile_header {
       width: 100%;
-      height: 100px;
+      height: 92px;
       padding: 0 80px;
       left: 0;
       right: 0;

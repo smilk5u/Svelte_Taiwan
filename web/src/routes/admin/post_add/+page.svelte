@@ -1,6 +1,5 @@
 <script>
-// @ts-nocheck
-
+  // @ts-nocheck
 
   import { load } from "./+page.js";
   import { onMount } from "svelte";
@@ -10,8 +9,10 @@
   // import CKEditor from "../../CKEditor.svelte";
   import { user } from "$lib/stores/user";
 
-  let content = '';
-  
+  let content = "";
+  let uploadFile;
+  let downloadFile;
+
   let mainMenu = [];
   let subMenu = [];
   let category = [];
@@ -70,10 +71,14 @@
 
     const form = document.querySelector('form[name="frm"]');
     const formData = new FormData(form);
-    const fileInput = document.querySelector('input[type="file"]');
-    formData.append("file", fileInput.files[0]);
-    formData.append("content",editorData);
-    formData.append("writer",userInfo.userId);
+    if (uploadFile) {
+      formData.append("file", uploadFile[0]);
+    }
+    if (downloadFile) {
+    formData.append("downloadFile", downloadFile[0]);
+  }
+    // formData.append("content",editorData);
+    formData.append("writer", userInfo.userId);
 
     var data = await fetchDataFile("/api/saveBoard", formData);
 
@@ -83,8 +88,17 @@
     }
   }
   function handleEditorChange(event) {
-    editorData  = event.detail.editorData;
+    editorData = event.detail.editorData;
   }
+  function clearFile() {
+    uploadFile = null;
+    // input 요소의 값을 초기화합니다.
+    const fileInput = document.getElementById('file');
+    if (fileInput) {
+      fileInput.value = '';
+    }
+  }
+
 </script>
 
 <div class="page_title">
@@ -108,39 +122,56 @@
         <tr>
           <th>분류</th>
           <td>
-            <select name="mainSeq" id="mainMenu" on:change={handleSelect}>
-              {#each mainMenu as item, index}
-                <option value={item.seq}>{item.name}</option>
-              {/each}
-            </select>
-            <select name="subSeq" id="subMenu" on:change={handleSelectSub}>
-              {#each subMenu as item, index}
-                <option value={item.seq}>{item.title}</option>
-              {/each}
-            </select>
-            <select name="category" id="category">
-              {#if category}
-                {#each category as item, index}
-                  <option value={item.seq}>{item.name}</option>
-                {/each}
-              {/if}
-            </select>
+            <div class="container">
+              <div class="box">
+                <select name="mainSeq" id="mainMenu" on:change={handleSelect}>
+                  {#each mainMenu as item, index}
+                    <option value={item.seq}>{item.name}</option>
+                  {/each}
+                </select>
+              </div>
+              <div class="box">
+                <select name="subSeq" id="subMenu" on:change={handleSelectSub}>
+                  {#each subMenu as item, index}
+                    <option value={item.seq}>{item.title}</option>
+                  {/each}
+                </select>
+              </div>
+              <div class="box">
+                <select name="category" id="category">
+                  {#if category}
+                    {#each category as item, index}
+                      <option value={item.seq}>{item.name}</option>
+                    {/each}
+                  {:else }
+                  {/if}
+                </select>
+              </div>
+            </div>
           </td>
         </tr>
         <tr>
           <th>내용</th>
           <td>
-            <textarea name="content"></textarea>
+            <textarea name="content" />
             <!-- <CKEditor bind:content /> -->
           </td>
         </tr>
         <tr>
-          <th>첨부파일</th>
+          <th>대표이미지</th>
           <td class="upload_file">
             <div class="flex_td">
-              <input type="file" name="file" />
-              <!-- <button on:click={handleUpload}>파일선택</button> -->
-              <button>삭제</button>
+              <input bind:files={uploadFile} id="file" name="file" type="file" />
+              <input type="button" on:click={event => (document.getElementById('file').value='')} value="삭제" style="width:50px;">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>다운로드용 첨부파일</th>
+          <td class="upload_file">
+            <div class="flex_td">
+              <input bind:files={downloadFile} id="downloadFile" name="downloadFile" type="file" />
+              <input type="button" on:click={event => (document.getElementById('downloadFile').value='')} value="삭제" style="width:50px;">
             </div>
           </td>
         </tr>
@@ -158,7 +189,7 @@
   table select {
     width: 100%;
   }
-  table textarea{
+  table textarea {
     min-height: 400px;
   }
   table .flex_td button {
@@ -182,4 +213,11 @@
     }
   }
 
+  .container {
+    display: flex; /* Flex 컨테이너로 설정 */
+    justify-content: space-between; /* 요소 사이를 균등한 간격으로 정렬 */
+  }
+  .box {
+    width:32%
+  }
 </style>

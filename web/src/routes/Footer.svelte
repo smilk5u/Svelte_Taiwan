@@ -1,3 +1,16 @@
+<script>
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    //scroll top btn
+    const scrollTop = document.querySelector("asdie");
+    scrollTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }); //onMount
+</script>
+
 <footer>
   <div class="footer_wrap">
     <div class="ft_link">
@@ -8,21 +21,16 @@
           </a>
           <ul>
             <li>
-              <a
-                href="/common/privacy"
-                title="개인정보처리방침 바로가기">개인정보처리방침</a
+              <a href="/common/privacy" title="개인정보처리방침 바로가기"
+                >개인정보처리방침</a
               >
             </li>
             <li>
-              <a
-                href="/common/provision"
-                title="이용약관 바로가기">이용약관</a
-              >
+              <a href="/common/provision" title="이용약관 바로가기">이용약관</a>
             </li>
             <li>
-              <a
-                href="/common/noemail"
-                title="이메일수집거부 바로가기">이메일수집거부</a
+              <a href="/common/noemail" title="이메일수집거부 바로가기"
+                >이메일수집거부</a
               >
             </li>
           </ul>
@@ -86,11 +94,17 @@
     </div>
   </div>
 </footer>
+<asdie>
+  <a href="#">scroll top</a>
+</asdie>
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-  dl, ol, ul {
-   padding:0; margin:0;
+  dl,
+  ol,
+  ul {
+    padding: 0;
+    margin: 0;
   }
   footer {
     background-color: #4b4b4b;
@@ -140,14 +154,14 @@
     margin: 0 25px;
   }
   footer .ft_link .pull-left ul li a {
-     position: relative;
-     font-size: 16px;
-     color: #fff;
-     opacity: 0.6;
-     font-family: $NotoSansKR;
-     font-weight: $regular;
-     text-decoration: none;
-   }
+    position: relative;
+    font-size: 16px;
+    color: #fff;
+    opacity: 0.6;
+    font-family: $NotoSansKR;
+    font-weight: $regular;
+    text-decoration: none;
+  }
 
   footer .ft_link .pull-left ul li a:after {
     content: "";
@@ -389,6 +403,42 @@
             }
           }
         }
+      }
+    }
+  }
+
+  asdie {
+    a {
+      width: 70px;
+      height: 70px;
+      position: fixed;
+      right: 90px;
+      bottom: 48px;
+      display: block;
+      border-radius: 100%;
+      background: #7f7f7f url("/img/main/btn_top.png") no-repeat center / 25px
+        15px;
+      text-indent: -999em;
+      z-index: 1;
+    }
+  }
+  @include desktop {
+    asdie {
+      a {
+        width: vw(70);
+        height: vw(70);
+        right: vw(90);
+        bottom: vw(48);
+        background: #7f7f7f url("/img/main/btn_top.png") no-repeat center /
+          vw(25) vw(15);
+      }
+    }
+  }
+  @include mobile {
+    asdie {
+      a {
+        right: vw(45);
+        bottom: vw(45);
       }
     }
   }

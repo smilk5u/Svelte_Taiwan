@@ -1,10 +1,45 @@
-<!-- <ul class="fixed">
-  <li><span />개요</li>
-  <li><span />대도시</li>
-  <li><span />방문시기</li>
-  <li><span />방문방법</li>
-  <li><span />갤러리</li>
-</ul> -->
+<script>
+  // @ts-nocheck
+
+  import { onMount } from "svelte";
+  import { fetchBoardData } from "$lib/api/board";
+  import { selectedMenuSubSeq } from "$lib/stores/menu";
+  import { env } from "$env/dynamic/public";
+
+  const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+  let data = [];
+  let list = [];
+  let subSeq = 0; // categorySeq 값
+
+  let navigatepageNums = [];
+  let pageSize = 12;
+  let pageNum = 0;
+
+  selectedMenuSubSeq.subscribe((value) => {
+    subSeq = value;
+  });
+
+  $: if (subSeq) {
+    page_(1);
+  }
+
+  onMount(async () => {
+    page_(1);
+  });
+
+  async function page_(idx,val) {
+    pageNum = idx;
+    let pageval = { pageSize, pageNum };
+    data = await fetchBoardData(pageval);
+    list = data.list;
+    navigatepageNums = data.navigatepageNums;
+
+    if(val){
+      window.scrollTo({ top: 3800, behavior: "smooth" });
+    }
+  }
+</script>
 
 <div class="at-container">
   <div class="box step1">
@@ -222,58 +257,46 @@
   <div class="gallery_cont">
     <h3>갤러리</h3>
     <div class="gallery_wrap">
+      {#each list as row, i}
       <div class="img_wrap">
         <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
+          src={IMG_HOST + row.filepath}
+          alt={row.subject}
         />
       </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
-      <div class="img_wrap">
-        <img
-          src="https://www.taiwantour.or.kr/data/file/m06_01/1890265010_YK9M8Vrl_08df02089903d5a42b2551b1dd9d2e8f3872fd5c.jpg"
-          alt=""
-        />
-      </div>
+      {/each}
     </div>
   </div>
 </div>
-
+{#if list.length > 0}
+  <nav class="noselect">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.prePage,true)}
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">이전</span>
+        </a>
+      </li>
+      {#each navigatepageNums as pn}
+        <li class="page-item {pn == data.pageNum ? 'active' : ''}">
+          <a class="page-link" on:click={() => page_(pn,true)}>{pn}</a>
+        </li>
+      {/each}
+      <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.nextPage,true)}
+          aria-label="Next"
+        >
+          <span aria-hidden="true">다음</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{/if}
 <style lang="scss">
   @import "/src/styles/variables.scss";
   .at-container {

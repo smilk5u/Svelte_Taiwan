@@ -60,9 +60,9 @@
     //console.log('nav')
     //console.log("nav currentMainMenuSort " + currentMainMenuSort);
     //console.log("nav currentSubMenuSort " + currentSubMenuSort);
-    console.log("nav currentCetegorySeq " + currentCetegorySeq);
+    // console.log("nav currentCetegorySeq " + currentCetegorySeq);
     if (currentMainMenuSort == 0) {
-      fetchDataAndSubscribe();
+      fetchDataAndSubscribe(); 
     } else if (currentMainMenuSort) {
       fetchDataAndSubscribe();
     }
@@ -172,7 +172,7 @@
   }
 
   onMount(() => {
-    
+    console.log(document.querySelector('.sub_menu'))
   });
 </script>
 

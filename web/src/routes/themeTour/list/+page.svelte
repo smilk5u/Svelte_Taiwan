@@ -61,7 +61,9 @@
             <div class="rt">
               <h3>{row.subject}</h3>
               <!-- {row.content} -->
-              {@html row.contentHtml}
+
+              <p>{@html row.contentHtml.replace(/<[^>]*>?/g, "")}</p>
+              <!-- {console.log(row.contentHtml.replace(/<[^>]*>?/g, ""))} -->
             </div>
           </li>
         {/each}

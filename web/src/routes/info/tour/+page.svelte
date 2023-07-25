@@ -60,7 +60,7 @@
       <div class="list-item">
         <div class="img-tack">
           <a
-            href={IMG_HOST + row.filepath}
+            href={row.download}
             download
             title={row.subject}
             target="_blank"

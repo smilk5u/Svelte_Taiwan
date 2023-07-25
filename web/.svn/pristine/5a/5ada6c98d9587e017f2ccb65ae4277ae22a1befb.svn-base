@@ -1,0 +1,296 @@
+<script>
+  // @ts-nocheck
+  import { onMount, onDestroy } from "svelte";
+  import { fetchData, fetchDataFile } from "$lib/api/fetch";
+  import { goto } from "$app/navigation";
+  import CKEditor from "../../../CKEditor.svelte";
+  import { selectedImage } from "$lib/stores/store";
+  import ImageModal from "../../../components/ImageModal.svelte";
+  import { user } from "$lib/stores/user";
+  import { page } from "$app/stores";
+  import { writable } from "svelte/store";
+  import { env } from "$env/dynamic/public";
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import { faImage } from "@fortawesome/free-solid-svg-icons";
+
+  const seq = $page.params.seq;
+  const IMG_HOST = env.PUBLIC_IMG_HOST;
+
+  let mainMenu = [];
+  let subMenu = [];
+  let category = [];
+
+  const userInfo = $user;
+  let uploadFile;
+  let downloadFile;
+
+
+  // initialData를 writable 스토어로 생성
+  const initialData = writable({
+    subject: "",
+    content: "",
+    filepath: "",
+    download: "",
+    regDate: "",
+    mainSeq: 0,
+    subSeq: 0,
+    categorySeq: 0,
+    seq: 0,
+  }); // 기본값으로 초기화
+  let editorData = $initialData?.content; // 추가: CKEditor의 데이터를 저장하는 변수
+  onMount(async () => {
+    const response = await fetchData("/api/boardDetail?seq=" + seq, "");
+    initialData.set(response);
+    const mainMenuList = await fetchData(
+      "/api/mainMenuList?val=sub&combo=1",
+      ""
+    );
+    const subMenuList = await fetchData(
+      `/api/subMenuList?mainSeq=${response.mainSeq}&combo=1`,
+      ""
+    );
+    const categoryList = await fetchData(
+      `/api/categoryList?mainSeq=${response.mainSeq}&subSeq=${response.subSeq}&combo=1`,
+      ""
+    );
+
+    mainMenu = mainMenuList;
+    subMenu = subMenuList;
+    category = categoryList;
+  });
+
+  async function handleSelect(event) {
+    let selectedOption = event.target.value;
+    await setSubMenu(selectedOption);
+  }
+
+  async function handleSelectSub(event) {
+    var mainMenuSelect = document.getElementById("mainMenu");
+    var mainSeq = mainMenuSelect.value;
+
+    let selectedOptionSub = event.target.value;
+    await setCategory(mainSeq, selectedOptionSub);
+  }
+
+  async function setSubMenu(mainSeq) {
+    subMenu = await fetchData(`/api/subMenuList?mainSeq=${mainSeq}&combo=1`);
+    if (subMenu.length > 0) {
+      delayForceChangeEvent("subMenu");
+    }
+  }
+
+  async function setCategory(mainSeq, subSeq) {
+    category = await fetchData(
+      `/api/categoryList?mainSeq=${mainSeq}&subSeq=${subSeq}&combo=1`
+    );
+    delayForceChangeEvent("category");
+  }
+
+  async function forceChangeEvent(str) {
+    const selectbox = document.getElementById(str);
+    selectbox.dispatchEvent(new Event("change"));
+  }
+
+  function delayForceChangeEvent(str) {
+    setTimeout(() => forceChangeEvent(str), 100);
+  }
+
+  async function submitForm(event) {
+    event.preventDefault();
+
+    const form = document.querySelector('form[name="frm"]');
+    const fileInput = document.querySelector('input[type="file"]');
+
+    const formData = new FormData(form);
+    formData.append("file", fileInput.files[0]);
+    formData.append("content", editorData);
+    formData.append("writer", userInfo.userId);
+
+    var data = await fetchDataFile("/api/saveBoard", formData);
+
+    if (data > 0) {
+      alert("수정되었습니다");
+      goto("/admin/post", { replaceState: false });
+    }
+  }
+  function handleEditorChange(event) {
+    editorData = event.detail.editorData;
+  }
+
+  let selectedImagePath = "";
+  let isModalOpen = false; // 이미지 모달이 열려있는지 여부를 저장하는 변수
+
+  function openModal(filepath) {
+    console.log(11111);
+    selectedImagePath = filepath;
+    selectedImage.set(filepath);
+    isModalOpen = true;
+  }
+
+  function closeModal() {
+    selectedImagePath = "";
+    selectedImage.set("");
+    isModalOpen = false;
+  }
+
+  function deleteImage() {
+    const fileInput = document.querySelector('input[type="file"]');
+    fileInput.value = "";
+  }
+</script>
+
+<div class="page_title">
+  <h2>게시물 수정</h2>
+</div>
+<div class="part">
+  <form name="frm" id="frm">
+    <table class="add_table">
+      <caption>게시물 수정</caption>
+      <colgroup>
+        <col width="250px" />
+        <col width="*%" />
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>제목</th>
+          <td>
+            <input type="hidden" name="seq" bind:value={$initialData.seq} />
+            <input
+              type="text"
+              name="subject"
+              bind:value={$initialData.subject}
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>분류</th>
+          <td>
+            <div class="container">
+              <div class="box">
+                <select name="mainSeq" id="mainMenu" on:change={handleSelect}>
+                  {#each mainMenu as item}
+                    <option
+                      value={item.seq}
+                      selected={item.seq == $initialData.mainSeq}
+                      >{item.name}</option
+                    >
+                  {/each}
+                </select>
+              </div>
+              <div class="box">
+                <select name="subSeq" id="subMenu" on:change={handleSelectSub}>
+                  {#each subMenu as item}
+                    <option
+                      value={item.seq}
+                      selected={item.seq == $initialData.subSeq}
+                      >{item.title}</option
+                    >
+                  {/each}
+                </select>
+              </div>
+              <div class="box">
+                <select name="category" id="category">
+                  {#if category}
+                    {#each category as item}
+                      <option
+                        value={item.seq}
+                        selected={item.seq == $initialData.categorySeq}
+                        >{item.name}</option
+                      >
+                    {/each}
+                  {/if}
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>내용</th>
+          <td>
+            <textarea name="content">{$initialData.content}</textarea>
+            <!-- <CKEditor bind:editorData on:change={handleEditorChange} /> -->
+          </td>
+        </tr>
+        <tr>
+          <th>대표이미지</th>
+          <td>
+            {#if $initialData.filepath}
+              <input type="button" on:click={() => openModal($initialData.filepath)} value="보기" style="width:50px;">
+              
+              <input type="button" on:click={event => ($initialData.filepath = null)} value="삭제" style="width:50px;">
+            {:else}
+            <input bind:files={uploadFile} id="file" name="file" type="file" />
+              <input type="button" on:click={event => (document.getElementById('file').value='')} value="삭제" style="width:50px;">
+            {/if}
+          </td>
+        </tr>
+        <tr>
+          <th>다운로드용 첨부파일</th>
+          <td>
+            {#if $initialData.download}
+            <a href={IMG_HOST + $initialData.download} download>
+              <FontAwesomeIcon icon={faImage} /></a
+            >
+              <input type="button" on:click={event => ($initialData.download = null)} value="삭제" style="width:50px;">
+            {:else}
+            <input bind:files={downloadFile} id="downloadFile" name="downloadFile" type="file" />
+              <input type="button" on:click={event => (document.getElementById('downloadFile').value='')} value="삭제" style="width:50px;">
+            {/if}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <ul class="etc_buttons register_list">
+    <li><button type="button" on:click={submitForm}>수정</button></li>
+    <li><button><a href="/admin/post">목록</a></button></li>
+  </ul>
+</div>
+
+{#if selectedImagePath}
+  {#if $initialData.seq > 777}
+    <ImageModal imagePath={`${selectedImagePath}`} on:close={closeModal} />
+  {:else}
+    <ImageModal
+      imagePath={`${IMG_HOST + selectedImagePath}`}
+      on:close={closeModal}
+    />
+  {/if}
+{/if}
+
+<style lang="scss">
+  table textarea,
+  table select {
+    width: 100%;
+  }
+  table textarea {
+    min-height: 400px;
+  }
+  table .flex_td button {
+    min-height: 2.5rem !important;
+    margin: 0 0 0 5px;
+  }
+  table .upload_file {
+    position: relative;
+  }
+  @media (max-width: 480px) {
+    table .flex_td {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    table .flex_td button {
+      width: calc(50% - 5px);
+      margin: 5px 0 0;
+      &:last-child {
+        margin: 5px 0 0 5px;
+      }
+    }
+  }
+  .container {
+    display: flex; /* Flex 컨테이너로 설정 */
+    justify-content: space-between; /* 요소 사이를 균등한 간격으로 정렬 */
+  }
+  .box {
+    width: 32%;
+  }
+</style>
