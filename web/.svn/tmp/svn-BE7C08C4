@@ -98,7 +98,7 @@
     display: inline-block;
     position: relative;
     color: #fff;
-    font-size: 28px;
+    font-size: 30px;
     top: -5px;
     line-height: 1;
   }

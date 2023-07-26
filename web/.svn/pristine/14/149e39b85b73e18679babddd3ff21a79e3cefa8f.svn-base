@@ -104,24 +104,20 @@
   }
   .culture .box.step1 .content p {
     color: #fff;
-    font-size: 15px;
-    line-height: 1.8;
-    font-weight: 300;
+    line-height: 1.7;
   }
   .culture .box.step3 {
     max-width: 1430px;
     padding: 0 40px;
-    margin: 70px auto 100px;
+    margin: 100px auto;
   }
   .culture .box.step3 h3 {
     text-align: center;
-    margin: 0 0 70px;
-    font-size: 28px;
+    margin-bottom: 100px;
+    font-size: 27px;
   }
   .culture .box.step3 p {
-    font-size: 15px;
-    line-height: 1.8;
-    font-weight: 300;
+    line-height: 1.6;
     color: #666;
     margin-bottom: 40px;
   }
@@ -149,25 +145,24 @@
       height: 15px;
     }
     .culture .box.step1 .content h3 span {
-      font-size: vw(26);
+      font-size: 22px;
       top: -8px;
     }
     .culture .box.step1 .content p {
-      font-size: vw(17);
+      font-size: vw(22);
     }
     .culture .box.step1 .content p br {
       display: none;
     }
     .culture .box.step3 {
-      margin: vw(40) auto vw(80);
+      margin: 50px auto;
     }
     .culture .box.step3 h3 {
-      font-size: vw(26);
-      margin: 0 0 vw(20);
-      /* margin-bottom: 50px; */
+      font-size: 25px;
+      margin-bottom: 50px;
     }
     .culture .box.step3 p {
-      font-size: vw(17);
+      font-size: vw(22);
       font-weight: $light;
     }
     .culture .box.step3 p br {

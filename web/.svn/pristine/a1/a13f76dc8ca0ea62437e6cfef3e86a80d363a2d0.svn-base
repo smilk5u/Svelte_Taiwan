@@ -28,14 +28,14 @@
     page_(1);
   });
 
-  async function page_(idx, val) {
+  async function page_(idx,val) {
     pageNum = idx;
     let pageval = { pageSize, pageNum };
     data = await fetchBoardData(pageval);
     list = data.list;
     navigatepageNums = data.navigatepageNums;
 
-    if (val) {
+    if(val){
       window.scrollTo({ top: 3800, behavior: "smooth" });
     }
   }
@@ -258,19 +258,23 @@
     <h3>갤러리</h3>
     <div class="gallery_wrap">
       {#each list as row, i}
-        <div class="img_wrap">
-          <img src={IMG_HOST + row.filepath} alt={row.subject} />
-        </div>
+      <div class="img_wrap">
+        <img
+          src={IMG_HOST + row.filepath}
+          alt={row.subject}
+        />
+      </div>
       {/each}
     </div>
   </div>
-  {#if list.length > 0}
+</div>
+{#if list.length > 0}
   <nav class="noselect">
     <ul class="pagination justify-content-center">
       <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
         <a
           class="page-link"
-          on:click={() => page_(data.prePage, true)}
+          on:click={() => page_(data.prePage,true)}
           aria-label="Previous"
         >
           <span aria-hidden="true">이전</span>
@@ -278,13 +282,13 @@
       </li>
       {#each navigatepageNums as pn}
         <li class="page-item {pn == data.pageNum ? 'active' : ''}">
-          <a class="page-link" on:click={() => page_(pn, true)}>{pn}</a>
+          <a class="page-link" on:click={() => page_(pn,true)}>{pn}</a>
         </li>
       {/each}
       <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
         <a
           class="page-link"
-          on:click={() => page_(data.nextPage, true)}
+          on:click={() => page_(data.nextPage,true)}
           aria-label="Next"
         >
           <span aria-hidden="true">다음</span>
@@ -293,14 +297,11 @@
     </ul>
   </nav>
 {/if}
-</div>
-
 <style lang="scss">
   @import "/src/styles/variables.scss";
   .at-container {
     max-width: initial;
     padding: 0;
-    margin: 0 auto 40px;
   }
   .step2,
   .step4 {
@@ -319,7 +320,7 @@
   }
   .box h3 {
     text-align: center;
-    font-size: 28px;
+    font-size: 27px;
     margin: 100px 0;
   }
   .box h4 {
@@ -328,13 +329,14 @@
     margin-bottom: 10px;
   }
   .box .con {
+    /* max-width: 1430px; */
+    /* padding: 0 15px; */
     margin: 0 auto;
   }
   .box p {
     color: #666;
-    font-size: 15px;
-    line-height: 1.8;
-    font-weight: $light;
+    font-size: 17px;
+    line-height: 1.7;
   }
   .box .con ul.method {
     list-style: none;
@@ -442,14 +444,12 @@
   .box.step1 .content ul li {
     margin-bottom: 5px;
     color: #666;
-    font-size: 15px;    
-    font-weight: $light;
-   }
-   .box.step1 .content ul li span {
-      color: #333;
-      display: inline-block;
-      margin-right: 5px;
-      font-weight: $regular;
+    font-size: 15px;
+  }
+  .box.step1 .content ul li span {
+    color: #333;
+    display: inline-block;
+    margin-right: 5px;
   }
   .box.step1 .content ul li:last-of-type {
     margin-bottom: 0;
@@ -500,7 +500,7 @@
       img {
         width: 100%;
         position: absolute;
-        top: 0;
+        top:0;
         left: 0;
         bottom: 0;
         right: 0;
@@ -546,7 +546,7 @@
       left: 5%;
     }
   }
-  @include desktop {
+  @include desktop {    
     .box .con ul.method {
       margin: 0 0 30px;
     }
@@ -584,7 +584,7 @@
     }
 
     .box h3 {
-      font-size: 28px;
+      font-size: 25px;
       margin: 80px 0;
     }
     .box h4 {
@@ -668,6 +668,7 @@
       margin: 60px 0;
     }
     .box h4 {
+      font-size: 16px;
     }
     .box p {
       font-size: 13px;

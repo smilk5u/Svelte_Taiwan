@@ -688,7 +688,7 @@
         right: 30px;
         bottom: 54px;
         border-radius: 54px;
-        background: #000 url("/img/main/link_btn.png") no-repeat center / auto;
+        background: #000 url("/img/main/btn_next.png") no-repeat center / auto;
         text-indent: -999em;
       }
     }

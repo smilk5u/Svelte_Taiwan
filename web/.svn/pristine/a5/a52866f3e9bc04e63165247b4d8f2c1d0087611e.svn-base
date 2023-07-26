@@ -134,21 +134,7 @@
     });
 
     await get_binding_data();
-    /* Desktop */
-    const header = document.querySelector("header");
-    const dimmed = document.querySelector(".dimmed");
-    const gnbList = document.querySelectorAll("#gnb > li");
-    const gnbMenuLink = document.querySelectorAll(".gnb_menu a");
-    const closeSearchBtn = document.querySelector(".close_search_btn");
 
-    /* Mobile */
-    const menuListBtn = document.querySelectorAll(".menu_list");
-    const twoDepthElements = document.querySelectorAll(".two_depth li");
-    const searchContMobile = document.querySelector(".search_contain_m");
-   //  const schBtn = document.querySelector(".sch_btn");
-    const menuBtn = document.querySelector(".menu_btn");
-    const closeBtnMobile = document.querySelector(".close_btn_m");
-    
     let searchWidth = "";
     if (window.innerWidth > 768) {
       searchWidth = "-500px";
@@ -156,6 +142,7 @@
       searchWidth = "-100%";
     }
 
+    const gnbList = document.querySelectorAll("#gnb > li");
     /* PC 메뉴 버튼 */
     gnbList.forEach((element) => {
       element.addEventListener("mouseenter", GnbOpen);
@@ -163,36 +150,40 @@
     });
 
     /* PC 메뉴서브링크 클릭시 포커스 오픈 */
+    const gnbMenuLink = document.querySelectorAll(".gnb_menu a");
     gnbMenuLink.forEach((item) => {
       item.addEventListener("focus", () => {
         GnbOpen();
-        header.classList.remove("search_open");
+        document.querySelector("header")?.classList.remove("search_open");
         dimmedMotion(false);
       });
 
       /* PC 메뉴 서브링크 클릭시 헤더 닫히기 */
-      item.addEventListener("click",GnbClose);
+      item.addEventListener("click", () => {
+        GnbClose();
+      });
     });
 
     /* PC 검색버튼 포커스 시 닫기 */
     // document.querySelector(".search_btn").addEventListener("focus", GnbClose);
 
     /* PC header 마우스 리브시 이벤트 */
-    header.addEventListener("mouseleave", GnbClose);
+    document.querySelector("header").addEventListener("mouseleave", GnbClose);
 
     /* PC 검색 열기 */
     // document.querySelector(".search_btn").addEventListener("click", searchOpen);
 
     /* PC 검색 닫기 */
-    closeSearchBtn.addEventListener("click", searchClose);
+    document
+      .querySelector(".close_search_btn")
+      .addEventListener("click", searchClose);
 
     /* =============================================================================
      Mobile Header / Panel
    =================================================================================*/
-
     /* Mobile 패널 열기 */
-    menuBtn.addEventListener("click", () => {
-      searchContMobile.classList.add("open");
+    document.querySelector(".menu_btn")?.addEventListener("click", () => {
+      document.querySelector(".search_contain_m")?.classList.add("open");
       gsap.to(".mobile_panel", 0.5, {
         right: 0,
         ease: Power2.easeOut,
@@ -200,17 +191,8 @@
       dimmedMotion(true);
     });
     /* Mobile 패널 닫기 */
-    closeBtnMobile.addEventListener("click", () => {
-      searchContMobile.classList.remove("open");
-      gsap.to(".mobile_panel", 0.5, {
-        right: searchWidth,
-        ease: Power2.easeOut,
-      });
-      dimmedMotion(false);
-    });
-    /* Mobile 패널 닫기 */
-    dimmed.addEventListener("click", () => {
-      searchContMobile.classList.remove("open");
+    document.querySelector(".close_btn_m")?.addEventListener("click", () => {
+      document.querySelector(".search_contain_m")?.classList.remove("open");
       gsap.to(".mobile_panel", 0.5, {
         right: searchWidth,
         ease: Power2.easeOut,
@@ -218,8 +200,8 @@
       dimmedMotion(false);
     });
 
-
-    /* Mobile 서브메뉴 열기 */    
+    /* Mobile 서브메뉴 열기 */
+    const menuListBtn = document.querySelectorAll(".menu_list");
     menuListBtn.forEach((element) => {
       element.addEventListener("click", () => {
         menuListBtn.forEach((item) => {
@@ -229,34 +211,16 @@
       });
     });
 
-    /* Mobile 서브메뉴 클릭시 패널 닫기 */    
+    /* Mobile 서브메뉴 클릭시 패널 닫기 */
+    const twoDepthElements = document.querySelectorAll(".two_depth li");
     twoDepthElements.forEach((element) => {
       element.addEventListener("click", () => {
-        searchContMobile.classList.remove("open");
+        document.querySelector(".search_contain_m")?.classList.remove("open");
         gsap.to(".mobile_panel", 0.5, {
           right: searchWidth,
           ease: Power2.easeOut,
         });
         dimmedMotion(false);
-      });
-    });
-    
-    /* Mobile 검색창 열기 */
-   //  schBtn.addEventListener("click", () => {
-   //    dimmedMotion(true);
-   //    searchContMobile.classList.add("open");
-   //    gsap.to(searchContMobile, 0.5, {
-   //      right: 0,
-   //      ease: Power2.easeOut,
-   //    });
-   //  });
-    /* Mobile 검색창 닫음 */
-    searchContMobile.addEventListener("click", () => {
-      searchContMobile.classList.add("remove");
-      dimmedMotion(false);
-      gsap.to(searchContMobile, 0.5, {
-        right: searchWidth,
-        ease: Power2.easeOut,
       });
     });
 
@@ -267,13 +231,28 @@
       } else {
         searchWidth = "-100%";
       }
-      /* 패널이 열려 있을때 넓이값 유동적으로 변경 */
-      if (!searchContMobile.classList.contains("open")) {
-        gsap.set(".mobile_panel", {
-          right: searchWidth,
-        });
-      }
     });
+
+    /* Mobile 검색창 열기 */
+    document.querySelector(".sch_btn")?.addEventListener("click", () => {
+      dimmedMotion(true);
+      document.querySelector(".search_contain_m")?.classList.add("open");
+      gsap.to(".search_contain_m", 0.5, {
+        right: 0,
+        ease: Power2.easeOut,
+      });
+    });
+    /* Mobile 검색창 닫음 */
+    document
+      .querySelector(".close_search_btn_m")
+      ?.addEventListener("click", () => {
+        document.querySelector(".search_contain_m")?.classList.add("remove");
+        dimmedMotion(false);
+        gsap.to(".search_contain_m", 0.5, {
+          right: searchWidth,
+          ease: Power2.easeOut,
+        });
+      });
   });
 </script>
 
@@ -1162,11 +1141,6 @@
         h1 {
           width: vw(160);
           height: vw(57);
-          position: relative;
-          img {
-            position:absolute;
-            left:0; top:0;
-          }
         }
       }
       .menu_btn {
