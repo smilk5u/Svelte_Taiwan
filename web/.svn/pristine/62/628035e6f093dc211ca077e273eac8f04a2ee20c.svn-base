@@ -269,11 +269,13 @@ main {
   border: 0;
   box-sizing: border-box;
   font-family: "SCDream";
-  font-size: 15px;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   * {
-    font-size: 2.86vw
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 2.4rem;
   }
 }
 
@@ -3375,6 +3377,7 @@ li {
 }
 .page_list li .rt p {
   color: #666;
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
 }
@@ -3436,7 +3439,11 @@ li {
       font-size: 3.38541vw;
       margin: 0 0 2.34375vw;
    }
+   .page_list li .rt p {
+      font-size: 2.213541vw;
+   }
    .page_list li .rt span {
+      font-size: 2.1vw;
       margin: 1vw 0 2vw;
    }
 }
@@ -3588,7 +3595,7 @@ li {
 
   .tab li a {
     padding: 2.8vw 0;
-    font-size: 1.1rem;
+    font-size: 2.5vw;
   }
 }
 
@@ -4350,9 +4357,6 @@ main {
   }
 }
 
-/* ======================================================================
-  ■ 프로대만족 & 월간매거진 
- ======================================================================*/
 .magazine_row {
   overflow: hidden;
   border-radius: 30px;
@@ -4361,7 +4365,6 @@ main {
   table-layout: fixed;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 50px;
-  background-color: pink;
 }
 
 .magazine_row .image {
@@ -4416,7 +4419,6 @@ main {
   color: #ff7200;
   padding: 7px 25px 5px;
   line-height: 1.5;
-  /* font-size: 20px; */
 }
 
 .magazine_row .content .subject {
@@ -4424,14 +4426,13 @@ main {
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-bottom: 10px;
-  background-color: red;
 }
 
 .magazine_row .content .subject a {
   color: #333;
   font-size: 25px;
-  line-height: 1.8;
-  font-weight: 600;
+
+  line-height: 1.2;
 }
 
 .magazine_row .content .detail {
@@ -4445,7 +4446,6 @@ main {
   -webkit-box-orient: vertical;
   color: #333;
   font-size: 15px;
-  font-weight: 300;
 }
 
 .magazine_row .content .name {

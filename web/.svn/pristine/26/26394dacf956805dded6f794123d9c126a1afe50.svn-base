@@ -4350,9 +4350,6 @@ main {
   }
 }
 
-/* ======================================================================
-  ■ 프로대만족 & 월간매거진 
- ======================================================================*/
 .magazine_row {
   overflow: hidden;
   border-radius: 30px;
@@ -4361,7 +4358,6 @@ main {
   table-layout: fixed;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 50px;
-  background-color: pink;
 }
 
 .magazine_row .image {
@@ -4416,7 +4412,6 @@ main {
   color: #ff7200;
   padding: 7px 25px 5px;
   line-height: 1.5;
-  /* font-size: 20px; */
 }
 
 .magazine_row .content .subject {
@@ -4424,14 +4419,13 @@ main {
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-bottom: 10px;
-  background-color: red;
 }
 
 .magazine_row .content .subject a {
   color: #333;
   font-size: 25px;
-  line-height: 1.8;
-  font-weight: 600;
+
+  line-height: 1.2;
 }
 
 .magazine_row .content .detail {
@@ -4445,7 +4439,6 @@ main {
   -webkit-box-orient: vertical;
   color: #333;
   font-size: 15px;
-  font-weight: 300;
 }
 
 .magazine_row .content .name {

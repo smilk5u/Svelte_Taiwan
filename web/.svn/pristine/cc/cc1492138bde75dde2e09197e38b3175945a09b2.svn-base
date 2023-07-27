@@ -265,34 +265,34 @@
     </div>
   </div>
   {#if list.length > 0}
-    <nav class="noselect">
-      <ul class="pagination justify-content-center">
-        <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
-          <a
-            class="page-link"
-            on:click={() => page_(data.prePage, true)}
-            aria-label="Previous"
-          >
-            <span aria-hidden="true">이전</span>
-          </a>
+  <nav class="noselect">
+    <ul class="pagination justify-content-center">
+      <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.prePage, true)}
+          aria-label="Previous"
+        >
+          <span aria-hidden="true">이전</span>
+        </a>
+      </li>
+      {#each navigatepageNums as pn}
+        <li class="page-item {pn == data.pageNum ? 'active' : ''}">
+          <a class="page-link" on:click={() => page_(pn, true)}>{pn}</a>
         </li>
-        {#each navigatepageNums as pn}
-          <li class="page-item {pn == data.pageNum ? 'active' : ''}">
-            <a class="page-link" on:click={() => page_(pn, true)}>{pn}</a>
-          </li>
-        {/each}
-        <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
-          <a
-            class="page-link"
-            on:click={() => page_(data.nextPage, true)}
-            aria-label="Next"
-          >
-            <span aria-hidden="true">다음</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  {/if}
+      {/each}
+      <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
+        <a
+          class="page-link"
+          on:click={() => page_(data.nextPage, true)}
+          aria-label="Next"
+        >
+          <span aria-hidden="true">다음</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+{/if}
 </div>
 
 <style lang="scss">
@@ -306,7 +306,7 @@
   .step4 {
     max-width: 1480px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding:0 40px;
   }
   .step3 {
     img {
@@ -411,8 +411,7 @@
     margin-bottom: 10%;
   }
   .box.step1 .image {
-    //width: 877px;
-    width: 46%;
+    width: 877px;
     display: table-cell;
     position: relative;
   }
@@ -420,7 +419,6 @@
     max-width: 100%;
   }
   .box.step1 .image img.map {
-    width: 66%;
     position: absolute;
     right: -150px;
     top: 30px;
@@ -433,7 +431,7 @@
     padding-left: 10%;
   }
   .box.step1 .content h3 {
-    // text-align: left;
+    text-align: left;
     margin: 30px 0;
   }
   .box.step1 .content ul {
@@ -444,14 +442,14 @@
   .box.step1 .content ul li {
     margin-bottom: 5px;
     color: #666;
-    font-size: 15px;
+    font-size: 15px;    
     font-weight: $light;
-  }
-  .box.step1 .content ul li span {
-    color: #333;
-    display: inline-block;
-    margin-right: 5px;
-    font-weight: $regular;
+   }
+   .box.step1 .content ul li span {
+      color: #333;
+      display: inline-block;
+      margin-right: 5px;
+      font-weight: $regular;
   }
   .box.step1 .content ul li:last-of-type {
     margin-bottom: 0;
@@ -477,9 +475,9 @@
   }
 
   .gallery_cont {
-    max-width: 1480px;
-    margin: 0 auto;
-    padding: 0 40px;
+   max-width:1480px;
+   margin:0 auto;
+   padding:0 40px;
     h3 {
       font-size: 27px;
       margin: 100px 0;
@@ -641,7 +639,6 @@
     .box.step1 .content h3 {
       margin: 0;
       padding: 60px 0;
-      text-align: center;
     }
     .box.step3 .content {
       transform: translate(-50%, -65%);
@@ -679,7 +676,7 @@
       margin: 0 0 20px;
     }
     .box.step1 .content h3 {
-      padding: vw(50) vw(40) vw(30);
+      padding: 60px 0 30px;
     }
     .box.step1 .content ul li {
       font-size: 13px;

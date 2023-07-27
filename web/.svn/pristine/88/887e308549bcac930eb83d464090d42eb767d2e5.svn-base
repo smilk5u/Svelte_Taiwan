@@ -3,12 +3,12 @@
   import "swiper/css/bundle";
   import "swiper/css/effect-fade";
   import { onMount } from "svelte";
-  // import { gsap } from "gsap";
+
   onMount(() => {
     //main slide
     var listArray = ["slide1", "slide2", "slide3", "slide4"];
     var mainSwiper = new Swiper(".swiper", {
-      loop: true,
+      // effect: "fade",
       effect: "fade",
       pagination: {
         el: ".swiper-pagination",
@@ -41,39 +41,31 @@
         clickable: true,
       },
       // effect: "fade",
-      loop: true,
+      // loop:true,
     });
     mainSwiper.controller.control = pagingSwiper;
     pagingSwiper.controller.control = mainSwiper;
 
     //main slide scroll effect
-    //window.addEventListener("scroll", (event) => {
-    //  if (500 > window.scrollY && window.scrollY >= 124) {
-    //    document.querySelector(".swiper")?.classList.add("wider");
-    //    document.querySelector(".swiper")?.classList.remove("fully");
-    //  } else if (window.scrollY >= 500) {
-    //    document.querySelector(".swiper")?.classList.add("fully");
-    //    document.querySelector(".swiper")?.classList.remove("wider");
-    //  } else {
-    //    document.querySelector(".swiper")?.classList.remove("wider");
-    //    document.querySelector(".swiper")?.classList.remove("fully");
-    //  }
-    //});
-    gsap.registerPlugin(ScrollTrigger);
-    var tl = gsap
-      .timeline({
-        scrollTrigger: {
-          scrub: 1,
-          trigger: ".swiper",
-        },
-        defaults: { duration: 1 },
-      })
-      // .from(".swiper", {
-      //   webkitClipPath: "inset(0% 7.2% 0% 7.2% round 50px)",
-      // })
-      .to(".swiper", {
-        webkitClipPath: "inset(0px round 0px)",
-      });
+    window.addEventListener("scroll", (event) => {
+      if (500 > window.scrollY && window.scrollY >= 124) {
+        document.querySelector(".swiper")?.classList.add("wider");
+        document.querySelector(".swiper")?.classList.remove("fully");
+      } else if (window.scrollY >= 500) {
+        document.querySelector(".swiper")?.classList.add("fully");
+        document.querySelector(".swiper")?.classList.remove("wider");
+      } else {
+        document.querySelector(".swiper")?.classList.remove("wider");
+        document.querySelector(".swiper")?.classList.remove("fully");
+      }
+    });
+
+    //scroll top btn
+    const scrollTop = document.querySelector("asdie");
+    scrollTop.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }); //onMount
 </script>
 
@@ -88,10 +80,12 @@
         <p>
           대만의 출입국 정보부터<br /> 역사,날씨,가이드북까지 체크해 보세요.
         </p>
-        <button><a href="/info/immigration_precautions">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
-      <p class="prev_text">대만 골프</p>
-      <p class="next_text">관광 자료</p>
+      <div class="btn_text">
+        <p class="prev_text">대만 골프</p>
+        <p class="next_text">관광 자료</p>
+      </div>
     </div>
     <div
       class="swiper-slide"
@@ -102,10 +96,12 @@
         <p>
           대만으로 관광을 떠나기 전 꼭 필요한<br /> 다양한 정보를 확인해 보세요.
         </p>
-        <button><a href="/info/tour">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
-      <p class="prev_text">입국 정보</p>
-      <p class="next_text">테마 여행</p>
+      <div class="btn_text">
+        <p class="prev_text">입국 정보</p>
+        <p class="next_text">테마 여행</p>
+      </div>
     </div>
     <div
       class="swiper-slide"
@@ -116,10 +112,12 @@
         <p>
           다양한 성향과 장소를 기반으로<br /> 테마별 최적의 여행지를 추천해 드립니다.
         </p>
-        <button><a href="/themeTour/list">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
-      <p class="prev_text">관광 자료</p>
-      <p class="next_text">대만 골프</p>
+      <div class="btn_text">
+        <p class="prev_text">관광 자료</p>
+        <p class="next_text">대만 골프</p>
+      </div>
     </div>
     <div
       class="swiper-slide"
@@ -130,7 +128,7 @@
         <p>
           아름다운 자연경관 속에서<br />온전한 힐링의 시간을 경험해 보세요.
         </p>
-        <button><a href="/golf">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
       <div class="btn_text">
         <p class="prev_text">테마 여행</p>
@@ -138,55 +136,96 @@
       </div>
     </div>
   </div>
-  <div class="swiper-button-next" />
-  <div class="swiper-button-prev" />
   <div class="pag_wrap">
+    <div class="swiper-button-next" />
+    <div class="swiper-button-prev" />
     <div class="swiper-pagination" />
-    <ul class="dash_line">
-      <li>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="443"
-          height="2"
-          viewBox="0 0 443 2"
-          fill="none"
-        >
-          <path
-            opacity="0.3"
-            d="M1 1H442"
-            stroke="white"
-            stroke-width="1.4"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-            stroke-dasharray="4 3"
-          />
-        </svg>
-      </li>
-    </ul>
-    <ul class="dash_line right">
-      <li>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="443"
-          height="2"
-          viewBox="0 0 443 2"
-          fill="none"
-        >
-          <path
-            opacity="0.3"
-            d="M1 1H442"
-            stroke="white"
-            stroke-width="1.4"
-            stroke-linecap="square"
-            stroke-linejoin="round"
-            stroke-dasharray="4 3"
-          />
-        </svg>
-      </li>
-    </ul>
   </div>
+
   <div class="swiper-pagination-square" />
+  <ul class="dash_line">
+    <li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="443"
+        height="2"
+        viewBox="0 0 443 2"
+        fill="none"
+      >
+        <path
+          opacity="0.3"
+          d="M1 1H442"
+          stroke="white"
+          stroke-width="1.4"
+          stroke-linecap="square"
+          stroke-linejoin="round"
+          stroke-dasharray="4 3"
+        />
+      </svg>
+    </li>
+    <li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="443"
+        height="2"
+        viewBox="0 0 443 2"
+        fill="none"
+      >
+        <path
+          opacity="0.3"
+          d="M1 1H442"
+          stroke="white"
+          stroke-width="1.4"
+          stroke-linecap="square"
+          stroke-linejoin="round"
+          stroke-dasharray="4 3"
+        />
+      </svg>
+    </li>
+    <li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="443"
+        height="2"
+        viewBox="0 0 443 2"
+        fill="none"
+      >
+        <path
+          opacity="0.3"
+          d="M1 1H442"
+          stroke="white"
+          stroke-width="1.4"
+          stroke-linecap="square"
+          stroke-linejoin="round"
+          stroke-dasharray="4 3"
+        />
+      </svg>
+    </li>
+    <li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="443"
+        height="2"
+        viewBox="0 0 443 2"
+        fill="none"
+      >
+        <path
+          opacity="0.3"
+          d="M1 1H442"
+          stroke="white"
+          stroke-width="1.4"
+          stroke-linecap="square"
+          stroke-linejoin="round"
+          stroke-dasharray="4 3"
+        />
+      </svg>
+    </li>
+  </ul>
 </div>
+
+<asdie>
+  <a href="#">scroll top</a>
+</asdie>
 
 <section>
   <div class="section_title">
@@ -279,27 +318,8 @@
     ) {
     pointer-events: auto;
   }
-
   :global(.swiper-fade.swiper-free-mode .swiper-slide) {
     transition-timing-function: ease-out;
-  }
-  :global(.swiper-fade .swiper-slide) {
-    pointer-events: none;
-    transition-property: opacity;
-  }
-  :global(.swiper-fade .swiper-slide .swiper-slide) {
-    pointer-events: none;
-  }
-  :global(.swiper-fade .swiper-slide-active),
-  :global(.swiper-fade .swiper-slide-active .swiper-slide-active) {
-    pointer-events: auto;
-  }
-
-  .swiper-wrapper {
-    transform: translate3d(0px, 0, 0) !important;
-  }
-  section {
-    position: relative;
   }
   :global(.swiper-fade .swiper-slide) {
     pointer-events: none;
@@ -316,22 +336,22 @@
     max-width: 1920px;
     width: 100%;
     //1760
-    height: 1060px;
-    top: -56px;
-    // margin: 43px auto 100px;
-    clip-path: inset(600px round 50px);
-    // transition: 0.3s;
+    height: 726px;
+    margin: 100px auto 0;
+    clip-path: inset(0% 7.2% 0 7.2% round 50px);
+
+    transition: 0.3s;
     // border-radius: 50px;
   }
   .swiper-wrapper {
     transform: translate3d(0px, 0, 0) !important;
   }
-  // :global(.swiper.wider) {
-  //   clip-path: inset(0% 80px 0 80px round 50px) !important;
-  // }
-  // :global(.swiper.fully) {
-  //   clip-path: inset(0% 0% 0% 0% round 0) !important;
-  // }
+  :global(.swiper.wider) {
+    clip-path: inset(0% 80px 0 80px round 50px) !important;
+  }
+  :global(.swiper.fully) {
+    clip-path: inset(0% 0% 0% 0% round 0) !important;
+  }
   .swiper-slide {
     width: 100%;
     height: 100%;
@@ -355,7 +375,7 @@
     }
     .slide_text {
       width: fit-content;
-      margin: 400px auto 246px;
+      margin: 230px auto 246px;
       text-align: center;
       background: transparent;
       strong {
@@ -373,54 +393,49 @@
         opacity: 0.8;
       }
       button {
-        width: 164px;
-        height: 68px;
-        line-height: 68px;
         margin: 40px 0 0;
+        padding: 22px 52px;
+        font-size: 17px;
+        font-family: "Noto Sans KR";
+        font-weight: $bold;
         border-radius: 8px;
         background: #fff;
         transition: 0.3s;
-        a {
-          width: 100%;
-          height: 100%;
-          display: block;
-          font-size: 17px;
-          font-family: "Noto Sans KR";
-          font-weight: $bold;
-          transition: 0.3s;
-        }
         &:hover {
           background: #ff7a00;
-          a {
-            color: #fff;
-          }
+          color: #fff;
         }
       }
     }
-
-    .prev_text {
+    .btn_text {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
       position: absolute;
-      top: calc(57% + 8px);
-      transform: translateY(-50%);
-      left: 227px;
-      color: #fff;
-      font-size: 17px;
-      font-family: "Noto Sans KR";
-      font-weight: $bold;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // width: 1790px;
+      width: 84%;
+      .prev_text {
+        position: absolute;
+        bottom: 0px;
+        left: 68px;
+        color: #fff;
+        font-size: 17px;
+        font-family: "Noto Sans KR";
+        font-weight: $bold;
+      }
+      .next_text {
+        position: absolute;
+        bottom: 0px;
+        right: 60px;
+        color: #fff;
+        font-size: 17px;
+        font-family: "Noto Sans KR";
+        font-weight: $bold;
+      }
     }
-    .next_text {
-      position: absolute;
-      top: calc(57% + 8px);
-      transform: translateY(-50%);
-      right: 227px;
-      color: #fff;
-      font-size: 17px;
-      font-family: "Noto Sans KR";
-      font-weight: $bold;
-    }
-  }
-  :global(.swiper-slide-active) {
-    opacity: 1 !important;
   }
   span {
     position: fixed;
@@ -435,17 +450,12 @@
     opacity: 1 !important;
   }
   :global(.swiper-pagination) {
-    width: 64% !important;
-    height: 2px;
     bottom: auto !important;
     top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    // background-color: red;
+    transform: translateY(-50%) !important;
   }
   :global(.swiper-pagination .swiper-pagination-bullet) {
-    // width: calc(443px / 2);
-    width: 17.6%;
+    width: 218px;
     height: auto;
     position: absolute;
     margin: 0 !important;
@@ -454,17 +464,16 @@
     opacity: 1;
     background-color: transparent;
     &:nth-of-type(1) {
-      left: -20px;
+      left: 164px;
     }
     &:nth-of-type(2) {
-      left: 190px;
+      left: calc(164px + 218px);
     }
     &:nth-of-type(3) {
-      right: 210px;
+      right: calc(164px + 218px);
     }
     &:nth-of-type(4) {
-      width: 200px;
-      right: 11px;
+      right: 164px;
     }
     :global(i) {
       position: absolute;
@@ -513,7 +522,7 @@
   }
   .swiper-pagination-square {
     position: absolute;
-    bottom: 170px;
+    bottom: 20px;
     text-align: center;
     z-index: 10;
     :global(.swiper-pagination-bullet) {
@@ -530,72 +539,58 @@
     }
   }
   .pag_wrap {
-    width: 100%;
+    width: 84%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     left: 50%;
     height: 80px;
     z-index: 1;
-  }
-  .swiper-button-prev,
-  .swiper-button-next {
-    width: 80px;
-    height: 80px;
-    margin: 0;
-    bottom: auto;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 24px 21px;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  .swiper-button-prev {
-    left: 220px;
-    background-image: url("/img/main/btn_prev.png");
-    transition: 0.3s;
-    &:hover {
-      background-color: #ff7a00;
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 80px;
+      height: 80px;
+      margin: 0;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px 21px;
+      background-color: rgba(255, 255, 255, 0.2);
     }
-  }
-  .swiper-button-next {
-    right: 220px;
-    background-image: url("/img/main/btn_next.png");
-    transition: 0.3s;
-    &:hover {
-      background-color: #ff7a00;
+    .swiper-button-prev {
+      left: 60px;
+      background-image: url("/img/main/btn_prev.png");
+      transition: 0.3s;
+      &:hover {
+        background-color: #ff7a00;
+      }
     }
-  }
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
-    display: none;
+    .swiper-button-next {
+      right: 60px;
+      background-image: url("/img/main/btn_next.png");
+      transition: 0.3s;
+      &:hover {
+        background-color: #ff7a00;
+      }
+    }
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+      display: none;
+    }
   }
   .dash_line {
-    //width: 100%;
     height: 2px;
-    // background: red;
+    background: red;
     display: flex;
     position: absolute;
     top: 50%;
-    left: 324px;
+    // left: 50%;
     transform: translateY(-50%);
     bottom: 100px;
-    // z-index: 10;
-    svg {
-      position: absolute;
-      top: 0;
-    }
-  }
-  .dash_line.right {
-    left: auto;
-    right: 0;
-    svg {
-      position: absolute;
-      top: 0;
-      right: 324px;
-    }
+    z-index: 10;
   }
   .section_title {
     margin: 80px 0 50px;
@@ -628,7 +623,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-gap: 16px;
+    // grid-gap: 6px;
     .card {
       width: 410px;
       height: 497px;
@@ -693,12 +688,8 @@
         right: 30px;
         bottom: 54px;
         border-radius: 54px;
-        background: #000 url("/img/main/card_btn.png") no-repeat center / auto;
+        background: #000 url("/img/main/link_btn.png") no-repeat center / auto;
         text-indent: -999em;
-        transition: 0.3s;
-        &:hover {
-          background-color: #ff7a00;
-        }
       }
     }
   }
@@ -706,84 +697,60 @@
     margin: 0 0 100px 0;
     position: relative;
   }
-  @media (max-width: 1850px) {
-    .swiper-pagination {
-      width: 55% !important;
+
+  asdie {
+    a {
+      width: 70px;
+      height: 70px;
+      position: fixed;
+      right: 90px;
+      bottom: 48px;
+      display: block;
+      border-radius: 100%;
+      background: #7f7f7f url("/img/main/btn_top.png") no-repeat center / 25px
+        15px;
+      text-indent: -999em;
+      z-index: 1;
     }
-    .pag_wrap {
-      width: 110%;
-      :global(.swiper-pagination .swiper-pagination-bullet) {
-        width: 12%;
+  }
+
+  @media (max-width: 1700px) {
+    :global(.swiper-pagination .swiper-pagination-bullet) {
+      width: 130px !important;
+
+      &:nth-of-type(2) {
+        left: 293px;
       }
-      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(1)) {
-        left: 7px;
-        // left: 18px;
-      }
-      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(2)) {
-        left: 155px;
-      }
-      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(3)) {
-        width: 11% !important;
-        right: 160px;
-      }
-      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(4)) {
-        right: 17px;
-      }
-    }
-    .dash_line {
-      width: 14%;
-      left: 420px;
-      li {
-        width: 100%;
-        svg {
-          width: 100%;
-        }
-      }
-      &.right {
-        right: 420px;
-        svg {
-          right: 0;
-        }
+      &:nth-of-type(3) {
+        right: 293px;
       }
     }
   }
-  @media (max-width: 1640px) {
-    .swiper-pagination {
-      width: 50% !important;
-    }
-  }
-  @media (max-width: 1450px) {
-    .pag_wrap {
-      display: none;
-    }
-    .dash_line {
-      display: none;
+
+  @media (max-width: 1400px) {
+    :global(.swiper-pagination .swiper-pagination-bullet) {
+      width: 90px !important;
+      &:nth-of-type(2) {
+        left: 254px;
+      }
+      &:nth-of-type(3) {
+        right: 254px;
+      }
     }
   }
   @include desktop {
-    .swiper {
-      top: -18px;
-      clip-path: inset(400px round 50px);
-    }
-    .swiper-button-prev {
-      left: 140px;
-    }
-    .swiper-button-next {
-      right: 140px;
-    }
-    .swiper-slide {
-      .prev_text {
-        left: 147px;
-      }
-      .next_text {
-        right: 147px;
+    asdie {
+      a {
+        width: vw(70);
+        height: vw(70);
+        right: vw(90);
+        bottom: vw(48);
+        background: #7f7f7f url("/img/main/btn_top.png") no-repeat center /
+          vw(25) vw(15);
       }
     }
-    .swiper-pagination-square {
-      .swiper-pagination-bullet {
-        width: vw(80);
-        height: vw(6);
-      }
+    .swiper-pagination {
+      display: none;
     }
     .card_wrap {
       display: flex;
@@ -793,15 +760,24 @@
       grid-gap: 12px;
       justify-items: center;
     }
+    .swiper-pagination-square {
+      .swiper-pagination-bullet {
+        width: vw(80);
+        height: vw(6);
+      }
+    }
   }
   @include tablet {
     .card_wrap {
+      max-width: 100%;
       .card {
-        width: 335px;
-        height: 422px;
+        width: vw(338);
+        height: vw(466);
         .card_img {
-          width: 295px;
-          height: 229px;
+          width: vw(298);
+          height: vw(240);
+          left: vw(20);
+          top: vw(20);
           img {
             width: 100%;
           }
@@ -811,9 +787,8 @@
   }
   @include mobile {
     .swiper {
+      clip-path: inset(0% 5% 0 5% round vw(80));
       height: vw(1260);
-      top: vw(100);
-      clip-path: inset(100px round 50px);
       .slide_text {
         margin: vw(380) auto vw(682);
       }
@@ -833,48 +808,48 @@
           height: vw(106);
           margin: 0;
           padding: 0;
-          a {
-            line-height: vw(106);
-            font-size: vw(28);
-            font-weight: $bold;
-          }
+          font-size: vw(28);
+          font-weight: $bold;
         }
       }
-      .swiper-button-prev,
-      .swiper-button-next {
-        width: vw(100);
+      .pag_wrap {
         height: vw(100);
         top: auto;
-        transform: none;
-        bottom: vw(174);
-        background-size: vw(24) vw(21);
+        bottom: vw(144);
+        transform: translateX(-50%);
+        .swiper-button-prev,
+        .swiper-button-next {
+          width: vw(100);
+          height: vw(100);
+          background-size: vw(24) vw(21);
+        }
+        .swiper-button-prev {
+          left: vw(20);
+          background: #ff7a00 url(/img/main/btn_prev_mb.png) no-repeat center /
+            vw(32) vw(28);
+        }
+        .swiper-button-next {
+          right: vw(20);
+          background: #ff7a00 url(/img/main/btn_next_mb.png) no-repeat center /
+            vw(32) vw(28);
+        }
       }
-      .swiper-button-prev {
-        left: vw(90);
-        background: #ff7a00 url(/img/main/btn_prev_mb.png) no-repeat center /
-          vw(32) vw(28);
-      }
-      .swiper-button-next {
-        right: vw(90);
-        background: #ff7a00 url(/img/main/btn_next_mb.png) no-repeat center /
-          vw(32) vw(28);
-      }
-      .next_text,
-      .prev_text {
+      .btn_text {
+        width: 100%;
         top: auto;
-        transform: none;
-        bottom: vw(130);
-        font-size: vw(26);
-        font-weight: $medium;
-      }
-      .prev_text {
-        left: vw(91);
-      }
-      .next_text {
-        right: vw(91);
-      }
-      .swiper-pagination-square {
-        bottom: vw(60);
+        bottom: vw(100);
+        transform: translateX(-50%);
+        .next_text,
+        .prev_text {
+          font-size: vw(26);
+          font-weight: $medium;
+        }
+        .prev_text {
+          left: vw(80);
+        }
+        .next_text {
+          right: vw(80);
+        }
       }
     }
     :global(.swiper.wider) {
@@ -896,10 +871,9 @@
       }
     }
     .card_wrap {
-      max-width: 100%;
       .card {
-        width: vw(338);
-        height: vw(466);
+        // width: vw(338);
+        // height: vw(466);
         margin: 0;
         background: url(/img/main/card_bg_mb.png) no-repeat center/contain;
         &:before {
@@ -914,15 +888,15 @@
           left: vw(-24);
           bottom: vw(168);
         }
-        .card_img {
-          width: vw(298);
-          height: vw(240);
-          left: vw(20);
-          top: vw(20);
-          img {
-            width: 100%;
-          }
-        }
+        // .card_img {
+        //   width: vw(298);
+        //   height: vw(240);
+        //   left: vw(20);
+        //   top: vw(20);
+        //   img {
+        //     width: 100%;
+        //   }
+        // }
         .card_text {
           left: vw(36);
           bottom: vw(34);
@@ -936,6 +910,12 @@
         button {
           display: none;
         }
+      }
+    }
+    asdie {
+      a {
+        right: vw(45);
+        bottom: vw(45);
       }
     }
   }

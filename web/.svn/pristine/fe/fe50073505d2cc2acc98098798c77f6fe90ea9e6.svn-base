@@ -3,7 +3,7 @@
   import "swiper/css/bundle";
   import "swiper/css/effect-fade";
   import { onMount } from "svelte";
-  // import { gsap } from "gsap";
+  import { gsap } from "gsap";
   onMount(() => {
     //main slide
     var listArray = ["slide1", "slide2", "slide3", "slide4"];
@@ -66,13 +66,13 @@
           scrub: 1,
           trigger: ".swiper",
         },
-        defaults: { duration: 1 },
+        defaults: { duration: 1 }, // This gets passed to each tween
       })
-      // .from(".swiper", {
-      //   webkitClipPath: "inset(0% 7.2% 0% 7.2% round 50px)",
-      // })
       .to(".swiper", {
-        webkitClipPath: "inset(0px round 0px)",
+        clipPath: "inset(0% 7.2% 0 7.2% round 50px)",
+      })
+      .to(".swiper", {
+        clipPath: "inset(0% 0% 0% 0% round 0)",
       });
   }); //onMount
 </script>
@@ -88,7 +88,7 @@
         <p>
           대만의 출입국 정보부터<br /> 역사,날씨,가이드북까지 체크해 보세요.
         </p>
-        <button><a href="/info/immigration_precautions">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
       <p class="prev_text">대만 골프</p>
       <p class="next_text">관광 자료</p>
@@ -102,7 +102,7 @@
         <p>
           대만으로 관광을 떠나기 전 꼭 필요한<br /> 다양한 정보를 확인해 보세요.
         </p>
-        <button><a href="/info/tour">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
       <p class="prev_text">입국 정보</p>
       <p class="next_text">테마 여행</p>
@@ -116,7 +116,7 @@
         <p>
           다양한 성향과 장소를 기반으로<br /> 테마별 최적의 여행지를 추천해 드립니다.
         </p>
-        <button><a href="/themeTour/list">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
       <p class="prev_text">관광 자료</p>
       <p class="next_text">대만 골프</p>
@@ -130,7 +130,7 @@
         <p>
           아름다운 자연경관 속에서<br />온전한 힐링의 시간을 경험해 보세요.
         </p>
-        <button><a href="/golf">자세히 보기</a></button>
+        <button>자세히 보기</button>
       </div>
       <div class="btn_text">
         <p class="prev_text">테마 여행</p>
@@ -316,22 +316,21 @@
     max-width: 1920px;
     width: 100%;
     //1760
-    height: 1060px;
-    top: -56px;
-    // margin: 43px auto 100px;
-    clip-path: inset(600px round 50px);
+    height: 726px;
+    margin: 100px auto 0;
+    clip-path: inset(0% 7.2% 0 7.2% round 50px);
     // transition: 0.3s;
     // border-radius: 50px;
   }
   .swiper-wrapper {
     transform: translate3d(0px, 0, 0) !important;
   }
-  // :global(.swiper.wider) {
-  //   clip-path: inset(0% 80px 0 80px round 50px) !important;
-  // }
-  // :global(.swiper.fully) {
-  //   clip-path: inset(0% 0% 0% 0% round 0) !important;
-  // }
+  :global(.swiper.wider) {
+    clip-path: inset(0% 80px 0 80px round 50px) !important;
+  }
+  :global(.swiper.fully) {
+    clip-path: inset(0% 0% 0% 0% round 0) !important;
+  }
   .swiper-slide {
     width: 100%;
     height: 100%;
@@ -355,7 +354,7 @@
     }
     .slide_text {
       width: fit-content;
-      margin: 400px auto 246px;
+      margin: 230px auto 246px;
       text-align: center;
       background: transparent;
       strong {
@@ -373,27 +372,17 @@
         opacity: 0.8;
       }
       button {
-        width: 164px;
-        height: 68px;
-        line-height: 68px;
         margin: 40px 0 0;
+        padding: 22px 52px;
+        font-size: 17px;
+        font-family: "Noto Sans KR";
+        font-weight: $bold;
         border-radius: 8px;
         background: #fff;
         transition: 0.3s;
-        a {
-          width: 100%;
-          height: 100%;
-          display: block;
-          font-size: 17px;
-          font-family: "Noto Sans KR";
-          font-weight: $bold;
-          transition: 0.3s;
-        }
         &:hover {
           background: #ff7a00;
-          a {
-            color: #fff;
-          }
+          color: #fff;
         }
       }
     }
@@ -454,17 +443,17 @@
     opacity: 1;
     background-color: transparent;
     &:nth-of-type(1) {
-      left: -20px;
+      left: 0;
     }
     &:nth-of-type(2) {
-      left: 190px;
+      left: 222px;
     }
     &:nth-of-type(3) {
-      right: 210px;
+      right: 222px;
     }
     &:nth-of-type(4) {
       width: 200px;
-      right: 11px;
+      right: 21px;
     }
     :global(i) {
       position: absolute;
@@ -513,7 +502,7 @@
   }
   .swiper-pagination-square {
     position: absolute;
-    bottom: 170px;
+    bottom: 20px;
     text-align: center;
     z-index: 10;
     :global(.swiper-pagination-bullet) {
@@ -708,26 +697,26 @@
   }
   @media (max-width: 1850px) {
     .swiper-pagination {
-      width: 55% !important;
+      width: 59% !important;
     }
     .pag_wrap {
       width: 110%;
       :global(.swiper-pagination .swiper-pagination-bullet) {
-        width: 12%;
+        width: 11%;
+        height: 2px;
       }
       :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(1)) {
-        left: 7px;
-        // left: 18px;
+        left: 65px;
       }
       :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(2)) {
-        left: 155px;
+        left: 203px;
       }
       :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(3)) {
         width: 11% !important;
-        right: 160px;
+        right: 203px;
       }
       :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(4)) {
-        right: 17px;
+        right: 65px;
       }
     }
     .dash_line {
@@ -749,7 +738,7 @@
   }
   @media (max-width: 1640px) {
     .swiper-pagination {
-      width: 50% !important;
+      width: 44% !important;
     }
   }
   @media (max-width: 1450px) {
@@ -761,10 +750,6 @@
     }
   }
   @include desktop {
-    .swiper {
-      top: -18px;
-      clip-path: inset(400px round 50px);
-    }
     .swiper-button-prev {
       left: 140px;
     }
@@ -796,12 +781,15 @@
   }
   @include tablet {
     .card_wrap {
+      max-width: 100%;
       .card {
-        width: 335px;
-        height: 422px;
+        width: vw(338);
+        height: vw(466);
         .card_img {
-          width: 295px;
-          height: 229px;
+          width: vw(298);
+          height: vw(240);
+          left: vw(20);
+          top: vw(20);
           img {
             width: 100%;
           }
@@ -811,9 +799,8 @@
   }
   @include mobile {
     .swiper {
+      clip-path: inset(0% 5% 0 5% round vw(80));
       height: vw(1260);
-      top: vw(100);
-      clip-path: inset(100px round 50px);
       .slide_text {
         margin: vw(380) auto vw(682);
       }
@@ -833,11 +820,8 @@
           height: vw(106);
           margin: 0;
           padding: 0;
-          a {
-            line-height: vw(106);
-            font-size: vw(28);
-            font-weight: $bold;
-          }
+          font-size: vw(28);
+          font-weight: $bold;
         }
       }
       .swiper-button-prev,
@@ -846,7 +830,7 @@
         height: vw(100);
         top: auto;
         transform: none;
-        bottom: vw(174);
+        bottom: vw(144);
         background-size: vw(24) vw(21);
       }
       .swiper-button-prev {
@@ -863,7 +847,7 @@
       .prev_text {
         top: auto;
         transform: none;
-        bottom: vw(130);
+        bottom: vw(100);
         font-size: vw(26);
         font-weight: $medium;
       }
@@ -874,7 +858,7 @@
         right: vw(91);
       }
       .swiper-pagination-square {
-        bottom: vw(60);
+        bottom: vw(30);
       }
     }
     :global(.swiper.wider) {
@@ -896,10 +880,9 @@
       }
     }
     .card_wrap {
-      max-width: 100%;
       .card {
-        width: vw(338);
-        height: vw(466);
+        // width: vw(338);
+        // height: vw(466);
         margin: 0;
         background: url(/img/main/card_bg_mb.png) no-repeat center/contain;
         &:before {
@@ -914,15 +897,15 @@
           left: vw(-24);
           bottom: vw(168);
         }
-        .card_img {
-          width: vw(298);
-          height: vw(240);
-          left: vw(20);
-          top: vw(20);
-          img {
-            width: 100%;
-          }
-        }
+        // .card_img {
+        //   width: vw(298);
+        //   height: vw(240);
+        //   left: vw(20);
+        //   top: vw(20);
+        //   img {
+        //     width: 100%;
+        //   }
+        // }
         .card_text {
           left: vw(36);
           bottom: vw(34);

@@ -104,7 +104,7 @@
   }
   .culture .box.step1 .content p {
     color: #fff;
-    // font-size: 15px;
+    font-size: 15px;
     line-height: 1.8;
     font-weight: 300;
   }
@@ -119,7 +119,7 @@
     font-size: 28px;
   }
   .culture .box.step3 p {
-    // font-size: 15px;
+    font-size: 15px;
     line-height: 1.8;
     font-weight: 300;
     color: #666;
@@ -141,7 +141,7 @@
       font-size: 25px;
     }
     .culture .box.step1 .content p {
-      // font-size: 15px;
+      font-size: 15px;
     }
   }
   @include mobile {
@@ -149,11 +149,11 @@
       height: 15px;
     }
     .culture .box.step1 .content h3 span {
-      font-size: vw(32);
+      font-size: vw(26);
       top: -8px;
     }
     .culture .box.step1 .content p {
-      // font-size: vw(22);
+      font-size: vw(17);
     }
     .culture .box.step1 .content p br {
       display: none;
@@ -167,7 +167,7 @@
       /* margin-bottom: 50px; */
     }
     .culture .box.step3 p {
-      // font-size: vw(17);
+      font-size: vw(17);
       font-weight: $light;
     }
     .culture .box.step3 p br {

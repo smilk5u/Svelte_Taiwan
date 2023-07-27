@@ -679,7 +679,7 @@
       margin: 0 0 20px;
     }
     .box.step1 .content h3 {
-      padding: vw(50) vw(40) vw(30);
+      padding: 60px 0 30px;
     }
     .box.step1 .content ul li {
       font-size: 13px;
