@@ -57,7 +57,7 @@
   });
 
   $: {
-    //console.log('nav');
+    //console.log('nav')
     //console.log("nav currentMainMenuSort " + currentMainMenuSort);
     //console.log("nav currentSubMenuSort " + currentSubMenuSort);
     if (currentMainMenuSort == 0) {

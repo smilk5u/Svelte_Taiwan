@@ -437,6 +437,7 @@ table td .alert,
   margin: 5px 0 0 0;
   font-size: 0.88rem;
   text-align: left;
+  color: red;
 }
 table td .alert.yes {
   color: #1414c3;
@@ -3050,6 +3051,9 @@ li {
   }
 }
 
+/* ======================================================================
+   ■ 공지사항 / 보도자료
+=======================================================================*/
 .sub_box {
   margin: 100px 0;
 }
@@ -3434,11 +3438,7 @@ li {
       font-size: 3.38541vw;
       margin: 0 0 2.34375vw;
    }
-   .page_list li .rt p {
-      font-size: 2.213541vw;
-   }
    .page_list li .rt span {
-      font-size: 2.1vw;
       margin: 1vw 0 2vw;
    }
 }
@@ -4013,7 +4013,7 @@ main {
   width: 120px;
 }
 .list-board .wr-date {
-  color:#757575;
+  /* width: 80px; */
 }
 .list-board .wr-hit {
   width: 60px;
@@ -4048,21 +4048,12 @@ main {
   display: none;
 }
 
+/* List */
 .list-board .list-body {
   list-style: none;
   padding: 0px;
   margin: 0px;
   border-top: 2px solid #333;
-}
-.list-board .list-body .data_desc {
-  padding: 15px 30px;
-}
-.list-board .list-body .data_desc > div:first-of-type {
-  width:97%;
-}
-.list-board .list-body .data_desc > div:last-of-type {
-  min-width: 30px;
-  width:3%;
 }
 
 .list-board .list-body li {
@@ -4073,26 +4064,13 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-.list-board .list-body li a {
-  display: block;
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-  overflow: hidden;
-}
-.list-board .list-body li:first-of-type:hover {
-  background-color: transparent;
-}
 .list-board .list-body li:hover {
+  color: #000;
   background-color: #f8f8f8;
 }
 
 .list-board .list-body .wr-subject {
-  max-width: 800px;
-  width: 80%;
-  padding: 10px 0;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   text-align: left;
 }
 .list-board .list-body .wr-subject .item-subject {
@@ -4143,25 +4121,9 @@ main {
 }
 
 @media all and (max-width: 768px) {
-  .list-board .list-body .wr-subject {
-    max-width: auto;
-    width: 100%;
-  }
-  .list-board .list-body .data_desc {
-    padding: 10px;
-  }
-  .list-board .list-body .data_desc > div:first-of-type {
-    width:100%;
-  }
-  .list-board .list-body .data_desc > div:last-of-type {
-    display: none;
-  }
   .list-board .list-body li {
     padding: 0;
   }
-  /* .list-board .list-body li a {
-    max-width: 100%;
-  } */
   .responsive .list-board .wr-hidden {
     display: inline-block !important;
   }
@@ -4401,7 +4363,7 @@ main {
   table-layout: fixed;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 50px;
-  /* background-color: pink; */
+  background-color: pink;
 }
 
 .magazine_row .image {
@@ -4423,7 +4385,7 @@ main {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   width: 100%;
-  height: 100%;
+  height: 412px;
 }
 
 .magazine_row .image input {
@@ -4464,6 +4426,7 @@ main {
   white-space: nowrap;
   text-overflow: ellipsis;
   margin-bottom: 10px;
+  background-color: red;
 }
 
 .magazine_row .content .subject a {
@@ -4513,7 +4476,6 @@ main {
     padding: 0;
     margin-bottom: 5% !important;
     text-align: center;
-    /* background-color: red; */
   }
 
   .magazine_row {

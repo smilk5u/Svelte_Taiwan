@@ -48,24 +48,31 @@
 <!-- 메인 컨텐츠 -->
 <div class="at-body">
   <div class="at-container">
-    <div class="list-board">
-      <ul id="list-body" class="list-body">
-        <li class="data_desc">
-          <div>제목</div>
-          <div>날짜</div>
-        </li>
-        {#each list as row, i}
-          <li class="list-item">
-            <div class="wr-subject">
-              <a href="/introduction/view/{row.seq}" class="item-subject">
-                {row.subject}
-              </a>
-            </div>
-            <div class="wr-date hidden-xs">{formatDate(row.regDate)}</div>
-          </li>
-        {/each}
-      </ul>
-    </div>
+    <section class="board-list">
+      <div class="list-wrap">
+        <form name="fboardlist" id="fboardlist" method="post" class="form">
+          <div class="list-board">
+            <ul id="list-body" class="list-body">
+              {#each list as row, i}
+                <li class="list-item">
+                  <div class="wr-subject">
+                    <a href="/introduction/view/{row.seq}" class="item-subject">
+                      {row.subject}
+                    </a>
+                    <div
+                      class="item-details text-muted font-12 visible-xs ellipsis"
+                    >
+                      <span>{formatDate(row.regDate)} </span>
+                    </div>
+                  </div>
+                  <div class="wr-date hidden-xs">{formatDate(row.regDate)}</div>
+                </li>
+              {/each}
+            </ul>
+          </div>
+        </form>
+      </div>
+    </section>
     {#if list.length > 0}
       <nav class="noselect">
         <ul class="pagination justify-content-center">
@@ -98,4 +105,11 @@
   </div>
   <FooterNav />
 </div>
+
 <!-- //메인 컨텐츠 -->
+
+<style>
+  .list-board .list-body li {
+    padding: 8px 0;
+  }
+</style>

@@ -482,9 +482,15 @@
     padding: 0 40px;
     h3 {
       font-size: 27px;
+      margin: 100px 0;
     }
   }
   .gallery_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.85714%;
     .img_wrap {
       width: 22.85714%;
       height: 0;

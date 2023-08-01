@@ -269,11 +269,13 @@ main {
   border: 0;
   box-sizing: border-box;
   font-family: "SCDream";
-  font-size: 15px;
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   * {
-    font-size: 13px;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 2.4rem;
   }
 }
 
@@ -3050,6 +3052,9 @@ li {
   }
 }
 
+/* ======================================================================
+   ■ 공지사항 / 보도자료
+=======================================================================*/
 .sub_box {
   margin: 100px 0;
 }
@@ -3156,13 +3161,12 @@ li {
 }
 
 .sub_box .detail > div.lt_detail {
-  width: 750px;
+  width: 880px;
 }
 
 .sub_box .detail > div.rt_detail {
-  width: calc(100% - 750px);
-  padding-left: 40px;
-  text-align: left;
+  width: calc(100% - 880px);
+  padding-left: 50px;
 }
 
 .sub_box .detail > div.rt_detail h1 {
@@ -3170,9 +3174,9 @@ li {
   margin: 20px 0 0;
   position: relative;
   padding-top: 10px;
-  font-size: 28px;
+  font-size: 30px;
   overflow: visible;
-  text-align: left;
+  /* text-align: left; */
 }
 
 .sub_box .detail > div.rt_detail h1:before {
@@ -3185,11 +3189,9 @@ li {
 }
 
 .sub_box .detail > div.rt_detail .view-content {
-  margin: 5px 0 0;
-  font-size: 15px;
+  margin-top: 16px;
+  font-size: 16px;
   font-weight: 300;
-  color: #515559;
-  line-height: 1.8;
 }
 
 .sub_box .image {
@@ -3273,22 +3275,17 @@ li {
 
 @media (max-width: 768px) {
   .sub_box {
-    margin: 6vw 0 10vw;
+    margin: 13vw 0;
   }
   .sub_wid {
     margin-bottom: 40px;
   }
-  .sub_box .detail > div.rt_detail {
-    margin: 5vw 0 0;
-  }
   .sub_box .detail > div.rt_detail h1 {
-    margin: 0;
-    font-size: 3.5vw;
-    line-height: 1.8;
+    font-size: 23px;
   }
 
   .sub_box .detail > div.rt_detail .view-content {
-    font-size: 2.213541vw;
+    font-size: 13px;
   }
 
   .sub_box .image li .subject {
@@ -3299,6 +3296,11 @@ li {
     font-size: 13px;
   }
 }
+
+/* ==========================================
+대만 명소 : style
+- 정리하기.....
+========================================== */
 
 .page {
   overflow: hidden;
@@ -3311,139 +3313,93 @@ li {
   font-size: 30px;
   font-weight: 600;
 }
-
-/* ============================================================
-  ■ 대만 문화&역사, 테마여행 리스트 페이지
-  ============================================================*/
-.page_list li {
+/* .page_list li {
   overflow: hidden;
   position: relative;
+  margin-bottom: 80px;
   display: flex;
   align-items: center;
-  margin: 0 0 80px;
+} */
+
+/* .page_list li:last-of-type {
+  margin-bottom: 0;
 }
-.page_list li:nth-of-type(even) {
-  flex-direction: row-reverse;
-}
-.page_list li:nth-of-type(even) .rt {
-  margin: 0 -3% 0 0;
-}
+
 .page_list li .lt {
   width: 772px;
-  padding: 0 0 35%;
-  height: 0;
-  position: relative;
-  /* background-color: blue; */
-  overflow: hidden;
 }
-.page_list li .lt img {
-  width: 100%;
-  max-height: 722px;
-  position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-}
+
 .page_list li .rt {
-  width: calc(100% - 772px);
-  padding: 50px 40px;
   position: relative;
   background: #fff;
-  margin: 0 0 0 -3%;
 }
+
 .page_list li .rt h3 {
   font-size: 25px;
   line-height: 1;
-  margin: 0 0 15px;
+  margin-bottom: 15px;
   position: relative;
   padding-top: 10px;
   color: rgba(51, 51, 51, 1);
-}
-.page_list li .rt h3:before {
-  width: 25px;
-  height: 3px;
+} */
+
+/* .page_list li .rt h3:before {
   content: "";
   position: absolute;
   left: 0;
   top: -9px;
   background: #ff7200;
+  width: 25px;
+  height: 3px;
 }
-.page_list li .rt p {
-  display: inline;
-  color: #666;
-  font-weight: 300;
-  line-height: 1.8;
-}
+
 .page_list li .rt span {
   display: block;
-  font-size: 15px;
-  margin:10px 0;
+  margin-bottom: 5px;
+  font-size: 14px;
   color: #333;
-  font-weight: 500;
 }
+
 .page_list li .rt span small {
   display: inline-block;
+  margin: 0 5px;
   font-size: 12px;
   color: #666;
   position: relative;
   top: -1px;
-  margin:0 5px;
 }
 
+.page_list li .rt p {
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 3px 0;
+  line-height: 25px;
+} */
+
+/* .page_list li:nth-of-type(even) {
+  flex-direction: row-reverse;
+} */
+
+/* .page_list li:nth-of-type(even) .rt {
+  float: left;
+  left: 4%;
+} */
+
 @media (max-width: 1280px) {
-  .page_list li {
+  /* .page_list {
     text-align: left;
-    display: block;
-    margin: 0 0 50px;
   }
   .page_list li .lt {
     width: 500px;
   }
-  .page_list li:nth-of-type(even) .rt {
-    margin: 30px 0 0;
-  }
 
-  .page_list li .lt {
-    width: 100%;
-    padding: 0 0 65%;
-  }
-  .page_list li .lt img {
-    width: 100%;
-  }
   .page_list li .rt {
-    width: 100%;
-    position: static;
-    padding: 0;
-    margin: 30px 0 0;
-  }
-  .page_list li .rt h3 {
-    font-size: 23px;
-  }
-}
-
-@media (max-width: 768px) {
-   .page_list li:nth-of-type(even) .rt {
-      margin:0;
-   }
-   .page_list li {
-      margin: 0 0 9.765625vw;
-   }
-   .page_list li .rt h3 {
-      font-size: 3.38541vw;
-      margin: 0 0 2.34375vw;
-   }
-   .page_list li .rt p {
-      font-size: 2.213541vw;
-   }
-   .page_list li .rt span {
-      font-size: 2.1vw;
-      margin: 1vw 0 2vw;
-   }
+    width: calc(100% - 500px);
+  } */
 }
 @media (max-width: 1024px) {
-  .page_list li {
+  /* .page_list li {
     display: block;
   }
   .page h2 {
@@ -3478,7 +3434,7 @@ li {
   .page_list li .rt h3 {
     font-size: 22px;
     margin-bottom: 10px;
-  }
+  } */
   .search-area,
   .fx_header_drop {
     width: 100%;
@@ -3590,7 +3546,7 @@ li {
 
   .tab li a {
     padding: 2.8vw 0;
-    font-size: 1.1rem;
+    font-size: 2.5vw;
   }
 }
 
@@ -3713,7 +3669,7 @@ main {
 .sub_visual {
   width: 100%;
   height: 458px;
-  padding: 225px 40px 0;
+  padding: 225px 30px 0;
   position: relative;
   /* 대만 정보 */
   background: url("/img/common/m07.jpg") repeat-x;
@@ -3803,7 +3759,6 @@ main {
   line-height: 38px;
   display: block;
   cursor: pointer;
-  font-size: 13px;
 }
 .user .pagination > li > span {
   cursor: pointer;
@@ -3833,6 +3788,7 @@ main {
 .user .pagination > .disabled > a:hover,
 .user .pagination > .disabled > a:focus {
   color: #777;
+  /* cursor: not-allowed; */
   background-color: #fff;
 }
 
@@ -3851,37 +3807,9 @@ main {
 .user .pagination > li > a[aria-label="Previous"] {
   rotate: 180deg;
 }
-@media (max-width: 768px) {
-   .user nav {
-      margin: 0 0 10vw;
-    }
-    .user .pagination {
-      margin: 5vw 0;
-      border-radius: 5vw;
-    }
-    
-    .user .pagination > li:first-of-type {
-      margin: 0 2vw 0 0;
-    }
-    .user .pagination > li:last-of-type {
-      margin: 0 0 0 2vw;
-    }
-    .user .pagination > li {
-      width: 6.5104vw;
-      height: 6.5104vw;
-      margin: 0 0 0 .5vw;
-   }
-   .user .pagination > li > a {
-      line-height: 6.5104vw;
-      font-size: 2.5vw;
-    }
-    .user .pagination > li > a[aria-label="Previous"],
-    .user .pagination > li > a[aria-label="Next"] {
-      width: 6.5104vw;
-      height: 6.5104vw;
-    }
-}
-
+/* .pagination > li > a[aria-label="Next"] {
+   margin: 0 0 0 10px;;
+} */
 
 /* =======================================================
 ■ List : 관광청 소개 공지사항 / 보도자료
@@ -4013,7 +3941,7 @@ main {
   width: 120px;
 }
 .list-board .wr-date {
-  color:#757575;
+  /* width: 80px; */
 }
 .list-board .wr-hit {
   width: 60px;
@@ -4048,51 +3976,30 @@ main {
   display: none;
 }
 
+/* List */
 .list-board .list-body {
   list-style: none;
   padding: 0px;
   margin: 0px;
   border-top: 2px solid #333;
 }
-.list-board .list-body .data_desc {
-  padding: 15px 30px;
-}
-.list-board .list-body .data_desc > div:first-of-type {
-  width:97%;
-}
-.list-board .list-body .data_desc > div:last-of-type {
-  min-width: 30px;
-  width:3%;
-}
 
 .list-board .list-body li {
   border-bottom: 1px solid #ddd;
+  /* display: table; */
   width: 100%;
+  /* table-layout: fixed; */
   padding: 8px 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-.list-board .list-body li a {
-  display: block;
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-  overflow: hidden;
-}
-.list-board .list-body li:first-of-type:hover {
-  background-color: transparent;
 }
 .list-board .list-body li:hover {
+  color: #000;
   background-color: #f8f8f8;
 }
 
 .list-board .list-body .wr-subject {
-  max-width: 800px;
-  width: 80%;
-  padding: 10px 0;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   text-align: left;
 }
 .list-board .list-body .wr-subject .item-subject {
@@ -4143,25 +4050,9 @@ main {
 }
 
 @media all and (max-width: 768px) {
-  .list-board .list-body .wr-subject {
-    max-width: auto;
-    width: 100%;
-  }
-  .list-board .list-body .data_desc {
-    padding: 10px;
-  }
-  .list-board .list-body .data_desc > div:first-of-type {
-    width:100%;
-  }
-  .list-board .list-body .data_desc > div:last-of-type {
-    display: none;
-  }
   .list-board .list-body li {
     padding: 0;
   }
-  /* .list-board .list-body li a {
-    max-width: 100%;
-  } */
   .responsive .list-board .wr-hidden {
     display: inline-block !important;
   }
@@ -4390,9 +4281,6 @@ main {
   }
 }
 
-/* ======================================================================
-  ■ 프로대만족 & 월간매거진 
- ======================================================================*/
 .magazine_row {
   overflow: hidden;
   border-radius: 30px;
@@ -4401,7 +4289,6 @@ main {
   table-layout: fixed;
   box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
   margin-bottom: 50px;
-  /* background-color: pink; */
 }
 
 .magazine_row .image {
@@ -4423,7 +4310,7 @@ main {
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   width: 100%;
-  height: 100%;
+  height: 412px;
 }
 
 .magazine_row .image input {
@@ -4456,7 +4343,6 @@ main {
   color: #ff7200;
   padding: 7px 25px 5px;
   line-height: 1.5;
-  /* font-size: 20px; */
 }
 
 .magazine_row .content .subject {
@@ -4469,8 +4355,8 @@ main {
 .magazine_row .content .subject a {
   color: #333;
   font-size: 25px;
-  line-height: 1.8;
-  font-weight: 600;
+
+  line-height: 1.2;
 }
 
 .magazine_row .content .detail {
@@ -4484,7 +4370,6 @@ main {
   -webkit-box-orient: vertical;
   color: #333;
   font-size: 15px;
-  font-weight: 300;
 }
 
 .magazine_row .content .name {
@@ -4513,7 +4398,6 @@ main {
     padding: 0;
     margin-bottom: 5% !important;
     text-align: center;
-    /* background-color: red; */
   }
 
   .magazine_row {
@@ -5405,6 +5289,156 @@ main {
     height: 6vw;
     top: 1.5vw;
     left: 2vw;
+  }
+}
+
+/* ======================================================================
+  ■ List : 관련링크
+  ======================================================================*/
+
+.list-board .list-body li > div {
+  display: table-cell;
+  padding: 6px 0px;
+  text-align: center;
+  color: #666;
+  vertical-align: middle;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.list-board .list-body li > div a {
+  color: #666;
+}
+
+.list-board .list-body li > div.check {
+  width: 40px;
+}
+
+.list-board .list-body li > div.name {
+  width: 200px;
+}
+
+.list-board .list-body li > div.image {
+  width: 400px;
+}
+
+.list-board .list-body li > div.info {
+  width: 200px;
+}
+
+.list-board .list-body li > div.info span {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.list-board .list-body li > div.info span:first-of-type a {
+  color: #ff7200;
+}
+
+.list-board .list-body li > div.info span:last-of-type {
+  margin-bottom: 0;
+}
+
+.list-board .list-body li > div.info span img {
+  margin-right: 5px;
+  position: relative;
+  top: -2px;
+}
+
+@media (max-width: 1200px) {
+  .list-board .list-body li > div {
+    padding: 5px 0;
+    font-size: 16px;
+  }
+
+  .list-board .list-body li > div a {
+    font-size: 16px;
+  }
+
+  .list-board .list-body li > div.image {
+    width: 220px;
+  }
+
+  .list-board .list-body li > div.image img {
+    width: 100%;
+  }
+
+  .list-board .list-body li > div.info span:first-of-type img {
+    width: 22px;
+  }
+
+  .list-board .list-body li > div.info span:last-of-type img {
+    width: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .list-board .list-body li > div,
+  .list-board .list-body li > div a {
+    font-size: 14px;
+  }
+
+  .list-board .list-body li > div.name {
+    width: 100px;
+  }
+
+  .list-board .list-body li > div.image {
+    width: 170px;
+  }
+
+  .list-board .list-body li > div.info span {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .list-board .list-body li {
+    overflow: hidden;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .list-board .list-body li > div.check {
+    width: 40px;
+    float: left;
+    display: none;
+  }
+
+  .list-board .list-body li > div.name {
+    width: 100px;
+    float: left;
+    display: none;
+  }
+
+  .list-board .list-body li > div.subject {
+    width: 100%;
+  }
+
+  .list-board .list-body li > div.image {
+    width: 100%;
+    float: left;
+  }
+
+  .list-board .list-body li > div.image img {
+    max-width: 150px;
+  }
+
+  .list-board .list-body li > div.info {
+    width: 100%;
+  }
+
+  .list-board .list-body li > div.info span {
+    display: block;
+    text-align: center;
+  }
+
+  .list-board .list-body li > div.info span:first-of-type img {
+    width: 18px;
+  }
+
+  .list-board .list-body li > div.info span:last-of-type img {
+    width: 16px;
   }
 }
 

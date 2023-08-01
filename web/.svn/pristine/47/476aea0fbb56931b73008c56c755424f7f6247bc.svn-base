@@ -60,7 +60,7 @@
     //  }
     //});
     gsap.registerPlugin(ScrollTrigger);
-    var tl = gsap 
+    var tl = gsap
       .timeline({
         scrollTrigger: {
           scrub: 1,
@@ -634,7 +634,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    // grid-gap: 6px;
+    grid-gap: 16px;
     .card {
       width: 410px;
       height: 497px;

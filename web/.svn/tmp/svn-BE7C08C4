@@ -98,13 +98,13 @@
     display: inline-block;
     position: relative;
     color: #fff;
-    font-size: 28px;
+    font-size: 30px;
     top: -5px;
     line-height: 1;
   }
   .culture .box.step1 .content p {
     color: #fff;
-    // font-size: 15px;
+    font-size: 15px;
     line-height: 1.8;
     font-weight: 300;
   }
@@ -119,10 +119,10 @@
     font-size: 28px;
   }
   .culture .box.step3 p {
-    // font-size: 15px;
+    font-size: 15px;
     line-height: 1.8;
     font-weight: 300;
-    color: #666; 
+    color: #666;
     margin-bottom: 40px;
   }
   .culture .box.step3 p:last-of-type {
@@ -131,7 +131,7 @@
   @media (max-width: 1500px) {
     .culture .box.step1 .image img {
       width: 100%;
-    } 
+    }
     .culture .box.step2 .image img {
       width: 100%;
     }
@@ -141,7 +141,7 @@
       font-size: 25px;
     }
     .culture .box.step1 .content p {
-      // font-size: 15px;
+      font-size: 15px;
     }
   }
   @include mobile {
@@ -149,11 +149,11 @@
       height: 15px;
     }
     .culture .box.step1 .content h3 span {
-      font-size: vw(32);
+      font-size: vw(26);
       top: -8px;
     }
     .culture .box.step1 .content p {
-      // font-size: vw(22);
+      font-size: vw(17);
     }
     .culture .box.step1 .content p br {
       display: none;
@@ -167,7 +167,7 @@
       /* margin-bottom: 50px; */
     }
     .culture .box.step3 p {
-      // font-size: vw(17);
+      font-size: vw(17);
       font-weight: $light;
     }
     .culture .box.step3 p br {
