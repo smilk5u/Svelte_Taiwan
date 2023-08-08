@@ -1,5 +1,5 @@
 <script>
-  // @ts-nocheck
+// @ts-nocheck
 
   import Swiper from "swiper/bundle";
   import "swiper/css/bundle";
@@ -14,56 +14,25 @@
   } from "$lib/stores/menu";
   // import { gsap } from "gsap";
   onMount(() => {
-    let aaa = 0;
-
     //main slide
     var listArray = ["slide1", "slide2", "slide3", "slide4"];
     var mainSwiper = new Swiper(".swiper", {
       loop: true,
       effect: "fade",
-      on: {
-        slideChange: function (e) {
-          // console.log(e.realIndex)
-          // console.log(e.el)
-          // aaa = e.realIndex;
-        },
-        slideChangeTransitionEnd: function() {
-          // console.log(this.activeIndex)
-        },
-        autoplayTimeLeft(element, time, progress) {
-          // console.log(aaa, progress)
-          // console.log(progress)
-          // const ddd = document.querySelectorAll(".swiper-slide");
-          // console.log("=======================");
-          // for (let i = 0; i < ddd.length; i++) {
-          //   console.log(
-          //     i,
-          //     ddd[i],
-          //     ddd[i].classList.contains("swiper-slide-active")
-          //   );
-          // }
-
-          // progressCircle.style.setProperty("--progress", 1 - progress);
-          // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
-          // console.log(Math.ceil(time / 1000))
-        },
-      },
       pagination: {
         el: ".swiper-pagination",
         //clickable: "true",
-        type: "progressbar",
-        // type: "bullets",
-        // renderBullet: function (index, className) {
-        //   console.log(index, className)
-        //   return (
-        //     '<span class="' +
-        //     className +
-        //     '">' +
-        //     "<i></i>" +
-        //     "<b></b>" +
-        //     "</span>"
-        //   );
-        // },
+        type: "bullets",
+        renderBullet: function (index, className) {
+          return (
+            '<span class="' +
+            className +
+            '">' +
+            "<i></i>" + 
+            "<b></b>" +
+            "</span>"
+          );
+        },
       },
       navigation: {
         nextEl: ".swiper-button-next",
@@ -100,6 +69,8 @@
     //   });
   }); //onMount
 
+
+
   /**
    * @param {number} mainSort
    * @param {number} subSort
@@ -107,7 +78,7 @@
    * @param {number} subSeq
    * @param {number} category
    */
-  function handleMenuClick(mainSort, subSort, mainSeq, subSeq, category) {
+   function handleMenuClick(mainSort, subSort, mainSeq, subSeq, category) {
     selectedMainMenuSort.set(mainSort);
     selectedSubMenuSort.set(subSort);
     selectedMenuSeq.set(mainSeq);
@@ -135,17 +106,12 @@
       }, 100);
     }
   }
+
 </script>
 
 <div class="main_slide">
   <div class="swiper swiper-container">
     <div class="swiper-wrapper">
-      <div class="minju">
-        <div class="minjoo"></div>
-        <div class="minjoo"></div>
-        <div class="minjoo"></div>
-        <div class="minjoo"></div>
-      </div>
       <div
         class="swiper-slide"
         style="background-image: url(/img/main/main_banner01.png);"
@@ -156,10 +122,7 @@
             대만의 출입국 정보부터<br /> 역사,날씨,가이드북까지 체크해 보세요
           </p>
           <button
-            ><a
-              href="/info/immigration_precautions"
-              on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>자세히 보기</a
-            ></button
+            ><a href="/info/immigration_precautions" on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>자세히 보기</a></button
           >
         </div>
         <p class="prev_text">대만 골프</p>
@@ -174,12 +137,7 @@
           <p>
             대만으로 관광을 떠나기 전 꼭 필요한<br /> 다양한 정보를 확인해 보세요
           </p>
-          <button
-            ><a
-              href="/info/tour"
-              on:click={() => handleMenuClick(0, 4, 1, 6, 0)}>자세히 보기</a
-            ></button
-          >
+          <button><a href="/info/tour" on:click={() => handleMenuClick(0, 4, 1, 6, 0)}>자세히 보기</a></button>
         </div>
         <p class="prev_text">입국 정보</p>
         <p class="next_text">테마 여행</p>
@@ -193,12 +151,7 @@
           <p>
             다양한 성향과 장소를 기반으로<br /> 테마별 최적의 여행지를 추천해 드립니다
           </p>
-          <button
-            ><a
-              href="/themeTour/list"
-              on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>자세히 보기</a
-            ></button
-          >
+          <button><a href="/themeTour/list" on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>자세히 보기</a></button>
         </div>
         <p class="prev_text">관광 자료</p>
         <p class="next_text">대만 골프</p>
@@ -212,11 +165,7 @@
           <p>
             아름다운 자연경관 속에서<br />온전한 힐링의 시간을 경험해 보세요
           </p>
-          <button
-            ><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}
-              >자세히 보기</a
-            ></button
-          >
+          <button><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}>자세히 보기</a></button>
         </div>
         <div class="btn_text">
           <p class="prev_text">테마 여행</p>
@@ -289,12 +238,7 @@
         <strong>대만 정보</strong>
         <p>출입국 정보부터<br />역사,날씨,가이드북까지</p>
       </div>
-      <button
-        ><a
-          href="/info/immigration_precautions"
-          on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>바로가기</a
-        ></button
-      >
+      <button><a href="/info/immigration_precautions" on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>바로가기</a></button>
     </div>
     <div class="card">
       <div class="card_img">
@@ -304,12 +248,7 @@
         <strong>테마 여행</strong>
         <p>다양한 성향과 장소 기반<br />최적의 여행 큐레이션</p>
       </div>
-      <button
-        ><a
-          href="/themeTour/list"
-          on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>바로가기</a
-        ></button
-      >
+      <button><a href="/themeTour/list" on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>바로가기</a></button>
     </div>
     <div class="card">
       <div class="card_img">
@@ -319,12 +258,7 @@
         <strong>대만 명소</strong>
         <p>지금 대만에서 가장 핫한<br />지역별 다양한 명소</p>
       </div>
-      <button
-        ><a
-          href="/attractions/all"
-          on:click={() => handleMenuClick(2, 0, 5, 0, 0)}>바로가기</a
-        ></button
-      >
+      <button><a href="/attractions/all" on:click={() => handleMenuClick(2, 0, 5, 0, 0)}>바로가기</a></button>
     </div>
     <div class="card">
       <div class="card_img">
@@ -334,11 +268,7 @@
         <strong>테마 골프</strong>
         <p>아름다운 자연경관 속<br />온전한 힐링의 시간</p>
       </div>
-      <button
-        ><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}
-          >바로가기</a
-        ></button
-      >
+      <button><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}>바로가기</a></button>
     </div>
     <div class="card">
       <div class="card_img">
@@ -348,11 +278,7 @@
         <strong>프로대만족</strong>
         <p>프로대만족 기자단이 전하는<br />생생한 대만 정보</p>
       </div>
-      <button
-        ><a href="/info/list" on:click={() => handleMenuClick(0, 9, 1, 47, 0)}
-          >바로가기</a
-        ></button
-      >
+      <button><a href="/info/list" on:click={() => handleMenuClick(0, 9, 1, 47, 0)}>바로가기</a></button>
     </div>
     <div class="card">
       <div class="card_img">
@@ -362,11 +288,7 @@
         <strong>이벤트</strong>
         <p>대만을 120% 즐길 수 있는 <br />다양한 이벤트</p>
       </div>
-      <button
-        ><a href="/event/list" on:click={() => handleMenuClick(4, 2, 7, 38, 21)}
-          >바로가기</a
-        ></button
-      >
+      <button><a href="/event/list" on:click={() => handleMenuClick(4, 2, 7, 38, 21)}>바로가기</a></button>
     </div>
   </div>
 </section>
@@ -374,25 +296,6 @@
 <style lang="scss">
   @import "/src/styles/variables.scss";
   @import "/node_modules/swiper/swiper-bundle.css";
-  .minju {
-    position: absolute;
-    width: 1200px;
-    height: 300px;
-    background-color: black;
-    z-index: 999999;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    display: flex;
-    .minjoo {
-      width: 100%;
-      display: block;
-      height: 30px;
-      background-color: blue;
-    }
-  }
 
   :global(.swiper-fade.swiper-free-mode ::slotted(swiper-slide)) {
     transition-timing-function: ease-out;
