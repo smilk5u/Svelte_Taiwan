@@ -14,16 +14,7 @@
   } from "$lib/stores/menu";
   // import { gsap } from "gsap";
   onMount(() => {
-    const arr = [3, 5, 4, 2, 7];
-    const item = 4;
-
-    // const index = arr.findIndex((x) => x === 4);
-    // document.querySelectorAll(".swiper-slide").findIndex((x) => {
-    //   console.log(x)
-    // });
-
-    // document.querySelectorAll(".swiper-slide").indexOf(item);
-    // console.log(document.querySelectorAll(".swiper-slide").indexOf(document.querySelector('.swiper-slide-active')))
+    let aaa = 0;
 
     //main slide
     var listArray = ["slide1", "slide2", "slide3", "slide4"];
@@ -31,17 +22,27 @@
       loop: true,
       effect: "fade",
       on: {
+        slideChange: function (e) {
+          // console.log(e.realIndex)
+          // console.log(e.el)
+          aaa = e.realIndex;
+        },
+        slideChangeTransitionEnd: function() {
+          // console.log(this.activeIndex)
+        },
         autoplayTimeLeft(element, time, progress) {
-          // console.log(document.querySelectorAll(".swiper-slide"));
-          // document
-          //   .querySelectorAll(".swiper-slide")
-          //   .indexOf(document.querySelector(".swiper-slide-active"));
-          // console.log((1 - progress) * 100);
-          // gsap.to(".minjoo", 0.5, { width: (1 - progress) * 100 + "%" });
-          // document.querySelectorAll(".swiper-slide").indexOf(item);
-          // console.log(document.querySelector('.swiper-pagination-progressbar-fill'))
-          // console.log(element, time, progress)
-          // console.log(document.querySelectorAll('.swiper-slide').indexOf())
+          console.log(aaa, progress)
+          // console.log(progress)
+          // const ddd = document.querySelectorAll(".swiper-slide");
+          // console.log("=======================");
+          // for (let i = 0; i < ddd.length; i++) {
+          //   console.log(
+          //     i,
+          //     ddd[i],
+          //     ddd[i].classList.contains("swiper-slide-active")
+          //   );
+          // }
+
           // progressCircle.style.setProperty("--progress", 1 - progress);
           // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
           // console.log(Math.ceil(time / 1000))
@@ -156,7 +157,10 @@
   <div class="swiper swiper-container">
     <div class="swiper-wrapper">
       <div class="minju">
-        <div class="minjoo" />
+        <div class="minjoo"></div>
+        <div class="minjoo"></div>
+        <div class="minjoo"></div>
+        <div class="minjoo"></div>
       </div>
       <div
         class="swiper-slide"
@@ -399,7 +403,7 @@
     margin: auto;
     display: flex;
     .minjoo {
-      width: 0%;
+      width: 100%;
       display: block;
       height: 30px;
       background-color: blue;
