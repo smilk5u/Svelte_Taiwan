@@ -30,7 +30,8 @@
             url: "",
             sort: "",
             viewAll: "",
-            enabled: "true"
+            enabled: "true",
+            editor:"N"
         };
         initialData = [...initialData, newRow];
     }
@@ -122,6 +123,7 @@
                         <th>type</th>
                         <th>url</th>
                         <th>enabled</th>
+                        <th>editor</th>
                         <th>전체보기</th>
                         <th>관리</th>
                     </tr>
@@ -148,6 +150,12 @@
                                 <select name="enabled">
                                     <option value="true" selected={row.enabled === 'true'}>true</option>
                                     <option value="false" selected={row.enabled === 'false'}>false</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="editor">
+                                    <option value="Y" selected={row.editor === 'Y'}>Y</option>
+                                    <option value="N" selected={row.editor === 'N'}>N</option>
                                 </select>
                             </td>
                             <td>

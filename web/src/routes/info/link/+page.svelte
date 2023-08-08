@@ -4,9 +4,7 @@
   import { onMount } from "svelte";
   import { fetchBoardData } from "$lib/api/board";
   import { selectedCetegorySeq } from "$lib/stores/menu";
-  import { env } from "$env/dynamic/public";
-
-  const IMG_HOST = env.PUBLIC_IMG_HOST;
+  import {getReturnValue} from "$lib/common";
 
   let data = [];
   let list = [];
@@ -61,7 +59,7 @@
               </span>
             </div>
             <div class="image">
-              <img src={IMG_HOST + row.filepath} alt="로고 1" />
+              <img src={getReturnValue(row.filepath)} alt="로고 1" />
             </div>
             <div class="subject">
               <span> {row.subject} </span>

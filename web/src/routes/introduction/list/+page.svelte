@@ -4,10 +4,7 @@
   import { onMount } from "svelte";
   import { fetchBoardData } from "$lib/api/board";
   import { selectedCetegorySeq } from "$lib/stores/menu";
-  import { env } from "$env/dynamic/public";
   import FooterNav from "../../Footer_Nav.svelte";
-
-  const IMG_HOST = env.PUBLIC_IMG_HOST;
 
   let data = [];
   let list = [];

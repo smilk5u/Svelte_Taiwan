@@ -45,11 +45,14 @@
         </div>
       </div>
       <div class="list">
-        <p>
-          {@html replaceNewlinesWithBR(view.param3)}
-        </p>
+          {@html view.param3 ? view.param3 : ''}
       </div>
     </div>
+  </div>  
+  <div class="to_btn_wrap">
+    <button type="button">다음</button>
+    <button type="button">이전</button>
+    <button type="button">목록</button>
   </div>
 </div>
 <!-- 메인 컨텐츠 -->

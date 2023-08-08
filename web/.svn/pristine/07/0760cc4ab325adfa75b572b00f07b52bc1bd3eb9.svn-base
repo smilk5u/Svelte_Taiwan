@@ -1,0 +1,235 @@
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 300;
+    src: url(fonts/NotoSansKR-Light.otf) format("opentype");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/NotoSansKR-Regular.otf) format("opentype");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-style: normal;
+    font-weight: 500;
+    src: url(fonts/NotoSansKR-Medium.otf) format("opentype");
+}
+body{
+    overflow-x: hidden;
+}
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+}
+section{
+    max-width: 768px; 
+    /* min-height: 100vh; */
+    height: 1660px;
+    /* height: 216vw; */
+    margin:0 auto; 
+    text-align: center; 
+    /* background: url(images/intro_bg.svg)no-repeat top -14vw center / cover; */
+    background:#ffe8c9;
+}
+section img{
+    width: 100%;
+    margin-top: -14vw;
+}
+.main{
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 4vw 4vw 0 4vw; 
+    text-align: center;
+}
+.logo{
+    width: 160px;
+    height: 56px;
+}
+.logo a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+.sub_tit{
+    display: block;
+    /*padding: 190px 0 0;*/
+    padding: 26vw 0 0;
+    color: var(--main-orange-100-main, #FF7A00);
+    text-align: center;
+    font-family: Jalnan;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px; /* 131.25% */
+    letter-spacing: -0.96px;
+}
+.main_tit{
+    margin:20px 0 0;
+    color: #212529;
+    text-align: center;
+    font-family: Jalnan;
+    font-size: 74px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 98px; /* 132.432% */
+    letter-spacing: -1.48px;
+}
+button{
+    width: calc((100% - 40px/2));
+    height: 124px;
+    position: relative;
+    top:-26vw;
+    /* position: absolute;
+    left: 50%;
+    bottom: 13vw;
+    transform: translateX(-50%); */
+    background: #000;
+    border: none;
+    border-radius: 20px;
+}
+button a{  
+    width: 100%;
+    height: 100%;
+    line-height: 124px;
+    display: block;
+    color: #FFF;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1.28px;
+    text-decoration: none;
+}
+.step_wrap{
+    /*margin:136px 0 0;*/
+    margin: 17.7vw  0 0;
+    text-align: center;
+}
+.step_now{
+    color: #212529;
+    text-align: center;
+    font-family: Jalnan;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 100% */
+    letter-spacing: -2.24px;
+}
+.step_total{
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    font-family: Jalnan;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 117.647% */
+    letter-spacing: -1.36px;
+    opacity: 0.3;
+}
+.question{
+    /*margin: 10px 0 80px;*/
+    margin: 10px 0 10.4vw;
+    display: block;
+    color: #212529;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size:2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+}
+.question_img{
+    width: 100%;
+}
+.answer{
+    width: 100%;
+    height: 176px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 12px 0;
+    padding: 0 16px;
+    background: #F5F5F5;
+    border-radius: 20px;
+    color: #212529;
+    text-align: center;
+    font-family: Noto Sans KR;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.9px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.answer2{
+    margin: 0 0 10.4vw 0;
+}
+.answer.active{
+    background: #FF7A00;
+    color: #fff;
+}
+.answer_img{
+    width: 100%;
+   display: none;
+}
+.progress_bar{
+    width: 100%;
+    margin:10px 0 15.6vw 0;
+    background: #eaeaea;
+}
+.progress_bar div{
+    width: calc(100% / 12);
+    height: 10px;
+    background: #FF7A00;
+}
+
+
+@media(max-width:480px){
+    button{
+        height:80px;
+    }
+    button a{
+        font-size: 1.25rem;
+        line-height: 80px;
+    }
+    .logo{
+        width: 20.9vw;
+        height: 7.32vw;
+    }
+    .step_now{
+        font-size: 2.625rem;
+    }
+    .step_total{
+        font-size: 1.8rem;
+    }
+    .question{
+        font-size: 1.625rem;
+        word-break: keep-all;
+    }
+    .question br:first-child{
+        display: none;
+    }
+    .answer{
+        height:150px;
+        font-size: 1.25rem;
+        word-break: keep-all;
+    }
+    .answer br{
+        display: none;
+    }
+}

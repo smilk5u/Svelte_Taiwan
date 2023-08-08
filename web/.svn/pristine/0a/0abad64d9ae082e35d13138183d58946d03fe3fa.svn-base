@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/src/routes/introduction/mbti/mbti.css" />
+
+<body>
+  <section>
+    <img src="/src/routes/introduction/mbti/images/intro_bg.svg" />
+    <button class="start">
+      <a href="test.svelte">대만으로 출발하기</a>
+    </button>
+  </section>
+</body>

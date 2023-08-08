@@ -42,3 +42,20 @@ export function moveRowX(index, initialData) {
     newData.splice(index, 1);
     return newData;
 }
+
+
+import { env } from "$env/dynamic/public";
+const IMG_HOST = env.PUBLIC_IMG_HOST;
+const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
+
+// filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+export  function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }

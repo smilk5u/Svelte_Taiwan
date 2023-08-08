@@ -7,6 +7,7 @@
 
   const seq = $page.params.seq;
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
 
   /**
      * @type {any}
@@ -17,6 +18,18 @@
       const data = await fetchData("/home/boardDetail?seq="+seq,'');
       view = data;
     });
+
+    // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }
     
 </script>
  <!-- 메인 컨텐츠 -->
@@ -27,6 +40,19 @@
         <div class="detail">
           <div class="lt_detail">
             <div class="view-img">
+              {#if view.seq > 2040}
+              <a
+                href={BACKEND_HOST + view.filepath}
+                target="_blank"
+                class="view_image"
+                ><img
+                  itemprop="image"
+                  src={BACKEND_HOST + view.filepath}
+                  alt={view.subject}
+                  class="img-tag"
+                /></a
+              >
+              {:else}
               <a
                 href={IMG_HOST + view.filepath}
                 target="_blank"
@@ -38,6 +64,8 @@
                   class="img-tag"
                 /></a
               >
+              {/if}
+              
             </div>
           </div>
           <div class="rt_detail">
@@ -47,7 +75,13 @@
             </div>
           </div>
         </div>
+        {@html view.param3 ? view.param3 : ''}
       </div>                                           
+    </div>
+    <div class="to_btn_wrap">
+      <button type="button">다음</button>
+      <button type="button">이전</button>
+      <button type="button">목록</button>
     </div>
   </div>
   <FooterNav/>
@@ -56,9 +90,10 @@
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-  .at-body {
-    .at-container {
-      margin: 0 auto;
+  .at-container {
+    margin: 0 auto 100px;
+    @include mobile {
+      margin: 0 auto 10vw;
     }
   }
 </style>

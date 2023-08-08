@@ -7,6 +7,7 @@
   import { env } from "$env/dynamic/public";
 
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
 
   let data = [];
   let list = [];
@@ -37,6 +38,18 @@
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+   // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }
 </script>
 
 <!-- 메인 컨텐츠 -->
@@ -57,7 +70,7 @@
       </div>
       <div class="image">
         <a href="/info/view/{row.seq}">
-          <img src={IMG_HOST + row.filepath} title="" />
+          <img src={getReturnValue(row.filepath)} title="" />
         </a>
       </div>
     </div>
@@ -97,6 +110,9 @@
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
+  .at-container {
+    margin: 0 auto;
+  }
   @include mobile {
     .list-wrap .list-container {
       overflow: hidden;

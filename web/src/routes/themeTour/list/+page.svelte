@@ -8,6 +8,7 @@
   import FooterNav from "../../Footer_Nav.svelte";
 
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
 
   let data = [];
   let list = [];
@@ -45,7 +46,17 @@
 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }
 </script>
 
 <!-- 메인 컨텐츠 -->
@@ -55,7 +66,7 @@
       {#each list as row, i}
         <li>
           <div class="lt">
-            <img src={IMG_HOST + row.filepath} alt={row.subject} />
+            <img src={getReturnValue(row.filepath)} alt={row.subject} />
           </div>
           <div class="rt">
             <h3>{row.subject}</h3>

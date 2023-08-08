@@ -20,7 +20,7 @@
   });
 
    // 경로 이름이 "/"와 같지 않을 경우 true로 설정
-   $: shouldRenderNav = $page.url.pathname !== "/" && $page.url.pathname !== "/golf";
+   $: shouldRenderNav = $page.url.pathname !== "/" && $page.url.pathname !== "/golf" && $page.url.pathname !== "/common/provision" && $page.url.pathname !== "/common/noemail" && $page.url.pathname !== "/common/privacy";
 </script>
 
 {#if $page.url.pathname.startsWith("/admin")}

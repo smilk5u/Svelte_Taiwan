@@ -1,13 +1,12 @@
 <script>
   import FooterNav from "../../Footer_Nav.svelte";
 </script>
+
 <!-- 서브페이지 공통 -->
 <div class="sub_visual">
   <div class="sub_cate">
     <div class="ct_cate">
-      <a href="/themeTour/recreation" title="테마여행 바로가기">
-        <strong>이메일 수집 거부</strong>
-      </a>
+      <strong>이메일 수집 거부</strong>
     </div>
   </div>
 </div>
@@ -27,7 +26,7 @@
       </p>
     </div>
   </div>
-  <FooterNav/>  
+  <FooterNav />
 </div>
 
 <!-- //메인 컨텐츠 -->

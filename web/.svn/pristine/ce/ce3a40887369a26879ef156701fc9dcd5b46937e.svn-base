@@ -1,0 +1,55 @@
+<script>
+    import { onMount, onDestroy } from "svelte";
+    import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+    import { env } from "$env/dynamic/public";
+
+    const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
+
+    export let param3 = "";
+
+    let editorInstance;
+
+    /**
+     * @param {string} text
+     */
+    function replaceNewlinesWithBR(text) {
+        return text.replace(/(?:\r\n|\r|\n)/g, "<br>");
+    }
+
+    onMount(() => {
+        editorInstance = ClassicEditor.create(
+            document.querySelector("#editor"),
+            {
+                // CKFinder 설정
+                ckfinder: {
+                    // 이미지 업로드를 위한 CKFinder 설정
+                    uploadUrl: `${BACKEND_HOST}/api/editorImgUpload`,
+                },
+            }
+        )
+            .then((editor) => {
+                editorInstance = editor;
+                editor.setData(replaceNewlinesWithBR(param3)); // 컴포넌트로부터 받은 content 데이터를 에디터에 설정
+                editor.model.document.on("change:data", () => {
+                    param3 = editor.getData();
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    });
+
+    onDestroy(() => {
+        if (editorInstance) {
+            // editorInstance.destroy().then(() => {
+            //   editorInstance = null;
+            // });
+        }
+    });
+
+</script>
+
+<div id="editor" />
+
+<style>
+</style>

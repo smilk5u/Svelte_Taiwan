@@ -9,6 +9,7 @@
   import { faImage } from "@fortawesome/free-solid-svg-icons";
   const seq = $page.params.seq;
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
 
   // initialData를 writable 스토어로 생성
   const initialData = writable({
@@ -21,6 +22,9 @@
     seq: 0,
     param1: "",
     param2: "",
+    param3: "",
+    category: 0,
+    mainSeq: 0,
   }); // 기본값으로 초기화
 
   onMount(async () => {
@@ -33,6 +37,41 @@
    */
   function handleClick(seq) {
     goto(`/admin/post_modify/${seq}`, { replaceState: false });
+  }
+
+  /**
+   * @param {string} text
+   */
+  function replaceNewlinesWithBR(text) {
+    return text.replace(/(?:\r\n|\r|\n)/g, "<br>");
+  }
+
+  async function downloadFile(fileUrl, nm) {
+    try {
+      const response = await fetch(fileUrl);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = nm; // 다운로드될 파일의 이름
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+    }
+  }
+
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+  function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
   }
 </script>
 
@@ -51,46 +90,64 @@
       <li>대표이미지</li>
       <li class="">
         {#if $initialData.filepath}
-          {#if $initialData.seq > 1952}
-            <img src={`${$initialData.filepath}`} alt="이미지입니다" />
-          {:else}
-            <img src={IMG_HOST + $initialData.filepath} alt="이미지입니다" />
-          {/if}
+            <img
+              src={getReturnValue($initialData.filepath)}    
+              alt="이미지입니다"
+            />
         {/if}
       </li>
     </ul>
-    <div class="post_text">
-      {@html $initialData.content}
-    </div>
+    <ul class="post_info">
+      <li>대표글</li>
+      <li class="">
+        {@html replaceNewlinesWithBR($initialData.content)}
+      </li>
+    </ul>
+    <!-- 프로대만족/월간매거진 메뉴에서만 -->
+    {#if $initialData.subSeq == 47 || ($initialData.mainSeq == 7 && $initialData.category == 22)}
+      <ul class="post_info">
+        <li>상세글</li>
+        <li class="">
+          {@html $initialData.param3 ? $initialData.param3 : ""}
+        </li>
+      </ul>
+    {/if}
     <!-- 대만정보 >> 관광자료 메뉴에서만 -->
     {#if $initialData.subSeq == 6}
-    <ul class="post_info">
-      <li>다운로드용 첨부파일</li>
-      <li class="">
-        {#if $initialData.download}
-          {#if $initialData.seq > 1952}
-            <a href={$initialData.download} download>
-              <FontAwesomeIcon icon={faImage} /></a
+      <ul class="post_info">
+        <li>다운로드용 첨부파일</li>
+        <li class="">
+          {#if $initialData.download}
+            <a
+              on:click={() =>
+                downloadFile(
+                  BACKEND_HOST +
+                    "/home/downloadFile?bo_table=" +
+                    $initialData.param1 +
+                    "&wr_id=" +
+                    $initialData.param2 +
+                    "&no=" +
+                    $initialData.param3,
+                  $initialData.download
+                )}
+              style="cursor: pointer;"
             >
-          {:else}
-            <a href={IMG_HOST + $initialData.download} download>
               <FontAwesomeIcon icon={faImage} /></a
             >
           {/if}
-        {/if}
-      </li>
-    </ul>
+        </li>
+      </ul>
     {/if}
     <!-- 대만정보 >> 관련링크 메뉴에서만 -->
     {#if $initialData.subSeq == 17}
-    <ul class="post_info">
-      <li>홈페이지</li>
-      <li class="post_date">{$initialData.param1}</li>
-    </ul>
-    <ul class="post_info">
-      <li>전화번호</li>
-      <li class="post_date">{$initialData.param2}</li>
-    </ul>
+      <ul class="post_info">
+        <li>홈페이지</li>
+        <li class="post_date">{$initialData.param1}</li>
+      </ul>
+      <ul class="post_info">
+        <li>전화번호</li>
+        <li class="post_date">{$initialData.param2}</li>
+      </ul>
     {/if}
   </div>
   <div class="etc_buttons">
@@ -101,11 +158,11 @@
 
 <style lang="scss">
   .post_detail {
-    max-width: 900px;
+    max-width: 1200px;
     border-bottom: 1px solid #cacaca;
     h6 {
-      padding: 20px 10px;
-      font-size: 1.1rem;
+      padding: 0 0 20px;
+      font-size: 21px;
     }
   }
   .post_info {

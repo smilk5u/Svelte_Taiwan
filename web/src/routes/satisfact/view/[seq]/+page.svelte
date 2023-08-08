@@ -7,6 +7,7 @@
 
   const seq = $page.params.seq;
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
 
   /**
      * @type {any}
@@ -24,6 +25,18 @@
   function replaceNewlinesWithBR(text) {
     return text.replace(/(?:\r\n|\r|\n)/g, '<br>');
   }
+
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }
     
 </script>
 <!-- 메인 컨텐츠 -->
@@ -32,7 +45,11 @@
     <div class="magazine_view">
       <div class="main">
         <div class="image">
+          {#if view.seq > 2040}
+          <img src={BACKEND_HOST + view.filepath} alt={view.subject} />
+          {:else}
           <img src={IMG_HOST + view.filepath} alt={view.subject} />
+          {/if}
         </div>
         <div class="content">
           <h3>{view.subject}</h3>
@@ -43,7 +60,7 @@
       </div>
       <div class="list">
         <p>
-          {@html view.param3 ? replaceNewlinesWithBR(view.param3) : ''}
+          {@html view.param3 ? view.param3 : ''}
         </p>
       </div>
     </div>

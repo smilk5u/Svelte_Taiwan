@@ -1,22 +1,24 @@
 <script>
-  // @ts-nocheck
+// @ts-nocheck
 
   import { load } from "./+page.js";
   import { onMount } from "svelte";
   import { fetchData, fetchDataFile } from "$lib/api/fetch";
 
   import { goto } from "$app/navigation";
-  // import CKEditor from "../../CKEditor.svelte";
+  import CKEditor from "../../components/CKEditor.svelte";
   import { user } from "$lib/stores/user";
 
   let content = "";
+  let download = false;
+  let param3="";
   let uploadFile;
   let downloadFile;
 
   let mainMenu = [];
   let subMenu = [];
   let category = [];
-  let editorData; // 추가: CKEditor의 데이터를 저장하는 변수
+  let editor = false;
 
   const userInfo = $user;
 
@@ -38,11 +40,12 @@
     var mainSeq = mainMenuSelect.value;
 
     selectedOptionSub = event.target.value;
+
     await setCategory(mainSeq, selectedOptionSub);
   }
 
   async function setSubMenu(mainSeq) {
-    const response = await fetchData(`/api/subMenuList?mainSeq=${mainSeq}`);
+    const response = await fetchData(`/api/subMenuList?mainSeq=${mainSeq}&combo=1`);
     subMenu = response;
     if (subMenu.length > 0) {
       delayForceChangeEvent("subMenu");
@@ -75,9 +78,9 @@
       formData.append("file", uploadFile[0]);
     }
     if (downloadFile) {
-    formData.append("downloadFile", downloadFile[0]);
-  }
-    // formData.append("content",editorData);
+      formData.append("downloadFile", downloadFile[0]);
+    }
+     formData.append("param3", param3);
     formData.append("writer", userInfo.userId);
 
     var data = await fetchDataFile("/api/saveBoard", formData);
@@ -87,18 +90,25 @@
       goto("/admin/post", { replaceState: false });
     }
   }
-  function handleEditorChange(event) {
-    editorData = event.detail.editorData;
-  }
-  function clearFile() {
-    uploadFile = null;
-    // input 요소의 값을 초기화합니다.
-    const fileInput = document.getElementById('file');
-    if (fileInput) {
-      fileInput.value = '';
-    }
-  }
 
+  $: {
+    if(selectedOptionSub){
+       //프로대만족, 월간매거진은 ckeditor로
+      if ((selectedOptionSub == 47) || (selectedOptionSub == 38)) {
+        editor = true;
+      }else{
+        editor = false;
+      }
+
+      if(selectedOptionSub == 6){
+        download = true;
+      }else{
+        download = false;
+      }
+    }
+  } 
+  
+  
 </script>
 
 <div class="page_title">
@@ -143,7 +153,6 @@
                     {#each category as item, index}
                       <option value={item.seq}>{item.name}</option>
                     {/each}
-                  {:else }
                   {/if}
                 </select>
               </div>
@@ -151,30 +160,62 @@
           </td>
         </tr>
         <tr>
-          <th>내용</th>
+          <th>대표글</th>
           <td>
-            <textarea name="content" />
-            <!-- <CKEditor bind:content /> -->
+              <textarea name="content" />
           </td>
         </tr>
+        {#if editor}
+        <tr>
+          <th>상세글</th>
+          <td>
+              <CKEditor bind:param3 />
+          </td>
+        </tr>
+        {/if}
         <tr>
           <th>대표이미지</th>
           <td class="upload_file">
             <div class="flex_td">
-              <input bind:files={uploadFile} id="file" name="file" type="file" />
-              <input type="button" on:click={event => (document.getElementById('file').value='')} value="삭제" style="width:50px;">
+              <input
+                bind:files={uploadFile}
+                id="file"
+                name="file"
+                type="file"
+              />
+              <input
+                type="button"
+                on:click={(event) =>
+                  (document.getElementById("file").value = "")}
+                value="삭제"
+                style="width:50px;"
+              />
             </div>
           </td>
         </tr>
+        <!-- 대만정보 >> 관광자료 메뉴에서만 -->
+        {#if download}
         <tr>
           <th>다운로드용 첨부파일</th>
           <td class="upload_file">
             <div class="flex_td">
-              <input bind:files={downloadFile} id="downloadFile" name="downloadFile" type="file" />
-              <input type="button" on:click={event => (document.getElementById('downloadFile').value='')} value="삭제" style="width:50px;">
+              <input
+                bind:files={downloadFile}
+                id="downloadFile"
+                name="downloadFile"
+                type="file"
+              />
+              <input
+                type="button"
+                on:click={(event) =>
+                  (document.getElementById("downloadFile").value = "")}
+                value="삭제"
+                style="width:50px;"
+              />
             </div>
           </td>
         </tr>
+        {/if}
       </tbody>
     </table>
   </form>
@@ -218,6 +259,6 @@
     justify-content: space-between; /* 요소 사이를 균등한 간격으로 정렬 */
   }
   .box {
-    width:32%
+    width: 32%;
   }
 </style>

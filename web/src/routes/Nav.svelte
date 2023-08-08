@@ -57,6 +57,7 @@
   });
 
   $: {
+    // console.log()
     //console.log('nav');
     //console.log("nav currentMainMenuSort " + currentMainMenuSort);
     //console.log("nav currentSubMenuSort " + currentSubMenuSort);
@@ -114,15 +115,16 @@
       category = categoryList;
 
       //카테고리 리스트 있는 경우 첫번째 탭 강제클릭
-      if(category.length > 0){
+      if (category.length > 0) {
         setTimeout(() => {
-            const activeElement = document.querySelector(".tab li.active a");
-            console.log(activeElement)
-            if (activeElement) {
-              activeElement.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
-            }
-          }, 100);
-
+          const activeElement = document.querySelector(".tab li.active a");
+          //  console.log(activeElement)
+          if (activeElement) {
+            activeElement.dispatchEvent(
+              new Event("click", { bubbles: true, cancelable: true })
+            );
+          }
+        }, 100);
       }
     } catch (error) {
       // 예외 처리
@@ -161,6 +163,10 @@
    * @param {number} subSeq
    */
   function handleMenuClick(mainSort, subSort, mainSeq, subSeq) {
+    //외부링크 메뉴는 제외
+    if(subSeq == 19 || subSeq == 16){
+      return;
+    }
     selectedMainMenuSort.set(mainSort);
     selectedSubMenuSort.set(subSort);
     selectedMenuSeq.set(mainSeq);
@@ -176,18 +182,18 @@
     }
     history.push([mainSort, subSort, mainSeq, subSeq]);
     localStorage.setItem("history", JSON.stringify(history));
-    
-    if(subSeq == 0) {
+
+    if (subSeq == 0) {
       setTimeout(() => {
         const anchorElement = document.querySelector(".sub_menu li.on a");
         if (anchorElement) {
-          anchorElement.dispatchEvent(new Event('click', { bubbles: true, cancelable: true }));
+          anchorElement.dispatchEvent(
+            new Event("click", { bubbles: true, cancelable: true })
+          );
         }
       }, 100);
     }
-
   }
-
 </script>
 
 <!-- 서브페이지 공통 -->
@@ -240,6 +246,7 @@
         >
           <a
             href={val.url}
+            target={val.type == 2 ? '_blank' : ''}
             on:click={() =>
               handleMenuClick(
                 visual[0]?.sort,
@@ -262,7 +269,7 @@
       </div>
     {/if}
     {#if category.length > 0}
-      <ul class="tab">
+      <ul class={category.length === 2 ? "tab two_tab" : "tab"}>
         <!-- 서브메뉴 전체보기 있는 경우 -->
         {#if val.viewAll != "false"}
           <li

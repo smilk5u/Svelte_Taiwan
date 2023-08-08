@@ -8,7 +8,7 @@
     selectedSubMenuSort,
     selectedMenuSeq,
     selectedMenuSubSeq,
-    selectedCetegorySeq
+    selectedCetegorySeq,
   } from "$lib/stores/menu";
 
   /* =============================================================================
@@ -94,6 +94,12 @@
   }
 
   function handleMenuClick(mainSort, subSort, mainSeq, subSeq) {
+
+    //외부링크 메뉴는 제외
+    if(subSeq == 19 || subSeq == 16){
+      return;
+    }
+
     let history = localStorage.getItem("history");
     if (!history) {
       history = [];
@@ -133,6 +139,7 @@
           localStorage.setItem("history", JSON.stringify(history));
         }
       }
+      console.log(selectedMenuSeq);
     });
 
     await get_binding_data();
@@ -147,10 +154,10 @@
     const menuListBtn = document.querySelectorAll(".menu_list");
     const twoDepthElements = document.querySelectorAll(".two_depth li");
     const searchContMobile = document.querySelector(".search_contain_m");
-   //  const schBtn = document.querySelector(".sch_btn");
+    //  const schBtn = document.querySelector(".sch_btn");
     const menuBtn = document.querySelector(".menu_btn");
     const closeBtnMobile = document.querySelector(".close_btn_m");
-    
+
     let searchWidth = "";
     if (window.innerWidth > 768) {
       searchWidth = "-500px";
@@ -173,7 +180,7 @@
       });
 
       /* PC 메뉴 서브링크 클릭시 헤더 닫히기 */
-      item.addEventListener("click",GnbClose);
+      item.addEventListener("click", GnbClose);
     });
 
     /* PC 검색버튼 포커스 시 닫기 */
@@ -220,8 +227,7 @@
       dimmedMotion(false);
     });
 
-
-    /* Mobile 서브메뉴 열기 */    
+    /* Mobile 서브메뉴 열기 */
     menuListBtn.forEach((element) => {
       element.addEventListener("click", () => {
         menuListBtn.forEach((item) => {
@@ -231,7 +237,7 @@
       });
     });
 
-    /* Mobile 서브메뉴 클릭시 패널 닫기 */    
+    /* Mobile 서브메뉴 클릭시 패널 닫기 */
     twoDepthElements.forEach((element) => {
       element.addEventListener("click", () => {
         searchContMobile.classList.remove("open");
@@ -242,16 +248,16 @@
         dimmedMotion(false);
       });
     });
-    
+
     /* Mobile 검색창 열기 */
-   //  schBtn.addEventListener("click", () => {
-   //    dimmedMotion(true);
-   //    searchContMobile.classList.add("open");
-   //    gsap.to(searchContMobile, 0.5, {
-   //      right: 0,
-   //      ease: Power2.easeOut,
-   //    });
-   //  });
+    //  schBtn.addEventListener("click", () => {
+    //    dimmedMotion(true);
+    //    searchContMobile.classList.add("open");
+    //    gsap.to(searchContMobile, 0.5, {
+    //      right: 0,
+    //      ease: Power2.easeOut,
+    //    });
+    //  });
     /* Mobile 검색창 닫음 */
     searchContMobile.addEventListener("click", () => {
       searchContMobile.classList.add("remove");
@@ -299,6 +305,7 @@
                     <li>
                       <a
                         href={val.url}
+                        target={val.type == 2 ? '_blank' : ''}
                         on:click={() =>
                           handleMenuClick(
                             row.sort,
@@ -407,105 +414,33 @@
     <div class="mobile_panel_menu">
       <div class="sub_menu_wrap">
         <ul class="one_depth">
-          <li class="menu_list on">
-            <button type="button">대만 정보</button>
-            <div class="two_depth">
-              <ul>
-                <li>
-                  <a href="/info/immigration_precautions">출입국 주의사항</a>
-                </li>
-                <li><a href="/info/introduction">대만소개</a></li>
-                <li><a href="/info/festival">문화/역사</a></li>
-                <li><a href="/info/weather">대만의 날씨</a></li>
-                <li><a href="/info/tourist_info">관광자료</a></li>
-                <li><a href="/info/iPASS">대만 교통수단</a></li>
-                <li>
-                  <a
-                    href="https://www.freepam.co.kr/shop/index.php"
-                    target="_blank">가이드북</a
-                  >
-                </li>
-                <li><a href="/info/related_links">관련 링크</a></li>
-                <li><a href="/info/working_holiday">워홀</a></li>
-                <li>
-                  <a href="https://issuu.com/nihaotaiwan2015" target="_blank"
-                    >계간지</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">이벤트</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/event/all">전체</a></li>
-                <li><a href="/event/contest">진행중</a></li>
-                <li><a href="/event/contest">종료</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">테마 여행</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/themeTour/recreation">휴양</a></li>
-                <li><a href="/themeTour/activity">액티비티</a></li>
-                <li><a href="/themeTour/diners">식객</a></li>
-                <li><a href="/themeTour/picture">사진</a></li>
-                <li><a href="/themeTour/history">역사</a></li>
-                <li><a href="/themeTour/shopping">쇼핑</a></li>
-                <li><a href="/themeTour/love">러브</a></li>
-                <li><a href="/themeTour/nature">자연</a></li>
-                <li><a href="/themeTour/culture">문화</a></li>
-                <li><a href="/themeTour/night_market">야시장</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">대만 명소</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/attractions/all">전체</a></li>
-                <li><a href="/attractions/northern">북부</a></li>
-                <li><a href="/attractions/midwest">중서부</a></li>
-                <li><a href="/attractions/eastern">동부</a></li>
-                <li><a href="/attractions/south">남부</a></li>
-                <li><a href="/attractions/island">섬</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">대만 골프</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/golf">대만 골프</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">프로대만족</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/satisfact/all">프로대만족 전체</a></li>
-                <li><a href="/satisfact/magazine">월간 매거진</a></li>
-                <li><a href="/satisfact/satisfact">프로대만족</a></li>
-                <li><a href="/satisfact/travel_tips">여행 Tips</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="menu_list">
-            <button type="button">관광청 소개</button>
-            <div class="two_depth">
-              <ul>
-                <li><a href="/introduction/tourism_board">관광청 소개</a></li>
-                <li><a href="/introduction/director_general">국장소개</a></li>
-                <li><a href="/introduction/notice">공지사항</a></li>
-                <li><a href="/introduction/press_release">보도자료</a></li>
-                <li><a href="/introduction/korean_office">찾아오시는 길</a></li>
-              </ul>
-            </div>
-          </li>
+          {#each main as row, i}
+            <li class={i == 0 ? "menu_list on" : "menu_list"}>
+              <button type="button">{row.name}</button>
+              <div class="two_depth">
+                <ul>
+                  {#each sub as val, i}
+                    {#if val.seq != null}
+                      {#if row.seq == val.mainSeq}
+                        <li>
+                          <a
+                            href={val.url}
+                            on:click={() =>
+                              handleMenuClick(
+                                row.sort,
+                                val.sort,
+                                val.mainSeq,
+                                val.seq
+                              )}>{val.title}</a
+                          >
+                        </li>
+                      {/if}
+                    {/if}
+                  {/each}
+                </ul>
+              </div>
+            </li>
+          {/each}
         </ul>
         <div class="sns_link">
           <ul>
@@ -1154,10 +1089,12 @@
     .header_wrap_m {
       width: 100%;
       padding: 0;
+      height: 70px;
     }
 
     .mobile_header {
-      height: vw(140);
+      // height: vw(140);
+      height: 70px;
       padding: 0 vw(40);
       border-radius: 0 0 vw(50) vw(50);
       .mobile_header_top {
@@ -1166,8 +1103,9 @@
           height: vw(57);
           position: relative;
           img {
-            position:absolute;
-            left:0; top:0;
+            position: absolute;
+            left: 0;
+            top: 0;
           }
         }
       }

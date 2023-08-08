@@ -7,6 +7,8 @@
   import { env } from "$env/dynamic/public";
 
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
+
 
   let data = [];
   let list = [];
@@ -36,7 +38,7 @@
     navigatepageNums = data.navigatepageNums;
   }
 
-  async function downloadFile(fileUrl) {
+  async function downloadFile(fileUrl, nm) {
     try {
       const response = await fetch(fileUrl);
       const blob = await response.blob();
@@ -44,11 +46,23 @@
 
       const link = document.createElement("a");
       link.href = url;
-      link.download = "file"; // 다운로드될 파일의 이름
+      link.download = nm; // 다운로드될 파일의 이름
       link.click();
       URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error downloading file:", error);
+    }
+  }
+
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
     }
   }
 </script>
@@ -58,20 +72,18 @@
   {#each list as row, i}
     <div class="list-row">
       <div class="list-item">
+
         <a
           class="img-tack"
-          href={row.download}
-          download
+          on:click={() => downloadFile(BACKEND_HOST+ '/home/downloadFile?bo_table='+row.param1+"&wr_id="+row.param2+"&no="+row.param3, row.download)}
           title={row.subject}
-          target="_blank"
-          on:click={() => downloadFile(IMG_HOST + row.filepath)}
         >
           <img src="/img/info/ico_download.png" alt="여행 가이드 1" />
           <span>다운로드</span>
         </a>
         <div class="img-item">
           <img
-            src={IMG_HOST + row.filepath}
+            src={getReturnValue(row.filepath)}   
             alt={row.subject}
             style="height:100%;"
           />

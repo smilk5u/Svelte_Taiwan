@@ -2,10 +2,8 @@
   import { onMount } from "svelte";
   import { page } from '$app/stores';
   import { fetchData } from "$lib/api/fetch";
-  import { env } from "$env/dynamic/public";
-
+  import {getReturnValue} from "$lib/common";
   const seq = $page.params.seq;
-  const IMG_HOST = env.PUBLIC_IMG_HOST;
 
   /**
      * @type {any}
@@ -27,10 +25,10 @@
           {#if view.filepath}
           <div class="view-img">
             <a
-              href={IMG_HOST + view.filepath}
+              href={getReturnValue(view.filepath)}
               target="_blank"
               ><img
-                src={IMG_HOST + view.filepath}
+                src={getReturnValue(view.filepath)}
                 alt={view.subject}
               /></a
             >
@@ -42,6 +40,11 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="to_btn_wrap">
+    <button type="button">다음</button>
+    <button type="button">이전</button>
+    <button type="button">목록</button>
   </div>
 </div>
 

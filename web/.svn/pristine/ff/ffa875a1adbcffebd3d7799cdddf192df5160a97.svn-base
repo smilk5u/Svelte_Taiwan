@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MBTI Test</title>
+       <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <h1 class="logo"><a href="/"><img src="images/logo.png"></a></h1>
+            <div class="step_wrap"><span class="step_now">01</span> <p class="step_total">/ 12</p></div>
+            <strong class="question"></strong>
+            <div class="answer1 answer" ></div>
+            <div class="answer2 answer"></div>
+            <div class="">
+                <img src="" class="question_img">
+                <img src="images/01_02.png" class="answer_img">
+            </div>
+            <div class="progress_bar">
+                <div></div>
+            </div>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>

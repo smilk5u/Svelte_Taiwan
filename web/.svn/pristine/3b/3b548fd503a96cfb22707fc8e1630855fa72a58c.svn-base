@@ -1,0 +1,5 @@
+# .env
+PORT=5173
+
+PUBLIC_IMG_HOST=https://taiwantour.or.kr
+PUBLIC_BACKEND_HOST=http://web.southpaw.kr:11000

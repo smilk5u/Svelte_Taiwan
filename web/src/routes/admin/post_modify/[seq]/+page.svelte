@@ -1,9 +1,9 @@
 <script>
-  // @ts-nocheck
+// @ts-nocheck
+
   import { onMount, onDestroy } from "svelte";
   import { fetchData, fetchDataFile } from "$lib/api/fetch";
   import { goto } from "$app/navigation";
-  import CKEditor from "../../../CKEditor.svelte";
   import { selectedImage } from "$lib/stores/store";
   import ImageModal from "../../../components/ImageModal.svelte";
   import { user } from "$lib/stores/user";
@@ -12,9 +12,13 @@
   import { env } from "$env/dynamic/public";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
   import { faImage } from "@fortawesome/free-solid-svg-icons";
+  import CKEditor from "../../../components/CKEditor.svelte";
 
   const seq = $page.params.seq;
   const IMG_HOST = env.PUBLIC_IMG_HOST;
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
+
+  let editor = false;
 
   let mainMenu = [];
   let subMenu = [];
@@ -28,17 +32,24 @@
   const initialData = writable({
     subject: "",
     content: "",
+    contentHtml: "",
     filepath: "",
     download: "",
     regDate: "",
     param1: "",
     param2: "",
+    param3: "",
     mainSeq: 0,
     subSeq: 0,
     categorySeq: 0,
     seq: 0,
+    category:0,
   }); // 기본값으로 초기화
-  let editorData = $initialData?.content; // 추가: CKEditor의 데이터를 저장하는 변수
+
+  function handleParam3Change(event) {
+    $initialData.param3 = event.detail; // 이벤트로부터 전달받은 param3 값을 부모 컴포넌트 변수에 업데이트
+  }
+
   onMount(async () => {
     const response = await fetchData("/api/boardDetail?seq=" + seq, "");
     initialData.set(response);
@@ -65,11 +76,12 @@
     await setSubMenu(selectedOption);
   }
 
+  let selectedOptionSub = "";
   async function handleSelectSub(event) {
     var mainMenuSelect = document.getElementById("mainMenu");
     var mainSeq = mainMenuSelect.value;
 
-    let selectedOptionSub = event.target.value;
+    selectedOptionSub = event.target.value;
     await setCategory(mainSeq, selectedOptionSub);
   }
 
@@ -103,13 +115,14 @@
     const formData = new FormData(form);
 
     if (uploadFile) {
-      console.log(uploadFile)
+      console.log(uploadFile);
       formData.append("file", uploadFile[0]);
     }
     if (downloadFile) {
       formData.append("downloadFile", downloadFile[0]);
     }
-    // formData.append("content", editorData);
+
+    formData.append("param3", $initialData.param3);
     formData.append("writer", userInfo.userId);
 
     var data = await fetchDataFile("/api/saveBoard", formData);
@@ -118,9 +131,6 @@
       alert("수정되었습니다");
       goto("/admin/post", { replaceState: false });
     }
-  }
-  function handleEditorChange(event) {
-    editorData = event.detail.editorData;
   }
 
   let selectedImagePath = "";
@@ -138,10 +148,29 @@
     isModalOpen = false;
   }
 
-  function deleteImage() {
-    const fileInput = document.querySelector('input[type="file"]');
-    fileInput.value = "";
+  $: {
+    if (selectedOptionSub) {
+      //프로대만족, 월간매거진은 ckeditor로
+      if (selectedOptionSub == 47) {
+        editor = true;
+      } else {
+        editor = false;
+      }
+    }
   }
+
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
+    }
+  }
+
 </script>
 
 <div class="page_title">
@@ -210,12 +239,23 @@
           </td>
         </tr>
         <tr>
-          <th>내용</th>
+          <th>대표글</th>
           <td>
-            <textarea name="content">{$initialData.content}</textarea>
-            <!-- <CKEditor bind:editorData on:change={handleEditorChange} /> -->
+              <textarea name="content">{$initialData.content}</textarea>
           </td>
         </tr>
+       
+         <!-- 프로대만족/월간매거진 메뉴에서만 -->
+         {#if ($initialData.subSeq == 47) || ($initialData.mainSeq == 7 && $initialData.category ==22)}
+        <tr>
+          <th>상세글</th>
+          <td>
+              <!-- <CKEditor bind:param3={$initialData.param3}  on:change={handleEditorChange}/> -->
+              <CKEditor bind:param3={$initialData.param3} on:param3change={handleParam3Change} />
+
+          </td>
+        </tr>
+        {/if}
         <tr>
           <th>대표이미지</th>
           <td class="btn_td">
@@ -229,11 +269,15 @@
 
               <input
                 type="button"
-                on:click={(event) => ($initialData.filepath = null)}
+                on:click={(event) => ($initialData.filepath = "")}
                 value="삭제"
                 style="width:50px;"
               />
-              <input type="hidden" name="filepath" bind:value={$initialData.filepath}>
+              <input
+                type="hidden"
+                name="filepath"
+                bind:value={$initialData.filepath}
+              />
             {:else}
               <input
                 bind:files={uploadFile}
@@ -291,23 +335,27 @@
           <tr>
             <th>홈페이지</th>
             <td>
-              <input type="text" name="param1" bind:value={$initialData.param1}>
+              <input
+                type="text"
+                name="param1"
+                bind:value={$initialData.param1}
+              />
             </td>
           </tr>
           <tr>
             <th>전화번호</th>
             <td>
-              <input type="text" name="param2" bind:value={$initialData.param2}>
+              <input
+                type="text"
+                name="param2"
+                bind:value={$initialData.param2}
+              />
             </td>
           </tr>
         {/if}
       </tbody>
     </table>
   </form>
-  <!-- <ul class="etc_buttons register_list">
-    <li><button type="button" on:click={submitForm}>수정</button></li>
-    <li><button><a href="/admin/post">목록</a></button></li>
-  </ul> -->
   <div class="etc_buttons">
     <button type="button" on:click={submitForm}>수정</button>
     <button><a href="/admin/post">목록</a></button>
@@ -315,14 +363,10 @@
 </div>
 
 {#if selectedImagePath}
-  {#if $initialData.seq > 1952}
-    <ImageModal imagePath={`${selectedImagePath}`} on:close={closeModal} />
-  {:else}
-    <ImageModal
-      imagePath={`${IMG_HOST + selectedImagePath}`}
-      on:close={closeModal}
-    />
-  {/if}
+  <ImageModal
+  imagePath={getReturnValue(selectedImagePath)} 
+  on:close={closeModal}
+/>
 {/if}
 
 <style lang="scss">
@@ -331,7 +375,7 @@
     width: 100%;
   }
   table textarea {
-    min-height: 400px;
+    min-height: 250px;
   }
   table .flex_td button {
     min-height: 2.5rem !important;
@@ -359,5 +403,9 @@
   }
   .box {
     width: 32%;
+  }
+  .editor {
+    overflow: auto;
+    height: 500px;
   }
 </style>

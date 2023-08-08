@@ -1,14 +1,12 @@
 <script>
-   import FooterNav from "../../Footer_Nav.svelte";
- </script>
+  import FooterNav from "../../Footer_Nav.svelte";
+</script>
 
 <!-- 서브페이지 공통 -->
 <div class="sub_visual">
   <div class="sub_cate">
     <div class="ct_cate">
-      <a href="/themeTour/recreation" title="테마여행 바로가기">
-        <strong>이용약관</strong>
-      </a>
+      <strong>이용약관</strong>
     </div>
   </div>
 </div>
@@ -621,7 +619,7 @@
       </ol>
     </div>
   </div>
-  <FooterNav/>  
+  <FooterNav />
 </div>
 
 <!-- //메인 컨텐츠 -->
@@ -660,12 +658,12 @@
         font-size: vw(28);
       }
       p {
-         font-size: vw(22);
-         line-height: vw(36);
+        font-size: vw(22);
+        line-height: vw(36);
       }
       li {
-         font-size: vw(22);
-         line-height: vw(36);
+        font-size: vw(22);
+        line-height: vw(36);
       }
       span {
         font-size: vw(18);

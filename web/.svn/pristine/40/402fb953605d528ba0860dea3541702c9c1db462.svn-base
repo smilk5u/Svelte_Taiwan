@@ -1,0 +1,953 @@
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+  import "swiper/css/effect-fade";
+  import { onMount } from "svelte";
+  // import { gsap } from "gsap";
+  onMount(() => {
+    //main slide
+    var listArray = ["slide1", "slide2", "slide3", "slide4"];
+    var mainSwiper = new Swiper(".swiper", {
+      loop: true,
+      effect: "fade",
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: "true",
+        type: "bullets",
+        renderBullet: function (index, className) {
+          return (
+            '<span class="' +
+            className +
+            '">' +
+            "<i></i>" +
+            "<b></b>" +
+            "</span>"
+          );
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      speed: 800,
+    });
+    var pagingSwiper = new Swiper(".swiper", {
+      pagination: {
+        el: ".swiper-pagination-square",
+        clickable: true,
+      },
+      // effect: "fade",
+      loop: true,
+    });
+    mainSwiper.controller.control = pagingSwiper;
+    pagingSwiper.controller.control = mainSwiper;
+
+    //main slide scroll effect
+    //window.addEventListener("scroll", (event) => {
+    //  if (500 > window.scrollY && window.scrollY >= 124) {
+    //    document.querySelector(".swiper")?.classList.add("wider");
+    //    document.querySelector(".swiper")?.classList.remove("fully");
+    //  } else if (window.scrollY >= 500) {
+    //    document.querySelector(".swiper")?.classList.add("fully");
+    //    document.querySelector(".swiper")?.classList.remove("wider");
+    //  } else {
+    //    document.querySelector(".swiper")?.classList.remove("wider");
+    //    document.querySelector(".swiper")?.classList.remove("fully");
+    //  }
+    //});
+    gsap.registerPlugin(ScrollTrigger);
+    var tl = gsap
+      .timeline({
+        scrollTrigger: {
+          scrub: 1,
+          trigger: ".swiper",
+        },
+        defaults: { duration: 1 },
+      })
+      // .from(".swiper", {
+      //   webkitClipPath: "inset(0% 7.2% 0% 7.2% round 50px)",
+      // })
+      .to(".swiper", {
+        webkitClipPath: "inset(0px round 0px)",
+      });
+  }); //onMount
+</script>
+
+<div class="main_slide">
+  <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide"
+        style="background-image: url(/img/main/main_banner01.png);"
+      >
+        <div class="slide_text">
+          <strong>입국 정보</strong>
+          <p>
+            대만의 출입국 정보부터<br /> 역사,날씨,가이드북까지 체크해 보세요
+          </p>
+          <button
+            ><a href="/info/immigration_precautions">자세히 보기</a></button
+          >
+        </div>
+        <p class="prev_text">대만 골프</p>
+        <p class="next_text">관광 자료</p>
+      </div>
+      <div
+        class="swiper-slide"
+        style="background-image: url(/img/main/main_banner04.png);"
+      >
+        <div class="slide_text">
+          <strong>관광 자료</strong>
+          <p>
+            대만으로 관광을 떠나기 전 꼭 필요한<br /> 다양한 정보를 확인해 보세요
+          </p>
+          <button><a href="/info/tour">자세히 보기</a></button>
+        </div>
+        <p class="prev_text">입국 정보</p>
+        <p class="next_text">테마 여행</p>
+      </div>
+      <div
+        class="swiper-slide"
+        style="background-image: url(/img/main/main_banner03.png);"
+      >
+        <div class="slide_text">
+          <strong>테마 여행</strong>
+          <p>
+            다양한 성향과 장소를 기반으로<br /> 테마별 최적의 여행지를 추천해 드립니다
+          </p>
+          <button><a href="/themeTour/list">자세히 보기</a></button>
+        </div>
+        <p class="prev_text">관광 자료</p>
+        <p class="next_text">대만 골프</p>
+      </div>
+      <div
+        class="swiper-slide"
+        style="background-image: url(/img/main/main_banner05.png);"
+      >
+        <div class="slide_text">
+          <strong>대만 골프</strong>
+          <p>
+            아름다운 자연경관 속에서<br />온전한 힐링의 시간을 경험해 보세요
+          </p>
+          <button><a href="/golf">자세히 보기</a></button>
+        </div>
+        <div class="btn_text">
+          <p class="prev_text">테마 여행</p>
+          <p class="next_text">입국 정보</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next" />
+    <div class="swiper-button-prev" />
+    <div class="pag_wrap">
+      <div class="swiper-pagination" />
+      <ul class="dash_line">
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="443"
+            height="2"
+            viewBox="0 0 443 2"
+            fill="none"
+          >
+            <path
+              opacity="0.3"
+              d="M1 1H442"
+              stroke="white"
+              stroke-width="1.4"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+              stroke-dasharray="4 3"
+            />
+          </svg>
+        </li>
+      </ul>
+      <ul class="dash_line right">
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="443"
+            height="2"
+            viewBox="0 0 443 2"
+            fill="none"
+          >
+            <path
+              opacity="0.3"
+              d="M1 1H442"
+              stroke="white"
+              stroke-width="1.4"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+              stroke-dasharray="4 3"
+            />
+          </svg>
+        </li>
+      </ul>
+    </div>
+    <div class="swiper-pagination-square" />
+  </div>
+</div>
+
+<section>
+  <div class="section_title">
+    <h1>대만의 대만족, 여행을 위한 모든 것</h1>
+    <h2>대만 여행 정보부터 추천 여행지, 이벤트까지 한눈에 확인해 보세요</h2>
+  </div>
+  <div class="card_wrap">
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img01.png" alt="대만정보 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>대만 정보</strong>
+        <p>출입국 정보부터<br />역사,날씨,가이드북까지</p>
+      </div>
+      <button><a href="/info/immigration_precautions">바로가기</a></button>
+    </div>
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img02.png" alt="테마 여행 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>테마 여행</strong>
+        <p>다양한 성향과 장소 기반<br />최적의 여행 큐레이션</p>
+      </div>
+      <button><a href="/themeTour/list">바로가기</a></button>
+    </div>
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img03.png" alt="대만 명소 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>대만 명소</strong>
+        <p>지금 대만에서 가장 핫한<br />지역별 다양한 명소</p>
+      </div>
+      <button><a href="/attractions/all">바로가기</a></button>
+    </div>
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img04.png" alt="테마 골프 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>테마 골프</strong>
+        <p>아름다운 자연경관 속<br />온전한 힐링의 시간</p>
+      </div>
+      <button><a href="/golf">바로가기</a></button>
+    </div>
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img05.png" alt="프로대만족 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>프로대만족</strong>
+        <p>프로대만족 기자단이 전하는<br />생생한 대만 정보</p>
+      </div>
+      <button><a href="/info/list">바로가기</a></button>
+    </div>
+    <div class="card">
+      <div class="card_img">
+        <img src="/img/main/card_img06.png" alt="이벤트 이미지" />
+      </div>
+      <div class="card_text">
+        <strong>이벤트</strong>
+        <p>대만을 120% 즐길 수 있는 <br />다양한 이벤트</p>
+      </div>
+      <button><a href="/event/list">바로가기</a></button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "/src/styles/variables.scss";
+  @import "/node_modules/swiper/swiper-bundle.css";
+
+  :global(.swiper-fade.swiper-free-mode ::slotted(swiper-slide)) {
+    transition-timing-function: ease-out;
+  }
+  :global(.swiper-fade ::slotted(swiper-slide)) {
+    pointer-events: none;
+    transition-property: opacity;
+  }
+  :global(.swiper-fade ::slotted(swiper-slide) ::slotted(swiper-slide)) {
+    pointer-events: none;
+  }
+  :global(.swiper-fade ::slotted(.swiper-slide-active)),
+  :global(
+      .swiper-fade
+        ::slotted(.swiper-slide-active)
+        ::slotted(.swiper-slide-active)
+    ) {
+    pointer-events: auto;
+  }
+
+  :global(.swiper-fade.swiper-free-mode .swiper-slide) {
+    transition-timing-function: ease-out;
+  }
+  :global(.swiper-fade .swiper-slide) {
+    pointer-events: none;
+    transition-property: opacity;
+  }
+  :global(.swiper-fade .swiper-slide .swiper-slide) {
+    pointer-events: none;
+  }
+  :global(.swiper-fade .swiper-slide-active),
+  :global(.swiper-fade .swiper-slide-active .swiper-slide-active) {
+    pointer-events: auto;
+  }
+
+  .swiper-wrapper {
+    transform: translate3d(0px, 0, 0) !important;
+  }
+  section {
+    position: relative;
+  }
+  :global(.swiper-fade .swiper-slide) {
+    pointer-events: none;
+    transition-property: opacity;
+  }
+  :global(.swiper-fade .swiper-slide .swiper-slide) {
+    pointer-events: none;
+  }
+  :global(.swiper-fade .swiper-slide-active),
+  :global(.swiper-fade .swiper-slide-active .swiper-slide-active) {
+    pointer-events: auto;
+  }
+  .main_slide {
+    height: 924px;
+    margin: 92px 0 0;
+  }
+  .swiper {
+    max-width: 1920px;
+    width: 100%;
+    //1760
+    height: 1060px;
+    position: absolute;
+    top: -48px;
+    clip-path: inset(550px round 140px);
+  }
+  .swiper-wrapper {
+    transform: translate3d(0px, 0, 0) !important;
+  }
+  .swiper-slide {
+    width: 100%;
+    height: 100%;
+    display: block !important;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    opacity: 0;
+    transition: 0.5s;
+    &:after {
+      width: 100%;
+      height: 100%;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #000;
+      opacity: 0.3;
+      z-index: -1;
+    }
+    .slide_text {
+      width: fit-content;
+      margin: 400px auto 246px;
+      text-align: center;
+      background: transparent;
+      strong {
+        color: #fff;
+        font-weight: $bold;
+        font-size: 60px;
+        letter-spacing: -0.04em;
+      }
+      p {
+        margin: 4px 0 0;
+        font-size: 20px;
+        color: #fff;
+        font-family: "Noto Sans KR";
+        font-weight: $light;
+        opacity: 0.8;
+      }
+      button {
+        width: 164px;
+        height: 68px;
+        line-height: 68px;
+        margin: 40px 0 0;
+        border-radius: 8px;
+        background: #fff;
+        transition: 0.3s;
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+          font-size: 17px;
+          font-family: "Noto Sans KR";
+          font-weight: $bold;
+          transition: 0.3s;
+        }
+        &:hover {
+          background: #ff7a00;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .prev_text {
+      position: absolute;
+      top: calc(57% + 8px);
+      transform: translateY(-50%);
+      left: 227px;
+      color: #fff;
+      font-size: 17px;
+      font-family: "Noto Sans KR";
+      font-weight: $bold;
+    }
+    .next_text {
+      position: absolute;
+      top: calc(57% + 8px);
+      transform: translateY(-50%);
+      right: 227px;
+      color: #fff;
+      font-size: 17px;
+      font-family: "Noto Sans KR";
+      font-weight: $bold;
+    }
+  }
+  :global(.swiper-slide-active) {
+    opacity: 1 !important;
+  }
+  span {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 300px;
+    height: 20px;
+    background-color: black;
+  }
+  :global(.swiper-slide-active) {
+    opacity: 1 !important;
+  }
+  :global(.swiper-pagination) {
+    width: 64% !important;
+    height: 2px;
+    bottom: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    // background-color: red;
+  }
+  :global(.swiper-pagination .swiper-pagination-bullet) {
+    // width: calc(443px / 2);
+    width: 17.6%;
+    height: auto;
+    position: absolute;
+    margin: 0 !important;
+    text-align: left;
+    border-radius: 0;
+    opacity: 1;
+    background-color: transparent;
+    &:nth-of-type(1) {
+      left: -20px;
+    }
+    &:nth-of-type(2) {
+      left: 190px;
+    }
+    &:nth-of-type(3) {
+      right: 210px;
+    }
+    &:nth-of-type(4) {
+      width: 200px;
+      right: 11px;
+    }
+    :global(i) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 10px;
+    }
+    :global(b) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      z-index: 2;
+      width: 32px;
+      height: 28px;
+      // background-color: rgba(17, 17, 17, 1);
+      background-image: url(/img/main/icon_airplane.png);
+      opacity: 0;
+      // }
+      //progress bar 채워지는 부분
+      // &:after {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   display: block;
+      //   width: 32px;
+      //   height: 28px;
+      //   background: url(/img/main/icon_airplane.png) no-repeat center / contain;
+      // }
+    }
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background-color: transparent;
+    :global(b) {
+      animation-name: countingBar;
+      animation-duration: 4s; //autopaly 시간과 맞춰주기
+      animation-timing-function: ease-in;
+      // animation-iteration-count: 1;
+      animation-direction: alternate;
+      animation-fill-mode: forwards;
+    }
+  }
+  .swiper-pagination-square {
+    position: absolute;
+    bottom: 170px;
+    text-align: center;
+    z-index: 10;
+    :global(.swiper-pagination-bullet) {
+      width: 40px;
+      height: 3px;
+      margin: 0 4px 0 0;
+      background-color: #fff;
+      opacity: 0.7;
+      border-radius: 0;
+    }
+    :global(.swiper-pagination-bullet-active) {
+      background-color: #ff7a00 !important;
+      opacity: 1 !important;
+    }
+  }
+  .pag_wrap {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    height: 80px;
+    z-index: 1;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 21px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .swiper-button-prev {
+    left: 220px;
+    background-image: url("/img/main/btn_prev.png");
+    transition: 0.3s;
+    &:hover {
+      background-color: #ff7a00;
+    }
+  }
+  .swiper-button-next {
+    right: 220px;
+    background-image: url("/img/main/btn_next.png");
+    transition: 0.3s;
+    &:hover {
+      background-color: #ff7a00;
+    }
+  }
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    display: none;
+  }
+  .dash_line {
+    //width: 100%;
+    height: 2px;
+    // background: red;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 324px;
+    transform: translateY(-50%);
+    bottom: 100px;
+    // z-index: 10;
+    svg {
+      position: absolute;
+      top: 0;
+    }
+  }
+  .dash_line.right {
+    left: auto;
+    right: 0;
+    svg {
+      position: absolute;
+      top: 0;
+      right: 324px;
+    }
+  }
+  .section_title {
+    margin: 80px 0 50px;
+    text-align: center;
+    h1 {
+      font-family: "SCDream";
+      font-size: 38px;
+      font-weight: $extraBold;
+    }
+    h2 {
+      margin: 8px 0 0;
+      font-family: "SCDream";
+      font-weight: $medium;
+      color: #ff7a00;
+      font-size: 19px;
+    }
+  }
+  @keyframes countingBar {
+    0% {
+      left: 0;
+      opacity: 1;
+    }
+    100% {
+      left: 99%;
+      opacity: 1;
+    }
+  }
+  .card_wrap {
+    max-width: 1262px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    // grid-gap: 6px;
+    .card {
+      width: 406px;
+      height: 497px;
+      margin: 0 0 16px 0;
+      position: relative;
+      background: url("/img/main/card_bg.png") no-repeat center / contain;
+      box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+      border-radius: vw(20);
+      overflow: hidden;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -15px;
+        bottom: 147px;
+        width: 30px;
+        height: 26px;
+        background: #f4f4f4;
+        border-radius: 50%;
+        // box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+      }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        right: -15px;
+        bottom: 147px;
+        width: 30px;
+        height: 26px;
+        background: #f4f4f4;
+        border-radius: 50%;
+        // box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+      }
+      .card_img {
+        width: 370px;
+        height: 294px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      .card_text {
+        position: absolute;
+        bottom: 38px;
+        left: 40px;
+        strong {
+          color: #212529;
+          font-size: 27px;
+          font-weight: $bold;
+        }
+        p {
+          margin: 4px 0 0;
+          color: #717579;
+          font-family: "Noto Sans KR";
+          font-size: 17px;
+          font-weight: $regular;
+        }
+      }
+      button {
+        width: 54px;
+        height: 54px;
+        position: absolute;
+        right: 30px;
+        bottom: 54px;
+        border-radius: 54px;
+        background: #000 url("/img/main/card_btn.png") no-repeat center / auto;
+        text-indent: -999em;
+        transition: 0.3s;
+        a {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+        &:hover {
+          background-color: #ff7a00;
+        }
+      }
+    }
+  }
+  section {
+    margin: 0 0 100px 0;
+    position: relative;
+  }
+  @media (max-width: 1850px) {
+    .swiper-pagination {
+      width: 55% !important;
+    }
+    .pag_wrap {
+      width: 110%;
+      :global(.swiper-pagination .swiper-pagination-bullet) {
+        width: 12%;
+      }
+      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(1)) {
+        left: 7px;
+        // left: 18px;
+      }
+      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(2)) {
+        left: 155px;
+      }
+      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(3)) {
+        width: 11% !important;
+        right: 160px;
+      }
+      :global(.swiper-pagination .swiper-pagination-bullet:nth-of-type(4)) {
+        right: 17px;
+      }
+    }
+    .dash_line {
+      width: 14%;
+      left: 420px;
+      li {
+        width: 100%;
+        svg {
+          width: 100%;
+        }
+      }
+      &.right {
+        right: 420px;
+        svg {
+          right: 0;
+        }
+      }
+    }
+  }
+  @media (max-width: 1640px) {
+    .swiper-pagination {
+      width: 50% !important;
+    }
+  }
+  @media (max-width: 1450px) {
+    .pag_wrap {
+      display: none;
+    }
+    .dash_line {
+      display: none;
+    }
+  }
+  @include desktop {
+    .main_slide {
+      height: 1010px;
+    }
+    .swiper {
+      top: 48px;
+      clip-path: inset(200px round 140px);
+    }
+    .swiper-button-prev {
+      left: 140px;
+    }
+    .swiper-button-next {
+      right: 140px;
+    }
+    .swiper-slide {
+      .prev_text {
+        left: 147px;
+      }
+      .next_text {
+        right: 147px;
+      }
+    }
+    .swiper-pagination-square {
+      .swiper-pagination-bullet {
+        width: vw(80);
+        height: vw(6);
+      }
+    }
+    .card_wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: vw(688);
+      grid-gap: 12px;
+      justify-items: center;
+    }
+  }
+  @include tablet {
+    .card_wrap {
+      .card {
+        width: 335px;
+        height: 422px;
+        .card_img {
+          width: 295px;
+          height: 229px;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  @include mobile {
+    .main_slide {
+      height: vw(1200);
+    }
+    .swiper {
+      height: vw(1260);
+      //top: vw(120);
+      top: 50px;
+      clip-path: inset(90px round 140px);
+      .slide_text {
+        margin: vw(380) auto vw(682);
+      }
+      .swiper-pagination {
+        display: none;
+      }
+      .slide_text {
+        strong {
+          font-size: vw(88);
+        }
+        p {
+          margin: vw(10) 0 vw(60);
+          font-size: vw(32);
+        }
+        button {
+          width: vw(270);
+          height: vw(106);
+          margin: 0;
+          padding: 0;
+          a {
+            line-height: vw(106);
+            font-size: vw(28);
+            font-weight: $bold;
+          }
+        }
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        width: vw(100);
+        height: vw(100);
+        top: auto;
+        transform: none;
+        bottom: vw(174);
+        background-size: vw(24) vw(21);
+      }
+      .swiper-button-prev {
+        left: vw(90);
+        background: #ff7a00 url(/img/main/btn_prev_mb.png) no-repeat center /
+          vw(32) vw(28);
+      }
+      .swiper-button-next {
+        right: vw(90);
+        background: #ff7a00 url(/img/main/btn_next_mb.png) no-repeat center /
+          vw(32) vw(28);
+      }
+      .next_text,
+      .prev_text {
+        top: auto;
+        transform: none;
+        bottom: vw(130);
+        font-size: vw(26);
+        font-weight: $medium;
+      }
+      .prev_text {
+        left: vw(91);
+      }
+      .next_text {
+        right: vw(91);
+      }
+      .swiper-pagination-square {
+        bottom: vw(60);
+      }
+    }
+    .section_title {
+      width: 65%;
+      margin: vw(100) auto vw(50);
+      word-break: keep-all;
+      h1 {
+        font-size: vw(54);
+      }
+      h2 {
+        margin: vw(16) 0 0;
+        font-size: vw(28);
+      }
+    }
+    .card_wrap {
+      max-width: 100%;
+      .card {
+        width: vw(338);
+        height: vw(466);
+        margin: 0;
+        background: url(/img/main/card_bg_mb.png) no-repeat center/contain;
+        &:before {
+          width: vw(40);
+          height: vw(32);
+          right: vw(-24);
+          bottom: vw(168);
+        }
+        &:after {
+          width: vw(40);
+          height: vw(32);
+          left: vw(-24);
+          bottom: vw(168);
+        }
+        .card_img {
+          width: vw(298);
+          height: vw(240);
+          left: vw(20);
+          top: vw(20);
+          img {
+            width: 100%;
+          }
+        }
+        .card_text {
+          left: vw(36);
+          bottom: vw(34);
+          strong {
+            font-size: vw(32);
+          }
+          p {
+            font-size: vw(24);
+          }
+        }
+        button {
+          display: none;
+        }
+      }
+    }
+  }
+  @include smallMobile {
+    .swiper {
+      top: 60px;
+    }
+  }
+</style>

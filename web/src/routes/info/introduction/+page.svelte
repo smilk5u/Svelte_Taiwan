@@ -5,7 +5,7 @@
   import { fetchBoardData } from "$lib/api/board";
   import { selectedMenuSubSeq } from "$lib/stores/menu";
   import { env } from "$env/dynamic/public";
-
+  const BACKEND_HOST = env.PUBLIC_BACKEND_HOST;
   const IMG_HOST = env.PUBLIC_IMG_HOST;
 
   let data = [];
@@ -37,6 +37,18 @@
 
     if (val) {
       window.scrollTo({ top: 3800, behavior: "smooth" });
+    }
+  }
+
+  // filepath에 '/uploads/' 문자열이 포함되어 있는지 확인하는 함수
+  /**
+     * @param {string | string[]} filepath
+     */
+     function getReturnValue(filepath) {
+    if (filepath.includes('/uploads/')) {
+      return `${BACKEND_HOST}${filepath}`;
+    } else {
+      return `${IMG_HOST}${filepath}`;
     }
   }
 </script>
@@ -259,7 +271,7 @@
     <div class="gallery_wrap">
       {#each list as row, i}
         <div class="img_wrap">
-          <img src={IMG_HOST + row.filepath} alt={row.subject} />
+            <img src={getReturnValue(row.filepath)} alt={row.subject} />
         </div>
       {/each}
     </div>
@@ -482,9 +494,13 @@
     padding: 0 40px;
     h3 {
       font-size: 27px;
+      margin: 100px 0;
     }
   }
   .gallery_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap:2.85714%;
     .img_wrap {
       width: 22.85714%;
       height: 0;

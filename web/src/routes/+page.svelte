@@ -1,29 +1,68 @@
 <script>
+  // @ts-nocheck
+
   import Swiper from "swiper/bundle";
   import "swiper/css/bundle";
   import "swiper/css/effect-fade";
   import { onMount } from "svelte";
+  import {
+    selectedMainMenuSort,
+    selectedSubMenuSort,
+    selectedMenuSeq,
+    selectedMenuSubSeq,
+    selectedCetegorySeq,
+  } from "$lib/stores/menu";
   // import { gsap } from "gsap";
   onMount(() => {
+    const arr = [3, 5, 4, 2, 7];
+    const item = 4;
+
+    // const index = arr.findIndex((x) => x === 4);
+    // document.querySelectorAll(".swiper-slide").findIndex((x) => {
+    //   console.log(x)
+    // });
+
+    // document.querySelectorAll(".swiper-slide").indexOf(item);
+    // console.log(document.querySelectorAll(".swiper-slide").indexOf(document.querySelector('.swiper-slide-active')))
+
     //main slide
     var listArray = ["slide1", "slide2", "slide3", "slide4"];
     var mainSwiper = new Swiper(".swiper", {
       loop: true,
       effect: "fade",
+      on: {
+        autoplayTimeLeft(element, time, progress) {
+          // console.log(document.querySelectorAll(".swiper-slide"));
+          // document
+          //   .querySelectorAll(".swiper-slide")
+          //   .indexOf(document.querySelector(".swiper-slide-active"));
+          // console.log((1 - progress) * 100);
+          // gsap.to(".minjoo", 0.5, { width: (1 - progress) * 100 + "%" });
+          // document.querySelectorAll(".swiper-slide").indexOf(item);
+          // console.log(document.querySelector('.swiper-pagination-progressbar-fill'))
+          // console.log(element, time, progress)
+          // console.log(document.querySelectorAll('.swiper-slide').indexOf())
+          // progressCircle.style.setProperty("--progress", 1 - progress);
+          // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+          // console.log(Math.ceil(time / 1000))
+        },
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: "true",
-        type: "bullets",
-        renderBullet: function (index, className) {
-          return (
-            '<span class="' +
-            className +
-            '">' +
-            "<i></i>" +
-            "<b></b>" +
-            "</span>"
-          );
-        },
+        type: "progressbar",
+        // type: "bullets",
+        // renderBullet: function (index, className) {
+        //   console.log(index, className)
+        //   return (
+        //     '<span class="' +
+        //     className +
+        //     '">' +
+        //     "<i></i>" +
+        //     "<b></b>" +
+        //     "</span>"
+        //   );
+        // },
       },
       navigation: {
         nextEl: ".swiper-button-next",
@@ -31,7 +70,7 @@
       },
       autoplay: {
         delay: 5000,
-        disableOnInteraction: true,
+        disableOnInteraction: false,
       },
       speed: 800,
     });
@@ -60,7 +99,7 @@
     //  }
     //});
     gsap.registerPlugin(ScrollTrigger);
-    var tl = gsap 
+    var tl = gsap
       .timeline({
         scrollTrigger: {
           scrub: 1,
@@ -75,11 +114,50 @@
         webkitClipPath: "inset(0px round 0px)",
       });
   }); //onMount
+
+  /**
+   * @param {number} mainSort
+   * @param {number} subSort
+   * @param {number} mainSeq
+   * @param {number} subSeq
+   * @param {number} category
+   */
+  function handleMenuClick(mainSort, subSort, mainSeq, subSeq, category) {
+    selectedMainMenuSort.set(mainSort);
+    selectedSubMenuSort.set(subSort);
+    selectedMenuSeq.set(mainSeq);
+    selectedMenuSubSeq.set(subSeq);
+
+    selectedCetegorySeq.set(category);
+
+    let history = localStorage.getItem("history");
+    if (!history) {
+      history = [];
+    } else {
+      history = JSON.parse(history);
+    }
+    history.push([mainSort, subSort, mainSeq, subSeq]);
+    localStorage.setItem("history", JSON.stringify(history));
+
+    if (subSeq == 0) {
+      setTimeout(() => {
+        const anchorElement = document.querySelector(".sub_menu li.on a");
+        if (anchorElement) {
+          anchorElement.dispatchEvent(
+            new Event("click", { bubbles: true, cancelable: true })
+          );
+        }
+      }, 100);
+    }
+  }
 </script>
 
 <div class="main_slide">
   <div class="swiper swiper-container">
     <div class="swiper-wrapper">
+      <div class="minju">
+        <div class="minjoo" />
+      </div>
       <div
         class="swiper-slide"
         style="background-image: url(/img/main/main_banner01.png);"
@@ -90,7 +168,10 @@
             대만의 출입국 정보부터<br /> 역사,날씨,가이드북까지 체크해 보세요
           </p>
           <button
-            ><a href="/info/immigration_precautions">자세히 보기</a></button
+            ><a
+              href="/info/immigration_precautions"
+              on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>자세히 보기</a
+            ></button
           >
         </div>
         <p class="prev_text">대만 골프</p>
@@ -105,7 +186,12 @@
           <p>
             대만으로 관광을 떠나기 전 꼭 필요한<br /> 다양한 정보를 확인해 보세요
           </p>
-          <button><a href="/info/tour">자세히 보기</a></button>
+          <button
+            ><a
+              href="/info/tour"
+              on:click={() => handleMenuClick(0, 4, 1, 6, 0)}>자세히 보기</a
+            ></button
+          >
         </div>
         <p class="prev_text">입국 정보</p>
         <p class="next_text">테마 여행</p>
@@ -119,7 +205,12 @@
           <p>
             다양한 성향과 장소를 기반으로<br /> 테마별 최적의 여행지를 추천해 드립니다
           </p>
-          <button><a href="/themeTour/list">자세히 보기</a></button>
+          <button
+            ><a
+              href="/themeTour/list"
+              on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>자세히 보기</a
+            ></button
+          >
         </div>
         <p class="prev_text">관광 자료</p>
         <p class="next_text">대만 골프</p>
@@ -133,7 +224,11 @@
           <p>
             아름다운 자연경관 속에서<br />온전한 힐링의 시간을 경험해 보세요
           </p>
-          <button><a href="/golf">자세히 보기</a></button>
+          <button
+            ><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}
+              >자세히 보기</a
+            ></button
+          >
         </div>
         <div class="btn_text">
           <p class="prev_text">테마 여행</p>
@@ -206,7 +301,12 @@
         <strong>대만 정보</strong>
         <p>출입국 정보부터<br />역사,날씨,가이드북까지</p>
       </div>
-      <button><a href="/info/immigration_precautions">바로가기</a></button>
+      <button
+        ><a
+          href="/info/immigration_precautions"
+          on:click={() => handleMenuClick(0, 0, 1, 11, 0)}>바로가기</a
+        ></button
+      >
     </div>
     <div class="card">
       <div class="card_img">
@@ -216,7 +316,12 @@
         <strong>테마 여행</strong>
         <p>다양한 성향과 장소 기반<br />최적의 여행 큐레이션</p>
       </div>
-      <button><a href="/themeTour/list">바로가기</a></button>
+      <button
+        ><a
+          href="/themeTour/list"
+          on:click={() => handleMenuClick(1, 0, 2, 20, 0)}>바로가기</a
+        ></button
+      >
     </div>
     <div class="card">
       <div class="card_img">
@@ -226,7 +331,12 @@
         <strong>대만 명소</strong>
         <p>지금 대만에서 가장 핫한<br />지역별 다양한 명소</p>
       </div>
-      <button><a href="/attractions/all">바로가기</a></button>
+      <button
+        ><a
+          href="/attractions/all"
+          on:click={() => handleMenuClick(2, 0, 5, 0, 0)}>바로가기</a
+        ></button
+      >
     </div>
     <div class="card">
       <div class="card_img">
@@ -236,7 +346,11 @@
         <strong>테마 골프</strong>
         <p>아름다운 자연경관 속<br />온전한 힐링의 시간</p>
       </div>
-      <button><a href="/golf">바로가기</a></button>
+      <button
+        ><a href="/golf" on:click={() => handleMenuClick(3, 0, 3, 49, 0)}
+          >바로가기</a
+        ></button
+      >
     </div>
     <div class="card">
       <div class="card_img">
@@ -246,7 +360,11 @@
         <strong>프로대만족</strong>
         <p>프로대만족 기자단이 전하는<br />생생한 대만 정보</p>
       </div>
-      <button><a href="/info/list">바로가기</a></button>
+      <button
+        ><a href="/info/list" on:click={() => handleMenuClick(0, 9, 1, 47, 0)}
+          >바로가기</a
+        ></button
+      >
     </div>
     <div class="card">
       <div class="card_img">
@@ -256,7 +374,11 @@
         <strong>이벤트</strong>
         <p>대만을 120% 즐길 수 있는 <br />다양한 이벤트</p>
       </div>
-      <button><a href="/event/list">바로가기</a></button>
+      <button
+        ><a href="/event/list" on:click={() => handleMenuClick(4, 2, 7, 38, 21)}
+          >바로가기</a
+        ></button
+      >
     </div>
   </div>
 </section>
@@ -264,6 +386,25 @@
 <style lang="scss">
   @import "/src/styles/variables.scss";
   @import "/node_modules/swiper/swiper-bundle.css";
+  .minju {
+    position: absolute;
+    width: 1200px;
+    height: 300px;
+    background-color: black;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    .minjoo {
+      width: 0%;
+      display: block;
+      height: 30px;
+      background-color: blue;
+    }
+  }
 
   :global(.swiper-fade.swiper-free-mode ::slotted(swiper-slide)) {
     transition-timing-function: ease-out;
@@ -317,7 +458,7 @@
     pointer-events: auto;
   }
   .main_slide {
-    height: 1060px;
+    height: 924px;
     margin: 92px 0 0;
   }
   .swiper {
@@ -327,17 +468,11 @@
     height: 1060px;
     position: absolute;
     top: -48px;
-    clip-path: inset(600px round 140px);
+    clip-path: inset(550px round 140px);
   }
   .swiper-wrapper {
     transform: translate3d(0px, 0, 0) !important;
   }
-  // :global(.swiper.wider) {
-  //   clip-path: inset(0% 80px 0 80px round 50px) !important;
-  // }
-  // :global(.swiper.fully) {
-  //   clip-path: inset(0% 0% 0% 0% round 0) !important;
-  // }
   .swiper-slide {
     width: 100%;
     height: 100%;
@@ -636,13 +771,13 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     // grid-gap: 6px;
     .card {
-      width: 410px;
+      width: 406px;
       height: 497px;
-      // margin: 0 0 16px 0;
+      margin: 0 0 16px 0;
       position: relative;
       background: url("/img/main/card_bg.png") no-repeat center / contain;
       box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
+      border-radius: vw(20);
       overflow: hidden;
       &::after {
         content: "";
@@ -772,8 +907,11 @@
     }
   }
   @include desktop {
+    .main_slide {
+      height: 1010px;
+    }
     .swiper {
-      top: 29px;
+      top: 48px;
       clip-path: inset(200px round 140px);
     }
     .swiper-button-prev {
@@ -821,9 +959,13 @@
     }
   }
   @include mobile {
+    .main_slide {
+      height: vw(1200);
+    }
     .swiper {
       height: vw(1260);
-      top: vw(120);
+      //top: vw(120);
+      top: 50px;
       clip-path: inset(90px round 140px);
       .slide_text {
         margin: vw(380) auto vw(682);
@@ -945,5 +1087,8 @@
     }
   }
   @include smallMobile {
+    .swiper {
+      top: 60px;
+    }
   }
 </style>

@@ -3,10 +3,9 @@
   import { onMount } from "svelte";
   import { fetchBoardData } from "$lib/api/board";
   import { selectedCetegorySeq } from "$lib/stores/menu";
-  import { env } from "$env/dynamic/public";
   import FooterNav from "../../Footer_Nav.svelte";
+  import {getReturnValue} from "$lib/common";
 
-  const IMG_HOST = env.PUBLIC_IMG_HOST;
 
   let data = [];
   let list = [];
@@ -58,7 +57,7 @@
                       title="{row.subject} 바로가기"
                     >
                       <div class="imgframe">
-                        <img src={IMG_HOST + row.filepath} alt={row.subject} />
+                        <img src={getReturnValue(row.filepath)} alt={row.subject} />
                       </div>
                       <div class="list-content">
                         <p class="list-subject">{row.subject}</p>

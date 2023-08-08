@@ -1,0 +1,204 @@
+<script>
+    // @ts-nocheck
+    import { onMount } from "svelte";
+    import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+    import { faChevronUp, faChevronDown, faXmark, } from "@fortawesome/free-solid-svg-icons";
+    import { fetchData } from "$lib/api/fetch";
+    import {moveRowUp, moveRowDown, moveRowX} from "$lib/common";
+
+    /** @type {import('../../subMenu/$types').PageData} */
+    let mainMenu = [];
+    let initialData = [];
+
+    onMount(async () => {
+        const mainMenuList = await fetchData("/api/mainMenuList?val=sub&combo=1", '');
+        const subMenuList = await fetchData("/api/subMenuList?mainSeq=1",'');
+        mainMenu=mainMenuList;
+        initialData= subMenuList;
+    });
+
+    async function setInitialData(mainSeq) {
+        const response = await fetchData(`/api/subMenuList?mainSeq=${mainSeq}`);
+        initialData = response;
+    }
+
+    function addRow() {
+        const newRow = {
+            seq: "",
+            name: "",
+            type: "0",
+            url: "",
+            sort: "",
+            viewAll: "",
+            enabled: "true",
+            editor:"N"
+        };
+        initialData = [...initialData, newRow];
+    }
+
+    function submitForm() {
+
+        // mainMenu 선택값을 사용하여 fetch 요청 시 mainSeq를 포함
+        const mainMenuSelect = document.getElementById('mainMenu');
+        var mainSeq = mainMenuSelect.value;
+
+        const form = document.getElementById("frm");
+        if (form instanceof HTMLFormElement) {
+            const formDataArray = [];
+
+            // 각 <tr> 요소에 대해 폼 데이터 생성
+            const rows = form.querySelectorAll("tbody tr");
+            rows.forEach((row) => {
+                const inputs = row.querySelectorAll("input, select");
+                const formData = {};
+                inputs.forEach((input) => {
+                    const name = input.getAttribute("name");
+                    const value = input.value;
+                    formData[name] = value;
+                    formData['mainSeq'] = mainSeq;
+                });
+                formDataArray.push(formData);
+            });
+
+            fetchData(`/api/saveSubMenu?mainSeq=${mainSeq}`, formDataArray)
+                .then((data) => {
+                    console.log("Response:", data);
+                    alert('등록되었습니다.')
+                   //window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Fetch Error:", error);
+                });
+        } else {
+            console.error("Form element not found");
+        }
+    }
+
+    let selectedOption = "";
+    function handleSelect(event) {
+        selectedOption = event.target.value;
+        setInitialData(selectedOption);
+    }
+
+    async function menuDel(i, mainSeq, subSeq){
+        const cnt = await fetchData("/api/getBoardCnt", {mainSeq, subSeq});
+        if(cnt > 0){
+            alert('해당 메뉴의 등록된 게시글이 있습니다. \n게시글 삭제 후 이용 가능합니다.');
+            return;
+        }
+        initialData = moveRowX(i, initialData)
+    }
+</script>
+
+<div class="page_title">
+    <h2>서브메뉴관리</h2>
+</div>
+<div class="part">
+    <div class="search_top_wrap">
+        <ul class="search_row">
+            <li>
+                <!-- <span>서브메뉴</span> -->
+                <select name="mainMenu" id="mainMenu" on:change={handleSelect}>
+                    {#each mainMenu as item, index}
+                        <option value={item.seq}>{item.name}</option>
+                    {/each}
+                </select>
+            </li>
+        </ul>
+        <div class="etc_wrap">
+            <div class="etc_buttons">
+                <button on:click={addRow}>메뉴 추가</button>
+            </div>
+        </div>
+    </div>
+    <div class="table_srcoll">
+        <form id="frm" name="frm">
+            <table>
+                <caption>게시판관리</caption>
+                <thead>
+                    <tr>
+                        <th>no</th>
+                        <th>name</th>
+                        <th>title</th>
+                        <th>type</th>
+                        <th>url</th>
+                        <th>enabled</th>
+                        <th>editor</th>
+                        <th>전체보기</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each initialData as row, i}
+                        <tr id="row-{i}">
+                            <td >{i + 1}
+                                <input type="hidden" name="seq" bind:value={row.seq} readonly="readonly"/>
+                                <input type="hidden" name="sort" bind:value={i}/>
+                            </td >
+                            <td ><input type="text" name="title" bind:value={row.title}/></td >
+                            <td ><input type="text" name="description" bind:value={row.description}/></td >
+                            <td>
+                                <select name="type">
+                                    <option value="0" selected={row.type === 0}>게시판</option>
+                                    <option value="1" selected={row.type === 1}>페이지</option>
+                                    <option value="2" selected={row.type === 2}>링크</option>
+                                </select>
+                            </td>
+                            <td ><input type="text" name="url" bind:value={row.url}/>
+                            </td >
+                            <td>
+                                <select name="enabled">
+                                    <option value="true" selected={row.enabled === 'true'}>true</option>
+                                    <option value="false" selected={row.enabled === 'false'}>false</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="editor">
+                                    <option value="Y" selected={row.editor === 'Y'}>Y</option>
+                                    <option value="N" selected={row.editor === 'N'}>N</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="viewAll">
+                                    <option value="true" selected={row.viewAll === 'false'}>true</option>
+                                    <option value="false" selected={row.viewAll === 'false'}>false</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="aa">
+                                    <!-- svelte-ignore a11y-click-events-have-key-events FontAwesomeIcon-->
+                                    <div on:click={() => initialData = moveRowUp(i, initialData)} class="icon">
+                                        <FontAwesomeIcon icon={faChevronUp}/>
+                                    </div>
+                                    <!-- svelte-ignore a11y-click-events-have-key-events FontAwesomeIcon-->
+                                    <div on:click={() => initialData = moveRowDown(i, initialData)} class="icon">
+                                        <FontAwesomeIcon icon={faChevronDown}/>
+                                    </div>
+                                    <!-- svelte-ignore a11y-click-events-have-key-events FontAwesomeIcon-->
+                                    <div on:click={() => menuDel(i, row.mainSeq, row.seq)} class="icon">
+                                        <FontAwesomeIcon icon={faXmark}/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {/each}
+                </tbody>
+            </table>
+            <button on:click={submitForm}>저장</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .aa {
+        display: flex;
+    }
+    tr:hover {
+        background-color: #f4f4f4;
+    }
+    .icon {
+        cursor: pointer;
+        margin: 5px;
+        flex: 1;
+    }
+</style>

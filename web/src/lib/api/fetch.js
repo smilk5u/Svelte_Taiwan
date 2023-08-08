@@ -73,7 +73,7 @@ export function fetchData(endpoint, data, callCount = 1) {
  */
 export function fetchDataFile(endpoint, data, callCount = 1) {
     return new Promise(async (resolve, reject) => {
-        console.log(  get(user).accessToken)
+       // console.log(  get(user).accessToken)
         const options = {
             method: 'POST',
             headers: {

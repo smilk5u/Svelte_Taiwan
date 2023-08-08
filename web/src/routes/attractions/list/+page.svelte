@@ -3,10 +3,8 @@
   import { onMount } from "svelte";
   import { fetchBoardData } from "$lib/api/board";
   import { selectedMenuSubSeq } from "$lib/stores/menu";
-  import { env } from "$env/dynamic/public";
   import FooterNav from "../../Footer_Nav.svelte";
-
-  const IMG_HOST = env.PUBLIC_IMG_HOST;
+  import {getReturnValue} from "$lib/common";
 
   let data = [];
   let list = [];
@@ -49,7 +47,7 @@
             title="{row.subject} 바로가기"
           >
             <div class="img_wrap">
-              <img src={IMG_HOST + row.filepath} alt={row.subject} />
+              <img src={getReturnValue(row.filepath)} alt={row.subject} />
             </div>
             <button type="button" class="link">
               <span>MORE VIEW +</span>
@@ -99,13 +97,11 @@
 
 <style lang="scss">
   @import "/src/styles/variables.scss";
-  .at-body {
-    .at-container {
-      margin: 0 auto;
-    }
+  .at-container {
+    margin: 0 auto;
   }
   .box-wrap {
-   margin: 50px 0 0;
+   margin: 80px 0 0;
     &:after {
       content: "";
       display: block;
@@ -138,7 +134,7 @@
         position: absolute;
         display: block;
         right: 0;
-        bottom: 0;
+        bottom: -17px;
         background-color: #ff7200;
         span {
           padding: 10px 25px;

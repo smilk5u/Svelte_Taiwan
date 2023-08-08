@@ -1,0 +1,98 @@
+<script>
+  // @ts-nocheck
+
+  import { onMount } from "svelte";
+  import { fetchBoardData } from "$lib/api/board";
+  import { selectedCetegorySeq } from "$lib/stores/menu";
+  import FooterNav from "../../Footer_Nav.svelte";
+
+  let data = [];
+  let list = [];
+  let category = 99; // categorySeq 값
+
+  let navigatepageNums = [];
+  let pageSize = 10;
+  let pageNum = 0;
+
+  selectedCetegorySeq.subscribe((value) => {
+    category = value;
+  });
+
+  $: if (category) {
+    page_(1);
+  }
+
+  onMount(async () => {
+    page_(1);
+  });
+
+  async function page_(idx) {
+    pageNum = idx;
+    let pageval = { pageSize, pageNum };
+    data = await fetchBoardData(pageval);
+    list = data.list;
+    navigatepageNums = data.navigatepageNums;
+  }
+  function formatDate(dateStr) {
+    const dateObj = new Date(dateStr);
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+    const day = String(dateObj.getDate()).padStart(2, "0");
+    return `${year}.${month}.${day}`;
+  }
+</script>
+
+<!-- 메인 컨텐츠 -->
+<div class="at-body">
+  <div class="at-container">
+    <div class="list-board">
+      <ul id="list-body" class="list-body">
+        <li class="data_desc">
+          <div>제목</div>
+          <div>날짜</div>
+        </li>
+        {#each list as row, i}
+          <li class="list-item">
+            <div class="wr-subject">
+              <a href="/introduction/view/{row.seq}" class="item-subject">
+                {row.subject}
+              </a>
+            </div>
+            <div class="wr-date hidden-xs">{formatDate(row.regDate)}</div>
+          </li>
+        {/each}
+      </ul>
+    </div>
+    {#if list.length > 0}
+      <nav class="noselect">
+        <ul class="pagination justify-content-center">
+          <li class="page-item {data.hasPreviousPage ? '' : 'disabled'}">
+            <a
+              class="page-link"
+              on:click={() => page_(data.prePage)}
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">이전</span>
+            </a>
+          </li>
+          {#each navigatepageNums as pn}
+            <li class="page-item {pn == data.pageNum ? 'active' : ''}">
+              <a class="page-link" on:click={() => page_(pn)}>{pn}</a>
+            </li>
+          {/each}
+          <li class="page-item {data.hasNextPage ? '' : 'disabled'}">
+            <a
+              class="page-link"
+              on:click={() => page_(data.nextPage)}
+              aria-label="Next"
+            >
+              <span aria-hidden="true">다음</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {/if}
+  </div>
+  <FooterNav />
+</div>
+<!-- //메인 컨텐츠 -->
